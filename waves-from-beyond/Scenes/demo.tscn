@@ -1,15 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=7 format=3 uid="uid://cq3tykgg15qkd"]
 
-[ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
+[ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/computer.tscn" id="2_ie00b"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsw6b"]
+[sub_resource type="Environment" id="Environment_nsw6b"]
+ambient_light_energy = 1.48
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsw6b"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ie00b"]
+size = Vector2(13.39, 13.005)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ie00b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
 
 [node name="Demo" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4621277, 0, 2.5942993)
-size = Vector3(5.9242554, 1, 6.1885986)
-material = SubResource("StandardMaterial3D_nsw6b")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nsw6b")
 
-[node name="Player" parent="." instance=ExtResource("1_nsw6b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 3.5105243)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.9961286, 0, 0, 0, 2.8322334, 0, 0, 0, 1.9997027, -2.1645312, -2.3841858e-07, -0.00027298927)
+mesh = SubResource("BoxMesh_nsw6b")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007447362, -2.3841858e-07, -0.00027298927)
+mesh = SubResource("PlaneMesh_ie00b")
+
+[node name="Computer" parent="." instance=ExtResource("2_ie00b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9687285, 1.7521362, 1.0396714)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4487586, 2.2869558, 4.348036)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -3.3239486, 1.5837488, 0.22734594)
+mesh = SubResource("CylinderMesh_ie00b")
+skeleton = NodePath("../MeshInstance3D3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9932355, 0, 0.041129597, 0, 0.24770208, 0, -0.11611609, 0, 0.35181487, -2.2949955, 1.5837488, 0.037322283)
+mesh = SubResource("CylinderMesh_ie00b")
+skeleton = NodePath("../MeshInstance3D3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9352402, 0, -0.12539543, 0, 0.99999994, 0, 0.35401353, 0, 0.33127224, -1.312577, 2.0877962, 0.27717948)
+mesh = SubResource("BoxMesh_glc8m")
