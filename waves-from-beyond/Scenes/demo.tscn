@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cq3tykgg15qkd"]
 
-[ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/computer.tscn" id="2_ie00b"]
+[ext_resource type="Script" uid="uid://cu57r7amwj8a7" path="res://Scripts/player.gd" id="1_nsw6b"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -28,9 +28,6 @@ skeleton = NodePath("../MeshInstance3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007447362, -2.3841858e-07, -0.00027298927)
 mesh = SubResource("PlaneMesh_ie00b")
 
-[node name="Computer" parent="." instance=ExtResource("2_ie00b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9687285, 1.7521362, 1.0396714)
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4487586, 2.2869558, 4.348036)
 
@@ -47,3 +44,7 @@ skeleton = NodePath("../MeshInstance3D3")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9352402, 0, -0.12539543, 0, 0.99999994, 0, 0.35401353, 0, 0.33127224, -1.312577, 2.0877962, 0.27717948)
 mesh = SubResource("BoxMesh_glc8m")
+
+[node name="Player" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1981604, 2.2574875, 2.1663256)
+script = ExtResource("1_nsw6b")

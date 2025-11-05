@@ -1,4 +1,4 @@
-extends Camera3D
+extends Node3D
 
 @export var sensibilidad_mouse: float = 0.001
 @export var limite_vertical: float = 1.5  # ~85 grados

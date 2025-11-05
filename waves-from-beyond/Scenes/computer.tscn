@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuc8r1mt88ftx"]
+[gd_scene load_steps=3 format=3 uid="uid://cuc8r1mt88ftx"]
 
-[ext_resource type="Script" uid="uid://dpblfwd75n0n" path="res://Scripts/computer.gd" id="1_4xga7"]
+[sub_resource type="BoxMesh" id="BoxMesh_4xga7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2xe6"]
 
 [node name="Computer" type="Node3D"]
-script = ExtResource("1_4xga7")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8599656)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_4xga7")
+
+[node name="SubViewport" type="SubViewport" parent="StaticBody3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_j2xe6")
