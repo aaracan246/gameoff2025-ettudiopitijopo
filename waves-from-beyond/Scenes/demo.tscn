@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cq3tykgg15qkd"]
 
-[ext_resource type="Script" uid="uid://cu57r7amwj8a7" path="res://Scripts/player.gd" id="1_nsw6b"]
+[ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -20,31 +20,29 @@ size = Vector2(13.39, 13.005)
 environment = SubResource("Environment_nsw6b")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.9961286, 0, 0, 0, 2.8322334, 0, 0, 0, 1.9997027, -2.1645312, -2.3841858e-07, -0.00027298927)
+transform = Transform3D(2.9961286, 0, 0, 0, 2.8322334, 0, 0, 0, 1.9997027, -0.14308167, -2.0607307, -3.7993364)
 mesh = SubResource("BoxMesh_nsw6b")
 skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007447362, -2.3841858e-07, -0.00027298927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0140023, -2.0607307, -3.7993364)
 mesh = SubResource("PlaneMesh_ie00b")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4487586, 2.2869558, 4.348036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42730904, 0.22622538, 0.5489726)
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -3.3239486, 1.5837488, 0.22734594)
+transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -1.302499, -0.47698164, -3.5717173)
 mesh = SubResource("CylinderMesh_ie00b")
 skeleton = NodePath("../MeshInstance3D3")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9932355, 0, 0.041129597, 0, 0.24770208, 0, -0.11611609, 0, 0.35181487, -2.2949955, 1.5837488, 0.037322283)
+transform = Transform3D(0.9932355, 0, 0.041129597, 0, 0.24770208, 0, -0.11611609, 0, 0.35181487, -0.27354598, -0.47698164, -3.7617407)
 mesh = SubResource("CylinderMesh_ie00b")
 skeleton = NodePath("../MeshInstance3D3")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9352402, 0, -0.12539543, 0, 0.99999994, 0, 0.35401353, 0, 0.33127224, -1.312577, 2.0877962, 0.27717948)
+transform = Transform3D(0.9352402, 0, -0.12539543, 0, 0.99999994, 0, 0.35401353, 0, 0.33127224, 0.70887256, 0.027065754, -3.521884)
 mesh = SubResource("BoxMesh_glc8m")
 
-[node name="Player" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1981604, 2.2574875, 2.1663256)
-script = ExtResource("1_nsw6b")
+[node name="Player" parent="." instance=ExtResource("1_nsw6b")]

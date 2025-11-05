@@ -1,31 +1,57 @@
-extends Node3D
+extends Camera3D
 
-@export var sensibilidad_mouse: float = 0.001
-@export var limite_vertical: float = 1.5  # ~85 grados
+@export var suavizado: float = 10.0
 
-var rotacion_vertical: float = 0.0
+var objetivo_rot: Vector3
+var rot_actual: Vector3
+var positionXYZ = 0
+
+@export var rotations := {
+	"front": Vector3(0.0, deg_to_rad(0.0), 0.0),
+	"right": Vector3(0.0, deg_to_rad(-90.0), 0.0),
+	"back": Vector3(0.0, deg_to_rad(180.0), 0.0),
+	"left": Vector3(0.0, deg_to_rad(90.0), 0.0),
+}
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	rot_actual = rotation
+	objetivo_rot = rotation
 
-func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		# Rotación horizontal (eje Y)
-		rotate_y(-event.relative.x * sensibilidad_mouse)
+func _process(delta: float) -> void:
+	# Interpola suavemente los tres ejes de rotación
+	rot_actual.x = lerp_angle(rot_actual.x, objetivo_rot.x, suavizado * delta)
+	rot_actual.y = lerp_angle(rot_actual.y, objetivo_rot.y, suavizado * delta)
+	rotation = rot_actual
+
+
+func rotation_manager():
+	match positionXYZ:
+		0:
+			objetivo_rot = rotations["front"]
+		1:
+			objetivo_rot = rotations["right"]
+		2:
+			objetivo_rot = rotations["back"]
+		3:
+			objetivo_rot = rotations["left"]
+
+
+func _on_right_mouse_entered() -> void:
+	print("Rotar a la derecha")
+	if positionXYZ < 3:
+		positionXYZ += 1
 		
-		# Rotación vertical (eje X)
-		rotacion_vertical += event.relative.y * sensibilidad_mouse
-		rotacion_vertical = clamp(rotacion_vertical, -limite_vertical, limite_vertical)
-		
-		# Aplicar rotación vertical
-		rotation.x = rotacion_vertical
+	else: 
+		positionXYZ = 0
+	rotation_manager()
 
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		toggle_mouse_capture()
+func _on_left_mouse_entered() -> void:
+	print("Rotar a la izquierda")
+	if positionXYZ > 0:
+		positionXYZ -= 1
+	elif positionXYZ == 0:
+		positionXYZ = 3
+	else: 
+		positionXYZ = 0
 
-func toggle_mouse_capture():
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	rotation_manager()

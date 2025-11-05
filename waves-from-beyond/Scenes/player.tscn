@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct3rcan86re81"]
+
+[ext_resource type="Script" uid="uid://cu57r7amwj8a7" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0iea"]
+size = Vector3(1, 5.557106, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v0iea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
+size = Vector3(1, 6.5647736, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cvnsp"]
+
+[node name="Player" type="Camera3D"]
+script = ExtResource("1_v0iea")
+
+[node name="Right" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.724862, 0, -3.2318857)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007572174, 0.23744583, 0)
+shape = SubResource("BoxShape3D_v0iea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Right"]
+transform = Transform3D(1, 0, 0, 0, 5.978578, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_v0iea")
+
+[node name="Left" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.867388, 0, -3.2760248)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14533234, 0)
+shape = SubResource("BoxShape3D_cvnsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Left"]
+transform = Transform3D(1, 0, 0, 0, 6.8171263, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_cvnsp")
+
+[connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_entered" from="Left" to="." method="_on_left_mouse_entered"]
