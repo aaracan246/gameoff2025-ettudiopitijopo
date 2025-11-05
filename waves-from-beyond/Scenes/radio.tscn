@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2w3amblmdkc1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jxtu"]
+size = Vector3(1, 0.45791626, 0.31030273)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8y21s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jxtu"]
+
+[node name="Radio" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258789e-05, 0.0015869141)
+shape = SubResource("BoxShape3D_6jxtu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.4525948, 0, 0, 0, 0.30705434, 0, 0, 0)
+mesh = SubResource("BoxMesh_8y21s")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6jxtu")

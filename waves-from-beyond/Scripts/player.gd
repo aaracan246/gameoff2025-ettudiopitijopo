@@ -37,7 +37,6 @@ func rotation_manager():
 
 
 func _on_right_mouse_entered() -> void:
-	print("Rotar a la derecha")
 	if positionXYZ < 3:
 		positionXYZ += 1
 		
@@ -46,7 +45,6 @@ func _on_right_mouse_entered() -> void:
 	rotation_manager()
 
 func _on_left_mouse_entered() -> void:
-	print("Rotar a la izquierda")
 	if positionXYZ > 0:
 		positionXYZ -= 1
 	elif positionXYZ == 0:
