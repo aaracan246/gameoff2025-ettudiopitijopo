@@ -15,6 +15,11 @@ size = Vector3(1, 6.5647736, 1)
 [node name="Player" type="Camera3D"]
 fov = 90.0
 script = ExtResource("1_v0iea")
+suavizado = null
+min_zoom = null
+max_zoom = null
+zoom_speed = null
+rotations = null
 
 [node name="Right" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3237147, 0, -3.2318857)

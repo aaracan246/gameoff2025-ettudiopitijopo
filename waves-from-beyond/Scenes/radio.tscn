@@ -1,23 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2w3amblmdkc1"]
+[gd_scene load_steps=6 format=3 uid="uid://b2w3amblmdkc1"]
+
+[ext_resource type="Texture2D" uid="uid://dh6ih858v64we" path="res://Assets/Hondas.png" id="1_8y21s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jxtu"]
 size = Vector3(1, 0.45791626, 0.31030273)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8y21s"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdbpc"]
+atlas = ExtResource("1_8y21s")
+region = Rect2(0, 0, 176, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6jxtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdbpc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[node name="Radio" type="Node3D"]
+[node name="Radio" type="StaticBody3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258789e-05, 0.0015869141)
 shape = SubResource("BoxShape3D_6jxtu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.4525948, 0, 0, 0, 0.30705434, 0, 0, 0)
 mesh = SubResource("BoxMesh_8y21s")
+skeleton = NodePath("")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.40460753, 0, 0, 0, 0.40460753, 0, 0, 0, 0.40460753, -0.0024818182, -0.0025820993, 0.15547585)
 sprite_frames = SubResource("SpriteFrames_6jxtu")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9959254, 0.09018066, 0, -0.09018066, 0.9959254, 0, 0.13064717, 0.7021497)

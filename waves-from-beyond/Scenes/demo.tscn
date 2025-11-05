@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=13 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
+[ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
 [ext_resource type="Texture2D" uid="uid://bgdtbfvupwjk7" path="res://Assets/map.jpg" id="2_ie00b"]
+[ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/radio.tscn" id="3_glc8m"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -24,12 +26,23 @@ size = Vector2(13.39, 13.005)
 albedo_color = Color(0.21470988, 0.035365377, 0, 1)
 
 [node name="Demo" type="Node3D"]
+script = ExtResource("1_tcdmn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
 
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
+suavizado = 10.0
+min_zoom = 10.0
+max_zoom = 20.0
+zoom_speed = 50.0
+rotations = {
+"back": Vector3(0, 3.1415927, 0),
+"front": Vector3(0, 0, 0),
+"left": Vector3(0, 1.5707964, 0),
+"right": Vector3(0, -1.5707964, 0)
+}
 
 [node name="Room" type="Node3D" parent="."]
 
@@ -54,13 +67,8 @@ transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716
 mesh = SubResource("CylinderMesh_ie00b")
 skeleton = NodePath("../MeshInstance3D3")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(0.9175464, 0, -0.14084424, 0, 0.24770208, 0, 0.3976282, 0, 0.32500494, 0.81327045, -0.47698164, -3.32255)
-mesh = SubResource("CylinderMesh_ie00b")
-skeleton = NodePath("../MeshInstance3D3")
-
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.35421076, -0.16012561, 0.027065754, -3.521884)
+transform = Transform3D(1.2379216, 0, 0, 0, 1.0396523, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
 mesh = SubResource("BoxMesh_glc8m")
 skeleton = NodePath("../..")
 
@@ -87,3 +95,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_glc8m")
 [node name="Sprite3D" type="Sprite3D" parent="Room"]
 transform = Transform3D(0.01204053, 0, -0.20901133, 0, 0.20935786, 0, 0.20901133, 0, 0.01204053, 3.5484738, 0, -1)
 texture = ExtResource("2_ie00b")
+
+[node name="Radio" parent="Room" instance=ExtResource("3_glc8m")]
+transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 1.031245, -0.4262473, -3.4397762)
+
+[connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
