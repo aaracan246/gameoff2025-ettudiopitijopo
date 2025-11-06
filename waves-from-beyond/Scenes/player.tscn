@@ -15,11 +15,6 @@ size = Vector3(1, 6.5647736, 1)
 [node name="Player" type="Camera3D"]
 fov = 90.0
 script = ExtResource("1_v0iea")
-suavizado = null
-min_zoom = null
-max_zoom = null
-zoom_speed = null
-rotations = null
 
 [node name="Right" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3237147, 0, -3.2318857)
@@ -43,5 +38,17 @@ shape = SubResource("BoxShape3D_cvnsp")
 transform = Transform3D(1, 0, 0, 0, 6.8171263, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_cvnsp")
 
+[node name="TimerRight" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="TimerLeft" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="Right" to="." method="_on_right_mouse_exited"]
 [connection signal="mouse_entered" from="Left" to="." method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="Left" to="." method="_on_left_mouse_exited"]
+[connection signal="timeout" from="TimerRight" to="." method="_on_timer_right_timeout"]
+[connection signal="timeout" from="TimerLeft" to="." method="_on_timer_left_timeout"]

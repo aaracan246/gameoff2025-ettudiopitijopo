@@ -11,7 +11,8 @@ extends Camera3D
 	"left": Vector3(0.0, deg_to_rad(90.0), 0.0),
 }
 
-
+var left_timer = false
+var right_timer = false
 var objetivo_rot: Vector3
 var rot_actual: Vector3
 var positionXYZ = 0
@@ -45,14 +46,16 @@ func zoom_manager():
 	position.x = lerp(position.x, zoom_level, 0.1)
 
 func _on_right_mouse_entered() -> void:
+	$TimerRight.start()
 	if positionXYZ < 3:
 		positionXYZ += 1
 		
 	else: 
 		positionXYZ = 0
-	rotation_manager()
+	#rotation_manager()
 
 func _on_left_mouse_entered() -> void:
+	$TimerLeft.start()
 	if positionXYZ > 0:
 		positionXYZ -= 1
 	elif positionXYZ == 0:
@@ -60,9 +63,27 @@ func _on_left_mouse_entered() -> void:
 	else: 
 		positionXYZ = 0
 
-	rotation_manager()
+	#rotation_manager()
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_mask == 1:
 		zoom_manager()
+
+
+func _on_left_mouse_exited() -> void:
+	left_timer = false
+
+
+func _on_right_mouse_exited() -> void:
+	right_timer = false
+
+
+func _on_timer_right_timeout() -> void:
+	right_timer = true
+	rotation_manager()
+
+
+func _on_timer_left_timeout() -> void:
+	left_timer = true
+	rotation_manager()
