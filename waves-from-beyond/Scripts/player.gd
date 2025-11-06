@@ -55,6 +55,7 @@ func _on_right_mouse_entered() -> void:
 	#rotation_manager()
 
 func _on_left_mouse_entered() -> void:
+	print(2131231)
 	$TimerLeft.start()
 	if positionXYZ > 0:
 		positionXYZ -= 1

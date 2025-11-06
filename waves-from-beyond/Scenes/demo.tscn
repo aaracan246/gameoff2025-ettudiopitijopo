@@ -33,16 +33,6 @@ environment = SubResource("Environment_nsw6b")
 
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
-suavizado = 10.0
-min_zoom = 10.0
-max_zoom = 20.0
-zoom_speed = 50.0
-rotations = {
-"back": Vector3(0, 3.1415927, 0),
-"front": Vector3(0, 0, 0),
-"left": Vector3(0, 1.5707964, 0),
-"right": Vector3(0, -1.5707964, 0)
-}
 
 [node name="Room" type="Node3D" parent="."]
 

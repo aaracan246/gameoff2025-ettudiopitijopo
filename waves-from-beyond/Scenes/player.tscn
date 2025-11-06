@@ -13,11 +13,10 @@ size = Vector3(1, 6.5647736, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_cvnsp"]
 
 [node name="Player" type="Camera3D"]
-fov = 90.0
 script = ExtResource("1_v0iea")
 
 [node name="Right" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3237147, 0, -3.2318857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3237147, 0, -3.2318857)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007572174, 0.23744583, 0)
@@ -28,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 5.978578, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_v0iea")
 
 [node name="Left" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.867388, 0, -3.2760248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.867388, 0, -3.2760248)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14533234, 0)
