@@ -6,7 +6,6 @@ var actual_camera: Camera3D
 func _process(_delta: float) -> void:
 	if !$Player.current:
 		if Input.get_mouse_button_mask() == 2:  # Clic derecho
-			print(actual_camera.name)
 			switch_to_camera_smooth(actual_camera, $Player)
 
 
@@ -46,4 +45,10 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		actual_camera = $Room/Computer
+		switch_to_camera_smooth($Player,  actual_camera)
+
+
+func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		actual_camera = $Room/telefono
 		switch_to_camera_smooth($Player,  actual_camera)

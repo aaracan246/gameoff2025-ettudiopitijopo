@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=16 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
@@ -16,8 +16,6 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_ie00b"]
 size = Vector2(13.39, 13.005)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ie00b"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_ie00b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glc8m"]
@@ -29,6 +27,11 @@ albedo_color = Color(0.21470988, 0.035365377, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f2jw5"]
 size = Vector3(1.2869873, 1.1679688, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ie00b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdju7"]
+size = Vector3(0.5566406, 0.39892578, 1)
 
 [node name="Demo" type="Node3D"]
 script = ExtResource("1_tcdmn")
@@ -56,11 +59,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, -0.13576746, 0.9907408, 0, -0.9907408, -0.13576746, -0.04697442, 3.5245607, -2.0892105)
 light_energy = 5.0
 spot_range = 10.0
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -1.302499, -0.47698164, -3.2511234)
-mesh = SubResource("CylinderMesh_ie00b")
-skeleton = NodePath("../Pc/Computer")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 4.0497723, 0, 0, 0, 12.821533, 4.2202024, 0, -2.1853433)
@@ -113,6 +111,21 @@ shape = SubResource("BoxShape3D_f2jw5")
 [node name="Computer" type="Camera3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18447256, 0.028272271, -2.6237173)
 
+[node name="Phone" type="StaticBody3D" parent="Room"]
+
+[node name="Phone" type="MeshInstance3D" parent="Room/Phone"]
+transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -1.302499, -0.47698164, -3.2511234)
+mesh = SubResource("CylinderMesh_ie00b")
+skeleton = NodePath("../../Pc/Computer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.203337, -0.3005371, -3.074273)
+shape = SubResource("BoxShape3D_qdju7")
+
+[node name="telefono" type="Camera3D" parent="Room"]
+transform = Transform3D(0.7316149, -0.08825317, 0.6759815, -0.010402775, 0.9900244, 0.14051212, -0.6816388, -0.10983286, 0.72339845, -0.673457, 0, -2.5430176)
+
 [connection signal="input_event" from="Room/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Room/Pc" to="." method="_on_pc_input_event"]
+[connection signal="input_event" from="Room/Phone" to="." method="_on_phone_input_event"]
