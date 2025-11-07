@@ -9,7 +9,6 @@ func _process(_delta: float) -> void:
 			switch_to_camera_smooth(actual_camera, $Player)
 
 
-
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
 	from_camera.current = false
 	# Crear cámara temporal para la transición
