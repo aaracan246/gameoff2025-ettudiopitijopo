@@ -27,14 +27,13 @@ func _process(delta: float) -> void:
  
 
 
-func rotation_manager(direcction:String):
+func rotation_manager():
 	rotacion = list_rotations[positionXYZ]
 	print(rotacion)
-	if direcction == "right":
-		objetivo_rot = rotations[rotacion]
 
-	elif direcction == "left":
-		objetivo_rot = rotations[rotacion]
+	objetivo_rot = rotations[rotacion]
+
+
 
 	$rotationTimer.start()
 	timer_rotation = true
@@ -49,7 +48,7 @@ func _on_right_mouse_entered() -> void:
 		else: 
 			positionXYZ = 0
 		print(positionXYZ)
-	rotation_manager("right")
+	rotation_manager()
 
 func _on_left_mouse_entered() -> void:
 	print(positionXYZ)
@@ -61,7 +60,7 @@ func _on_left_mouse_entered() -> void:
 		else: 
 			positionXYZ = 0
 
-	rotation_manager("left")
+	rotation_manager()
 
 
 func _on_rotation_timer_timeout() -> void:

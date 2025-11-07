@@ -44,6 +44,8 @@ mesh = SubResource("BoxMesh_cvnsp")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
 [node name="rotationTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]
 [connection signal="mouse_entered" from="Left" to="." method="_on_left_mouse_entered"]
