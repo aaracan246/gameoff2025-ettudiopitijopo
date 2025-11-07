@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2nwg5f4nak3x"]
+
+[ext_resource type="Script" uid="uid://bt2clp53vgt02" path="res://Scripts/UI/loading.gd" id="1_oj2gd"]
+
+[node name="loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oj2gd")
+loading_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -14.0
+offset_right = 37.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2

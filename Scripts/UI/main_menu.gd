@@ -12,7 +12,7 @@ func _ready() -> void:
 
 	
 func _on_continue_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/demo.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/loading.tscn")
 
 
 func _on_settings_btn_pressed() -> void:

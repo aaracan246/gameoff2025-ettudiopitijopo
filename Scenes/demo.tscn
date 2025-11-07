@@ -42,6 +42,7 @@ process_mode = 3
 script = ExtResource("6_qwjex")
 
 [node name="pause_menu" parent="UI" instance=ExtResource("8_lsgl7")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
