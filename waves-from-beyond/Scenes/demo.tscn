@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=15 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
@@ -18,12 +18,17 @@ size = Vector2(13.39, 13.005)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ie00b"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_ie00b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glc8m"]
 albedo_color = Color(0.21470988, 0.035365377, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcdmn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2jw5"]
+size = Vector3(1.2869873, 1.1679688, 1)
 
 [node name="Demo" type="Node3D"]
 script = ExtResource("1_tcdmn")
@@ -55,12 +60,7 @@ spot_range = 10.0
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(0.72923136, 0, 0.24237487, 0, 0.24770208, 0, -0.68426716, 0, 0.25830165, -1.302499, -0.47698164, -3.2511234)
 mesh = SubResource("CylinderMesh_ie00b")
-skeleton = NodePath("../MeshInstance3D3")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(1.2379216, 0, 0, 0, 1.0396523, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
-mesh = SubResource("BoxMesh_glc8m")
-skeleton = NodePath("../..")
+skeleton = NodePath("../Pc/Computer")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 4.0497723, 0, 0, 0, 12.821533, 4.2202024, 0, -2.1853433)
@@ -82,11 +82,37 @@ transform = Transform3D(1.3113416e-07, 0, 12.821533, 0, 4.0497723, 0, -1, 0, 1.6
 mesh = SubResource("BoxMesh_ie00b")
 surface_material_override/0 = SubResource("StandardMaterial3D_glc8m")
 
-[node name="Sprite3D" type="Sprite3D" parent="Room"]
+[node name="Map" type="StaticBody3D" parent="Room"]
 transform = Transform3D(0.01204053, 0, -0.20901133, 0, 0.20935786, 0, 0.20901133, 0, 0.01204053, 3.5484738, 0, -1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Room/Map"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
 texture = ExtResource("2_ie00b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Map"]
+transform = Transform3D(15.809748, 0, -7.450581e-09, 0, 12.539677, 0, -5.9604645e-08, 0, 1.8531462, 0, 0, 0)
+shape = SubResource("BoxShape3D_tcdmn")
 
 [node name="Radio" parent="Room" instance=ExtResource("3_glc8m")]
 transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 1.031245, -0.4262473, -3.4397762)
 
+[node name="Mapa" type="Camera3D" parent="Room"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -1)
+
+[node name="Pc" type="StaticBody3D" parent="Room"]
+
+[node name="Computer" type="MeshInstance3D" parent="Room/Pc"]
+transform = Transform3D(1.2379216, 0, 0, 0, 1.0396523, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
+mesh = SubResource("BoxMesh_glc8m")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20562744, 0.083984375, -3.7599363)
+shape = SubResource("BoxShape3D_f2jw5")
+
+[node name="Computer" type="Camera3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18447256, 0.028272271, -2.6237173)
+
+[connection signal="input_event" from="Room/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
+[connection signal="input_event" from="Room/Pc" to="." method="_on_pc_input_event"]

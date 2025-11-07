@@ -1,19 +1,18 @@
 extends Node3D
 
 @export var transition_duration: float = 1.0
+var actual_camera: Camera3D
 
 func _process(_delta: float) -> void:
 	if !$Player.current:
 		if Input.get_mouse_button_mask() == 2:  # Clic derecho
-			switch_to_camera_smooth($Room/Radio/Camera3D, $Player)
+			print(actual_camera.name)
+			switch_to_camera_smooth(actual_camera, $Player)
 
-func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		switch_to_camera_smooth($Player, $Room/Radio/Camera3D)
+
 
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
 	from_camera.current = false
-	
 	# Crear cámara temporal para la transición
 	var temp_camera = Camera3D.new()
 	add_child(temp_camera)
@@ -32,3 +31,19 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
 	# Activar cámara final y limpiar
 	to_camera.current = true
 	temp_camera.queue_free()
+
+func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		actual_camera = $Room/Radio/Camera3D
+		switch_to_camera_smooth($Player, actual_camera)
+
+func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		actual_camera = $Room/Mapa
+		switch_to_camera_smooth($Player, actual_camera)
+
+
+func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		actual_camera = $Room/Computer
+		switch_to_camera_smooth($Player,  actual_camera)
