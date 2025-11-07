@@ -2,10 +2,12 @@ extends Node3D
 
 @export var transition_duration: float = 1.0
 var actual_camera: Camera3D
+var next_camera: Camera3D
 var is_moving = false
 
 func _ready() -> void:
 	$Player.current = true
+	actual_camera = $Player
 
 func _process(_delta: float) -> void:
 	if !$Player.current:
