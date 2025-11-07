@@ -43,20 +43,8 @@ transform = Transform3D(0.15133692, 0, 0, 0, 1.0404296, 0, 0, 0, 0.14039218, 0.3
 mesh = SubResource("BoxMesh_cvnsp")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
-[node name="TimerRight" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
-[node name="TimerLeft" type="Timer" parent="."]
-wait_time = 0.75
-one_shot = true
-
 [node name="rotationTimer" type="Timer" parent="."]
 
 [connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]
-[connection signal="mouse_exited" from="Right" to="." method="_on_right_mouse_exited"]
 [connection signal="mouse_entered" from="Left" to="." method="_on_left_mouse_entered"]
-[connection signal="mouse_exited" from="Left" to="." method="_on_left_mouse_exited"]
-[connection signal="timeout" from="TimerRight" to="." method="_on_timer_right_timeout"]
-[connection signal="timeout" from="TimerLeft" to="." method="_on_timer_left_timeout"]
 [connection signal="timeout" from="rotationTimer" to="." method="_on_rotation_timer_timeout"]

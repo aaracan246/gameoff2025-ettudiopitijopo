@@ -8,8 +8,6 @@ extends Camera3D
 	"left": Vector3(0.0, deg_to_rad(90.0), 0.0),
 }
 var list_rotations = ["front","right","back","left"]
-var left_timer = false
-var right_timer = false
 var objetivo_rot: Vector3
 var rot_actual: Vector3
 var rotacion = "front"
@@ -31,40 +29,26 @@ func _process(delta: float) -> void:
 
 func rotation_manager(direcction:String):
 	rotacion = list_rotations[positionXYZ]
+	print(rotacion)
 	if direcction == "right":
-		match rotacion:
-			"front":
-				objetivo_rot = rotations["right"]
-			"right":
-				objetivo_rot = rotations["back"]
-			"back":
-				objetivo_rot = rotations["left"]
-			"left":
-				objetivo_rot = rotations["front"]
+		objetivo_rot = rotations[rotacion]
+
 	elif direcction == "left":
-		match rotacion:
-			"front":
-				objetivo_rot = rotations["left"]
-			"right":
-				objetivo_rot = rotations["front"]
-			"back":
-				objetivo_rot = rotations["right"]
-			"left":
-				objetivo_rot = rotations["back"]
+		objetivo_rot = rotations[rotacion]
 
 	$rotationTimer.start()
 	timer_rotation = true
 
 
 func _on_right_mouse_entered() -> void:
-	print(positionXYZ)
+	
 	if !timer_rotation : 
 		if positionXYZ < 3:
 			positionXYZ += 1
 			
 		else: 
 			positionXYZ = 0
-		
+		print(positionXYZ)
 	rotation_manager("right")
 
 func _on_left_mouse_entered() -> void:
@@ -78,21 +62,6 @@ func _on_left_mouse_entered() -> void:
 			positionXYZ = 0
 
 	rotation_manager("left")
-
-func _on_left_mouse_exited() -> void:
-	left_timer = false
-
-
-func _on_right_mouse_exited() -> void:
-	right_timer = false
-
-
-func _on_timer_right_timeout() -> void:
-	right_timer = true
-
-
-func _on_timer_left_timeout() -> void:
-	left_timer = true
 
 
 func _on_rotation_timer_timeout() -> void:
