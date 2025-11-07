@@ -1,30 +1,69 @@
-[gd_scene format=3 uid="uid://bpcg4cb1udhug"]
+[gd_scene load_steps=3 format=3 uid="uid://bpcg4cb1udhug"]
+
+[ext_resource type="Script" uid="uid://cqo5yvx0ek5yo" path="res://Scripts/UI/pause_menu.gd" id="1_rrvs5"]
+[ext_resource type="PackedScene" uid="uid://fymcpiyww0nr" path="res://Scenes/UI/settings.tscn" id="2_8rf44"]
 
 [node name="pause_menu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rrvs5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.34117648)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Pause menu"
 
-[node name="resume" type="Button" parent="VBoxContainer"]
+[node name="resume_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "resume"
 
-[node name="settings" type="Button" parent="VBoxContainer"]
+[node name="settings_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "settings"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="exit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "exit"
+
+[node name="confirm_exit" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = "Exit to the main menu?"
+initial_position = 1
+size = Vector2i(300, 150)
+ok_button_text = "Exit"
+
+[node name="settings" parent="." instance=ExtResource("2_8rf44")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
+[connection signal="canceled" from="confirm_exit" to="." method="_on_confirm_exit_canceled"]
+[connection signal="confirmed" from="confirm_exit" to="." method="_on_confirm_exit_confirmed"]

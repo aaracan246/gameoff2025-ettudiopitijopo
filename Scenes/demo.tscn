@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=18 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
 [ext_resource type="PackedScene" uid="uid://csykyo4ikmj0w" path="res://Scenes/map.tscn" id="2_f2jw5"]
 [ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/radio.tscn" id="3_glc8m"]
 [ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/news_paper.tscn" id="4_f2jw5"]
+[ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
+[ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -34,6 +36,12 @@ size = Vector3(0.5566406, 0.39892578, 1)
 
 [node name="Demo" type="Node3D"]
 script = ExtResource("1_tcdmn")
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_qwjex")
+
+[node name="pause_menu" parent="UI" instance=ExtResource("8_lsgl7")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
