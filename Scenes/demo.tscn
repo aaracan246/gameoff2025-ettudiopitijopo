@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=17 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
 [ext_resource type="Texture2D" uid="uid://bgdtbfvupwjk7" path="res://Assets/map.jpg" id="2_ie00b"]
 [ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/radio.tscn" id="3_glc8m"]
+[ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/news_paper.tscn" id="4_f2jw5"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -39,13 +40,10 @@ script = ExtResource("1_tcdmn")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
 
-[node name="Player" parent="." instance=ExtResource("1_nsw6b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
-
 [node name="Room" type="Node3D" parent="."]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(2.9961286, 0, 0, 0, 2.8322334, 0, 0, 0, 1.9997027, -0.14308167, -2.0607307, -3.7993364)
+transform = Transform3D(3.846181, 0, 0, 0, 1.2765541, 0, 0, 0, 1.9997027, -0.21890903, -1.3300481, -3.3705325)
 mesh = SubResource("BoxMesh_nsw6b")
 skeleton = NodePath("../MeshInstance3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_nsw6b")
@@ -125,7 +123,14 @@ shape = SubResource("BoxShape3D_qdju7")
 [node name="telefono" type="Camera3D" parent="Room"]
 transform = Transform3D(0.7316149, -0.08825317, 0.6759815, -0.010402775, 0.9900244, 0.14051212, -0.6816388, -0.10983286, 0.72339845, -0.673457, 0, -2.5430176)
 
+[node name="NewsPaper" parent="Room" instance=ExtResource("4_f2jw5")]
+transform = Transform3D(0.03863703, 0.0103527615, 4.525336e-10, 0, -1.7484556e-09, 0.04, 0.0103527615, -0.03863703, -1.6888784e-09, 0.2601661, -0.6573745, -2.8987007)
+
+[node name="Player" parent="." instance=ExtResource("1_nsw6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
+
 [connection signal="input_event" from="Room/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Room/Pc" to="." method="_on_pc_input_event"]
 [connection signal="input_event" from="Room/Phone" to="." method="_on_phone_input_event"]
+[connection signal="input_event" from="Room/NewsPaper" to="." method="_on_news_paper_input_event"]

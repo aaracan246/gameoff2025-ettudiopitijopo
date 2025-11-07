@@ -3,6 +3,10 @@ extends Node3D
 @export var transition_duration: float = 1.0
 var actual_camera: Camera3D
 var is_moving = false
+
+func _ready() -> void:
+	$Player.current = true
+
 func _process(_delta: float) -> void:
 	if !$Player.current:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:  # Clic derecho
@@ -52,3 +56,7 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving:
 		actual_camera = $Room/telefono
 		switch_to_camera_smooth($Player,  actual_camera)
+
+
+func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	pass # Replace with function body.

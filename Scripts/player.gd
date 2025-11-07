@@ -17,10 +17,12 @@ var objetivo_rot: Vector3
 var rot_actual: Vector3
 var positionXYZ = 0
 var zoom_level = 64.0
+var timer_rotation = false
 
 func _ready():
 	rot_actual = rotation
 	objetivo_rot = rotation
+	
 
 func _process(delta: float) -> void:
 	# Interpola suavemente los tres ejes de rotación
@@ -31,6 +33,7 @@ func _process(delta: float) -> void:
 
 
 func rotation_manager():
+
 	match positionXYZ:
 		0:
 			objetivo_rot = rotations["front"]
@@ -40,37 +43,33 @@ func rotation_manager():
 			objetivo_rot = rotations["back"]
 		3:
 			objetivo_rot = rotations["left"]
+	$rotationTimer.start()
+	timer_rotation = true
 
-func zoom_manager():
-	zoom_level = clamp(zoom_level, min_zoom, max_zoom)
-	position.x = lerp(position.x, zoom_level, 0.1)
 
 func _on_right_mouse_entered() -> void:
-	$TimerRight.start()
-	if positionXYZ < 3:
-		positionXYZ += 1
-		
-	else: 
-		positionXYZ = 0
+	print(positionXYZ)
+	if !timer_rotation and !right_timer: 
+		$TimerRight.start()
+		if positionXYZ < 3:
+			positionXYZ += 1
+			
+		else: 
+			positionXYZ = 0
 	#rotation_manager()
 
 func _on_left_mouse_entered() -> void:
-	print(2131231)
-	$TimerLeft.start()
-	if positionXYZ > 0:
-		positionXYZ -= 1
-	elif positionXYZ == 0:
-		positionXYZ = 3
-	else: 
-		positionXYZ = 0
+	print(positionXYZ)
+	if !timer_rotation and !left_timer: 
+		$TimerLeft.start()
+		if positionXYZ > 0:
+			positionXYZ -= 1
+		elif positionXYZ == 0:
+			positionXYZ = 3
+		else: 
+			positionXYZ = 0
 
 	#rotation_manager()
-
-
-func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_mask == 1:
-		zoom_manager()
-
 
 func _on_left_mouse_exited() -> void:
 	left_timer = false
@@ -88,3 +87,7 @@ func _on_timer_right_timeout() -> void:
 func _on_timer_left_timeout() -> void:
 	left_timer = true
 	rotation_manager()
+
+
+func _on_rotation_timer_timeout() -> void:
+	timer_rotation = false
