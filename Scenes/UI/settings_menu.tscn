@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://fymcpiyww0nr"]
 
-[ext_resource type="Script" uid="uid://q3y1rsuyeork" path="res://Scripts/UI/settings.gd" id="1_owiy1"]
+[ext_resource type="Script" uid="uid://q3y1rsuyeork" path="res://Scripts/UI/settings.gd" id="1_kfh4b"]
 
-[node name="settings" type="Control"]
+[node name="settings_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_owiy1")
+script = ExtResource("1_kfh4b")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+color = Color(0.22670749, 0.22670749, 0.22670746, 1)
 
 [node name="close" type="Button" parent="."]
 layout_mode = 1
