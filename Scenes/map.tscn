@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://csykyo4ikmj0w"]
+[gd_scene load_steps=6 format=3 uid="uid://csykyo4ikmj0w"]
 
+[ext_resource type="Script" uid="uid://dqctrhr8pbsvu" path="res://Scripts/map.gd" id="1_26yhd"]
 [ext_resource type="Texture2D" uid="uid://bgdtbfvupwjk7" path="res://Assets/map.jpg" id="1_ci6au"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcdmn"]
@@ -12,6 +13,7 @@ albedo_color = Color(1, 0, 0.043137256, 1)
 
 [node name="Map" type="StaticBody3D"]
 transform = Transform3D(0.0006503989, 0, -0.20935683, 0, 0.20935784, 0, 0.20935683, 0, 0.0006503989, 0, 0, 0)
+script = ExtResource("1_26yhd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -21,32 +23,38 @@ texture = ExtResource("1_ci6au")
 transform = Transform3D(0.99999034, 0, -1.2665987e-07, 0, 0.99999976, 0, 1.2665987e-07, 0, 0.99999034, 0.09401345, -0.028900687, 0)
 shape = SubResource("BoxShape3D_tcdmn")
 
-[node name="pin" type="MeshInstance3D" parent="."]
+[node name="pinEntrada" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
 [node name="pin6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
 [node name="pin2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -2.0302405, 4.140437, 0.06400066)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
 [node name="pin3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
 [node name="pin4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
 [node name="pin5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")

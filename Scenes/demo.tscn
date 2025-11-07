@@ -116,10 +116,26 @@ transform = Transform3D(0.7316149, -0.08825317, 0.6759815, -0.010402775, 0.99002
 [node name="NewsPaper" parent="Room" instance=ExtResource("4_f2jw5")]
 transform = Transform3D(0.03863703, 0.0103527615, 4.525336e-10, 0, -1.7484556e-09, 0.04, 0.0103527615, -0.03863703, -1.6888784e-09, 0.2601661, -0.6573745, -2.8987007)
 
+[node name="NewsPaper2" parent="Room" instance=ExtResource("4_f2jw5")]
+transform = Transform3D(0.039999995, 0, 0, 0, 0.039999995, 0, 0, 0, 0.04, -0.2594633, 0, -2.1634152)
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
 
+[connection signal="cafe" from="." to="Room/Map" method="_on_demo_cafe"]
+[connection signal="descanso" from="." to="Room/Map" method="_on_demo_descanso"]
+[connection signal="embarcadero" from="." to="Room/Map" method="_on_demo_embarcadero"]
+[connection signal="entrada" from="." to="Room/Map" method="_on_demo_entrada"]
+[connection signal="merendero1" from="." to="Room/Map" method="_on_demo_merendero_1"]
+[connection signal="merendero2" from="." to="Room/Map" method="_on_demo_merendero_2"]
+[connection signal="mirador" from="." to="Room/Map" method="_on_demo_mirador"]
+[connection signal="obras" from="." to="Room/Map" method="_on_demo_obras"]
+[connection signal="parking" from="." to="Room/Map" method="_on_demo_parking"]
+[connection signal="rescate" from="." to="Room/Map" method="_on_demo_rescate"]
+[connection signal="input_event" from="Room/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Room/Pc" to="." method="_on_pc_input_event"]
 [connection signal="input_event" from="Room/Phone" to="." method="_on_phone_input_event"]
 [connection signal="input_event" from="Room/NewsPaper" to="." method="_on_news_paper_input_event"]
+[connection signal="input_event" from="Room/NewsPaper2" to="." method="_on_news_paper_input_event"]
