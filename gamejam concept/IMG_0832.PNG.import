@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8fu6ecfkkf54"
-path="res://.godot/imported/IMG_0835.PNG-01ffbeb52dcff4cc117fb23c197becff.ctex"
+uid="uid://g0m62e4gls0u"
+path="res://.godot/imported/IMG_0832.PNG-03a127e4f4b5ffab187225676b733c0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gamejam concept/GameJam/IMG_0835.PNG"
-dest_files=["res://.godot/imported/IMG_0835.PNG-01ffbeb52dcff4cc117fb23c197becff.ctex"]
+source_file="res://gamejam concept/IMG_0832.PNG"
+dest_files=["res://.godot/imported/IMG_0832.PNG-03a127e4f4b5ffab187225676b733c0e.ctex"]
 
 [params]
 
