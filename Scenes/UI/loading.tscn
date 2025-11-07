@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oj2gd")
-loading_time = 3.0
+loading_time = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
