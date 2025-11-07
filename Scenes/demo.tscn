@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=16 format=3 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scenes/map.gd" id="1_tcdmn"]
-[ext_resource type="Texture2D" uid="uid://bgdtbfvupwjk7" path="res://Assets/map.jpg" id="2_ie00b"]
+[ext_resource type="PackedScene" uid="uid://csykyo4ikmj0w" path="res://Scenes/map.tscn" id="2_f2jw5"]
 [ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/radio.tscn" id="3_glc8m"]
 [ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/news_paper.tscn" id="4_f2jw5"]
 
@@ -21,8 +21,6 @@ size = Vector2(13.39, 13.005)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glc8m"]
 albedo_color = Color(0.21470988, 0.035365377, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tcdmn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
 
@@ -78,16 +76,8 @@ transform = Transform3D(1.3113416e-07, 0, 12.821533, 0, 4.0497723, 0, -1, 0, 1.6
 mesh = SubResource("BoxMesh_ie00b")
 surface_material_override/0 = SubResource("StandardMaterial3D_glc8m")
 
-[node name="Map" type="StaticBody3D" parent="Room"]
+[node name="Map" parent="Room" instance=ExtResource("2_f2jw5")]
 transform = Transform3D(0.01204053, 0, -0.20901133, 0, 0.20935786, 0, 0.20901133, 0, 0.01204053, 3.5484738, 0, -1)
-
-[node name="Sprite3D" type="Sprite3D" parent="Room/Map"]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
-texture = ExtResource("2_ie00b")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Map"]
-transform = Transform3D(15.809748, 0, -7.450581e-09, 0, 12.539677, 0, -5.9604645e-08, 0, 1.8531462, 0, 0, 0)
-shape = SubResource("BoxShape3D_tcdmn")
 
 [node name="Radio" parent="Room" instance=ExtResource("3_glc8m")]
 transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 1.031245, -0.4262473, -3.4397762)
@@ -129,7 +119,6 @@ transform = Transform3D(0.03863703, 0.0103527615, 4.525336e-10, 0, -1.7484556e-0
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30649328, 0, -1.6550336)
 
-[connection signal="input_event" from="Room/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Room/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Room/Pc" to="." method="_on_pc_input_event"]
 [connection signal="input_event" from="Room/Phone" to="." method="_on_phone_input_event"]
