@@ -29,32 +29,56 @@ visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
-[node name="pin6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+[node name="pinMerendero1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -4.0609922, -2.7115626, 0.05769182)
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
-[node name="pin2" type="MeshInstance3D" parent="."]
+[node name="pinParking" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -2.0302405, 4.140437, 0.06400066)
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
-[node name="pin3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+[node name="pinObras" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -1.6099991, 0.14434463, 0.0653062)
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
-[node name="pin4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+[node name="pinCafe" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 1.2917906, -1.8993456, 0.07432106)
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
 
-[node name="pin5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
+[node name="pinMerendero2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 1.4974095, 3.935076, 0.074959844)
+visible = false
+mesh = SubResource("SphereMesh_ci6au")
+surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
+
+[node name="pinEmbarcadero" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 2.008164, 0.96875495, 0.07654658)
+visible = false
+mesh = SubResource("SphereMesh_ci6au")
+surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
+
+[node name="pinDescanso" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 3.4618511, 2.1081371, 0.08106269)
+visible = false
+mesh = SubResource("SphereMesh_ci6au")
+surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
+
+[node name="pinRescate" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 5.3870025, 2.618895, 0.087043464)
+visible = false
+mesh = SubResource("SphereMesh_ci6au")
+surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
+
+[node name="pinMirador" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 3.010027, -3.470906, 0.07965903)
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")

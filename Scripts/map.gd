@@ -1,45 +1,53 @@
 extends StaticBody3D
 
-@onready var pin = $pinEntrada
+@onready var entrada = $pinEntrada
+@onready var merendero1 = $pinMerendero1
+@onready var merendero2 = $pinMerendero2
+@onready var parking = $pinParking
+@onready var obras = $pinObras
+@onready var cafe = $pinCafe
+@onready var embarcadero = $pinEmbarcadero
+@onready var descanso = $pinDescanso
+@onready var rescate  = $pinRescate
+@onready var mirador = $pinMirador
 
 func _ready() -> void:
-	pin.visible = false
+	entrada.visible = false
 
 func _on_demo_entrada() -> void:
-	pin.visible = true
+	entrada.visible = true
 
 
 func _on_demo_cafe() -> void:
-	pass # Replace with function body.
-
+	cafe.visible = true
 
 func _on_demo_descanso() -> void:
-	pass # Replace with function body.
+	descanso.visible = true
 
 
 func _on_demo_embarcadero() -> void:
-	pass # Replace with function body.
+	embarcadero.visible = true
 
 
 func _on_demo_merendero_1() -> void:
-	pass # Replace with function body.
+	merendero1.visible = true
 
 
 func _on_demo_merendero_2() -> void:
-	pass # Replace with function body.
+	merendero2.visible = true
 
 
 func _on_demo_mirador() -> void:
-	pass # Replace with function body.
+	mirador.visible = true
 
 
 func _on_demo_obras() -> void:
-	pass # Replace with function body.
+	obras.visible = true
 
 
 func _on_demo_parking() -> void:
-	pass # Replace with function body.
+	parking.visible = true
 
 
 func _on_demo_rescate() -> void:
-	pass # Replace with function body.
+	rescate.visible = true
