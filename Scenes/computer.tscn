@@ -1,22 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuc8r1mt88ftx"]
+[gd_scene load_steps=7 format=3 uid="uid://cuc8r1mt88ftx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4xga7"]
+[ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/screem.tscn" id="1_4xga7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_j2xe6"]
+[sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
+resource_local_to_scene = true
 
-[node name="Computer" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2jw5"]
+size = Vector3(1.2306824, 1.1359863, 0.341156)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8599656)
+[sub_resource type="ViewportTexture" id="ViewportTexture_4xga7"]
+viewport_path = NodePath("Screem/SubViewport")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1ujp"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_4xga7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[sub_resource type="QuadMesh" id="QuadMesh_tlg0j"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_m1ujp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_4xga7")
+[node name="Pc" type="StaticBody3D"]
 
-[node name="SubViewport" type="SubViewport" parent="StaticBody3D/MeshInstance3D"]
+[node name="Computer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2379216, 0, 0, 0, 1.1515098, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
+mesh = SubResource("BoxMesh_glc8m")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_j2xe6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20698547, 0.016723633, -3.5166655)
+shape = SubResource("BoxShape3D_f2jw5")
+
+[node name="Screem" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
+mesh = SubResource("QuadMesh_tlg0j")
+
+[node name="SubViewport" type="SubViewport" parent="Screem"]
+
+[node name="pantalla" parent="Screem/SubViewport" instance=ExtResource("1_4xga7")]

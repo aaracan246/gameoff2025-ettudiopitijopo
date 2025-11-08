@@ -10,6 +10,7 @@ var actual_camera: Camera3D
 var next_camera: Camera3D
 var is_moving = false
 var is_zoomed = false
+var newspaper_zoom = false
 
 signal entrada
 signal merendero1
@@ -35,6 +36,10 @@ func _process(_delta: float) -> void:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:  # Clic derecho
 			switch_to_camera_smooth(actual_camera, $Player)
 			is_zoomed = false
+	elif newspaper_zoom:
+		if Input.get_mouse_button_mask() == 2 and !is_moving:
+			newspaper_manager()
+			
 
 
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
@@ -59,11 +64,13 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
 	is_moving = false
 	temp_camera.queue_free()
 
+
 func input_manager(camera:Camera3D, event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
 		switch_to_camera_smooth($Player, actual_camera)
+
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Room/Radio/Camera3D, event)
@@ -95,8 +102,6 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 			9:
 				emit_signal("rescate")
 
-	
-
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Room/Computer, event)
@@ -109,13 +114,19 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
+		
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(newspaper, "global_transform", view_newspaper, transition_duration)
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT and !is_moving :
-		is_zoomed = false
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(newspaper, "global_transform", normal_newspaper, transition_duration)
+		newspaper_zoom = true
+
+
+func newspaper_manager():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(newspaper, "global_transform", normal_newspaper, transition_duration)
+	newspaper_zoom = false
+	is_zoomed = false
+	
