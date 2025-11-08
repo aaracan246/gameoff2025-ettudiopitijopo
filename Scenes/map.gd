@@ -23,7 +23,7 @@ signal descanso
 signal rescate
 
 
-
+var cont = 0
 
 
 func _ready() -> void:
@@ -71,16 +71,30 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Room/Mapa, event)
-	emit_signal("entrada")
-	emit_signal("cafe")
-	emit_signal("descanso")
-	emit_signal("embarcadero")
-	emit_signal("merendero1")
-	emit_signal("merendero2")
-	emit_signal("mirador")
-	emit_signal("obras")
-	emit_signal("parking")
-	emit_signal("rescate")
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		cont = randi_range(0,9)
+		match cont:
+			0:
+				emit_signal("entrada")
+			1:
+				emit_signal("cafe")
+			2:
+				emit_signal("descanso")
+			3:
+				emit_signal("embarcadero")
+			4:
+				emit_signal("merendero1")
+			5:
+				emit_signal("merendero2")
+			6:
+				emit_signal("mirador")
+			7:
+				emit_signal("obras")
+			8:
+				emit_signal("parking")
+			9:
+				emit_signal("rescate")
+
 	
 
 
