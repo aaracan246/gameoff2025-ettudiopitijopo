@@ -1,6 +1,6 @@
 extends Control
 
-@onready var continue_btn: Button = $VBoxContainer/continue
+@onready var continue_btn: Button = $VBoxContainer/continue_btn
 @onready var settings_btn: Button = $VBoxContainer/settings_btn
 @onready var exit_btn: Button = $VBoxContainer/exit_btn
 

@@ -10,12 +10,16 @@ func _ready() -> void:
 
 
 func start_loading():
-	var thread = Thread.new()
-	thread.start(load_scene_in_background)
+	call_deferred("load_scene_in_background")
+	#No funciona en web los hilos
+	#var thread = Thread.new()
+	#thread.start(load_scene_in_background)
+	#thread.wait_to_finish()
 
 
 func load_scene_in_background():
-	var loader = ResourceLoader.load_threaded_request(next_scene_path)
+	#var loader = 
+	ResourceLoader.load_threaded_request(next_scene_path)
 	var progress := []
 	var elapsed_time := 0.0
 	var loaded := false
