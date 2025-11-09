@@ -2,6 +2,7 @@ extends StaticBody3D
 @onready var screen: MeshInstance3D = $Screen
 @onready var sub_viewport: SubViewport = $Screen/SubViewport
 @onready var area_3d: Area3D = $Screen/Area3D
+@onready var pantalla: Control = $Screen/SubViewport/pantalla
 
 var mouse_inside = false
 var selected = false
@@ -17,7 +18,7 @@ func _on_input_event(_camera: Node, event: InputEvent, event_position: Vector3, 
 	calculate2DPosition += screenSize / 2
 	calculate2DPosition /= screenSize
 	
-	var mouse2D = calculate2DPosition * Vector2(sub_viewport.size)
+	var mouse2D = calculate2DPosition * Vector2(pantalla.size)
 	
 	event.position = mouse2D
 	

@@ -28,18 +28,24 @@ func _on_exit_pressed() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
-			
+			print(event.position)
+			print(camera_button.position)
 			match event.global_position:
 				camera_button.global_position:
-					camera_button.emit_signal("pressed")
+					camera_button.emit_signal("_on_exit_pressed")
 					print("PRESIONADOOOOOOOOOOOOOOOOOOOOOOOOOOO")
 
 
 func _on_mouse_entered() -> void:
-	var custom_cursor_image = load("res://icon.svg")
-	Input.set_custom_mouse_cursor(custom_cursor_image) 
+	#var custom_cursor_image = load("res://icon.svg")
+	#Input.set_custom_mouse_cursor(custom_cursor_image) 
+	pass
 
 
 func _on_mouse_exited() -> void:
 	var custom_cursor_image = load("res://cursor.png")
 	Input.set_custom_mouse_cursor(custom_cursor_image) 
+
+
+func _on_exit_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print("PRESIONADOOOOOOOOOOOOOOOOOOOOOOOOOOO")
