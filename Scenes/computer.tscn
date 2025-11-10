@@ -10,7 +10,7 @@ resource_local_to_scene = true
 size = Vector3(1.2306824, 1.1359863, 0.341156)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4xga7"]
-viewport_path = NodePath("Screen/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1ujp"]
 resource_local_to_scene = true
@@ -35,13 +35,13 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20698547, 0.016723633, -3.5166655)
 shape = SubResource("BoxShape3D_f2jw5")
 
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="pantalla" parent="SubViewport" instance=ExtResource("1_4xga7")]
+
 [node name="Screen" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
 mesh = SubResource("QuadMesh_tlg0j")
-
-[node name="SubViewport" type="SubViewport" parent="Screen"]
-
-[node name="pantalla" parent="Screen/SubViewport" instance=ExtResource("1_4xga7")]
 
 [node name="Area3D" type="Area3D" parent="Screen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2093637, -0.018772274, 3.3199334)
