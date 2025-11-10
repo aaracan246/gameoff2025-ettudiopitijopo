@@ -54,6 +54,10 @@ text = "new_game"
 layout_mode = 2
 text = "settings"
 
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "credits"
+
 [node name="exit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "exit"
@@ -64,4 +68,5 @@ layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
