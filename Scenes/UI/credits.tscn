@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wvnwavhmsta8"]
+[gd_scene load_steps=3 format=3 uid="uid://wvnwavhmsta8"]
 
 [ext_resource type="Script" uid="uid://dju7vlywfo2em" path="res://Scripts/UI/credits.gd" id="1_h87vg"]
+[ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/sfx/credits.mp3" id="2_q4iv0"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -86,3 +87,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q4iv0")
+autoplay = true
