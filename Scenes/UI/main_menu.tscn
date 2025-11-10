@@ -66,7 +66,12 @@ text = "exit"
 visible = false
 layout_mode = 1
 
+[connection signal="mouse_entered" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]

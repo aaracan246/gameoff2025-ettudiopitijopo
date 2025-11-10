@@ -1,8 +1,10 @@
 extends Node
 
 @onready var main_menu: AudioStreamPlayer = $main_menu
+@onready var credits: AudioStreamPlayer = $credits
+@onready var hover: AudioStreamPlayer = $hover
 
-func fade_out(player: AudioStreamPlayer, duration: float = 3.0) -> void:
+func fade_out(player: AudioStreamPlayer, duration) -> void:
 	if not player:
 		return
 
@@ -11,4 +13,6 @@ func fade_out(player: AudioStreamPlayer, duration: float = 3.0) -> void:
 	t.tween_property(player, "volume_db", -80, duration)
 	t.finished.connect(func():
 		player.stop()
+		player.volume_db = 0
 	)
+	
