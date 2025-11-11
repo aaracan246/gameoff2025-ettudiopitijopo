@@ -13,7 +13,7 @@ const MAX_DB = 0.0
 var _ignore_slider = false
 
 # ICONS
-const MUTE_W = preload("uid://c38uibu5o73gx")
+const MUTE_W = preload("uid://dds2sravpf5uv")
 const NO_VOLUME_W = preload("uid://dk8uu4xhqpmjv")
 const LOW_VOLUME_W = preload("uid://3k62ka6dietx")
 const MEDIUM_VOLUME_W = preload("uid://b34gwdqpfiarh")
