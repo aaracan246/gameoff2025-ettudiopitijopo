@@ -2,7 +2,7 @@ extends Control
 @onready var settings: Control = $"."
 
 @onready var blurr: Button = $Blurr
-@onready var close: Button = $Container/VBoxContainer/close
+@onready var close: Button = $PanelContainer/Container/Header/close
 
 
 func _on_close_pressed() -> void:
