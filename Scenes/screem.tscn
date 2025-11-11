@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd2vgnu771yby"]
+
+[ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screem.gd" id="1_6t4fl"]
+[ext_resource type="Texture2D" uid="uid://dj5j4rln0bjd8" path="res://gamejam concept/IMG_0827.PNG" id="1_vt2q6"]
+[ext_resource type="Texture2D" uid="uid://ctefy3qwxrros" path="res://icon.svg" id="3_n3rk6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6t4fl"]
+viewport_path = NodePath("Camera/SubViewport")
+
+[node name="pantalla" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6t4fl")
+
+[node name="Destktop" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vt2q6")
+expand_mode = 2
+
+[node name="camera" type="Button" parent="Destktop"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 14.0
+offset_right = 191.0
+offset_bottom = 150.0
+text = "Camera"
+icon = ExtResource("3_n3rk6")
+alignment = 2
+
+[node name="Camera" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_6t4fl")
+
+[node name="exit" type="Button" parent="Camera"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9522569
+anchor_top = 0.0077160494
+anchor_right = 0.9924948
+anchor_bottom = 0.07049564
+offset_right = 89.645996
+offset_bottom = 95.318825
+grow_horizontal = 0
+scale = Vector2(0.34083843, 0.2991263)
+icon = ExtResource("3_n3rk6")
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera"]
+snap_2d_transforms_to_pixel = true
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Camera/SubViewport"]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Destktop/camera" to="." method="_on_camera_pressed"]
+[connection signal="pressed" from="Camera/exit" to="." method="_on_exit_pressed"]

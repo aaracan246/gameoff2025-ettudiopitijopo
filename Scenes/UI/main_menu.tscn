@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhbhtnyyn47m"]
+
+[ext_resource type="Script" uid="uid://b5o5sdyfcpdbd" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="PackedScene" uid="uid://fymcpiyww0nr" path="res://Scenes/UI/settings_menu.tscn" id="2_i2xx2"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wsvm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -83.5
+offset_right = 45.5
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "main menu"
+
+[node name="WFB_logo" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="continue_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "continue"
+
+[node name="new_game_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "new_game"
+
+[node name="settings_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "settings"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "credits"
+
+[node name="exit_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "exit"
+
+[node name="settings_menu" parent="." instance=ExtResource("2_i2xx2")]
+visible = false
+layout_mode = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]

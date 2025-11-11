@@ -1,22 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuc8r1mt88ftx"]
+[gd_scene load_steps=9 format=3 uid="uid://cuc8r1mt88ftx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4xga7"]
+[ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/screem.tscn" id="1_4xga7"]
+[ext_resource type="Script" uid="uid://dty3g8m21i4qb" path="res://Scripts/computer.gd" id="1_j2xe6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_j2xe6"]
+[sub_resource type="BoxMesh" id="BoxMesh_glc8m"]
+resource_local_to_scene = true
 
-[node name="Computer" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2jw5"]
+size = Vector3(1.2306824, 1.1359863, 0.341156)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8599656)
+[sub_resource type="ViewportTexture" id="ViewportTexture_4xga7"]
+viewport_path = NodePath("SubViewport")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1ujp"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_4xga7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[sub_resource type="QuadMesh" id="QuadMesh_tlg0j"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_m1ujp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_4xga7")
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4xga7"]
+data = PackedVector3Array(0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0)
 
-[node name="SubViewport" type="SubViewport" parent="StaticBody3D/MeshInstance3D"]
+[node name="Pc" type="StaticBody3D"]
+script = ExtResource("1_j2xe6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_j2xe6")
+[node name="Computer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2379216, 0, 0, 0, 1.1515098, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
+mesh = SubResource("BoxMesh_glc8m")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20698547, 0.016723633, -3.5166655)
+shape = SubResource("BoxShape3D_f2jw5")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="pantalla" parent="SubViewport" instance=ExtResource("1_4xga7")]
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
+mesh = SubResource("QuadMesh_tlg0j")
+
+[node name="Area3D" type="Area3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2093637, -0.018772274, 3.3199334)
+
+[node name="CollisionScreen" type="CollisionShape3D" parent="Screen/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
+shape = SubResource("ConcavePolygonShape3D_4xga7")
+
+[connection signal="input_event" from="Screen/Area3D" to="." method="_on_mouse_input_event"]
+[connection signal="mouse_entered" from="Screen/Area3D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Screen/Area3D" to="." method="_on_mouse_exited"]
