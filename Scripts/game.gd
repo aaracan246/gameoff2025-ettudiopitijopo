@@ -128,6 +128,7 @@ func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_positio
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(newspaper, "global_transform", view_newspaper, transition_duration)
+		AudioManager.newspaper_pickup.play()
 		newspaper_zoom = true
 
 
@@ -136,6 +137,7 @@ func newspaper_manager():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(newspaper, "global_transform", normal_newspaper, transition_duration)
+	AudioManager.newspaper_drop.play()
 	newspaper_zoom = false
 	is_zoomed = false
 	

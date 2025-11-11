@@ -1,24 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=8 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
 [ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/audio/music/credits.mp3" id="3_tqpqp"]
 [ext_resource type="AudioStream" uid="uid://qjirkoely2gc" path="res://Assets/audio/sfx/hover.ogg" id="4_vmr8m"]
 [ext_resource type="AudioStream" uid="uid://doxmn7e2mr0cc" path="res://Assets/audio/sfx/transition.wav" id="5_q3gic"]
+[ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/newspaper_drop.wav" id="6_yoybt"]
+[ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/newspaper_pickup.wav" id="7_1xomj"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
 
-[node name="main_menu" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="Node" parent="."]
+
+[node name="main_menu" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_08g05")
 bus = &"Music"
 
-[node name="credits" type="AudioStreamPlayer" parent="."]
+[node name="credits" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("3_tqpqp")
 
-[node name="hover" type="AudioStreamPlayer" parent="."]
+[node name="scene_transition" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("5_q3gic")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="hover" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_vmr8m")
 bus = &"SFX"
 
-[node name="scene_transition" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_q3gic")
+[node name="newspaper_drop" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_yoybt")
+bus = &"SFX"
+
+[node name="newspaper_pickup" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_1xomj")
+bus = &"SFX"

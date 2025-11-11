@@ -1,9 +1,15 @@
 extends Node
 
-@onready var main_menu: AudioStreamPlayer = $main_menu
-@onready var credits: AudioStreamPlayer = $credits
-@onready var hover: AudioStreamPlayer = $hover
-@onready var scene_transition: AudioStreamPlayer = $scene_transition
+# == MUSIC == #
+@onready var main_menu: AudioStreamPlayer = $Music/main_menu
+@onready var credits: AudioStreamPlayer = $Music/credits
+@onready var scene_transition: AudioStreamPlayer = $Music/scene_transition
+
+# == SFX == #
+@onready var hover: AudioStreamPlayer = $SFX/hover
+@onready var newspaper_drop: AudioStreamPlayer = $SFX/newspaper_drop
+@onready var newspaper_pickup: AudioStreamPlayer = $SFX/newspaper_pickup
+
 
 func fade_out(player: AudioStreamPlayer, duration) -> void:
 	if not player:
