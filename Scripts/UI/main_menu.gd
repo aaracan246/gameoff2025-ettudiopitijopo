@@ -14,14 +14,13 @@ func _ready() -> void:
 # === ON PRESSED === #
 func _on_continue_btn_pressed() -> void:
 	AudioManager.fade_out(AudioManager.main_menu, 2.0)
+	AudioManager.scene_transition.play()
 	get_tree().change_scene_to_file("res://Scenes/UI/loading.tscn")
 
-# PRUEBA DE AUDIO
-func _on_new_game_btn_pressed() -> void:
-	AudioManager.fade_out(AudioManager.main_menu, 2.0)
-	AudioManager.scene_transition.play()
-	get_tree().change_scene_to_file("res://Assets/sfx/pruebasam.tscn")
-	
+#func _on_new_game_btn_pressed() -> void:
+	#AudioManager.fade_out(AudioManager.main_menu, 2.0)
+	#AudioManager.scene_transition.play()
+	#
 	
 func _on_settings_btn_pressed() -> void:
 	settings_menu.visible = true

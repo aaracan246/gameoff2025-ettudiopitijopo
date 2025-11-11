@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=28 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ba3spl3lum1ow" path="res://Assets/3D/Escenario.blend" id="8_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/phone.tscn" id="9_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/escenario.tscn" id="10_a1i4p"]
+[ext_resource type="PackedScene" uid="uid://w0hrl0r07jba" path="res://Scenes/UI/ambient_crossfade.tscn" id="13_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://cupkh8f0pelv8" path="res://Assets/3D/Puerta.blend" id="13_rnoc8"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
@@ -225,6 +226,8 @@ transform = Transform3D(0.16151492, -0.611588, 0.77451473, -0.12479172, 0.765862
 transform = Transform3D(1, 0, 0, 0, -0.13576746, 0.9907408, 0, -0.9907408, -0.13576746, 82.9143, -33.21123, -205.98026)
 light_energy = 16.0
 spot_range = 71.869
+
+[node name="ambient_crossfade" parent="." instance=ExtResource("13_a1i4p")]
 
 [connection signal="cafe" from="." to="Room/Map" method="_on_demo_cafe"]
 [connection signal="descanso" from="." to="Room/Map" method="_on_demo_descanso"]
