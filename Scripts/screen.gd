@@ -10,7 +10,7 @@ var camera:Camera3D
 
 
 func _ready() -> void:
-	camera = get_tree().get_root().get_node("Demo/Room/OutDoor")
+	camera = get_tree().get_root().get_node("Demo/Escenario/OutDoor")
 	new_camera.global_transform = camera.global_transform
  
 
