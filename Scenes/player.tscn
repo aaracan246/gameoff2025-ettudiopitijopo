@@ -20,10 +20,10 @@ size = Vector3(0.14215088, 0.77547073, 0.13188934)
 script = ExtResource("1_v0iea")
 
 [node name="Right" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028380185, 0, 0.16944057)
+transform = Transform3D(0.941459, 0, 0, 0, 0.15348607, 0, 0, 0, 0.9491876, 0.028380185, 0, 0.16944057)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39016724, -0.031811237, -0.396801)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.42851308, -0.031811237, -0.396801)
 shape = SubResource("BoxShape3D_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Right"]
@@ -32,10 +32,10 @@ mesh = SubResource("BoxMesh_v0iea")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
 [node name="Left" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8363528, 0, 0.1459223)
+transform = Transform3D(0.94, 0, 0, 0, 0.15, 0, 0, 0, 0.94, -0.74789864, 0, 0.17089626)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38809204, -0.020643234, -0.3744316)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39446345, -0.020643234, -0.3744316)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left"]

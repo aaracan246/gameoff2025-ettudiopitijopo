@@ -1,9 +1,9 @@
 extends Node3D
 
 @export var transition_duration: float = 1.0
-@onready var newspaper = $Room/NewsPaper
-@onready var view_newspaper = $Room/NewsPaper2.global_transform
-@onready var normal_newspaper = $Room/NewsPaper.global_transform
+@onready var newspaper = $Escenario/NewsPaper
+@onready var view_newspaper = $Escenario/NewsPaper2.global_transform
+@onready var normal_newspaper = $Escenario/NewsPaper.global_transform
 @onready var pc_area = $Escenario/Pc/Screen/Area3D
 	
 
@@ -75,11 +75,11 @@ func input_manager(camera:Camera3D, event: InputEvent):
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Radio/Camera3D, event)
+	input_manager($Escenario/Radio/Camera3D, event)
 
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Mapa, event)
+	input_manager($Escenario/Mapa, event)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		cont = randi_range(0,9)
 		match cont:
@@ -107,12 +107,12 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	pc_area.collision_layer = 0
-	await input_manager($Room/Escenario/Computer, event)
+	await input_manager($Escenario/Computer, event)
 
 
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Escenario/telefono, event)
+	input_manager($Escenario/telefono, event)
 
 
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:

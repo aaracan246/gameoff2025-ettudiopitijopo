@@ -12,7 +12,7 @@ size = Vector3(15.866699, 11.916931, 1)
 albedo_color = Color(1, 0, 0.043137256, 1)
 
 [node name="Map" type="StaticBody3D"]
-transform = Transform3D(0.0006503989, 0, -0.20935683, 0, 0.20935784, 0, 0.20935683, 0, 0.0006503989, 0, 0, 0)
+transform = Transform3D(0.0031066646, 0, -0.9999952, 0, 1, 0, 0.9999952, 0, 0.0031066646, 0, 0, 0)
 script = ExtResource("1_26yhd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

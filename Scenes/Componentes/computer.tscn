@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=4 uid="uid://cuc8r1mt88ftx"]
 
-[ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/screen.tscn" id="1_4xga7"]
+[ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/Componentes/screen.tscn" id="1_4xga7"]
 [ext_resource type="Script" uid="uid://dty3g8m21i4qb" path="res://Scripts/computer.gd" id="1_j2xe6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opbyo"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+albedo_color = Color(0.34901962, 0.3254902, 1, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i6ilh"]
@@ -47,6 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_i6ilh")
 points = PackedVector3Array(0.06273058, 1.1514131, 0.7634845, -1.2595555, -1.824559, -1.2444555, -1.2595555, -1.824559, 1.2630333, 1.2479333, -1.824559, -1.2444555, 1.2479333, -1.824559, 1.2630333, -0.99249464, 0.9737358, -0.7938201, 1.020658, 1.0117856, -0.65198725, -1.2210803, 1.0643784, 0.9952082, 1.2098844, 1.0651481, 0.995554, 0.70578, 0.4693329, -1.2075866, -0.7174022, 0.4693329, -1.2075866, 0.061700035, 0.13911723, 1.1574454, -1.1254036, 1.0596751, -0.10475685, 0.19952938, 1.1493893, -0.013447753, 1.1511086, 1.0500396, -0.013308099, 0.98605406, 0.98048294, -0.79803765, -0.30322957, 1.1526258, 0.12346152, -1.1599321, 1.0467398, 0.031600975, 1.1985964, 1.0523698, 0.44101757, -0.9422853, 1.013713, -0.698696, -1.2595555, -1.7771413, -1.2444555, -0.57832843, 1.1088042, 0.99414235, 1.2479333, -1.7774377, -1.2444555, -1.2108803, 1.052834, 0.62314755, -1.2595555, -1.7771413, 1.2630333, 1.2479333, -1.7774377, 1.2630333, 0.7923827, 1.1027367, 0.03176991, -0.07295549, 0.13822639, 1.1551733, 0.2914937, 1.1520666, 0.16921185, -1.0263445, 1.0044395, -0.64831495, 0.61135083, 1.1065402, 0.99257195, 0.9744512, 1.0110732, -0.6972853)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlt4a"]
+albedo_color = Color(0.34901962, 0.3254902, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_o2clj"]
 _surfaces = [{
@@ -79,6 +80,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o2clj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04wef"]
+albedo_color = Color(0.34901962, 0.3254902, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rnvwt"]
 _surfaces = [{
@@ -125,6 +127,7 @@ material = SubResource("StandardMaterial3D_m7p0i")
 data = PackedVector3Array(0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0)
 
 [node name="Pc" type="StaticBody3D"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
 script = ExtResource("1_j2xe6")
 
 [node name="Pc" type="MeshInstance3D" parent="."]

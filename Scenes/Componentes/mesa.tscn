@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://dtfa8a77sksdk"]
+[gd_scene load_steps=5 format=4 uid="uid://dtfa8a77sksdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6f1a"]
 
@@ -34,9 +34,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fbl5e")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fbl5e"]
+points = PackedVector3Array(-1, -16.006104, -1.8967773, 0.97468907, 0.84457576, 1, -1, 0.48020163, 0.93736094, 0.97468907, -16.370478, 1, 0.95375013, 0.665897, -1.9287, 0.95375013, -16.1918, -1.9287, -1, 0.48020163, -1.8967773, -1, -16.006104, 0.93736094)
+
 [node name="Mesa" type="StaticBody3D"]
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.303148, 0, 0, 0, 0.511677, 0, 0, 0, 4.0338383, 0, 0, 0)
 mesh = SubResource("ArrayMesh_t1wyp")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(8.303148, 0, 0, 0, 0.511677, 0, 0, 0, 4.0338383, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_fbl5e")

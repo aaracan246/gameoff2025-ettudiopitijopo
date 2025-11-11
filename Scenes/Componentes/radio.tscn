@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b2w3amblmdkc1"]
+[gd_scene load_steps=10 format=4 uid="uid://b2w3amblmdkc1"]
 
 [ext_resource type="Texture2D" uid="uid://dh6ih858v64we" path="res://Assets/Hondas.png" id="1_8y21s"]
 
@@ -34,6 +34,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6edua")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8y21s"]
+points = PackedVector3Array(-1, -0.99287724, -0.9991096, 0.82470787, 0.7564, 1.0727051, 0.817, 1.6467109, -0.8062726, -0.80627, 1.6433278, 0.817, 0.99898416, -0.9800348, 1, -0.9903682, -0.9800348, 1, 1, -0.9813893, -0.99013466, -0.9763921, 1, -0.97451806, 0.81488585, 1.6433278, 0.817, 0.98500806, 1, -0.97451806, -0.817, 1.6604984, -0.8153192, -0.9763921, 1, 0.9866101, 0.98500806, 1, 0.9866101, -0.8243268, 0.59463465, 1.0414242, 0.85758823, 0.14304711, 1.0629681, 0.90083015, 0.38679436, 1.0658923)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdbpc"]
 atlas = ExtResource("1_8y21s")
 region = Rect2(0, 0, 176, 64)
@@ -61,6 +64,10 @@ transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 
 mesh = SubResource("ArrayMesh_8y21s")
 skeleton = NodePath("")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8y21s")
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.2740902, 0, 0, 0, 1.0618628, 0, 0, 0, 0.40460753, 0.09349522, -0.0025820993, 1.9804159)
 sprite_frames = SubResource("SpriteFrames_6jxtu")
@@ -68,7 +75,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9959254, 0.09018066, 0, -0.09018066, 0.9959254, 0, 0.13064717, 0.7021497)
+transform = Transform3D(1, 0, 0, 0, 0.9991497, 0.041230448, 0, -0.041230448, 0.9991497, 0, 0.4398203, 4.2680535)
 
 [node name="ruleta" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2995911, -0.18115994, 1.7523258)

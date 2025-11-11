@@ -72,6 +72,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rx0ni")
 
 [node name="Phone" type="StaticBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_pkn12")
