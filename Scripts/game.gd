@@ -6,7 +6,7 @@ extends Node3D
 @onready var view_newspaper = $Escenario/NewsPaper2.global_transform
 @onready var normal_newspaper = $Escenario/NewsPaper.global_transform
 @onready var pc_area = $Escenario/Pc/Screen/Area3D
-@onready var player: Camera3D = $Escenario/Player
+@onready var player: Camera3D = $Player
 
 
 var actual_camera: Camera3D
