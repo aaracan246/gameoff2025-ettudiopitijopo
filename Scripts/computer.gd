@@ -9,7 +9,9 @@ var last_event_time: float = -1.0
 
 @onready var node_viewport = $SubViewport
 @onready var node_quad = $Screen
-@onready var node_area = $Screen/Area3D
+@onready var node_area: Area3D = $Screen/Area3D
+
+
 
 func _ready():
 	node_area.mouse_entered.connect(_mouse_entered_area)
