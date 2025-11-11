@@ -29,7 +29,6 @@ script = ExtResource("1_j2xe6")
 [node name="Computer" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2379216, 0, 0, 0, 1.1515098, 0, 0, 0, 0.35421076, -0.20630133, 0.027065754, -3.521884)
 mesh = SubResource("BoxMesh_glc8m")
-skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20698547, 0.016723633, -3.5166655)
@@ -49,7 +48,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2093637, -0.018772274, 3.31
 [node name="CollisionScreen" type="CollisionShape3D" parent="Screen/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
 shape = SubResource("ConcavePolygonShape3D_4xga7")
-
-[connection signal="input_event" from="Screen/Area3D" to="." method="_on_mouse_input_event"]
-[connection signal="mouse_entered" from="Screen/Area3D" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Screen/Area3D" to="." method="_on_mouse_exited"]

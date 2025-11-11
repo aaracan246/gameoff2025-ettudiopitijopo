@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=6 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screem.gd" id="1_6t4fl"]
 [ext_resource type="Texture2D" uid="uid://dj5j4rln0bjd8" path="res://gamejam concept/IMG_0827.PNG" id="1_vt2q6"]
 [ext_resource type="Texture2D" uid="uid://ctefy3qwxrros" path="res://icon.svg" id="3_n3rk6"]
+[ext_resource type="Texture2D" uid="uid://c2rlmyw4p6t3x" path="res://Assets/icons/close.png" id="4_n3rk6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6t4fl"]
 viewport_path = NodePath("Camera/SubViewport")
@@ -57,7 +58,8 @@ offset_right = 89.645996
 offset_bottom = 95.318825
 grow_horizontal = 0
 scale = Vector2(0.34083843, 0.2991263)
-icon = ExtResource("3_n3rk6")
+icon = ExtResource("4_n3rk6")
+expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Camera"]

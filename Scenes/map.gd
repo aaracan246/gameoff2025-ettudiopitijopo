@@ -30,6 +30,7 @@ var cont = 0
 func _ready() -> void:
 	$Player.current = true
 	actual_camera = $Player
+	pc_area.collision_layer = 0
 
 func _process(_delta: float) -> void:
 	if !$Player.current:
@@ -104,7 +105,13 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+<<<<<<< Updated upstream
 	input_manager($Room/Computer, event)
+=======
+	
+	await input_manager($Room/Computer, event)
+
+>>>>>>> Stashed changes
 
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
