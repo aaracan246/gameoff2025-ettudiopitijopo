@@ -3,6 +3,7 @@ extends Node
 @onready var main_menu: AudioStreamPlayer = $main_menu
 @onready var credits: AudioStreamPlayer = $credits
 @onready var hover: AudioStreamPlayer = $hover
+@onready var scene_transition: AudioStreamPlayer = $scene_transition
 
 func fade_out(player: AudioStreamPlayer, duration) -> void:
 	if not player:

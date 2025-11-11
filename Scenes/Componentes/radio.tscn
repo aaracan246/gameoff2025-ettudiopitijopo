@@ -74,9 +74,12 @@ sprite_frames = SubResource("SpriteFrames_6jxtu")
 animation = &"idle"
 autoplay = "idle"
 
+<<<<<<< HEAD:Scenes/Componentes/radio.tscn
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9991497, 0.041230448, 0, -0.041230448, 0.9991497, 0, 0.4398203, 4.2680535)
 
+=======
+>>>>>>> 9a4c453c08f4a8276334afedbaff66381114bdc9:Scenes/radio.tscn
 [node name="ruleta" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2995911, -0.18115994, 1.7523258)
 
