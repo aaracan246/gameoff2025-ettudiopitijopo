@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dds2sravpf5uv"
-path="res://.godot/imported/MUTE_W.png-9bcc827141d4e4d86e39f37a76991d11.ctex"
+uid="uid://dk8uu4xhqpmjv"
+path="res://.godot/imported/NoVolume_W.png-f5d8af62cd1f60a9ebf1029415f8a4c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/settings/MUTE_W.png"
-dest_files=["res://.godot/imported/MUTE_W.png-9bcc827141d4e4d86e39f37a76991d11.ctex"]
+source_file="res://Assets/icons/settings/NoVolume_W.png"
+dest_files=["res://.godot/imported/NoVolume_W.png-f5d8af62cd1f60a9ebf1029415f8a4c1.ctex"]
 
 [params]
 

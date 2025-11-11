@@ -87,7 +87,7 @@ layout_mode = 2
 icon = ExtResource("3_lqryc")
 flat = true
 
-[node name="Master_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/Master"]
+[node name="Master_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/Master"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -109,7 +109,7 @@ layout_mode = 2
 icon = ExtResource("3_lqryc")
 flat = true
 
-[node name="Music_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/Music"]
+[node name="Music_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/Music"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -130,7 +130,7 @@ layout_mode = 2
 icon = ExtResource("3_lqryc")
 flat = true
 
-[node name="SFX_HSlider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/SFX"]
+[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Container/Volume/SFX"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -142,9 +142,4 @@ layout_mode = 2
 [connection signal="pressed" from="Blurr" to="." method="_on_blurr_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Header/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/Volume" method="_on_master_btn_pressed"]
-[connection signal="toggled" from="PanelContainer/MarginContainer/Container/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/Volume" method="_on_master_btn_toggled"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/Container/Volume/Master/Master_HSlider" to="PanelContainer/MarginContainer/Container/Volume" method="_on_master_h_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Volume/Music/Music_btn" to="PanelContainer/MarginContainer/Container/Volume" method="_on_music_btn_pressed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/Container/Volume/Music/Music_HSlider" to="PanelContainer/MarginContainer/Container/Volume" method="_on_music_h_slider_value_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Container/Volume/SFX/SFX_btn" to="PanelContainer/MarginContainer/Container/Volume" method="_on_sfx_button_pressed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/Container/Volume/SFX/SFX_HSlider" to="PanelContainer/MarginContainer/Container/Volume" method="_on_sfx_h_slider_value_changed"]
