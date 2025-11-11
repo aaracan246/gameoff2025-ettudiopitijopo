@@ -58,10 +58,6 @@ text = "settings"
 layout_mode = 2
 text = "credits"
 
-[node name="exit_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "exit"
-
 [node name="settings_menu" parent="." instance=ExtResource("2_i2xx2")]
 visible = false
 layout_mode = 1
@@ -73,5 +69,3 @@ layout_mode = 1
 [connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
