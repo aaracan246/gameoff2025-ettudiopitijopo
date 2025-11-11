@@ -54,7 +54,7 @@ text = "new_game"
 layout_mode = 2
 text = "settings"
 
-[node name="credits" type="Button" parent="VBoxContainer"]
+[node name="credits_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "credits"
 
@@ -65,7 +65,8 @@ layout_mode = 1
 [connection signal="mouse_entered" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/credits_btn" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/credits_btn" to="." method="_on_credits_pressed"]
