@@ -35,7 +35,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_26tsb")
 
-[node name="Escenario" type="StaticBody3D"]
+[node name="Escenario" type="Node3D"]
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_cx1d7")
