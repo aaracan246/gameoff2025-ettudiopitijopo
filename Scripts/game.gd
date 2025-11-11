@@ -1,11 +1,12 @@
 extends Node3D
 
 @export var transition_duration: float = 1.0
-@onready var newspaper = $Room/NewsPaper
-@onready var view_newspaper = $Room/NewsPaper2.global_transform
-@onready var normal_newspaper = $Room/NewsPaper.global_transform
+@onready var newspaper = $Escenario/NewsPape
+@onready var view_newspaper = $Escenario/NewsPaper2.global_transform
+@onready var normal_newspaper = $Escenario/NewsPape.global_transform
 @onready var pc_area = $Escenario/Pc/Screen/Area3D
-	
+@onready var player: Camera3D = $Escenario/Player
+
 
 var actual_camera: Camera3D
 var next_camera: Camera3D
@@ -29,13 +30,13 @@ var cont = 0
 
 
 func _ready() -> void:
-	$Player.current = true
-	actual_camera = $Player
+	player.current = true
+	actual_camera = player
 
 func _process(_delta: float) -> void:
-	if !$Player.current:
+	if !player.current:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:  # Clic derecho
-			switch_to_camera_smooth(actual_camera, $Player)
+			switch_to_camera_smooth(actual_camera, player)
 			is_zoomed = false
 	elif newspaper_zoom:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:
@@ -70,16 +71,16 @@ func input_manager(camera:Camera3D, event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
-		await switch_to_camera_smooth($Player, actual_camera)
+		await switch_to_camera_smooth(player, actual_camera)
 		pc_area.collision_layer = 1
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Radio/Camera3D, event)
+	input_manager($Escenario/Radio/Camera3D, event)
 
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Mapa, event)
+	input_manager($Escenario/Map/Camera3D, event)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		cont = randi_range(0,9)
 		match cont:
@@ -107,12 +108,12 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	pc_area.collision_layer = 0
-	await input_manager($Room/Escenario/Computer, event)
+	await input_manager($Escenario/Pc/Camera3D, event)
 
 
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Room/Escenario/telefono, event)
+	input_manager($Escenario/Phone/Camera3D, event)
 
 
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
