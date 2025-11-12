@@ -45,6 +45,7 @@ func _process(_delta: float) -> void:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:  # Clic derecho
 			switch_to_camera_smooth(actual_camera, player)
 			is_zoomed = false
+			emit_signal("disble_colisions")
 	elif newspaper_zoom:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:
 			newspaper_manager()
@@ -118,7 +119,6 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	pc_area.collision_layer = 0
 	await input_manager($Escenario/Computer, event)
 
 

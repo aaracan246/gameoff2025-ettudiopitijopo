@@ -26,11 +26,11 @@ func _on_exit_pressed() -> void:
 
 
 func _on_mouse_entered() -> void:
-	#var custom_cursor_image = load("res://icon.svg")
-	#Input.set_custom_mouse_cursor(custom_cursor_image) 
+	var custom_cursor_image = load("res://Assets/cursores/cursor_pc.png")
+	Input.set_custom_mouse_cursor(custom_cursor_image) 
 	pass
 
 
 func _on_mouse_exited() -> void:
-	var custom_cursor_image = load("res://cursor.png")
+	var custom_cursor_image = load("res://Assets/cursores/cursor_idle.png")
 	Input.set_custom_mouse_cursor(custom_cursor_image) 
