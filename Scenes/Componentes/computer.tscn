@@ -163,6 +163,17 @@ monitoring = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
 shape = SubResource("ConcavePolygonShape3D_4xga7")
 
+[node name="Area3D2" type="Area3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0.2093637, -0.018772278, -0.5616017)
+monitoring = false
+
+[node name="CollisionScreen" type="CollisionShape3D" parent="Screen/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)
+shape = SubResource("ConcavePolygonShape3D_4xga7")
+
 [connection signal="input_event" from="Screen/Area3D" to="." method="_on_mouse_input_event"]
 [connection signal="mouse_entered" from="Screen/Area3D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Screen/Area3D" to="." method="_on_mouse_exited"]
+[connection signal="input_event" from="Screen/Area3D2" to="." method="_on_mouse_input_event"]
+[connection signal="mouse_entered" from="Screen/Area3D2" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Screen/Area3D2" to="." method="_on_mouse_exited"]

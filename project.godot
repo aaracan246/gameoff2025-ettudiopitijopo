@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Audio.tres"
 
 AudioManager="*res://Scenes/UI/audio_manager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://Scripts/Global.gd"
 
 [dialogic]
 
@@ -71,7 +72,7 @@ audio/channel_defaults={
 
 [display]
 
-mouse_cursor/custom_image="uid://cp26kl72xj0s0"
+mouse_cursor/custom_image="uid://nklbdd432hyx"
 
 [editor_plugins]
 

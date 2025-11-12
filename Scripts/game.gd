@@ -45,7 +45,6 @@ func _process(_delta: float) -> void:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:  # Clic derecho
 			switch_to_camera_smooth(actual_camera, player)
 			is_zoomed = false
-			emit_signal("disble_colisions")
 	elif newspaper_zoom:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:
 			newspaper_manager()
@@ -76,6 +75,7 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 	to_camera.current = true
 	is_moving = false
 	temp_camera.queue_free()
+	emit_signal("disble_colisions")
 
 
 func input_manager(camera:Camera3D, event: InputEvent):
@@ -83,7 +83,7 @@ func input_manager(camera:Camera3D, event: InputEvent):
 		is_zoomed = true
 		actual_camera = camera
 		await switch_to_camera_smooth(player, actual_camera)
-		pc_area.collision_layer = 1
+		#pc_area.collision_layer = 1
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -145,7 +145,6 @@ func phone_manager():
 		view_phone.visible = true
 		phone.visible = false
 	elif !phone.visible:
-		print(2222222222)
 		view_phone.visible = false
 		phone.visible = true
 		var tween = create_tween()
@@ -188,4 +187,3 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
-		pc_area.collision_layer = 1
