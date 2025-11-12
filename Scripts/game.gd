@@ -29,6 +29,7 @@ signal mirador
 signal descanso
 signal rescate
 
+signal disble_colisions
 
 var cont = 0
 
@@ -36,6 +37,8 @@ var cont = 0
 func _ready() -> void:
 	player.current = true
 	actual_camera = player
+	emit_signal("disble_colisions")
+
 
 func _process(_delta: float) -> void:
 	if !player.current:
