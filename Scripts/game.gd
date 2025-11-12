@@ -127,6 +127,7 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 		if !phone.visible:
 			phone_manager()
 		else:
+			AudioManager.phone_pickup.play()
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CIRC)
@@ -139,13 +140,13 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 
 func phone_manager():
-	
 	if !view_phone.visible:
 		view_phone.visible = true
 		phone.visible = false
 	elif !phone.visible:
 		view_phone.visible = false
 		phone.visible = true
+	  AudioManager.phone_down.play()
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
