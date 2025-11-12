@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=5 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://b1fr06xaq8451" path="res://Assets/sfx/main_menu.ogg" id="2_qvir6"]
+[ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/sfx/credits.mp3" id="3_tqpqp"]
+[ext_resource type="AudioStream" uid="uid://qjirkoely2gc" path="res://Assets/sfx/hover.ogg" id="4_vmr8m"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
 
 [node name="main_menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qvir6")
+bus = &"Music"
+
+[node name="credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tqpqp")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vmr8m")
+bus = &"SFX"

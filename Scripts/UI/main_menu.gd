@@ -15,7 +15,6 @@ func _ready() -> void:
 	
 func _on_continue_btn_pressed() -> void:
 	AudioManager.fade_out(AudioManager.main_menu, 2.0)
-
 	get_tree().change_scene_to_file("res://Scenes/UI/loading.tscn")
 
 
@@ -27,4 +26,25 @@ func _on_exit_btn_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
+	AudioManager.fade_out(AudioManager.main_menu, 2.0)
 	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
+
+
+#HOVER SOUND
+func _on_continue_btn_mouse_entered() -> void:
+	AudioManager.hover.play()
+	
+func _on_new_game_btn_mouse_entered() -> void:
+	AudioManager.hover.play()
+
+
+func _on_settings_btn_mouse_entered() -> void:
+	AudioManager.hover.play()
+
+
+func _on_credits_mouse_entered() -> void:
+	AudioManager.hover.play()
+
+
+func _on_exit_btn_mouse_entered() -> void:
+	AudioManager.hover.play()

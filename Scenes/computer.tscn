@@ -44,6 +44,7 @@ mesh = SubResource("QuadMesh_tlg0j")
 
 [node name="Area3D" type="Area3D" parent="Screen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2093637, -0.018772274, 3.3199334)
+monitoring = false
 
 [node name="CollisionScreen" type="CollisionShape3D" parent="Screen/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2093637, 0.018772274, -3.3199334)

@@ -4,7 +4,8 @@ extends Node3D
 @onready var newspaper = $Room/NewsPaper
 @onready var view_newspaper = $Room/NewsPaper2.global_transform
 @onready var normal_newspaper = $Room/NewsPaper.global_transform
-
+@onready var pc_area = $Room/Pc/Screen/Area3D
+	
 
 var actual_camera: Camera3D
 var next_camera: Camera3D
@@ -70,7 +71,8 @@ func input_manager(camera:Camera3D, event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
-		switch_to_camera_smooth($Player, actual_camera)
+		await switch_to_camera_smooth($Player, actual_camera)
+		pc_area.collision_layer = 1
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -105,6 +107,7 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 	input_manager($Room/Computer, event)
 =======
@@ -112,6 +115,11 @@ func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vecto
 	await input_manager($Room/Computer, event)
 
 >>>>>>> Stashed changes
+=======
+	pc_area.collision_layer = 0
+	await input_manager($Room/Computer, event)
+
+>>>>>>> main
 
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
