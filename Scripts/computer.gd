@@ -101,11 +101,9 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 	# Finally, send the processed input event to the viewport.
 	node_viewport.push_input(event)
 
+
 func _on_demo_disble_colisions() -> void:
-	var area = $Screen/Area3D
-	if area.collision_layer == 0:
-		area.collision_layer = 1
+	if node_area.collision_layer == 0:
+		node_area.collision_layer = 1
 	else:
-		
-		area.collision_layer = 0
-	print(area.collision_layer)
+		node_area.collision_layer = 0

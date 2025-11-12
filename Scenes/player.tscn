@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cu57r7amwj8a7" path="res://Scripts/player.gd" id="1_v0iea"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0iea"]
-size = Vector3(0.15356445, 0.95592976, 0.15216064)
+size = Vector3(0.15356445, 0.1470635, 0.15216064)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v0iea"]
 
@@ -12,7 +12,7 @@ transparency = 1
 albedo_color = Color(0, 0, 0, 0.44313726)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvnsp"]
-size = Vector3(0.14215088, 0.77547073, 0.13188934)
+size = Vector3(0.14215088, 0.14333057, 0.13188934)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cvnsp"]
 
@@ -20,31 +20,30 @@ size = Vector3(0.14215088, 0.77547073, 0.13188934)
 script = ExtResource("1_v0iea")
 
 [node name="Right" type="Area3D" parent="."]
-transform = Transform3D(0.941459, 0, 0, 0, 0.15348607, 0, 0, 0, 0.9491876, 0.028380185, 0, 0.16944057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028380185, 0, 0.16944057)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.42851305, -0.031811237, -0.396801)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.42851305, 0.002078876, -0.396801)
 shape = SubResource("BoxShape3D_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Right"]
-transform = Transform3D(0.15133692, 0, 0, 0, 1.0404296, 0, 0, 0, 0.14039218, 0.38789892, 0, -0.37527323)
+transform = Transform3D(0.15552522, 0, 0, 0, 0.15, 0, 0, 0, 0.13402635, 0.38789892, 0, -0.37527323)
 mesh = SubResource("BoxMesh_v0iea")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
 [node name="Left" type="Area3D" parent="."]
-transform = Transform3D(0.94, 0, 0, 0, 0.15, 0, 0, 0, 0.94, -0.74789864, 0, 0.17089626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74789864, 0, 0.17089626)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3944634, -0.020643234, -0.3744316)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394, 0, -0.397)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left"]
-transform = Transform3D(0.15133692, 0, 0, 0, 1.0404296, 0, 0, 0, 0.14039218, 0.38789892, 0, -0.37527323)
+transform = Transform3D(0.15552522, 0, 0, 0, 0.15, 0, 0, 0, 0.14830844, 0.388, 0, -0.397)
 mesh = SubResource("BoxMesh_cvnsp")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
 [node name="rotationTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [connection signal="mouse_entered" from="Right" to="." method="_on_right_mouse_entered"]

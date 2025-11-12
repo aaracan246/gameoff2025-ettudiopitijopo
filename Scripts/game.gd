@@ -83,7 +83,6 @@ func input_manager(camera:Camera3D, event: InputEvent):
 		is_zoomed = true
 		actual_camera = camera
 		await switch_to_camera_smooth(player, actual_camera)
-		#pc_area.collision_layer = 1
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
