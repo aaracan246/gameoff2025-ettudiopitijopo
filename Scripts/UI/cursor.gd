@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	global_position = lerp(global_position, get_global_mouse_position(), 16.5*delta)
+	
 	if pc:
 		cursor.texture = texture_pc
 
@@ -30,10 +31,12 @@ func _physics_process(delta: float) -> void:
 			cursor.texture = texture_click
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 			cursor.texture = texture_pointing
-		elif !interactive:
+		elif interactive:
 			cursor.texture = texture_pointing
 		else:
 			cursor.texture = texture_idle
+	interactive = false
+	print(cursor.texture.resource_path)
 
 
 func _on_child_entered_tree(node: Node) -> void:
