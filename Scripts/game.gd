@@ -121,7 +121,7 @@ func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vecto
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving :
-		is_zoomed = true
+		is_moving = true
 		if !phone.visible:
 			phone_manager()
 		else:
@@ -132,6 +132,8 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 			await tween.finished
 			print(phone.visible)
 			phone_manager()
+			
+		is_moving = false
 
 
 func phone_manager():
@@ -141,13 +143,14 @@ func phone_manager():
 		phone.visible = false
 	elif !phone.visible:
 		print(2222222222)
+		view_phone.visible = false
+		phone.visible = true
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(view_phone, "global_transform",phone_position, transition_duration)
+		tween.tween_property(phone, "global_transform",phone_position, transition_duration)
 		await tween.finished
-		view_phone.visible = false
-		phone.visible = true
+
 
 
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
