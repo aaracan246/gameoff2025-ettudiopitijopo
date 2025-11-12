@@ -9,6 +9,8 @@ extends Node
 @onready var hover: AudioStreamPlayer = $SFX/hover
 @onready var newspaper_drop: AudioStreamPlayer = $SFX/newspaper_drop
 @onready var newspaper_pickup: AudioStreamPlayer = $SFX/newspaper_pickup
+@onready var chair_roll: AudioStreamPlayer = $SFX/chair_roll
+@onready var chair_swing: AudioStreamPlayer = $SFX/chair_swing
 
 
 func fade_out(player: AudioStreamPlayer, duration) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgdpk26cqtgen"
-path="res://.godot/imported/Cursor_señalando.png-99fa3f73df02ab17feed8a0628d9d594.ctex"
+uid="uid://jsgqub8i04nb"
+path="res://.godot/imported/cursor_click.png-393624ace16ee04082cc992e54215245.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cursores/Cursor_señalando.png"
-dest_files=["res://.godot/imported/Cursor_señalando.png-99fa3f73df02ab17feed8a0628d9d594.ctex"]
+source_file="res://Assets/cursores/cursor_click.png"
+dest_files=["res://.godot/imported/cursor_click.png-393624ace16ee04082cc992e54215245.ctex"]
 
 [params]
 
