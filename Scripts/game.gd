@@ -7,7 +7,10 @@ extends Node3D
 @onready var normal_newspaper = $Escenario/NewsPaper.global_transform
 @onready var pc_area = $Escenario/Pc/Screen/Area3D
 @onready var player: Camera3D = $Player
+@onready var phone = $Escenario/Phone/auricular
+@onready var view_phone = $Player/auricular
 
+@onready var phone_position = $Escenario/Phone/auricular.global_transform
 
 var actual_camera: Camera3D
 var next_camera: Camera3D
@@ -45,7 +48,7 @@ func _process(_delta: float) -> void:
 			
 
 
-func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
+func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
 	is_moving = true
 	# Crear cámara temporal para la transición
@@ -53,15 +56,18 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D):
 	add_child(temp_camera)
 	temp_camera.global_transform = from_camera.global_transform
 	temp_camera.current = true
-	
-	# Animación suave con Tween
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
+	if tween1:
+		tween1.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
+		await tween1.finished
+	else:
+		# Animación suave con Tween
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
 	
 	# Esperar a que termine la animación
-	await tween.finished
+		await tween.finished
 	# Activar cámara final y limpiar
 	to_camera.current = true
 	is_moving = false
@@ -113,11 +119,35 @@ func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vecto
 	await input_manager($Escenario/Computer, event)
 
 
-
-
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Escenario/telefono, event)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving :
+		is_zoomed = true
+		if !phone.visible:
+			phone_manager()
+		else:
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_CIRC)
+			tween.tween_property(phone, "global_transform",view_phone.global_transform, transition_duration)
+			await tween.finished
+			print(phone.visible)
+			phone_manager()
 
+
+func phone_manager():
+	
+	if !view_phone.visible:
+		view_phone.visible = true
+		phone.visible = false
+	elif !phone.visible:
+		print(2222222222)
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(view_phone, "global_transform",phone_position, transition_duration)
+		await tween.finished
+		view_phone.visible = false
+		phone.visible = true
 
 
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -141,3 +171,15 @@ func newspaper_manager():
 	newspaper_zoom = false
 	is_zoomed = false
 	
+
+
+func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	print(event)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_LINEAR)
+		is_zoomed = true
+		actual_camera = $Escenario/Gato
+		await switch_to_camera_smooth(player, actual_camera,tween)
+		pc_area.collision_layer = 1
