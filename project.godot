@@ -28,7 +28,9 @@ Global="*res://Scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"karmela": "res://Dialogs/karmela.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"victima": "res://Dialogs/victima.dch"
 }
 directories/dtl_directory={
 "timeline": "res://Dialogs/timeline.dtl"
@@ -69,6 +71,8 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+variables={}
+glossary/default_case_sensitive=true
 
 [display]
 
