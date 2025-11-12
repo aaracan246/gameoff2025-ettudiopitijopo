@@ -26,21 +26,18 @@ func _process(delta: float) -> void:
 	rotation = rot_actual
  
 
+	#AudioManager.chair_swing.play()
 
 func rotation_manager():
 	rotacion = list_rotations[positionXYZ]
 	print(rotacion)
-
 	objetivo_rot = rotations[rotacion]
-
-
 
 	$rotationTimer.start()
 	timer_rotation = true
 
 
 func _on_right_mouse_entered() -> void:
-	
 	if !timer_rotation : 
 		if positionXYZ < 3:
 			positionXYZ += 1
@@ -59,7 +56,6 @@ func _on_left_mouse_entered() -> void:
 			positionXYZ = 3
 		else: 
 			positionXYZ = 0
-
 	rotation_manager()
 
 

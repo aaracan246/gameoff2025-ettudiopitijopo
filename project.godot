@@ -69,6 +69,10 @@ audio/channel_defaults={
 }
 }
 
+[display]
+
+mouse_cursor/custom_image="uid://cp26kl72xj0s0"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")

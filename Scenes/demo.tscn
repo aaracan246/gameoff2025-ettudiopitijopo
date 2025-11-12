@@ -72,6 +72,8 @@ visible = false
 
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
 
