@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 func rotation_manager():
 	if timer_rotation == false:
 		rotacion = list_rotations[positionXYZ]
-		print("rotacion")
 		objetivo_rot = rotations[rotacion]
 		$rotationTimer.start(0.5)
 		timer_rotation = true
