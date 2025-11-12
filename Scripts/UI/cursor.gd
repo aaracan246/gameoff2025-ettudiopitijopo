@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 			cursor.texture = texture_pointing
 		else:
 			cursor.texture = texture_idle
-	interactive = false
 	print(cursor.texture.resource_path)
 
 

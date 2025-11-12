@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://byhbhtnyyn47m"]
+[gd_scene load_steps=4 format=3 uid="uid://byhbhtnyyn47m"]
 
 [ext_resource type="Script" uid="uid://b5o5sdyfcpdbd" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
 [ext_resource type="PackedScene" uid="uid://fymcpiyww0nr" path="res://Scenes/UI/settings_menu.tscn" id="2_i2xx2"]
+[ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="2_o14dv"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,6 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5wsvm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4346
+
+[node name="cursor" parent="CanvasLayer" instance=ExtResource("2_o14dv")]
+process_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
