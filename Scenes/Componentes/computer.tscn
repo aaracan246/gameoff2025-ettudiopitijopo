@@ -148,8 +148,14 @@ mesh = SubResource("ArrayMesh_3cxpa")
 skeleton = NodePath("")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(350, 350)
 
 [node name="pantalla" parent="SubViewport" instance=ExtResource("1_4xga7")]
+anchors_preset = -1
+anchor_right = 0.30400002
+anchor_bottom = 0.54
+offset_right = -106.40001
+offset_bottom = -189.0
 
 [node name="Screen" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.7113408, 0, 0, 0, 1.567268, 0, 0, 0, 1, 0.009665012, 0.018772274, 1.2177691)

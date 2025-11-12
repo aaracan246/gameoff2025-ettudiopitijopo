@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=13 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_6t4fl"]
-[ext_resource type="Texture2D" uid="uid://dj5j4rln0bjd8" path="res://gamejam concept/IMG_0827.PNG" id="1_vt2q6"]
-[ext_resource type="Texture2D" uid="uid://ctefy3qwxrros" path="res://icon.svg" id="3_n3rk6"]
+[ext_resource type="Texture2D" uid="uid://da252jvsrquw6" path="res://Assets/pc/wallpaper.png" id="2_fujxl"]
+[ext_resource type="Texture2D" uid="uid://01tgl4x0stgk" path="res://Assets/pc/camera.png" id="3_bb460"]
+[ext_resource type="Texture2D" uid="uid://ccp7vgyf83peh" path="res://Assets/pc/email.png" id="4_ma2j0"]
 [ext_resource type="Texture2D" uid="uid://c2rlmyw4p6t3x" path="res://Assets/icons/close.png" id="4_rpafq"]
+[ext_resource type="Texture2D" uid="uid://dvstnqsmejv12" path="res://Assets/pc/email_alert.png" id="5_7dyi4"]
+[ext_resource type="Texture2D" uid="uid://dcojodhi4plbv" path="res://Assets/pc/book.png" id="5_b4031"]
+[ext_resource type="Texture2D" uid="uid://bt5upa0h5uhsi" path="res://Assets/pc/gallery.png" id="5_ixi4j"]
+[ext_resource type="Texture2D" uid="uid://f1ldfmvj8pt0" path="res://Assets/pc/file.png" id="7_p5gwp"]
+[ext_resource type="Texture2D" uid="uid://fdjq5iva3edk" path="res://Assets/pc/trash.png" id="8_dw2fv"]
+[ext_resource type="Texture2D" uid="uid://bctoqd3paxy3b" path="res://Assets/pc/OFF.png" id="9_hsj54"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6t4fl"]
 viewport_path = NodePath("Camera/SubViewport")
@@ -13,58 +20,154 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -802.0
+offset_bottom = -298.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6t4fl")
 
 [node name="Destktop" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_vt2q6")
-expand_mode = 2
+offset_right = 350.0
+offset_bottom = 350.0
+texture = ExtResource("2_fujxl")
 
-[node name="camera" type="Button" parent="Destktop"]
+[node name="camera" type="Button" parent="."]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 14.0
-offset_right = 191.0
-offset_bottom = 150.0
-text = "Camera"
-icon = ExtResource("3_n3rk6")
+offset_left = 108.0
+offset_top = 232.0
+offset_right = 205.0
+offset_bottom = 311.0
+text = "
+"
+icon = ExtResource("3_bb460")
 alignment = 2
+
+[node name="book" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="book_btn" type="Button" parent="book"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 156.0
+offset_right = 79.0
+offset_bottom = 214.0
+flat = true
+
+[node name="Book" type="TextureRect" parent="book"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 133.0
+offset_right = 105.0
+offset_bottom = 233.0
+texture = ExtResource("5_b4031")
+
+[node name="off" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="off_btn" type="Button" parent="off"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 316.0
+offset_right = 340.0
+offset_bottom = 340.0
+flat = true
+
+[node name="off" type="TextureRect" parent="off"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 313.0
+offset_right = 343.0
+offset_bottom = 343.0
+texture = ExtResource("9_hsj54")
+
+[node name="trash" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="trash_btn" type="Button" parent="trash"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 25.0
+offset_right = 287.0
+offset_bottom = 73.0
+flat = true
+
+[node name="trash" type="Sprite2D" parent="trash"]
+position = Vector2(267, 50)
+texture = ExtResource("8_dw2fv")
+
+[node name="gallery" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="gallery_btn" type="Button" parent="gallery"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 147.0
+offset_right = 201.0
+offset_bottom = 184.0
+flat = true
+
+[node name="gallery" type="Sprite2D" parent="gallery"]
+position = Vector2(179, 166)
+texture = ExtResource("5_ixi4j")
+
+[node name="file" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="file_btn" type="Button" parent="file"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 110.0
+offset_right = 300.0
+offset_bottom = 166.0
+flat = true
+
+[node name="file" type="Sprite2D" parent="file"]
+position = Vector2(279, 138)
+texture = ExtResource("7_p5gwp")
+
+[node name="email" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="email_btn" type="Button" parent="email"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 52.0
+offset_right = 170.0
+offset_bottom = 82.0
+flat = true
+
+[node name="email" type="Sprite2D" parent="email"]
+position = Vector2(147, 68)
+texture = ExtResource("4_ma2j0")
+
+[node name="email_alert" type="Sprite2D" parent="email"]
+position = Vector2(168, 54)
+texture = ExtResource("5_7dyi4")
 
 [node name="Camera" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 350.0
+offset_bottom = 350.0
 texture = SubResource("ViewportTexture_6t4fl")
 
 [node name="exit" type="Button" parent="Camera"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9123265
-anchor_top = 0.02160494
-anchor_right = 0.95256436
-anchor_bottom = 0.08438453
-offset_right = 89.645996
-offset_bottom = 95.318825
+offset_left = 320.0
+offset_top = 10.0
+offset_right = 340.0
+offset_bottom = 30.0
 grow_horizontal = 0
-scale = Vector2(0.34083843, 0.2991263)
 icon = ExtResource("4_rpafq")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Camera"]
 snap_2d_transforms_to_pixel = true
+size = Vector2i(350, 350)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -72,5 +175,5 @@ render_target_update_mode = 4
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="Destktop/camera" to="." method="_on_camera_pressed"]
+[connection signal="pressed" from="camera" to="." method="_on_camera_pressed"]
 [connection signal="pressed" from="Camera/exit" to="." method="_on_exit_pressed"]
