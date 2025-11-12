@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=25 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
+[ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="19_m3jaw"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -62,6 +63,10 @@ albedo_color = Color(1, 1, 0, 1)
 [node name="Demo" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
 script = ExtResource("1_tcdmn")
+
+[node name="cursor" parent="." instance=ExtResource("19_m3jaw")]
+process_mode = 3
+layer = 6456
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
