@@ -72,6 +72,8 @@ visible = false
 
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
 
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nsw6b")
 
@@ -152,7 +154,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.
 
 [connection signal="cafe" from="." to="Escenario/Map" method="_on_demo_cafe"]
 [connection signal="descanso" from="." to="Escenario/Map" method="_on_demo_descanso"]
-[connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
 [connection signal="embarcadero" from="." to="Escenario/Map" method="_on_demo_embarcadero"]
 [connection signal="entrada" from="." to="Escenario/Map" method="_on_demo_entrada"]
 [connection signal="merendero1" from="." to="Escenario/Map" method="_on_demo_merendero_1"]

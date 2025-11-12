@@ -14,23 +14,23 @@ func _ready() -> void:
 	new_camera.global_transform = camera.global_transform
  
 
-	
 func _on_camera_pressed() -> void:
+	print("camera")
 	destktop.visible = false
 	Outdoor_camera.visible = true
 
 
 func _on_exit_pressed() -> void:
+	print("camera")
 	destktop.visible = true
 	Outdoor_camera.visible = false
 
 
 func _on_mouse_entered() -> void:
-	#var custom_cursor_image = load("res://icon.svg")
-	#Input.set_custom_mouse_cursor(custom_cursor_image) 
-	pass
+	var custom_cursor_image = load("res://Assets/cursores/cursor_pc.png")
+	Input.set_custom_mouse_cursor(custom_cursor_image) 
 
 
 func _on_mouse_exited() -> void:
-	var custom_cursor_image = load("res://cursor.png")
+	var custom_cursor_image = load("res://Assets/cursores/cursor_idle.png")
 	Input.set_custom_mouse_cursor(custom_cursor_image) 

@@ -29,6 +29,7 @@ signal mirador
 signal descanso
 signal rescate
 
+signal disble_colisions
 
 var cont = 0
 
@@ -36,6 +37,8 @@ var cont = 0
 func _ready() -> void:
 	player.current = true
 	actual_camera = player
+	emit_signal("disble_colisions")
+
 
 func _process(_delta: float) -> void:
 	if !player.current:
@@ -72,6 +75,7 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 	to_camera.current = true
 	is_moving = false
 	temp_camera.queue_free()
+	emit_signal("disble_colisions")
 
 
 func input_manager(camera:Camera3D, event: InputEvent):
@@ -79,7 +83,7 @@ func input_manager(camera:Camera3D, event: InputEvent):
 		is_zoomed = true
 		actual_camera = camera
 		await switch_to_camera_smooth(player, actual_camera)
-		pc_area.collision_layer = 1
+		#pc_area.collision_layer = 1
 
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -115,7 +119,6 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	pc_area.collision_layer = 0
 	await input_manager($Escenario/Computer, event)
 
 
@@ -138,15 +141,13 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 
 func phone_manager():
-	
 	if !view_phone.visible:
 		view_phone.visible = true
 		phone.visible = false
 	elif !phone.visible:
-		AudioManager.phone_down.play()
-		print(2222222222)
 		view_phone.visible = false
 		phone.visible = true
+	  AudioManager.phone_down.play()
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
@@ -187,4 +188,3 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
-		pc_area.collision_layer = 1

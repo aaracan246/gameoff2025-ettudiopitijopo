@@ -6,7 +6,7 @@ var is_mouse_inside = false
 var last_event_pos2D = null
 # The time of the last event in seconds since engine start.
 var last_event_time: float = -1.0
-
+@onready var dispo_pos = $Screen/Area3D
 @onready var node_viewport = $SubViewport
 @onready var node_quad = $Screen
 @onready var node_area: Area3D = $Screen/Area3D
@@ -100,3 +100,12 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 	# Finally, send the processed input event to the viewport.
 	node_viewport.push_input(event)
+
+func _on_demo_disble_colisions() -> void:
+	var area = $Screen/Area3D
+	if area.collision_layer == 0:
+		area.collision_layer = 1
+	else:
+		
+		area.collision_layer = 0
+	print(area.collision_layer)
