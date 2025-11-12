@@ -11,20 +11,23 @@ var last_event_time: float = -1.0
 @onready var node_quad = $Screen
 @onready var node_area: Area3D = $Screen/Area3D
 
+signal pc_mouse(inside:bool)
 
-
-func _ready():
-	node_area.mouse_entered.connect(_mouse_entered_area)
-	node_area.mouse_exited.connect(_mouse_exited_area)
-	node_area.input_event.connect(_mouse_input_event)
+#func _ready():
+	#node_area.mouse_entered.connect(_mouse_entered_area)
+	#node_area.mouse_exited.connect(_mouse_exited_area)
+	#node_area.input_event.connect(_mouse_input_event)
 
 
 func _mouse_entered_area():
 	is_mouse_inside = true
+	emit_signal("pc_mouse",is_mouse_inside)
 
 
 func _mouse_exited_area():
 	is_mouse_inside = false
+	emit_signal("pc_mouse",is_mouse_inside)
+
 
 
 func _unhandled_input(event):

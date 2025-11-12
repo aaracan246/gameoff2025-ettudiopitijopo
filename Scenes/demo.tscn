@@ -64,9 +64,11 @@ albedo_color = Color(1, 1, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
 script = ExtResource("1_tcdmn")
 
-[node name="cursor" parent="." instance=ExtResource("19_m3jaw")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4346
+
+[node name="cursor" parent="CanvasLayer" instance=ExtResource("19_m3jaw")]
 process_mode = 3
-layer = 6456
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -160,6 +162,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
 [connection signal="embarcadero" from="." to="Escenario/Map" method="_on_demo_embarcadero"]
 [connection signal="entrada" from="." to="Escenario/Map" method="_on_demo_entrada"]
+[connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
 [connection signal="merendero1" from="." to="Escenario/Map" method="_on_demo_merendero_1"]
 [connection signal="merendero2" from="." to="Escenario/Map" method="_on_demo_merendero_2"]
 [connection signal="mirador" from="." to="Escenario/Map" method="_on_demo_mirador"]
@@ -171,5 +174,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.
 [connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]
 [connection signal="input_event" from="Escenario/Radio" to="." method="_on_radio_input_event"]
 [connection signal="input_event" from="Escenario/Pc" to="." method="_on_pc_input_event"]
+[connection signal="pc_mouse" from="Escenario/Pc" to="CanvasLayer/cursor" method="_on_pc_pc_mouse"]
 [connection signal="input_event" from="Escenario/Phone" to="." method="_on_phone_input_event"]
 [connection signal="input_event" from="Escenario/cat" to="." method="_on_cat_input_event"]

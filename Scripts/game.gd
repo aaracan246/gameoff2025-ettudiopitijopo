@@ -31,6 +31,7 @@ signal rescate
 
 signal disble_colisions
 
+signal interactive_object
 var cont = 0
 
 
@@ -79,6 +80,7 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 
 
 func input_manager(camera:Camera3D, event: InputEvent):
+	emit_signal("interactive_object")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
@@ -179,7 +181,6 @@ func newspaper_manager():
 
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	print(event)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
