@@ -48,21 +48,9 @@ var cont = 0
 @onready var temp_camera = $deault_camera
 
 func _ready() -> void:
-	map.mouse_entered.connect(_mouse_entered_area)
-	radio.mouse_entered.connect(_mouse_entered_area)
-	pc.mouse_entered.connect(_mouse_entered_area)
-	phone_station.mouse_entered.connect(_mouse_entered_area)
-	lampara.mouse_entered.connect(_mouse_entered_area)
-	cat.mouse_entered.connect(_mouse_entered_area)
-	newspaper.mouse_entered.connect(_mouse_entered_area)
-	
-	map.mouse_exited.connect(_mouse_exited_area)
-	radio.mouse_exited.connect(_mouse_exited_area)
-	pc.mouse_exited.connect(_mouse_exited_area)
-	phone_station.mouse_exited.connect(_mouse_exited_area)
-	lampara.mouse_exited.connect(_mouse_exited_area)
-	cat.mouse_exited.connect(_mouse_exited_area)
-	newspaper.mouse_exited.connect(_mouse_exited_area)
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper]:
+		node.mouse_entered.connect(_mouse_entered_area.bind(node))
+		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 
 	player.current = true
 	actual_camera = player
@@ -93,22 +81,20 @@ func colgar_phone():
 	phone_manager()
 	
 	
-func _mouse_entered_area():
+func _mouse_entered_area(_node):
 	interactive = true
 	emit_signal("interactive_object",interactive)
 
-func _mouse_exited_area():
+func _mouse_exited_area(_node):
 	interactive = false
 	emit_signal("interactive_object",interactive)
 	
 	
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
-	print(from_camera.global_transform)
 	is_moving = true
 	# Crear cámara temporal para la transición
 	temp_camera.global_transform = from_camera.global_transform
-	print(temp_camera.fov)
 	temp_camera.current = true
 	if tween1:
 		tween1.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
@@ -140,8 +126,12 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and not is_zoomed:
+		AudioManager.chair_roll.play()
 	input_manager($Escenario/Mapa, event)
 
+
+			
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		cont = randi_range(0,9)
 		match cont:
@@ -185,7 +175,6 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 			tween.set_trans(Tween.TRANS_CIRC)
 			tween.tween_property(phone, "global_transform",view_phone.global_transform, transition_duration)
 			await tween.finished
-			print(phone.visible)
 			phone_manager()
 			
 		is_moving = false
@@ -244,6 +233,9 @@ func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		var onOff = $Escenario/lampara/SpotLight3D.visible
 		$Escenario/lampara/SpotLight3D.visible = !onOff
+		(AudioManager.lamp_on if onOff else AudioManager.lamp_off).play()
+
+
 
 
 func _on_player_move() -> void:
@@ -263,6 +255,6 @@ func door_manager():
 	if !door_open:
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(puerta, "global_rotation",rotation_door, transition_duration )
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration )
 		

@@ -10,4 +10,6 @@ func next_event():
 	timer.wait_time = timer_duration
 	await  timer.timeout
 	Dialogic.start("evento" + str(cont))
+	set_process_input(true)
+	set_process_unhandled_input(true)
 	cont+=1

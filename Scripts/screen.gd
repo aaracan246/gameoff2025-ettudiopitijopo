@@ -5,7 +5,7 @@ var camera:Camera3D
 @onready var subviewport = $Camera/SubViewport
 @onready var destktop = $Destktop
 @onready var Outdoor_camera = $Camera
-@onready var camera_button: Button = $camera/camera_btn
+@onready var camera_button: Button = $Destktop/icons/camera/camera_btn
 @onready var exit: Button = $Camera/exit
 @onready var pause_menu: Control = $"../../../../UI/pause_menu"
 @onready var pantalla: Control = $"."

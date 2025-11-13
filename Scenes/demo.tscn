@@ -109,6 +109,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0
 [node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.580523, -14.395881, 19.829748)
 
+[node name="puerta2" parent="Escenario" instance=ExtResource("7_l50oi")]
+transform = Transform3D(2.178556, 0, -3.3546824, 0, 4, 0, 3.3546824, 0, 2.178556, 23.209587, -14.395881, 13.88896)
+visible = false
+
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
 transform = Transform3D(1, 7.450581e-09, 1.3877788e-16, 0, -5.2154064e-08, 1, 7.450581e-09, -1, -5.2154064e-08, -1.2139053, 44.717648, -4.2476416)
 light_color = Color(0.7490196, 0.73333335, 0.54509807, 1)
@@ -197,6 +201,7 @@ texture = ExtResource("23_65jo5")
 [connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
 [connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
+[connection signal="input_event" from="Escenario/puerta2" to="." method="_on_puerta_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper2" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]

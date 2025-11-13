@@ -10,7 +10,13 @@ extends Control
 func _ready() -> void:
 	settings_menu.visible = false
 	AudioManager.main_menu.play()
+	
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		AudioManager.click.play()
+	
+		
 # === ON PRESSED === #
 func _on_continue_btn_pressed() -> void:
 	AudioManager.fade_out(AudioManager.main_menu, 2.0)

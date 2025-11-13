@@ -29,13 +29,16 @@ func _process(delta: float) -> void:
 	rotation = rot_actual
  
 
-	#AudioManager.chair_swing.play()
-
 func rotation_manager():
 	if timer_rotation == false:
 		emit_signal("down")
 		rotacion = list_rotations[positionXYZ]
 		objetivo_rot = rotations[rotacion]
+		
+		# El sonido va cambiando
+		var sound_node_name = "SFX/chair_%d" % randi_range(1, 4)
+		AudioManager.get_node(sound_node_name).play()
+			
 		$rotationTimer.start(0.5)
 		timer_rotation = true
 
