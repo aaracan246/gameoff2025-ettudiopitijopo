@@ -1,17 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=20 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
 [ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/audio/music/credits.mp3" id="3_tqpqp"]
 [ext_resource type="AudioStream" uid="uid://qjirkoely2gc" path="res://Assets/audio/sfx/hover.ogg" id="4_vmr8m"]
 [ext_resource type="AudioStream" uid="uid://doxmn7e2mr0cc" path="res://Assets/audio/sfx/transition.wav" id="5_q3gic"]
-[ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/newspaper_drop.wav" id="6_yoybt"]
-[ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/newspaper_pickup.wav" id="7_1xomj"]
-[ext_resource type="AudioStream" uid="uid://ekxl0hdjnkk3" path="res://Assets/audio/sfx/chair_roll.wav" id="8_1xomj"]
-[ext_resource type="AudioStream" uid="uid://cddh331go0f78" path="res://Assets/audio/sfx/chair_swing.wav" id="9_b4c8t"]
-[ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/phone_ring.mp3" id="10_5h4gq"]
-[ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/phone_pickup.wav" id="11_ehvno"]
-[ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/phone_down.wav" id="12_axxev"]
+[ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/desktop/newspaper_drop.wav" id="6_yoybt"]
+[ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/desktop/newspaper_pickup.wav" id="7_1xomj"]
+[ext_resource type="AudioStream" uid="uid://c0qmwu4tx1qum" path="res://Assets/audio/sfx/room/chair_roll.wav" id="8_1xomj"]
+[ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/desktop/phone_ring.mp3" id="10_5h4gq"]
+[ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/desktop/phone_pickup.wav" id="11_ehvno"]
+[ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="12_axxev"]
+[ext_resource type="AudioStream" uid="uid://b6qpxhiwlat1h" path="res://Assets/audio/sfx/room/chair_1.wav" id="13_ddp6m"]
+[ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/desktop/click.wav" id="13_ehvno"]
+[ext_resource type="AudioStream" uid="uid://chf25o1q40fv8" path="res://Assets/audio/sfx/room/chair_2.wav" id="14_6vio7"]
+[ext_resource type="AudioStream" uid="uid://7xvrng0ftqne" path="res://Assets/audio/sfx/room/chair_3.wav" id="15_62ok4"]
+[ext_resource type="AudioStream" uid="uid://2rw5lfgs1qq3" path="res://Assets/audio/sfx/room/chair_4.wav" id="16_blkxh"]
+[ext_resource type="AudioStream" uid="uid://bapjb5a5my263" path="res://Assets/audio/sfx/desktop/pc_alert.mp3" id="17_6vio7"]
+[ext_resource type="AudioStream" uid="uid://b2ky6papdm1os" path="res://Assets/audio/sfx/desktop/lamp_on.wav" id="18_blkxh"]
+[ext_resource type="AudioStream" uid="uid://bl5e2oojqs4k4" path="res://Assets/audio/sfx/desktop/lamp_off.wav" id="19_nqmde"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -24,9 +31,11 @@ bus = &"Music"
 
 [node name="credits" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("3_tqpqp")
+bus = &"Music"
 
 [node name="scene_transition" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_q3gic")
+bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]
 
@@ -42,20 +51,52 @@ bus = &"SFX"
 stream = ExtResource("7_1xomj")
 bus = &"SFX"
 
+[node name="phone_ring" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_5h4gq")
+mix_target = 1
+bus = &"SFX"
+
+[node name="phone_pickup" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_ehvno")
+bus = &"SFX"
+
+[node name="phone_down" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_axxev")
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_ehvno")
+bus = &"SFX"
+
 [node name="chair_roll" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_1xomj")
 volume_db = 12.404
 bus = &"SFX"
 
-[node name="chair_swing" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("9_b4c8t")
+[node name="chair_1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_ddp6m")
 bus = &"SFX"
 
-[node name="phone_ring" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("10_5h4gq")
+[node name="chair_2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_6vio7")
+bus = &"SFX"
 
-[node name="phone_pickup" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("11_ehvno")
+[node name="chair_3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_62ok4")
+bus = &"SFX"
 
-[node name="phone_down" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("12_axxev")
+[node name="chair_4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_blkxh")
+bus = &"SFX"
+
+[node name="pc_alert" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_6vio7")
+bus = &"SFX"
+
+[node name="lamp_on" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_blkxh")
+bus = &"SFX"
+
+[node name="lamp_off" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("19_nqmde")
+bus = &"SFX"
