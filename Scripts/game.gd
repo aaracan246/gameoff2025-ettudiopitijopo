@@ -64,8 +64,9 @@ func _ready() -> void:
 
 	player.current = true
 	actual_camera = player
-	Dialogic.colgar_phone.connect("colgar")
+	#Dialogic.connect("colgar",colgar_phone)
 	emit_signal("disble_colisions")
+	
 
 
 func _process(_delta: float) -> void:
@@ -79,6 +80,7 @@ func _process(_delta: float) -> void:
 			
 func colgar_phone():
 	phone_manager()
+	Global.next_event()
 	
 func _mouse_entered_area():
 	interactive = true
@@ -162,9 +164,11 @@ func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vecto
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving :
 		is_moving = true
+		
 		if !phone.visible:
 			phone_manager()
 		else:
+			Global.next_event()
 			AudioManager.phone_pickup.play()
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)

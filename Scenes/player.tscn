@@ -17,6 +17,7 @@ size = Vector3(0.14215088, 0.14333057, 0.13188934)
 [sub_resource type="BoxMesh" id="BoxMesh_cvnsp"]
 
 [node name="Player" type="Camera3D"]
+process_mode = 3
 script = ExtResource("1_v0iea")
 
 [node name="Right" type="Area3D" parent="."]
