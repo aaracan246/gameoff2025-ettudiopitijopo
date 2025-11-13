@@ -64,8 +64,9 @@ func _ready() -> void:
 
 	player.current = true
 	actual_camera = player
-	#Dialogic.connect("colgar",colgar_phone)
+	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
 	emit_signal("disble_colisions")
+	#Global.colgar_phone.connect("next_event")
 	
 
 
@@ -77,10 +78,18 @@ func _process(_delta: float) -> void:
 	elif newspaper_zoom:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:
 			newspaper_manager()
-			
+
+
+func _on_dialogic_signal(argument):
+	if argument == "colgar":
+		colgar_phone()
+	Global.next_event()
+
+
+
 func colgar_phone():
 	phone_manager()
-	Global.next_event()
+	
 	
 func _mouse_entered_area():
 	interactive = true
