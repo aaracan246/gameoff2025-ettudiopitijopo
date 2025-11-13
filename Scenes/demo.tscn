@@ -107,7 +107,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.580523, -14.395881, 19.829
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
 transform = Transform3D(1, 7.450581e-09, 1.3877788e-16, 0, -5.2154064e-08, 1, 7.450581e-09, -1, -5.2154064e-08, -1.2139053, 44.717648, -4.2476416)
 light_color = Color(0.7490196, 0.73333335, 0.54509807, 1)
-light_energy = 16.0
+light_energy = 6.443
 spot_range = 78.303
 spot_attenuation = 0.3
 
@@ -148,7 +148,7 @@ transform = Transform3D(0.9078811, -0.28642687, 0.30612347, 0.012730069, 0.74870
 [node name="Sofa" parent="Escenario" instance=ExtResource("15_skqsx")]
 transform = Transform3D(-1.3818094e-07, 0, 2, 0, 2, 0, -3.1612113, 0, -8.742278e-08, -25.357618, -19.975285, -7.9936066)
 
-[node name="lampara2" parent="Escenario" instance=ExtResource("15_84mi4")]
+[node name="lampara" parent="Escenario" instance=ExtResource("15_84mi4")]
 transform = Transform3D(0.89412296, 0, -0.4478215, 0, 1, 0, 0.4478215, 0, 0.89412296, -5.9156513, -12.107304, -30.12648)
 
 [node name="cat" parent="Escenario" instance=ExtResource("17_43er0")]
@@ -169,6 +169,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.
 [connection signal="obras" from="." to="Escenario/Map" method="_on_demo_obras"]
 [connection signal="parking" from="." to="Escenario/Map" method="_on_demo_parking"]
 [connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
+[connection signal="down" from="Player" to="." method="_on_player_move"]
 [connection signal="input_event" from="Escenario/NewsPaper" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper2" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]
@@ -176,4 +177,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.
 [connection signal="input_event" from="Escenario/Pc" to="." method="_on_pc_input_event"]
 [connection signal="pc_mouse" from="Escenario/Pc" to="CanvasLayer/cursor" method="_on_pc_pc_mouse"]
 [connection signal="input_event" from="Escenario/Phone" to="." method="_on_phone_input_event"]
+[connection signal="input_event" from="Escenario/lampara" to="." method="_on_lampara_input_event"]
 [connection signal="input_event" from="Escenario/cat" to="." method="_on_cat_input_event"]

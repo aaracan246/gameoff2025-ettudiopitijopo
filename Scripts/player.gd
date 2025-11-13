@@ -14,6 +14,8 @@ var rotacion = "front"
 var positionXYZ = 0
 var timer_rotation = false
 
+signal down
+
 func _ready():
 	rot_actual = rotation
 	objetivo_rot = rotations[rotacion]
@@ -30,6 +32,7 @@ func _process(delta: float) -> void:
 
 func rotation_manager():
 	if timer_rotation == false:
+		emit_signal("down")
 		rotacion = list_rotations[positionXYZ]
 		objetivo_rot = rotations[rotacion]
 		$rotationTimer.start(0.5)

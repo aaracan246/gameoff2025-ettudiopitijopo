@@ -9,6 +9,12 @@ extends Node3D
 @onready var player: Camera3D = $Player
 @onready var phone = $Escenario/Phone/auricular
 @onready var view_phone = $Player/auricular
+@onready var map: StaticBody3D = $Escenario/Map
+@onready var radio: StaticBody3D = $Escenario/Radio
+@onready var pc: StaticBody3D = $Escenario/Pc
+@onready var phone_station: StaticBody3D = $Escenario/Phone
+@onready var lampara: StaticBody3D = $Escenario/lampara
+@onready var cat: StaticBody3D = $Escenario/cat
 
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
 
@@ -17,6 +23,7 @@ var next_camera: Camera3D
 var is_moving = false
 var is_zoomed = false
 var newspaper_zoom = false
+var interactive = true
 
 signal entrada
 signal merendero1
@@ -31,13 +38,33 @@ signal rescate
 
 signal disble_colisions
 
+@warning_ignore("unused_signal")
+signal colgar
+
 signal interactive_object
 var cont = 0
 
 
 func _ready() -> void:
+	map.mouse_entered.connect(_mouse_entered_area)
+	radio.mouse_entered.connect(_mouse_entered_area)
+	pc.mouse_entered.connect(_mouse_entered_area)
+	phone_station.mouse_entered.connect(_mouse_entered_area)
+	lampara.mouse_entered.connect(_mouse_entered_area)
+	cat.mouse_entered.connect(_mouse_entered_area)
+	newspaper.mouse_entered.connect(_mouse_entered_area)
+	
+	map.mouse_exited.connect(_mouse_exited_area)
+	radio.mouse_exited.connect(_mouse_exited_area)
+	pc.mouse_exited.connect(_mouse_exited_area)
+	phone_station.mouse_exited.connect(_mouse_exited_area)
+	lampara.mouse_exited.connect(_mouse_exited_area)
+	cat.mouse_exited.connect(_mouse_exited_area)
+	newspaper.mouse_exited.connect(_mouse_exited_area)
+
 	player.current = true
 	actual_camera = player
+	Dialogic.colgar_phone.connect("colgar")
 	emit_signal("disble_colisions")
 
 
@@ -50,8 +77,18 @@ func _process(_delta: float) -> void:
 		if Input.get_mouse_button_mask() == 2 and !is_moving:
 			newspaper_manager()
 			
+func colgar_phone():
+	phone_manager()
+	
+func _mouse_entered_area():
+	interactive = true
+	emit_signal("interactive_object",interactive)
 
-
+func _mouse_exited_area():
+	interactive = false
+	emit_signal("interactive_object",interactive)
+	
+	
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
 	is_moving = true
@@ -80,7 +117,6 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 
 
 func input_manager(camera:Camera3D, event: InputEvent):
-	emit_signal("interactive_object")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
@@ -188,3 +224,14 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
+
+
+func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
+		var onOff = $Escenario/lampara/SpotLight3D.visible
+		$Escenario/lampara/SpotLight3D.visible = !onOff
+
+
+func _on_player_move() -> void:
+	if newspaper_zoom:
+		newspaper_manager()

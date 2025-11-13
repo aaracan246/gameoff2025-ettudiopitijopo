@@ -50,5 +50,6 @@ shape = SubResource("ConvexPolygonShape3D_g6n73")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.9659259, 1.13133405e-08, -0.25881907, 0.25881907, -4.222196e-08, 0.9659258, 0, -1, -4.371139e-08, 1.4397821, 1.4397476, 0)
+visible = false
 light_color = Color(1, 0.78039217, 0, 1)
 light_energy = 16.0

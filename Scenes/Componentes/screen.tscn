@@ -16,6 +16,7 @@
 viewport_path = NodePath("Camera/SubViewport")
 
 [node name="pantalla" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,7 +219,5 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Camera/SubViewport"]
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="camera/camera_btn" to="." method="_on_camera_pressed"]
 [connection signal="pressed" from="Camera/exit" to="." method="_on_exit_pressed"]

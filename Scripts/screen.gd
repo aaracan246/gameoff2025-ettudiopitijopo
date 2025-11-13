@@ -5,7 +5,7 @@ var camera:Camera3D
 @onready var subviewport = $Camera/SubViewport
 @onready var destktop = $Destktop
 @onready var Outdoor_camera = $Camera
-@onready var camera_button: Button = $Destktop/camera/camera_btn
+@onready var camera_button: Button = $camera/camera_btn
 @onready var exit: Button = $Camera/exit
 
 
@@ -22,13 +22,3 @@ func _on_camera_pressed() -> void:
 func _on_exit_pressed() -> void:
 	destktop.visible = true
 	Outdoor_camera.visible = false
-
-
-func _on_mouse_entered() -> void:
-	var custom_cursor_image = load("res://Assets/cursores/cursor_pc.png")
-	Input.set_custom_mouse_cursor(custom_cursor_image) 
-
-
-func _on_mouse_exited() -> void:
-	var custom_cursor_image = load("res://Assets/cursores/cursor_idle.png")
-	Input.set_custom_mouse_cursor(custom_cursor_image) 

@@ -35,15 +35,10 @@ func _physics_process(delta: float) -> void:
 			cursor.texture = texture_pointing
 		else:
 			cursor.texture = texture_idle
-	print(cursor.texture.resource_path)
 
 
-func _on_child_entered_tree(node: Node) -> void:
-	print(node)
-
-
-func _on_demo_interactive_object() -> void:
-	interactive = true
+func _on_demo_interactive_object(object) -> void:
+	interactive = object
 	cursor.texture = texture_pointing
 
 
