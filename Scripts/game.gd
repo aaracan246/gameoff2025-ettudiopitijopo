@@ -48,21 +48,9 @@ var cont = 0
 @onready var temp_camera = $deault_camera
 
 func _ready() -> void:
-	map.mouse_entered.connect(_mouse_entered_area)
-	radio.mouse_entered.connect(_mouse_entered_area)
-	pc.mouse_entered.connect(_mouse_entered_area)
-	phone_station.mouse_entered.connect(_mouse_entered_area)
-	lampara.mouse_entered.connect(_mouse_entered_area)
-	cat.mouse_entered.connect(_mouse_entered_area)
-	newspaper.mouse_entered.connect(_mouse_entered_area)
-	
-	map.mouse_exited.connect(_mouse_exited_area)
-	radio.mouse_exited.connect(_mouse_exited_area)
-	pc.mouse_exited.connect(_mouse_exited_area)
-	phone_station.mouse_exited.connect(_mouse_exited_area)
-	lampara.mouse_exited.connect(_mouse_exited_area)
-	cat.mouse_exited.connect(_mouse_exited_area)
-	newspaper.mouse_exited.connect(_mouse_exited_area)
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper]:
+		node.mouse_entered.connect(_mouse_entered_area.bind(node))
+		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 
 	player.current = true
 	actual_camera = player
@@ -93,11 +81,13 @@ func colgar_phone():
 	phone_manager()
 	
 	
-func _mouse_entered_area():
+func _mouse_entered_area(node):
+	print(node)
 	interactive = true
 	emit_signal("interactive_object",interactive)
 
-func _mouse_exited_area():
+func _mouse_exited_area(node):
+	print(node)
 	interactive = false
 	emit_signal("interactive_object",interactive)
 	
