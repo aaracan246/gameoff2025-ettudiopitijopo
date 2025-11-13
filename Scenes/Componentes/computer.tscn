@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://cuc8r1mt88ftx"]
+[gd_scene load_steps=22 format=4 uid="uid://cuc8r1mt88ftx"]
 
 [ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/Componentes/screen.tscn" id="1_4xga7"]
 [ext_resource type="Script" uid="uid://dty3g8m21i4qb" path="res://Scripts/computer.gd" id="1_j2xe6"]
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="2_ctjbw"]
+[ext_resource type="Shader" uid="uid://cx1o02wexj867" path="res://Assets/shaders/screen.gdshader" id="3_cqrlk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opbyo"]
 resource_name = "Material.001"
@@ -42,6 +44,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_i6ilh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jket"]
+render_priority = 0
+shader = ExtResource("2_ctjbw")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52u6t"]
+next_pass = SubResource("ShaderMaterial_1jket")
+albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m1ujp"]
 points = PackedVector3Array(0.06273058, 1.1514131, 0.7634845, -1.2595555, -1.824559, -1.2444555, -1.2595555, -1.824559, 1.2630333, 1.2479333, -1.824559, -1.2444555, 1.2479333, -1.824559, 1.2630333, -0.99249464, 0.9737358, -0.7938201, 1.020658, 1.0117856, -0.65198725, -1.2210803, 1.0643784, 0.9952082, 1.2098844, 1.0651481, 0.995554, 0.70578, 0.4693329, -1.2075866, -0.7174022, 0.4693329, -1.2075866, 0.061700035, 0.13911723, 1.1574454, -1.1254036, 1.0596751, -0.10475685, 0.19952938, 1.1493893, -0.013447753, 1.1511086, 1.0500396, -0.013308099, 0.98605406, 0.98048294, -0.79803765, -0.30322957, 1.1526258, 0.12346152, -1.1599321, 1.0467398, 0.031600975, 1.1985964, 1.0523698, 0.44101757, -0.9422853, 1.013713, -0.698696, -1.2595555, -1.7771413, -1.2444555, -0.57832843, 1.1088042, 0.99414235, 1.2479333, -1.7774377, -1.2444555, -1.2108803, 1.052834, 0.62314755, -1.2595555, -1.7771413, 1.2630333, 1.2479333, -1.7774377, 1.2630333, 0.7923827, 1.1027367, 0.03176991, -0.07295549, 0.13822639, 1.1551733, 0.2914937, 1.1520666, 0.16921185, -1.0263445, 1.0044395, -0.64831495, 0.61135083, 1.1065402, 0.99257195, 0.9744512, 1.0110732, -0.6972853)
@@ -112,6 +124,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rnvwt")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqrlk"]
+resource_local_to_scene = true
+shader = ExtResource("3_cqrlk")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.266000012635
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 3.506000166535
+shader_parameter/roll_variation = 0.84300003678262
+shader_parameter/distort_intensity = 0.0290000013775
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_4xga7"]
 viewport_path = NodePath("SubViewport")
 
@@ -133,6 +170,7 @@ script = ExtResource("1_j2xe6")
 [node name="Pc" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_j2xe6")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_52u6t")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_m1ujp")
@@ -150,7 +188,19 @@ skeleton = NodePath("")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(400, 400)
 
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+z_index = 4
+material = SubResource("ShaderMaterial_cqrlk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="pantalla" parent="SubViewport" instance=ExtResource("1_4xga7")]
+z_index = 3
 anchors_preset = -1
 anchor_right = 0.30400002
 anchor_bottom = 0.54

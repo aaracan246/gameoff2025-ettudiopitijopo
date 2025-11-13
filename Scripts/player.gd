@@ -19,7 +19,8 @@ signal down
 func _ready():
 	rot_actual = rotation
 	objetivo_rot = rotations[rotacion]
-	
+	$".".set_keep_aspect_mode(KEEP_WIDTH)
+
 
 func _process(delta: float) -> void:
 	# Interpola suavemente los tres ejes de rotación
