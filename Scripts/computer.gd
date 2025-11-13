@@ -111,7 +111,7 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		# Reproducir sonido de clic
-		AudioManager.click.play()
+		AudioManager.pc_click.play()
 	# Finally, send the processed input event to the viewport.
 	node_viewport.push_input(event)
 

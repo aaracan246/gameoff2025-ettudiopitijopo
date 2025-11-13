@@ -11,7 +11,11 @@ extends Control
 func _ready() -> void:
 	confirm_exit.visible = false
 	settings.visible = false
-	
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		AudioManager.click.play()
+		
 # Se llama desde el CanvasLayer
 func toggle_pause():
 	if get_tree().paused:
@@ -48,3 +52,13 @@ func _on_confirm_exit_confirmed() -> void:
 
 func _on_confirm_exit_canceled() -> void:
 	confirm_exit.visible = false
+
+
+func _on_resume_btn_mouse_entered() -> void:
+		AudioManager.hover.play()
+
+func _on_settings_btn_mouse_entered() -> void:
+	AudioManager.hover.play()
+
+func _on_exit_btn_mouse_entered() -> void:
+	AudioManager.hover.play()
