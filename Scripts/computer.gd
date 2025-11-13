@@ -59,6 +59,7 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 	var event_pos2D: Vector2 = Vector2()
 
 	if is_mouse_inside:
+	
 		# Convert the relative event position from 3D to 2D.
 		event_pos2D = Vector2(event_pos3D.x, -event_pos3D.y)
 
@@ -101,6 +102,9 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 	# Update last_event_time to current time.
 	last_event_time = now
 
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# Reproducir sonido de clic
+		AudioManager.click.play()
 	# Finally, send the processed input event to the viewport.
 	node_viewport.push_input(event)
 
