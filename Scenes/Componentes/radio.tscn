@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://b2w3amblmdkc1"]
+[gd_scene load_steps=9 format=4 uid="uid://b2w3amblmdkc1"]
 
 [ext_resource type="Texture2D" uid="uid://dh6ih858v64we" path="res://Assets/Hondas.png" id="1_8y21s"]
+[ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="2_4u2v5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lwbs"]
 
@@ -69,5 +70,9 @@ sprite_frames = SubResource("SpriteFrames_6jxtu")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" parent="." instance=ExtResource("2_4u2v5")]
+transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
+
+[node name="Camera3D1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582215, 0, -0.28582215, 0.9582827, 0, 1.9014039, 4.530482)
+fov = 106.0

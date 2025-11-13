@@ -43,7 +43,7 @@ signal colgar
 
 signal interactive_object
 var cont = 0
-
+@onready var temp_camera = $deault_camera
 
 func _ready() -> void:
 	map.mouse_entered.connect(_mouse_entered_area)
@@ -102,11 +102,11 @@ func _mouse_exited_area():
 	
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
+	print(from_camera.global_transform)
 	is_moving = true
 	# Crear cámara temporal para la transición
-	var temp_camera = Camera3D.new()
-	add_child(temp_camera)
 	temp_camera.global_transform = from_camera.global_transform
+	print(temp_camera.fov)
 	temp_camera.current = true
 	if tween1:
 		tween1.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
@@ -123,7 +123,6 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 	# Activar cámara final y limpiar
 	to_camera.current = true
 	is_moving = false
-	temp_camera.queue_free()
 	emit_signal("disble_colisions")
 
 
