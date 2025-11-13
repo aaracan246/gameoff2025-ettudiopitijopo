@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=21 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
 [ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/audio/music/credits.mp3" id="3_tqpqp"]
 [ext_resource type="AudioStream" uid="uid://qjirkoely2gc" path="res://Assets/audio/sfx/hover.ogg" id="4_vmr8m"]
 [ext_resource type="AudioStream" uid="uid://doxmn7e2mr0cc" path="res://Assets/audio/sfx/transition.wav" id="5_q3gic"]
+[ext_resource type="AudioStream" uid="uid://d1tn8povoquoe" path="res://Assets/audio/sfx/click_ui.wav" id="6_nqmde"]
 [ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/desktop/newspaper_drop.wav" id="6_yoybt"]
 [ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/desktop/newspaper_pickup.wav" id="7_1xomj"]
 [ext_resource type="AudioStream" uid="uid://c0qmwu4tx1qum" path="res://Assets/audio/sfx/room/chair_roll.wav" id="8_1xomj"]
@@ -43,6 +44,10 @@ bus = &"Music"
 stream = ExtResource("4_vmr8m")
 bus = &"SFX"
 
+[node name="click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_nqmde")
+bus = &"SFX"
+
 [node name="newspaper_drop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_yoybt")
 bus = &"SFX"
@@ -64,7 +69,7 @@ bus = &"SFX"
 stream = ExtResource("12_axxev")
 bus = &"SFX"
 
-[node name="click" type="AudioStreamPlayer" parent="SFX"]
+[node name="pc_click" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("13_ehvno")
 bus = &"SFX"
 
