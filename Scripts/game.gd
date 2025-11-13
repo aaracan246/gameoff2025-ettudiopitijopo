@@ -81,24 +81,20 @@ func colgar_phone():
 	phone_manager()
 	
 	
-func _mouse_entered_area(node):
-	print(node)
+func _mouse_entered_area(_node):
 	interactive = true
 	emit_signal("interactive_object",interactive)
 
-func _mouse_exited_area(node):
-	print(node)
+func _mouse_exited_area(_node):
 	interactive = false
 	emit_signal("interactive_object",interactive)
 	
 	
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
-	print(from_camera.global_transform)
 	is_moving = true
 	# Crear cámara temporal para la transición
 	temp_camera.global_transform = from_camera.global_transform
-	print(temp_camera.fov)
 	temp_camera.current = true
 	if tween1:
 		tween1.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
@@ -175,7 +171,6 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 			tween.set_trans(Tween.TRANS_CIRC)
 			tween.tween_property(phone, "global_transform",view_phone.global_transform, transition_duration)
 			await tween.finished
-			print(phone.visible)
 			phone_manager()
 			
 		is_moving = false
@@ -253,6 +248,6 @@ func door_manager():
 	if !door_open:
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(puerta, "global_rotation",rotation_door, transition_duration )
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration )
 		

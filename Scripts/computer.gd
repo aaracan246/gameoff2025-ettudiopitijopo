@@ -11,9 +11,16 @@ var last_event_time: float = -1.0
 @onready var node_quad = $Screen
 @onready var node_area: Area3D = $Screen/Area3D
 
+@onready var original_material = $Pc.material_override
+
+
 signal pc_mouse(inside:bool)
 
-#func _ready():
+func _ready():
+	# Si tu shader tiene un parámetro para activar/desactivar efectos
+	$Pc.material_override = null
+
+
 	#node_area.mouse_entered.connect(_mouse_entered_area)
 	#node_area.mouse_exited.connect(_mouse_exited_area)
 	#node_area.input_event.connect(_mouse_input_event)
