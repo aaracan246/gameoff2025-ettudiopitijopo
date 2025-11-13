@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://ciwu0q5fei8fc"]
+[gd_scene load_steps=8 format=4 uid="uid://ciwu0q5fei8fc"]
+
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_c74i5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ncv"]
 
@@ -34,7 +36,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wymvo")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eulq1"]
+render_priority = 0
+shader = ExtResource("1_c74i5")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.05
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai0s3"]
+next_pass = SubResource("ShaderMaterial_eulq1")
 albedo_color = Color(0.42747203, 0.20163524, 0.07320695, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htvv6"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://chs8uklp8h7x0"]
+[gd_scene load_steps=8 format=4 uid="uid://chs8uklp8h7x0"]
+
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_trddh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y64yx"]
 
@@ -34,7 +36,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k81lg")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50yu3"]
+render_priority = 0
+shader = ExtResource("1_trddh")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.00999999977648
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uifvk"]
+next_pass = SubResource("ShaderMaterial_50yu3")
 albedo_color = Color(0.15952033, 0.08460461, 0.00089643523, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uifvk"]
