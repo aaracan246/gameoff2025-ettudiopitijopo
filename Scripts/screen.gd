@@ -12,9 +12,11 @@ var camera:Camera3D
 func _ready() -> void:
 	camera = get_tree().get_root().get_node("Demo/OutDoor")
 	new_camera.global_transform = camera.global_transform
+	
 
 
 func _on_camera_pressed() -> void:
+	
 	destktop.visible = false
 	Outdoor_camera.visible = true
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2jv7fqb51e0v"
-path.s3tc="res://.godot/imported/periodico.png-a8415af3a172991478d51c734b836fec.s3tc.ctex"
+uid="uid://doucrya8qx7t0"
+path.s3tc="res://.godot/imported/EvaBay.png-7cb9e76ac67044aca9169e7f06f1651e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/periodico.png"
-dest_files=["res://.godot/imported/periodico.png-a8415af3a172991478d51c734b836fec.s3tc.ctex"]
+source_file="res://Assets/periodicos/EvaBay.png"
+dest_files=["res://.godot/imported/EvaBay.png-7cb9e76ac67044aca9169e7f06f1651e.s3tc.ctex"]
 
 [params]
 

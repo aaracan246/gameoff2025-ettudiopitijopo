@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjjxtn2tn0obg"]
 
-[ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodico.png" id="1_nykdn"]
+[ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodicos/periodico.png" id="1_nykdn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i6pun"]
 size = Vector3(13.647919, 19.653255, 0.2715454)

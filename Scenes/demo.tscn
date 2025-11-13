@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=29 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
 [ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="19_m3jaw"]
+[ext_resource type="Texture2D" uid="uid://doucrya8qx7t0" path="res://Assets/periodicos/EvaBay.png" id="20_c1500"]
+[ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
+[ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
+[ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
 
 [sub_resource type="Environment" id="Environment_nsw6b"]
 ambient_light_energy = 1.48
@@ -156,6 +160,25 @@ transform = Transform3D(-0.698927, 0.16237885, 0.69651586, -0.020137832, 0.96903
 
 [node name="Gato" type="Camera3D" parent="Escenario"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)
+
+[node name="murders" type="Node3D" parent="Escenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.230873, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Escenario/murders"]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, -5.5886803, -13.606451)
+texture = ExtResource("20_c1500")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Escenario/murders"]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, -1.7421398, -19.42565)
+texture = ExtResource("21_0ygp3")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Escenario/murders"]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.174267, 0.967886, -7.7811155)
+texture = ExtResource("22_nv0j3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Escenario/murders"]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, 6.2039204, -15.444973)
+texture = ExtResource("23_65jo5")
 
 [connection signal="cafe" from="." to="Escenario/Map" method="_on_demo_cafe"]
 [connection signal="descanso" from="." to="Escenario/Map" method="_on_demo_descanso"]
