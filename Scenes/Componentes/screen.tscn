@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=45 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_6t4fl"]
 [ext_resource type="Texture2D" uid="uid://da252jvsrquw6" path="res://Assets/pc/wallpaper.png" id="2_fujxl"]
@@ -14,10 +14,100 @@
 [ext_resource type="Texture2D" uid="uid://fdjq5iva3edk" path="res://Assets/pc/trash.png" id="8_dw2fv"]
 [ext_resource type="Texture2D" uid="uid://bctoqd3paxy3b" path="res://Assets/pc/OFF.png" id="9_hsj54"]
 [ext_resource type="Texture2D" uid="uid://cnka1ih3ytxwq" path="res://Assets/pc/book_popup.png" id="10_0jn38"]
+[ext_resource type="Texture2D" uid="uid://bnoeeno2cdlve" path="res://Assets/icons/close_b.png" id="13_r56by"]
 [ext_resource type="Texture2D" uid="uid://ld0cwboc7w6t" path="res://Assets/pc/file_popup.png" id="14_hsj54"]
+[ext_resource type="Texture2D" uid="uid://dp4gvi16f3s7q" path="res://Assets/pc/music_file.png" id="15_1m4y0"]
+[ext_resource type="Texture2D" uid="uid://br604nibp6pfo" path="res://Assets/icons/close_w.png" id="16_er71p"]
+[ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
+[ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
+[ext_resource type="Texture2D" uid="uid://bc4m4ldj5vo51" path="res://Assets/pc/life_idle.png" id="20_v71d2"]
+[ext_resource type="Texture2D" uid="uid://wviefcqnb2gg" path="res://Assets/pc/life_lost.png" id="21_l5hxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5hxs"]
+bg_color = Color(0.6624523, 0.66245234, 0.66245216, 0.14509805)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ir73n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aw5c"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prewe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yc7f"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m4y0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpp4a"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hu2o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e52d3"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_er71p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtbtc"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er71p"]
+content_margin_left = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsd7l"]
+content_margin_left = 2.0
+bg_color = Color(0.8156863, 0.49803922, 0.5019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puwmw"]
+content_margin_left = 2.0
+bg_color = Color(0.8156863, 0.49803922, 0.5019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir73n"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hu2o"]
+content_margin_left = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r56by"]
-bg_color = Color(0.7488141, 0.56005925, 0.3415798, 0.3529412)
+content_margin_left = 8.0
+bg_color = Color(0.76831985, 0.43501496, 0.4419158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v71d2"]
+content_margin_left = 8.0
+bg_color = Color(0.81405455, 0.49997014, 0.50064003, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v71d2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75h4d"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6t4fl"]
 viewport_path = NodePath("Camera/SubViewport")
@@ -40,74 +130,12 @@ offset_right = 400.0
 offset_bottom = 400.0
 texture = ExtResource("2_fujxl")
 
-[node name="camera" type="Control" parent="Destktop"]
+[node name="icons" type="Control" parent="Destktop"]
 anchors_preset = 0
-offset_left = 296.0
-offset_top = 11.0
-offset_right = 296.0
-offset_bottom = 11.0
-metadata/_edit_group_ = true
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="camera" type="TextureRect" parent="Destktop/camera"]
-layout_mode = 0
-offset_left = 4.9999914
-offset_top = -10.0
-offset_right = 104.99999
-offset_bottom = 90.0
-texture = ExtResource("3_bb460")
-
-[node name="camera_btn" type="Button" parent="Destktop/camera"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 14.0
-offset_right = 86.0
-offset_bottom = 74.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r56by")
-text = "
-"
-flat = true
-alignment = 2
-
-[node name="email" type="Control" parent="Destktop"]
-anchors_preset = 0
-offset_left = 243.0
-offset_top = 147.0
-offset_right = 243.0
-offset_bottom = 147.0
-metadata/_edit_group_ = true
-
-[node name="email" type="Sprite2D" parent="Destktop/email"]
-position = Vector2(-195, -14)
-texture = ExtResource("4_ma2j0")
-
-[node name="email_btn" type="Button" parent="Destktop/email"]
-layout_mode = 0
-offset_left = -218.0
-offset_top = -30.0
-offset_right = -172.0
-flat = true
-
-[node name="email_alert" type="Sprite2D" parent="Destktop/email"]
-position = Vector2(-174, -28)
-texture = ExtResource("5_7dyi4")
-
-[node name="email_popup" type="Sprite2D" parent="Destktop"]
-visible = false
-z_index = 1
-position = Vector2(220, 245)
-scale = Vector2(0.5326279, 0.55531913)
-texture = ExtResource("6_dw2fv")
-metadata/_edit_group_ = true
-
-[node name="email_close" type="Button" parent="Destktop/email_popup"]
-z_index = 1
-offset_left = 219.66556
-offset_top = -108.04599
-offset_right = 273.70532
-offset_bottom = -52.22223
-icon = ExtResource("4_rpafq")
-
-[node name="book" type="Control" parent="Destktop"]
+[node name="book" type="Control" parent="Destktop/icons"]
 anchors_preset = 0
 offset_left = -2.0
 offset_top = -77.0
@@ -115,7 +143,7 @@ offset_right = -2.0
 offset_bottom = -77.0
 metadata/_edit_group_ = true
 
-[node name="book" type="TextureRect" parent="Destktop/book"]
+[node name="book" type="TextureRect" parent="Destktop/icons/book"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 83.0
@@ -123,15 +151,16 @@ offset_right = 101.0
 offset_bottom = 183.0
 texture = ExtResource("5_b4031")
 
-[node name="book_btn" type="Button" parent="Destktop/book"]
+[node name="book_btn" type="Button" parent="Destktop/icons/book"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 106.0
-offset_right = 75.0
-offset_bottom = 164.0
-flat = true
+offset_left = 24.0
+offset_top = 101.0
+offset_right = 80.0
+offset_bottom = 168.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l5hxs")
 
-[node name="book_glitch" type="TextureRect" parent="Destktop/book"]
+[node name="book_glitch" type="TextureRect" parent="Destktop/icons/book"]
 visible = false
 layout_mode = 0
 offset_left = 1.2500011
@@ -140,90 +169,60 @@ offset_right = 101.25
 offset_bottom = 182.5
 texture = ExtResource("7_dw2fv")
 
-[node name="book_popup" type="Sprite2D" parent="Destktop"]
-visible = false
-z_index = 1
-position = Vector2(186, 160.50002)
-scale = Vector2(0.35714284, 0.3950437)
-texture = ExtResource("10_0jn38")
-
-[node name="book_close" type="Button" parent="Destktop/book_popup"]
-z_index = 1
-anchors_preset = -1
-anchor_left = -0.11875003
-anchor_bottom = 0.06464557
-offset_left = 193.20003
-offset_top = -337.93735
-offset_right = 217.20006
-offset_bottom = -313.93735
-icon = ExtResource("4_rpafq")
-metadata/_edit_use_anchors_ = true
-
-[node name="off" type="Control" parent="Destktop"]
+[node name="email" type="Control" parent="Destktop/icons"]
 anchors_preset = 0
-offset_left = 28.0
-offset_top = 34.0
-offset_right = 28.0
-offset_bottom = 34.0
-metadata/_edit_group_ = true
-
-[node name="off" type="TextureRect" parent="Destktop/off"]
-layout_mode = 0
-offset_left = 321.0
-offset_top = 315.0
-offset_right = 371.0
-offset_bottom = 365.0
-texture = ExtResource("9_hsj54")
-
-[node name="off_btn" type="Button" parent="Destktop/off"]
-layout_mode = 0
-offset_left = 334.0
-offset_top = 328.0
-offset_right = 359.0
-offset_bottom = 352.0
-flat = true
-
-[node name="trash" type="Control" parent="Destktop"]
-anchors_preset = 0
-offset_left = -217.0
-offset_top = 264.0
-offset_right = -217.0
-offset_bottom = 264.0
-metadata/_edit_group_ = true
-
-[node name="trash" type="Sprite2D" parent="Destktop/trash"]
-position = Vector2(267, 50)
-texture = ExtResource("8_dw2fv")
-
-[node name="trash_btn" type="Button" parent="Destktop/trash"]
-layout_mode = 0
-offset_left = 249.0
-offset_top = 25.0
-offset_right = 287.0
-offset_bottom = 73.0
-flat = true
-
-[node name="gallery" type="Control" parent="Destktop"]
-anchors_preset = 0
-offset_left = -63.0
-offset_top = 151.0
-offset_right = -63.0
-offset_bottom = 151.0
-metadata/_edit_group_ = true
-
-[node name="gallery" type="Sprite2D" parent="Destktop/gallery"]
-position = Vector2(179, 166)
-texture = ExtResource("5_ixi4j")
-
-[node name="gallery_btn" type="Button" parent="Destktop/gallery"]
-layout_mode = 0
-offset_left = 157.0
+offset_left = 243.0
 offset_top = 147.0
-offset_right = 201.0
-offset_bottom = 184.0
-flat = true
+offset_right = 243.0
+offset_bottom = 147.0
+metadata/_edit_group_ = true
 
-[node name="file" type="Control" parent="Destktop"]
+[node name="email" type="Sprite2D" parent="Destktop/icons/email"]
+position = Vector2(-195, -14)
+texture = ExtResource("4_ma2j0")
+
+[node name="email_btn" type="Button" parent="Destktop/icons/email"]
+layout_mode = 0
+offset_left = -224.0
+offset_top = -36.0
+offset_right = -167.0
+offset_bottom = 5.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ir73n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5aw5c")
+
+[node name="email_alert" type="Sprite2D" parent="Destktop/icons/email"]
+position = Vector2(-174, -28)
+texture = ExtResource("5_7dyi4")
+
+[node name="camera" type="Control" parent="Destktop/icons"]
+anchors_preset = 0
+offset_left = 296.0
+offset_top = 11.0
+offset_right = 296.0
+offset_bottom = 11.0
+metadata/_edit_group_ = true
+
+[node name="camera" type="TextureRect" parent="Destktop/icons/camera"]
+layout_mode = 0
+offset_left = 4.9999914
+offset_top = -10.0
+offset_right = 104.99999
+offset_bottom = 90.0
+texture = ExtResource("3_bb460")
+
+[node name="camera_btn" type="Button" parent="Destktop/icons/camera"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 14.0
+offset_right = 86.0
+offset_bottom = 74.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prewe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6yc7f")
+text = "
+"
+alignment = 2
+
+[node name="file" type="Control" parent="Destktop/icons"]
 anchors_preset = 0
 offset_left = 73.0
 offset_top = -10.0
@@ -231,33 +230,457 @@ offset_right = 73.0
 offset_bottom = -10.0
 metadata/_edit_group_ = true
 
-[node name="file" type="Sprite2D" parent="Destktop/file"]
+[node name="file" type="Sprite2D" parent="Destktop/icons/file"]
 position = Vector2(279, 138)
 texture = ExtResource("7_p5gwp")
 
-[node name="file_btn" type="Button" parent="Destktop/file"]
+[node name="file_btn" type="Button" parent="Destktop/icons/file"]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 110.0
-offset_right = 300.0
-offset_bottom = 166.0
+offset_left = 256.0
+offset_top = 105.0
+offset_right = 304.0
+offset_bottom = 170.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1m4y0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lpp4a")
+
+[node name="trash" type="Control" parent="Destktop/icons"]
+anchors_preset = 0
+offset_left = -217.0
+offset_top = 264.0
+offset_right = -217.0
+offset_bottom = 264.0
+metadata/_edit_group_ = true
+
+[node name="trash" type="Sprite2D" parent="Destktop/icons/trash"]
+position = Vector2(267, 50)
+texture = ExtResource("8_dw2fv")
+
+[node name="trash_btn" type="Button" parent="Destktop/icons/trash"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 21.0
+offset_right = 291.0
+offset_bottom = 77.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0hu2o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e52d3")
+
+[node name="gallery" type="Control" parent="Destktop/icons"]
+anchors_preset = 0
+offset_left = -63.0
+offset_top = 151.0
+offset_right = -63.0
+offset_bottom = 151.0
+metadata/_edit_group_ = true
+
+[node name="gallery" type="Sprite2D" parent="Destktop/icons/gallery"]
+position = Vector2(179, 166)
+texture = ExtResource("5_ixi4j")
+
+[node name="gallery_btn" type="Button" parent="Destktop/icons/gallery"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 143.0
+offset_right = 205.0
+offset_bottom = 189.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_er71p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xtbtc")
+
+[node name="off" type="Control" parent="Destktop/icons"]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 34.0
+offset_right = 28.0
+offset_bottom = 34.0
+metadata/_edit_group_ = true
+
+[node name="off" type="TextureRect" parent="Destktop/icons/off"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 315.0
+offset_right = 371.0
+offset_bottom = 365.0
+texture = ExtResource("9_hsj54")
+
+[node name="off_btn" type="Button" parent="Destktop/icons/off"]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 328.0
+offset_right = 359.0
+offset_bottom = 352.0
 flat = true
 
-[node name="file_popup" type="Sprite2D" parent="Destktop"]
+[node name="popups" type="Control" parent="Destktop"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="music_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
-position = Vector2(202, 208)
-scale = Vector2(0.38269636, 0.41505793)
+layout_mode = 0
+offset_left = 182.0
+offset_top = 166.0
+offset_right = 259.0
+offset_bottom = 182.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Destktop/popups/music_popup"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -3.0
+offset_right = 49.0
+offset_bottom = 18.0
+text = "music"
+
+[node name="music_p" type="Button" parent="Destktop/popups/music_popup"]
+layout_mode = 0
+offset_right = 77.0
+offset_bottom = 16.0
+flat = true
+
+[node name="music_close" type="Button" parent="Destktop/popups/music_popup"]
+layout_mode = 0
+offset_left = 61.0
+offset_right = 81.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+theme_override_styles/normal = SubResource("StyleBoxFlat_er71p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsd7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
+icon = ExtResource("16_er71p")
+
+[node name="file_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 174.0
+offset_top = 26.0
+offset_right = 361.0
+offset_bottom = 340.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/file_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/file_popup"]
+position = Vector2(93, 167.3125)
+scale = Vector2(0.3463376, 0.34314668)
 texture = ExtResource("14_hsj54")
 
-[node name="file_close" type="Button" parent="Destktop/file_popup"]
-z_index = 1
-offset_left = 146.33011
-offset_top = -378.26047
-offset_right = 219.97784
-offset_bottom = -315.61862
+[node name="Label" type="Label" parent="Destktop/popups/file_popup"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 25.0
+text = "Notas"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="file_p" type="Button" parent="Destktop/popups/file_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="file_close" type="Button" parent="Destktop/popups/file_popup"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-icon = ExtResource("4_rpafq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="book_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 37.0
+offset_top = 63.0
+offset_right = 224.0
+offset_bottom = 377.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/book_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/book_popup"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 25.0
+text = "Los fantasmikos"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/book_popup"]
+position = Vector2(95, 169.00002)
+scale = Vector2(0.35714284, 0.3950437)
+texture = ExtResource("10_0jn38")
+
+[node name="book_p" type="Button" parent="Destktop/popups/book_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="Destktop/popups/book_popup"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="email_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 56.0
+offset_top = 158.0
+offset_right = 378.0
+offset_bottom = 329.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/email_popup"]
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/email_popup"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 25.0
+text = "Email"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/email_popup"]
+position = Vector2(161.99998, 97)
+scale = Vector2(0.5326279, 0.55531913)
+texture = ExtResource("6_dw2fv")
+
+[node name="email_p" type="Button" parent="Destktop/popups/email_popup"]
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 171.0
+flat = true
+
+[node name="email_close" type="Button" parent="Destktop/popups/email_popup"]
+layout_mode = 0
+offset_left = 296.0
+offset_right = 328.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="gallery_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 112.0
+offset_top = 103.0
+offset_right = 348.0
+offset_bottom = 362.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+script = ExtResource("16_ir73n")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Image" type="TextureRect" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_left = 18.000008
+offset_top = 38.000008
+offset_right = 2066.0
+offset_bottom = 2086.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("17_prewe")
+
+[node name="Label" type="Label" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 25.0
+text = "ArtBook"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="gallery_p" type="Button" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 260.0
+flat = true
+
+[node name="btn_prev" type="Button" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 127.0
+offset_right = 24.0
+offset_bottom = 156.0
+text = "<"
+
+[node name="btn_next" type="Button" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 125.0
+offset_right = 231.0
+offset_bottom = 154.0
+text = ">
+"
+
+[node name="gallery_close" type="Button" parent="Destktop/popups/gallery_popup"]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 242.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="trash_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 153.0
+offset_top = 140.0
+offset_right = 328.0
+offset_bottom = 311.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 25.0
+text = "Bin"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="TextureRect" type="TextureRect" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="trash_p" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 171.0
+flat = true
+
+[node name="trash_close" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 181.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="music_file" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 272.0
+offset_bottom = 328.0
+scale = Vector2(0.12109375, 0.12499999)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v71d2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_75h4d")
+icon = ExtResource("15_1m4y0")
+
+[node name="life_icons" type="Control" parent="Destktop"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="life_1" type="TextureRect" parent="Destktop/life_icons"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 322.0
+offset_right = 73.0
+offset_bottom = 422.0
+texture = ExtResource("20_v71d2")
+
+[node name="life_lost_1" type="TextureRect" parent="Destktop/life_icons"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 322.0
+offset_right = 73.0
+offset_bottom = 422.0
+texture = ExtResource("21_l5hxs")
+
+[node name="life_2" type="TextureRect" parent="Destktop/life_icons"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 322.0
+offset_right = 110.0
+offset_bottom = 422.0
+texture = ExtResource("20_v71d2")
+
+[node name="life_lost_2" type="TextureRect" parent="Destktop/life_icons"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 322.0
+offset_right = 110.0
+offset_bottom = 422.0
+texture = ExtResource("21_l5hxs")
+
+[node name="life_3" type="TextureRect" parent="Destktop/life_icons"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 322.0
+offset_right = 146.0
+offset_bottom = 422.0
+texture = ExtResource("20_v71d2")
+
+[node name="life_lost_3" type="TextureRect" parent="Destktop/life_icons"]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = 322.0
+offset_right = 146.0
+offset_bottom = 422.0
+texture = ExtResource("21_l5hxs")
 
 [node name="Camera" type="TextureRect" parent="."]
 visible = false
@@ -288,11 +711,24 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Camera/SubViewport"]
 
-[connection signal="pressed" from="Destktop/camera/camera_btn" to="." method="_on_camera_btn_pressed"]
-[connection signal="pressed" from="Destktop/email/email_btn" to="." method="_on_email_btn_pressed"]
-[connection signal="pressed" from="Destktop/email_popup/email_close" to="." method="_on_email_close_pressed"]
-[connection signal="pressed" from="Destktop/book/book_btn" to="." method="_on_book_btn_pressed"]
-[connection signal="pressed" from="Destktop/book_popup/book_close" to="." method="_on_book_close_pressed"]
-[connection signal="pressed" from="Destktop/file/file_btn" to="." method="_on_file_btn_pressed"]
-[connection signal="pressed" from="Destktop/file_popup/file_close" to="." method="_on_file_close_pressed"]
+[connection signal="pressed" from="Destktop/icons/book/book_btn" to="." method="_on_book_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/email/email_btn" to="." method="_on_email_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/camera/camera_btn" to="." method="_on_camera_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/file/file_btn" to="." method="_on_file_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/trash/trash_btn" to="." method="_on_trash_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/gallery/gallery_btn" to="." method="_on_gallery_btn_pressed"]
+[connection signal="pressed" from="Destktop/icons/off/off_btn" to="." method="_on_off_btn_pressed"]
+[connection signal="pressed" from="Destktop/popups/music_popup/music_p" to="." method="_on_music_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/music_popup/music_close" to="." method="_on_music_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/file_popup/file_p" to="." method="_on_file_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/file_popup/file_close" to="." method="_on_file_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup/book_p" to="." method="_on_book_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup/book_close" to="." method="_on_book_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/email_popup/email_p" to="." method="_on_email_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/email_popup/email_close" to="." method="_on_email_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_p" to="." method="_on_gallery_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_close" to="." method="_on_gallery_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/trash_popup/trash_p" to="." method="_on_trash_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/trash_popup/trash_close" to="." method="_on_trash_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/trash_popup/music_file" to="." method="_on_music_file_pressed"]
 [connection signal="pressed" from="Camera/exit" to="." method="_on_exit_pressed"]
