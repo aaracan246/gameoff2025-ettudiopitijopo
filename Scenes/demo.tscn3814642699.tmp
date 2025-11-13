@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=29 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://lcegqjtlylwd" path="res://Scenes/Componentes/jarron.tscn" id="10_84mi4"]
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
-[ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="12_0ygp3"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
@@ -126,8 +125,9 @@ visible = false
 [node name="Map" parent="Escenario" instance=ExtResource("2_f2jw5")]
 transform = Transform3D(0.028612897, 0, -1.499727, 0, 1.5, 0, 1.499727, 0, 0.028612897, 29.524437, -3.2975483, -19.388351)
 
-[node name="Mapa" parent="Escenario" instance=ExtResource("12_0ygp3")]
+[node name="Mapa" type="Camera3D" parent="Escenario"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.676136, -2.6688504, -17.473)
+fov = 106.0
 
 [node name="jarron" parent="Escenario" instance=ExtResource("10_84mi4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.163513, -20.768715, -25.471386)
@@ -141,14 +141,16 @@ transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86
 [node name="Pc" parent="Escenario" instance=ExtResource("6_yc4g0")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.057461023, -9.2575865, -28.496647)
 
-[node name="Computer" parent="Escenario" instance=ExtResource("12_0ygp3")]
+[node name="Computer" type="Camera3D" parent="Escenario"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019283295, -9.184779, -23.43837)
+fov = 106.0
 
 [node name="Phone" parent="Escenario" instance=ExtResource("9_a1i4p")]
 transform = Transform3D(1.3937474, 0, 0.5544987, 0, 1.5, 0, -0.5544987, 0, 1.3937474, -7.6146517, -11.461858, -24.79234)
 
-[node name="telefono" parent="Escenario" instance=ExtResource("12_0ygp3")]
-transform = Transform3D(0.41700703, -0.019068226, 0.90870327, 0.35594487, -0.91649836, -0.18257612, 0.8363064, 0.39958376, -0.375399, 0, 0, 0)
+[node name="telefono" type="Camera3D" parent="Escenario"]
+transform = Transform3D(0.9078811, -0.28642687, 0.30612347, 0.012730069, 0.7487066, 0.66277933, -0.41903442, -0.59782785, 0.6833828, -6.0995793, -10.603813, -22.361593)
+fov = 106.0
 
 [node name="Sofa" parent="Escenario" instance=ExtResource("15_skqsx")]
 transform = Transform3D(-1.3818094e-07, 0, 2, 0, 2, 0, -3.1612113, 0, -8.742278e-08, -25.357618, -19.975285, -7.9936066)
@@ -159,8 +161,9 @@ transform = Transform3D(0.89412296, 0, -0.4478215, 0, 1, 0, 0.4478215, 0, 0.8941
 [node name="cat" parent="Escenario" instance=ExtResource("17_43er0")]
 transform = Transform3D(-0.698927, 0.16237885, 0.69651586, -0.020137832, 0.96903074, -0.24611783, -0.71490955, -0.18604468, -0.6740117, -22.913918, -18.560324, -11.0307255)
 
-[node name="Gato" parent="Escenario" instance=ExtResource("12_0ygp3")]
+[node name="Gato" type="Camera3D" parent="Escenario"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)
+fov = 106.0
 
 [node name="murders" type="Node3D" parent="Escenario"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.230873, 0, 0)
@@ -181,8 +184,6 @@ texture = ExtResource("22_nv0j3")
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, 6.2039204, -15.444973)
 texture = ExtResource("23_65jo5")
 
-[node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
-
 [connection signal="cafe" from="." to="Escenario/Map" method="_on_demo_cafe"]
 [connection signal="descanso" from="." to="Escenario/Map" method="_on_demo_descanso"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
@@ -196,7 +197,6 @@ texture = ExtResource("23_65jo5")
 [connection signal="parking" from="." to="Escenario/Map" method="_on_demo_parking"]
 [connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
-[connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper2" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]

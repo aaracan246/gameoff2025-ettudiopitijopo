@@ -17,29 +17,31 @@ size = Vector3(0.14215088, 0.14333057, 0.13188934)
 [sub_resource type="BoxMesh" id="BoxMesh_cvnsp"]
 
 [node name="Player" type="Camera3D"]
+process_mode = 3
+keep_aspect = 0
+fov = 106.0
 script = ExtResource("1_v0iea")
 
 [node name="Right" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028380185, 0, 0.16944057)
+transform = Transform3D(0.9999997, 0, -0.0007504915, 0, 1, 0, 0.0007504915, 0, 0.9999997, 0.35, 0, -0.143)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.42851305, 0.002078876, -0.396801)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Right"]
-transform = Transform3D(0.15552522, 0, 0, 0, 0.15, 0, 0, 0, 0.13402635, 0.38789892, 0, -0.37527323)
+transform = Transform3D(0.158, 0, 0, 0, 0.152, 0, 0, 0, 0.15, 0, 0, 0)
 mesh = SubResource("BoxMesh_v0iea")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
 [node name="Left" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74789864, 0, 0.17089626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0, -0.148)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394, 0, -0.397)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left"]
-transform = Transform3D(0.15552522, 0, 0, 0, 0.15, 0, 0, 0, 0.14830844, 0.388, 0, -0.397)
+transform = Transform3D(0.158, 0, 0, 0, 0.152, 0, 0, 0, 0.15, 0, 0, 0)
 mesh = SubResource("BoxMesh_cvnsp")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 

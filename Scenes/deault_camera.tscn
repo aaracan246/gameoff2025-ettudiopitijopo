@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5c181vbofvam"]
+
+[node name="deault_camera" type="Camera3D"]
+process_mode = 3
+keep_aspect = 0
+fov = 106.0
