@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://bawjc05gyx2t1"]
+[gd_scene load_steps=8 format=4 uid="uid://bawjc05gyx2t1"]
+
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_bpfpx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kosoo"]
 
@@ -34,6 +36,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7kgq2")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt0xp"]
+render_priority = 0
+shader = ExtResource("1_bpfpx")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6o7j"]
+next_pass = SubResource("ShaderMaterial_mt0xp")
+albedo_color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g6n73"]
 points = PackedVector3Array(-0.0678959, -0.9649617, -0.97187567, 0.0395735, 1.257074, 2.104896, 0.09246041, 2.4245243, 0.28537533, 1.000453, -0.63349915, 0.15525746, -0.9829107, -0.9477048, -0.04125594, -0.18264878, -1.0281754, 1.000387, -0.68980587, 1.0564067, 1.6200857, 0.54949224, 1.1128899, 1.958389, -0.2390437, 2.465309, 0.54983985, -0.7462008, -0.63349915, -0.7461512, 0.6622821, -0.63349915, -0.8027446, 0.718677, -1.0281754, 0.7749562, 0.21151991, 2.521792, 0.7749562, -1.0281754, -0.63349915, -0.07017332, -0.069858946, -0.63349915, -1.0281754, 0.612063, 1.5574092, 1.3339864, -0.57701606, -1.0281754, 0.8312353, 1.000453, -0.63349915, -0.18273145, -0.38976553, 1.7422804, 1.7331048, -0.06573717, 1.9232713, -0.02247694, -0.069858946, 1.16902, 2.1838198, 0.73847145, -0.9449524, -0.63136506, 0.21151991, 2.3526955, 0.26813003, -0.5855868, 1.658863, 1.2793773, 0.4132166, 1.7359854, 1.7255859, -0.5208197, 1.1128899, 1.958389, -0.013861179, 2.170119, 1.463129, 0.718677, 1.0002766, 1.5638067, 0.32411116, -1.0281754, 0.9437935, 0.08824012, 1.6947819, -0.111871764, -0.7145935, -0.95034945, -0.6890095, -0.2390437, 2.465309, 0.7749562)
 
@@ -43,7 +55,14 @@ points = PackedVector3Array(-0.0678959, -0.9649617, -0.97187567, 0.0395735, 1.25
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4tykt")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_o6o7j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_g6n73")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.9659259, 1.13133405e-08, -0.25881907, 0.25881907, -4.222196e-08, 0.9659258, 0, -1, -4.371139e-08, 1.4397821, 1.4397476, 0)
+visible = false
+light_color = Color(1, 0.78039217, 0, 1)
+light_energy = 16.0

@@ -14,10 +14,13 @@ var rotacion = "front"
 var positionXYZ = 0
 var timer_rotation = false
 
+signal down
+
 func _ready():
 	rot_actual = rotation
 	objetivo_rot = rotations[rotacion]
-	
+	$".".set_keep_aspect_mode(KEEP_WIDTH)
+
 
 func _process(delta: float) -> void:
 	# Interpola suavemente los tres ejes de rotación
@@ -26,32 +29,28 @@ func _process(delta: float) -> void:
 	rotation = rot_actual
  
 
+	#AudioManager.chair_swing.play()
 
 func rotation_manager():
-	rotacion = list_rotations[positionXYZ]
-	print(rotacion)
+	if timer_rotation == false:
+		emit_signal("down")
+		rotacion = list_rotations[positionXYZ]
+		objetivo_rot = rotations[rotacion]
+		$rotationTimer.start(0.5)
+		timer_rotation = true
 
-	objetivo_rot = rotations[rotacion]
-
-
-
-	$rotationTimer.start()
-	timer_rotation = true
 
 
 func _on_right_mouse_entered() -> void:
-	
 	if !timer_rotation : 
 		if positionXYZ < 3:
 			positionXYZ += 1
 			
 		else: 
 			positionXYZ = 0
-		print(positionXYZ)
-	rotation_manager()
+		rotation_manager()
 
 func _on_left_mouse_entered() -> void:
-	print(positionXYZ)
 	if !timer_rotation : 
 		if positionXYZ > 0:
 			positionXYZ -= 1
@@ -59,8 +58,7 @@ func _on_left_mouse_entered() -> void:
 			positionXYZ = 3
 		else: 
 			positionXYZ = 0
-
-	rotation_manager()
+		rotation_manager()
 
 
 func _on_rotation_timer_timeout() -> void:

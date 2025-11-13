@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://chs8uklp8h7x0"]
+[gd_scene load_steps=8 format=4 uid="uid://chs8uklp8h7x0"]
+
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_trddh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y64yx"]
 
@@ -34,8 +36,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k81lg")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50yu3"]
+render_priority = 0
+shader = ExtResource("1_trddh")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.00999999977648
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uifvk"]
+next_pass = SubResource("ShaderMaterial_50yu3")
+albedo_color = Color(0.15952033, 0.08460461, 0.00089643523, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uifvk"]
+size = Vector3(4.4624023, 2.0653076, 1)
+
 [node name="cat" type="StaticBody3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_72nfq")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_uifvk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12133789, 0.5326538, 0)
+shape = SubResource("BoxShape3D_uifvk")

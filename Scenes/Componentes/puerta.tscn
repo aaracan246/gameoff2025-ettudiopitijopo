@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://ciwu0q5fei8fc"]
+[gd_scene load_steps=8 format=4 uid="uid://ciwu0q5fei8fc"]
+
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_c74i5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ncv"]
 
@@ -34,6 +36,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wymvo")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eulq1"]
+render_priority = 0
+shader = ExtResource("1_c74i5")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai0s3"]
+next_pass = SubResource("ShaderMaterial_eulq1")
+albedo_color = Color(0.42747203, 0.20163524, 0.07320695, 1)
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htvv6"]
 points = PackedVector3Array(-0.8448225, 3.0370948, 1, 1, 0.62068343, -0.97223806, -0.6728904, 3.156361, -1, 0.9362923, 2.9737358, 1, 0.698814, 3.1509345, -0.99728596, -0.65408534, 3.1008523, 1, 1, 0.55692583, 1, -0.9344987, 3.025666, -1, 1, 0.62068343, 0.17257124, -0.90853035, 2.9737358, 1, 0.42720926, 3.1642115, 1, -1, -0.9632042, -1, 1, -0.9059117, -0.97223806, -0.41128215, 3.221504, -1, -0.97223806, -0.9059117, 1, 1, -0.9059117, 1, -0.97223806, 2.909978, 1, 0.95829016, 3.017726, -0.99575526, 0.999807, 2.8466191, 1, -0.991824, 2.945348, -0.991824, -0.39964038, 3.1642115, 1, 0.4376832, 3.215781, -0.9972268, 1, 2.8469553, -0.9724311, -0.8647447, 3.0813596, -0.9951163, 0.6818473, 3.1008523, 1)
 
@@ -43,6 +55,7 @@ points = PackedVector3Array(-0.8448225, 3.0370948, 1, 1, 0.62068343, -0.97223806
 transform = Transform3D(1.8130858, 0, 0, 0, 1.8130858, 0, 0, 0, 0.29407826, 0, 0, 0)
 mesh = SubResource("ArrayMesh_6e77e")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ai0s3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.8130858, 0, 0, 0, 1.8130858, 0, 0, 0, 0.29407826, 0, 0, 0)

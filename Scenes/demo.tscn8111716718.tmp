@@ -1,0 +1,172 @@
+[gd_scene load_steps=24 format=4 uid="uid://cq3tykgg15qkd"]
+
+[ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
+[ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
+[ext_resource type="PackedScene" uid="uid://csykyo4ikmj0w" path="res://Scenes/Componentes/map.tscn" id="2_f2jw5"]
+[ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/Componentes/radio.tscn" id="3_glc8m"]
+[ext_resource type="PackedScene" uid="uid://w0hrl0r07jba" path="res://Scenes/UI/ambient_crossfade.tscn" id="4_43er0"]
+[ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/Componentes/news_paper.tscn" id="4_f2jw5"]
+[ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
+[ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
+[ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
+[ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
+[ext_resource type="PackedScene" uid="uid://ba3spl3lum1ow" path="res://Assets/3D/Escenario.blend" id="8_yc4g0"]
+[ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
+[ext_resource type="PackedScene" uid="uid://lcegqjtlylwd" path="res://Scenes/Componentes/jarron.tscn" id="10_84mi4"]
+[ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
+[ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
+[ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
+[ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
+[ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
+
+[sub_resource type="Environment" id="Environment_nsw6b"]
+ambient_light_energy = 1.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oj0u"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rx0ni"]
+_surfaces = [{
+"aabb": AABB(-1.186882, -0.39341602, -0.28982997, 2.373764, 0.7724935, 0.57965946),
+"format": 34359742465,
+"index_count": 312,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAADAAEAAAAEAAEAAgADAAUABAAGAAMABgAFAAMABwACAAUABwAFAAgACQAAAAIACQACAAcABgAKAAUACgAIAAUACwAHAAgACgALAAgACwAJAAcABgAMAAoACgANAAsACgAMAA0ABgAOAAwABAAOAAYACwAPAAkACwANAA8ACQAPABAACQAQAAAAAAARAAQABAARAA4AAAAQABEADQAkAA8ADwAlABAADwAkACUAEAAmABEAEAAlACYAEQAnAA4AEQAmACcADgAnACgADgAoAAwADAApAA0ADAAoACkADQApACQAJgAqACcAJwArACgAJwAqACsAKAAsACkAKAArACwAKQAtACQAKQAsAC0AJAAtAC4AJAAuACUAJQAvACYAJQAuAC8AJgAvACoAMAAtACwAMQAuAC0AMAAxAC0AMgAvAC4AMQAyAC4AMwAqAC8AMgAzAC8AMwA0ACoANAArACoANQAsACsANAA1ACsANQAwACwAEgA0ADMAEwA1ADQAEgATADQAEwAUADUAFAAwADUAFQATABIAFAAWADAAFgAxADAAFwAUABMAFQAXABMAGAAWABQAFwAYABQAFgAZADEAGQAyADEAGAAaABYAGgAZABYAGAAbABoAGQAcADIAHAAzADIAHAASADMAHQAcABkAGgAdABkAIAASABwAHQAgABwAIAAVABIAGgAeAB0AGgAbAB4AHQAhACAAHQAeACEAIAAiABUAIAAhACIAFQAiACMAIQAjACIAFQAjABcAHgAfACEAIQAfACMAHgAbAB8AFwAjAB8AGAAfABsAFwAfABgA"),
+"lods": [0.12530236, PackedByteArray("AAABAAIAAgABAAMABAADAAEAAAAEAAEAAgADAAUABAAGAAMABgAFAAMABwACAAUABwAFAAgACQAAAAIACQACAAcABgAKAAUACgAIAAUACwAHAAgACgALAAgACwAJAAcABgAMAAoACgANAAsACgAMAA0ABgAOAAwABAAOAAYACwAPAAkACwANAA8ACQAPABAACQAQAAAAAAARAAQABAARAA4AAAAQABEAEQASAA4AEAASABEAEwAMAA4AEgATAA4AEwAUAAwAFAANAAwAFQATABIAFAAWAA0AFgAPAA0AFwAUABMAFQAXABMAGAAWABQAFwAYABQAFgAZAA8AGQAQAA8AGAAaABYAGgAZABYAGAAbABoAGQAcABAAHAASABAAGgAdABkAHQAcABkAGgAbAB4AGgAeAB0AGAAfABsAHgAbAB8AFwAfABgAIAASABwAHQAgABwAIAAVABIAHQAeACEAHQAhACAAHgAfACEAIAAiABUAIAAhACIAFQAjABcAFwAjAB8AFQAiACMAIQAfACMAIQAjACIA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 54,
+"vertex_data": PackedByteArray("Oqsev3Dg9LwAAIC0tuA0v89tyb6YZJS++Nz6vtNtyb4AAIC0k4CCv8ltyb6YZJS+LtZEv1Dg9LyYN4S+wOuXv8Vtyb4AAIC0IZp7v9Df9LyYN4S+tuA0v89tyb6IZJQ+k4CCv8ltyb6IZJQ+LtZEv1Dg9LyIN4Q+i+KQv7Df9LwAAIC0IZp7v9Df9LyIN4Q+iXdpvw0Chz4AAIC01VhIvzKoIz7wOoI+1lhIvzSoIz4AO4K+FdMYv7SMwT3wOoI+wmjvvvD+zDwAAIC0FtMYv7SMwT0AO4K+FtMYP7SMwT0AO4K+1lhIPzSoIz4AO4K+iXdpPw0Chz4AAIC0LtZEP1Dg9LyYN4S+1VhIPzKoIz7wOoI+IZp7P9Df9LyYN4S+i+KQP7Df9LwAAIC0FdMYP7SMwT3wOoI+IZp7P9Df9LyIN4Q+k4CCP8ltyb6IZJQ+wmjvPvD+zDwAAIC0LtZEP1Dg9LyIN4Q+tuA0P89tyb6IZJQ+wOuXP8Vtyb4AAIC0OqseP3Dg9LwAAIC0+Nz6PtNtyb4AAIC0tuA0P89tyb6YZJS+k4CCP8ltyb6YZJS+kjmlvvDW7T3glUE+bR2dvmBhBTwAAIC0lTmlvvTW7T0AlkG+jNywvr7Lij4AlkG+svi4vnAWwj4AAIC0itywvrzLij7glUE+voR2sr7Lij4AlkG+voR2snAWwj4AAIC0voR2srzLij7glUE+voR2svDW7T3glUE+voR2smBhBTwAAIC0voR2svTW7T0AlkG+itywPrzLij7glUE+kjmlPvDW7T3glUE+bR2dPmBhBTwAAIC0lTmlPvTW7T0AlkG+jNywPr7Lij4AlkG+svi4PnAWwj4AAIC0")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_43er0"]
+resource_name = "Teléfono_Cylinder"
+_surfaces = [{
+"aabb": AABB(-1.186882, -0.39341602, -0.28982997, 2.373764, 0.7724935, 0.57965946),
+"attribute_data": PackedByteArray("AACAPwAAAD9VVVU/AAAAAAAAgD8AAAAAVVVVPwAAAD9VVVU/AAAAP6qqKj8AAAAAVVVVPwAAAACqqio/AAAAP6qqKj8AAAA//v//PgAAAACqqio/AAAAAP7//z4AAAA//v//PgAAAD+oqqo+AAAAAP7//z4AAAAAqKqqPgAAAD+oqqo+AAAAP6WqKj4AAAAAqKqqPgAAAAClqio+AAAAP6WqKj4AAAA/AADAswAAAAClqio+AAAAAAAAwLMAAAA//v//PgAAAD+oqqo+AAAAP6iqqj4AAAA//v//PgAAAD9VVVU/AAAAP6qqKj8AAAA/qqoqPwAAAD9VVVU/AAAAP1VVVT8AAAA/qqoqPwAAAD9VVVU/AAAAP6qqKj8AAAA/qqoqPwAAAABVVVU/AAAAAKiqqj4AAAA/paoqPgAAAD+lqio+AAAAP6iqqj4AAAA/qKqqPgAAAD+lqio+AAAAP6iqqj4AAAA/paoqPgAAAD+lqio+AAAAAKiqqj4AAAAAAACAPwAAAD9VVVU/AAAAP1VVVT8AAAA/AACAPwAAAD+qqio/AAAAP/7//z4AAAA//v//PgAAAD+qqio/AAAAP6WqKj4AAAA/AADAswAAAD8AAMCzAAAAP6WqKj4AAAA/AACAPwAAAD9VVVU/AAAAP1VVVT8AAAA/AACAPwAAAD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAP1VVVT8AAAAAVVVVPwAAAD8AAIA/AAAAAKqqKj8AAAA//v//PgAAAAD+//8+AAAAP6qqKj8AAAAA/v//PgAAAD+oqqo+AAAAAKiqqj4AAAA//v//PgAAAAClqio+AAAAPwAAwLMAAAAAAADAswAAAD+lqio+AAAAAP7//z4AAAA/qKqqPgAAAD/+//8+AAAAP6iqqj4AAAA/AACAPwAAAD9VVVU/AAAAPwAAgD8AAAA/VVVVPwAAAD+qqio/AAAAP/7//z4AAAA/qqoqPwAAAD/+//8+AAAAP6WqKj4AAAA/AADAswAAAD+lqio+AAAAPwAAwLMAAAA/qqoqPwAAAD/+//8+AAAAP6qqKj8AAAA//v//PgAAAD+lqio+AAAAPwAAwLMAAAA/paoqPgAAAD8AAMCzAAAAP/7//z4AAAA/qKqqPgAAAD/+//8+AAAAP6iqqj4AAAA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AADAswAAAD+lqio+AAAAP6iqqj4AAAA//v//PgAAAD9VVVU/AAAAP6qqKj8AAAA/qqoqPwAAAD9VVVU/AAAAP6iqqj4AAAA/paoqPgAAAD+lqio+AAAAP6iqqj4AAAA//v//PgAAAD+qqio/AAAAP1VVVT8AAAA/AACAPwAAAD+oqqo+AAAAP6WqKj4AAAA/paoqPgAAAD+oqqo+AAAAP6iqqj4AAAA/paoqPgAAAD+qqio/AAAAP/7//z4AAAA//v//PgAAAD+qqio/AAAAP6qqKj8AAAA//v//PgAAAD8AAIA/AAAAP1VVVT8AAAA/VVVVPwAAAD8AAIA/AAAAPwAAgD8AAAA/VVVVPwAAAD+lqio+AAAAPwAAwLMAAAA/AADAswAAAD+lqio+AAAAP6WqKj4AAAA/AADAswAAAD/+//8+AAAAP6iqqj4AAAA/qKqqPgAAAD/+//8+AAAAP/7//z4AAAA/qKqqPgAAAD9VVVU/AAAAP6qqKj8AAAA/qqoqPwAAAD9VVVU/AAAAP1VVVT8AAAA/qqoqPwAAAD9VVVU/AAAAP6qqKj8AAAA/qKqqPgAAAD+lqio+AAAAPwAAwLMAAAA/paoqPgAAAD+oqqo+AAAAP/7//z4AAAA/VVVVPwAAAD+qqio/AAAAP1VVVT8AAAA/qqoqPwAAAD+oqqo+AAAAP6WqKj4AAAA/qKqqPgAAAD+lqio+AAAAP/7//z4AAAA/qqoqPwAAAD9VVVU/AAAAPwAAgD8AAAA/"),
+"format": 34359742487,
+"index_count": 312,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AJgAnACgAJgApACcAMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAbAB4AGsAbAB5AHgAcAB6AG8AcAB7AHoAfAB9AH4AfAB/AH0AgACBAIIAgACDAIEAaACEAGcAaACFAIQAPACGAD4APACHAIYAiACJAIoAiACLAIkAjACJAIsAjACNAIkAjgCPAJAAjgCRAI8AkgCPAJEAkgCTAI8AlACVAJYAlACXAJUAmACVAJcAmACZAJUAmgCbAJwAmgCdAJsAngCbAJ0AngCfAJsAoAChAKIAoACjAKEApAChAKMApAClAKEApgCnAKgApgCpAKcAqgCnAKkAqgCrAKcAQABBAEIAQABCAEMARABAAEMARABDAEUARgBHAEgARgBJAEcAIgAkACMAIgAlACQASgBLAEwASgBNAEsATgBPAFAATgBRAE8ALAAuAC0ALAAvAC4AUgBTAFQAUgBVAFMAVgBXAFgAVgBZAFcArAAhACAArACtACEArgArACoArgCvACsAWgBbAFwAWgBdAFsAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAagCwALEAagBtALAAbgCyALMAbgBxALIAtAC1ALYAtAC3ALUAuAC5ALoAuAC7ALkAZgC8AL0AZgBpALwAPwC+AL8APwA9AL4AcgBzAHQAcgB1AHMAdgB1AHIAdgB3AHUA"),
+"lods": [0.12530236, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AHwAgAB0AIAAhAB0AIgAhACAAIgAjACEAIgAkACMAIgAlACQAJgAnACgAJgApACcAKgAnACkAKgArACcALAArACoALAAtACsALAAuAC0ALAAvAC4AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APwA9ADwAQABBAEIAQABCAEMARABAAEMARABDAEUARgBHAEgARgBJAEcASgBLAEwASgBNAEsATgBPAFAATgBRAE8AUgBTAFQAUgBVAFMAVgBXAFgAVgBZAFcAWgBbAFwAWgBdAFsAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAZgBnAGgAZgBpAGcAagBrAGwAagBtAGsAbgBvAHAAbgBxAG8AcgBzAHQAcgB1AHMAdgB1AHIAdgB3AHUA")],
+"material": SubResource("StandardMaterial3D_2oj0u"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 192,
+"vertex_data": PackedByteArray("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lTmlvvTW7T0AlkG+voR2smBhBTwAAIC0bR2dPmBhBTwAAIC0lTmlPvTW7T0AlkG+kjmlvvDW7T3glUE+voR2smBhBTwAAIC0bR2dvmBhBTwAAIC0voR2svDW7T3glUE+kjmlPvDW7T3glUE+bR2dPmBhBTwAAIC0svi4vnAWwj4AAIC0voR2srzLij7glUE+itywvrzLij7glUE+voR2snAWwj4AAIC0svi4PnAWwj4AAIC0itywPrzLij7glUE+lTmlvvTW7T0AlkG+voR2sr7Lij4AlkG+jNywvr7Lij4AlkG+voR2svTW7T0AlkG+lTmlPvTW7T0AlkG+jNywPr7Lij4AlkG+LtZEP1Dg9LyYN4S+IZp7P9Df9LyYN4S+IZp7P9Df9LyIN4Q+LtZEP1Dg9LyIN4Q+bR2dPmBhBTwAAIC0kjmlPvDW7T3glUE+itywPrzLij7glUE+svi4PnAWwj4AAIC0FtMYP7SMwT0AO4K+jNywPr7Lij4AlkG+lTmlPvTW7T0AlkG+1lhIPzSoIz4AO4K+1VhIPzKoIz7wOoI+kjmlPvDW7T3glUE+itywPrzLij7glUE+FdMYP7SMwT3wOoI+svi4PnAWwj4AAIC0jNywPr7Lij4AlkG+lTmlPvTW7T0AlkG+bR2dPmBhBTwAAIC02ey1viGzE8DZ7LW+NbP1v9nstb74sm+/2ey1vm+yrcDC9f//////v8L1//////+/wvX//////7/C9f//////vzEL8rX//5LoMQvytf//kugxC/K1//+S6DEL8rX//5Lo8jUwiwAAkujyNTCLAACS6PI1MIsAAJLo8jUwiwAAkuj/fzyKAAD/v/9/PIoAAP+//388igAA/7//fzyKAAD/v0nBJZOPTVC/ScElkwZNj8BJwSWTyUwIwEnBJZPdTOu/sE4mq////z+wTiar////P7BOJqv///8/sE4mq////z9o/ZL/////P2j9kv////8/aP2S/////z9o/ZL/////P5YCkv////8/lgKS/////z/C9f//AAD/P8L1//8AAP8/wvX//wAA/z/C9f//AAD/P2yAlYL///8/bICVgv///z9sgJWC////P2yAlYL///8/kn+Vgv///z+Sf5WC////P/9/PIr///8//388iv///z//fzyK////P/9/PIr///8/6r/JI////z/qv8kj////P+q/ySP///8/6r/JI////z8nK6/O////Pycrr87///8/Jyuvzv///z8nK6/O////P8ij6j////8/yKPqP////z/Io+o/////P8ij6j////8/oapgBv///z9dVWAG////P6GqYAb///8/XVVgBv///z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8//38AAP///z8lE7W+3UzrPyUTtb7JTAlAJRO1vo9NUT8lE7W+Bk2PQM308rUAAGwXzfTytQAAbBfN9PK1AABsF8308rUAAGwXDMowi///bBcMyjCL//9sFwzKMIv//2wXDMowi///bBe1PiWTb7KuQLU+JZP4sm8/tT4lkyGzE0C1PiWTNbP2P06xJqv///8/TrEmq////z9OsSar////P06xJqv///8/FEDJI////z8UQMkj////PxRAySP///8/FEDJI////z/X1K/O////P9fUr87///8/19Svzv///z/X1K/O////PzZc6j////8/NlzqP////z82XOo/////PzZc6j////8/N7a18f///z/HSbXx////P8dJtfH///8/N7a18f///z+eeaEq////P2CGoSr///8/YIahKv///z+eeaEq////P0mOx8n///8/tXHHyf///z+1ccfJ////P0mOx8n///8//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8/YIahKv///z9ghqEq////P7Vxx8n///8/tXHHyf///z+B8a7w////P4HxrvD///8/gfGu8P///z+B8a7w////P1CPfY7///8/UI99jv///z9Qj32O////P1CPfY7///8/x0m18f///z/HSbXx////P6GqYAb///8/oapgBv///z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z+Irv//////P4iu//////8/iK7//////z+Irv//////P4iu//////8/iK7//////z+IrgAA////P4iuAAD///8/iK4AAP///z+IrgAA////P4iuAAD///8/iK4AAP///z//f4gu////P/9/iC7///8//3+ILv///z//f4gu////P/9/iC7///8//3+ILv///z//f3bR////P/9/dtH///8//3920f///z//f3bR////P/9/dtH///8//3920f///z//////////P/////////8//////////z//////////P/////////8//////////z+WApL/////P5YCkv////8/kn+Vgv///z+Sf5WC////P555oSr///8/nnmhKv///z9JjsfJ////P0mOx8n///8/fQ6u8P///z99Dq7w////P30OrvD///8/fQ6u8P///z+ucH2O////P65wfY7///8/rnB9jv///z+ucH2O////Pze2tfH///8/N7a18f///z9dVWAG////P11VYAb///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rx0ni")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3jaw"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Demo" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
+script = ExtResource("1_tcdmn")
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_qwjex")
+
+[node name="pause_menu" parent="UI" instance=ExtResource("8_lsgl7")]
+visible = false
+
+[node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nsw6b")
+
+[node name="Escenario2" parent="." instance=ExtResource("8_yc4g0")]
+transform = Transform3D(0.40097302, 0, 0, 0, 0.40097302, 0, 0, 0, 0.40097302, -81.88017, -1.6798649, 2.1218452)
+
+[node name="Player" parent="." instance=ExtResource("1_nsw6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, -9.122, -14.581188)
+
+[node name="auricular" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(-0.30064932, -0.644006, -0.16158164, 0.5357256, -0.13050391, -0.47666442, 0.39223754, -0.31538466, 0.5271856, -1.7980514, -0.17534065, -1.4076319)
+visible = false
+mesh = SubResource("ArrayMesh_43er0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_m3jaw")
+
+[node name="OutDoor" type="Camera3D" parent="."]
+transform = Transform3D(-0.04494856, -0.7235313, 0.6888267, -0.40496847, 0.6435242, 0.6495207, -0.9132252, -0.24975805, -0.32193282, 34.605824, 22.37099, 27.314915)
+
+[node name="Escenario" parent="." instance=ExtResource("10_a1i4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0.04974556)
+
+[node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.580523, -14.395881, 19.829748)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
+transform = Transform3D(1, 7.450581e-09, 1.3877788e-16, 0, -5.2154064e-08, 1, 7.450581e-09, -1, -5.2154064e-08, -1.2139053, 44.717648, -4.2476416)
+light_color = Color(0.7490196, 0.73333335, 0.54509807, 1)
+light_energy = 16.0
+spot_range = 78.303
+spot_attenuation = 0.3
+
+[node name="NewsPaper" parent="Escenario" instance=ExtResource("4_f2jw5")]
+transform = Transform3D(0.14265335, 0.20530476, 8.9741565e-09, 0, -1.0927847e-08, 0.25, 0.20530476, -0.14265335, -6.2355747e-09, 9.354418, -12.948207, -23.156898)
+
+[node name="NewsPaper2" parent="Escenario" instance=ExtResource("4_f2jw5")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.008578539, -9.135027, -17.897667)
+visible = false
+
+[node name="Map" parent="Escenario" instance=ExtResource("2_f2jw5")]
+transform = Transform3D(0.028612897, 0, -1.499727, 0, 1.5, 0, 1.499727, 0, 0.028612897, 29.524437, -3.2975483, -19.388351)
+
+[node name="Mapa" type="Camera3D" parent="Escenario"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.676136, -2.6688504, -17.473)
+
+[node name="jarron" parent="Escenario" instance=ExtResource("10_84mi4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.163513, -20.768715, -25.471386)
+
+[node name="Mesa" parent="Escenario" instance=ExtResource("10_l50oi")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -13.492083, -24.399017)
+
+[node name="Radio" parent="Escenario" instance=ExtResource("3_glc8m")]
+transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 7.588849, -12.231735, -27.90455)
+
+[node name="Pc" parent="Escenario" instance=ExtResource("6_yc4g0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.057461023, -9.2575865, -28.496647)
+
+[node name="Computer" type="Camera3D" parent="Escenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019283295, -9.184779, -23.43837)
+
+[node name="Phone" parent="Escenario" instance=ExtResource("9_a1i4p")]
+transform = Transform3D(1.3937474, 0, 0.5544987, 0, 1.5, 0, -0.5544987, 0, 1.3937474, -7.6146517, -11.461858, -24.79234)
+
+[node name="telefono" type="Camera3D" parent="Escenario"]
+transform = Transform3D(0.9078811, -0.28642687, 0.30612347, 0.012730069, 0.7487066, 0.66277933, -0.41903442, -0.59782785, 0.6833828, -6.0995793, -10.603813, -22.361593)
+
+[node name="Sofa" parent="Escenario" instance=ExtResource("15_skqsx")]
+transform = Transform3D(-1.3818094e-07, 0, 2, 0, 2, 0, -3.1612113, 0, -8.742278e-08, -25.357618, -19.975285, -7.9936066)
+
+[node name="lampara2" parent="Escenario" instance=ExtResource("15_84mi4")]
+transform = Transform3D(0.89412296, 0, -0.4478215, 0, 1, 0, 0.4478215, 0, 0.89412296, -5.9156513, -12.107304, -30.12648)
+
+[node name="cat" parent="Escenario" instance=ExtResource("17_43er0")]
+transform = Transform3D(-0.698927, 0.16237885, 0.69651586, -0.020137832, 0.96903074, -0.24611783, -0.71490955, -0.18604468, -0.6740117, -22.913918, -18.560324, -11.0307255)
+
+[node name="Gato" type="Camera3D" parent="Escenario"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)
+
+[connection signal="cafe" from="." to="Escenario/Map" method="_on_demo_cafe"]
+[connection signal="descanso" from="." to="Escenario/Map" method="_on_demo_descanso"]
+[connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
+[connection signal="embarcadero" from="." to="Escenario/Map" method="_on_demo_embarcadero"]
+[connection signal="entrada" from="." to="Escenario/Map" method="_on_demo_entrada"]
+[connection signal="merendero1" from="." to="Escenario/Map" method="_on_demo_merendero_1"]
+[connection signal="merendero2" from="." to="Escenario/Map" method="_on_demo_merendero_2"]
+[connection signal="mirador" from="." to="Escenario/Map" method="_on_demo_mirador"]
+[connection signal="obras" from="." to="Escenario/Map" method="_on_demo_obras"]
+[connection signal="parking" from="." to="Escenario/Map" method="_on_demo_parking"]
+[connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
+[connection signal="input_event" from="Escenario/NewsPaper" to="." method="_on_news_paper_input_event"]
+[connection signal="input_event" from="Escenario/NewsPaper2" to="." method="_on_news_paper_input_event"]
+[connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]
+[connection signal="input_event" from="Escenario/Radio" to="." method="_on_radio_input_event"]
+[connection signal="input_event" from="Escenario/Pc" to="." method="_on_pc_input_event"]
+[connection signal="input_event" from="Escenario/Phone" to="." method="_on_phone_input_event"]
+[connection signal="input_event" from="Escenario/cat" to="." method="_on_cat_input_event"]

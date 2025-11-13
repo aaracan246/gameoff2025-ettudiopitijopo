@@ -23,14 +23,23 @@ buses/default_bus_layout="res://Audio.tres"
 
 AudioManager="*res://Scenes/UI/audio_manager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://Scripts/Global.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"awela": "res://Dialogs/characters/awela.dch",
+"camper": "res://Dialogs/characters/camper.dch",
+"karmela": "res://Dialogs/characters/karmela.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"victima": "res://Dialogs/characters/victima.dch",
+"walter": "res://Dialogs/characters/walter.dch"
 }
 directories/dtl_directory={
-"timeline": "res://Dialogs/timeline.dtl"
+"Dialogs/evento3": "res://Dialogs/evento3.dtl",
+"evento1": "res://Dialogs/events/evento1.dtl",
+"evento2": "res://Dialogs/events/evento2.dtl",
+"evento3": "res://Dialogs/events/evento3.dtl"
 }
 layout/style_directory={}
 layout/style_list=[]
@@ -68,6 +77,12 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+variables={}
+glossary/default_case_sensitive=true
+
+[display]
+
+mouse_cursor/custom_image="uid://nklbdd432hyx"
 
 [editor_plugins]
 
@@ -79,26 +94,6 @@ theme/custom_font="uid://eml7vef6jevt"
 
 [input]
 
-move_right={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
-]
-}
-move_left={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
-]
-}
-move_back={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
-]
-}
-move_forward={
-"deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
-]
-}
 pause={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://b3gedxksqujxh"]
+[gd_scene load_steps=4 format=4 uid="uid://b3gedxksqujxh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkshy"]
 
@@ -34,14 +34,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8gy0j")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ekiiy"]
-points = PackedVector3Array(3.38623, 2.987538, -0.5321094, -3.4014416, -1, -2.1117709, -3.3633177, -0.9779589, 2.1162, 3.4012494, -1, -2.1117709, -3.2648616, 2.9153802, -2.092815, 3.3631256, -0.9779589, 2.1162, -3.3009934, 1.1211303, 2.0772462, 3.2651374, 2.9152658, -2.0926912, 3.3008013, 1.1211303, 2.0772462, -3.385738, 2.987538, -0.5321094, -3.4959235, 2.8779376, -0.5321094, 3.4957314, 2.8779376, -0.5321094, 3.1486561, 1.3103702, 1.8835206, -3.1488483, 1.3103702, 1.8835206, 3.3761444, 2.8125489, -2.0960798, -3.37618, 2.812463, -2.0959818)
-
-[node name="Sofa" type="StaticBody3D"]
+[node name="Sofa" type="Node3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_jkg02")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_ekiiy")

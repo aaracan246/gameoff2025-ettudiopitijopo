@@ -1,0 +1,14 @@
+victima: Please help! I’m being followed… please please please I need help
+karmela: What’s the matter? Who is following you?
+victima: Idk, I was at the park and suddenly I saw someone from the corner of the eye, im scared please help
+karmela: Okay try to stay calm. Where are you exactly??
+victima: [Position aprox], please send help do something he is following me
+karmela: Okay, Give me a sec while I find you on the map
+karmela: (It might be the serial killer that escaped prison the other day. Her life depends on me.)
+[wait time="3.0"]
+victima: Please tell me where to go
+- Left
+	<Empty Text Event>
+- Right
+	karmela: Ve hacia la derecha
+[signal arg="colgar"]
