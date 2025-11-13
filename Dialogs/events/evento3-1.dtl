@@ -6,9 +6,22 @@ victima: [Position aprox], please send help do something he is following me
 karmela: Okay, Give me a sec while I find you on the map
 karmela: (It might be the serial killer that escaped prison the other day. Her life depends on me.)
 [wait time="3.0"]
+label Choice1
 victima: Please tell me where to go
 - Left
-	<Empty Text Event>
+	ghosty_ghost: Go...left...
+	- Confirm
+	- Choose another
+		jump Choice1
+	karmela: Okay, to the left now.  You should walk until you reach the picnic area.
+	karmela: Please call me back when you arrive there.
+	victima: Okay... I'll call you back in a moment.
 - Right
-	karmela: Ve hacia la derecha
+	ghosty_ghost: Go...left...
+	- Confirm
+	- Choose another
+		jump Choice1
+	karmela: Okay, to the right now. You will reach the entrance of the forest this way.
+	[signal arg="fail"]
+	jump Choice1
 [signal arg="colgar"]

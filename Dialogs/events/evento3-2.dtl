@@ -1,0 +1,21 @@
+victima: I have arrived to the picnic area. Please, what do I do now???
+karmela: Let me check the map... You should go to...
+label Choice2
+victima: Please, where do I go?
+- Left
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice2
+	karmela: Okay, to the left now. You should reach the animal rescue building after a while.
+	[signal arg="fail"]
+	jump Choice2
+- Right
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice2
+	karmela: Okay, to the right now. You should reach a resting area.
+	karmela: Call me back when you reach that place. Be careful, please.
+	victima: Okay... I'll call you in a minute.
+[signal arg="colgar"]

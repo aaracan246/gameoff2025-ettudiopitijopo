@@ -1,0 +1,27 @@
+victima: Hey? I have arrived to the resting area.
+karmela: Thank god. You are getting closer now. You should go to...
+label Choice3
+victima: Please, I can hear him closer. Where do I go?
+- Left
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice3
+	karmela: Okay, go to your left. You should reach the animal rescue building.
+	[signal arg="fail"]
+	jump Choice3
+- Middle path
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice3
+	karmela: Okay, go through the middle path. You should reach the cafeteria this way. Go through the bridge.
+- Right
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice3
+	karmela: Okay, go through the middle path. You should arrive to the docks.
+	[signal arg="fail"]
+	jump Choice3
+[signal arg="colgar"]

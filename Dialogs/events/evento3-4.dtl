@@ -1,0 +1,20 @@
+[signal arg="colgar"]
+victima: Hey, you there? I can see the watchtower now. What do I do?
+karmela: You are almost here. Let me see...
+label Choice4
+victima: Please, fast. Tell me what to do
+- Left
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice4
+	karmela: Run towards the hill viewpoint. I'll tell you more when you arrive there.
+	[signal arg="fail"]
+	jump Choice4
+- Right
+	ghosty_ghost: Go...right...
+	- Confirm
+	- Choose another
+		jump Choice4
+	karmela: Run towards the watchtower. I'll wait by the door. Be safe.
+[signal arg="colgar"]
