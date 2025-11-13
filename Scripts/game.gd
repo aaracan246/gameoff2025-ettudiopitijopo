@@ -140,8 +140,12 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and not is_zoomed:
+		AudioManager.chair_roll.play()
 	input_manager($Escenario/Mapa, event)
 
+
+			
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		cont = randi_range(0,9)
 		match cont:
@@ -244,6 +248,9 @@ func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		var onOff = $Escenario/lampara/SpotLight3D.visible
 		$Escenario/lampara/SpotLight3D.visible = !onOff
+		(AudioManager.lamp_on if onOff else AudioManager.lamp_off).play()
+
+
 
 
 func _on_player_move() -> void:
