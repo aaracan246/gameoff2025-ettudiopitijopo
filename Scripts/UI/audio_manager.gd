@@ -14,6 +14,7 @@ extends Node
 @onready var phone_ring: AudioStreamPlayer = $SFX/phone_ring
 @onready var phone_pickup: AudioStreamPlayer = $SFX/phone_pickup
 @onready var phone_down: AudioStreamPlayer = $SFX/phone_down
+@onready var click: AudioStreamPlayer = $SFX/click
 
 
 func fade_out(player: AudioStreamPlayer, duration) -> void:

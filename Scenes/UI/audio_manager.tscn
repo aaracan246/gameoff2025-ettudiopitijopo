@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=14 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/phone_ring.mp3" id="10_5h4gq"]
 [ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/phone_pickup.wav" id="11_ehvno"]
 [ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/phone_down.wav" id="12_axxev"]
+[ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/click.wav" id="13_ehvno"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -59,3 +60,6 @@ stream = ExtResource("11_ehvno")
 
 [node name="phone_down" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("12_axxev")
+
+[node name="click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_ehvno")
