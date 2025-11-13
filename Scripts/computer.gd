@@ -18,7 +18,11 @@ signal pc_mouse(inside:bool)
 
 func _ready():
 	# Si tu shader tiene un parámetro para activar/desactivar efectos
-	$Pc.material_override = null
+	var shader:StandardMaterial3D = $Pc.get_surface_override_material(0)
+	print(shader)
+
+	var outline_material = shader.next_pass
+	outline_material.set_shader_parameter("size", 1.0)
 
 
 	#node_area.mouse_entered.connect(_mouse_entered_area)
