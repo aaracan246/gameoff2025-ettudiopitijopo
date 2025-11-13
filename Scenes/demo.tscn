@@ -128,7 +128,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.008578539, -9.135
 visible = false
 
 [node name="Map" parent="Escenario" instance=ExtResource("2_f2jw5")]
-transform = Transform3D(0.028612897, 0, -1.499727, 0, 1.5, 0, 1.499727, 0, 0.028612897, 29.524437, -3.2975483, -19.388351)
+transform = Transform3D(0.004659997, 0, -1.4999927, 0, 1.5, 0, 1.4999927, 0, 0.004659997, 29.336021, -2.4530487, -15.40611)
 
 [node name="Mapa" parent="Escenario" instance=ExtResource("12_0ygp3")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.676136, -2.6688504, -17.473)
@@ -187,18 +187,8 @@ texture = ExtResource("23_65jo5")
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 
-[connection signal="cafe" from="." to="Escenario/Map" method="_on_demo_cafe"]
-[connection signal="descanso" from="." to="Escenario/Map" method="_on_demo_descanso"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
-[connection signal="embarcadero" from="." to="Escenario/Map" method="_on_demo_embarcadero"]
-[connection signal="entrada" from="." to="Escenario/Map" method="_on_demo_entrada"]
 [connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
-[connection signal="merendero1" from="." to="Escenario/Map" method="_on_demo_merendero_1"]
-[connection signal="merendero2" from="." to="Escenario/Map" method="_on_demo_merendero_2"]
-[connection signal="mirador" from="." to="Escenario/Map" method="_on_demo_mirador"]
-[connection signal="obras" from="." to="Escenario/Map" method="_on_demo_obras"]
-[connection signal="parking" from="." to="Escenario/Map" method="_on_demo_parking"]
-[connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
 [connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
 [connection signal="input_event" from="Escenario/puerta2" to="." method="_on_puerta_input_event"]
