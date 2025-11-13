@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1t7le5vpxy55"
-path="res://.godot/imported/Cursor_pc.png-91ed1f467022844e7393b73e0f9150d6.ctex"
+uid="uid://blpbj8oc8ol8d"
+path="res://.godot/imported/textura pared madera.jpg-dd62537c959f513b21bb2312ff3ffdcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cursores/Cursor_pc.png"
-dest_files=["res://.godot/imported/Cursor_pc.png-91ed1f467022844e7393b73e0f9150d6.ctex"]
+source_file="res://Assets/Textures/cartoon-style-wooden-slats/textura pared madera.jpg"
+dest_files=["res://.godot/imported/textura pared madera.jpg-dd62537c959f513b21bb2312ff3ffdcf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1t7le5vpxy55"
-path="res://.godot/imported/Cursor_pc.png-91ed1f467022844e7393b73e0f9150d6.ctex"
+uid="uid://djhed6hx2e24l"
+path="res://.godot/imported/O5GLN30.jpg-cc0e8a665707edc2707e36bbb2062aaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cursores/Cursor_pc.png"
-dest_files=["res://.godot/imported/Cursor_pc.png-91ed1f467022844e7393b73e0f9150d6.ctex"]
+source_file="res://Assets/Textures/fondo-de-textura-de-madera/O5GLN30.jpg"
+dest_files=["res://.godot/imported/O5GLN30.jpg-cc0e8a665707edc2707e36bbb2062aaa.ctex"]
 
 [params]
 

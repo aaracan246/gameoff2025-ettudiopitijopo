@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://cuc8r1mt88ftx"]
+[gd_scene load_steps=19 format=4 uid="uid://cuc8r1mt88ftx"]
 
 [ext_resource type="PackedScene" uid="uid://dd2vgnu771yby" path="res://Scenes/Componentes/screen.tscn" id="1_4xga7"]
 [ext_resource type="Script" uid="uid://dty3g8m21i4qb" path="res://Scripts/computer.gd" id="1_j2xe6"]
+[ext_resource type="Shader" uid="uid://cx1o02wexj867" path="res://Assets/shaders/screen.gdshader" id="3_cqrlk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opbyo"]
 resource_name = "Material.001"
@@ -112,6 +113,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rnvwt")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqrlk"]
+resource_local_to_scene = true
+shader = ExtResource("3_cqrlk")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.266000012635
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 3.5060001665350002
+shader_parameter/roll_variation = 0.84300003678262
+shader_parameter/distort_intensity = 0.0290000013775
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_4xga7"]
 viewport_path = NodePath("SubViewport")
 
@@ -150,7 +176,19 @@ skeleton = NodePath("")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(350, 350)
 
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+z_index = 4
+material = SubResource("ShaderMaterial_cqrlk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="pantalla" parent="SubViewport" instance=ExtResource("1_4xga7")]
+z_index = 3
 anchors_preset = -1
 anchor_right = 0.30400002
 anchor_bottom = 0.54
