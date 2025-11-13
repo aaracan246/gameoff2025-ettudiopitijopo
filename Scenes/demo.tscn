@@ -107,7 +107,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.580523, -14.395881, 19.829
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
 transform = Transform3D(1, 7.450581e-09, 1.3877788e-16, 0, -5.2154064e-08, 1, 7.450581e-09, -1, -5.2154064e-08, -1.2139053, 44.717648, -4.2476416)
 light_color = Color(0.7490196, 0.73333335, 0.54509807, 1)
-light_energy = 6.443
+light_energy = 16.0
 spot_range = 78.303
 spot_attenuation = 0.3
 
