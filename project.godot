@@ -28,12 +28,16 @@ Global="*res://Scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
+"awela": "res://Dialogs/awela.dch",
+"camper": "res://Dialogs/camper.dch",
 "karmela": "res://Dialogs/karmela.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "victima": "res://Dialogs/victima.dch"
 }
 directories/dtl_directory={
-"timeline": "res://Dialogs/timeline.dtl"
+"evento1": "res://Dialogs/evento1.dtl",
+"evento2": "res://Dialogs/evento2.dtl",
+"evento3": "res://Dialogs/evento3.dtl"
 }
 layout/style_directory={}
 layout/style_list=[]
@@ -71,7 +75,9 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-variables={}
+variables={
+"event": 0
+}
 glossary/default_case_sensitive=true
 
 [display]
