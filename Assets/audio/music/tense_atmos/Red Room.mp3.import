@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2ely0n2qtj0m"
+path="res://.godot/imported/Red Room.mp3-318f38dfb1c60cfb3747f7c3c66f3aeb.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/tense_atmos/Red Room.mp3"
+dest_files=["res://.godot/imported/Red Room.mp3-318f38dfb1c60cfb3747f7c3c66f3aeb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

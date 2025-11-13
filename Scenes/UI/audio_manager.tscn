@@ -5,20 +5,20 @@
 [ext_resource type="AudioStream" uid="uid://dim8wt5f3hr3p" path="res://Assets/audio/music/credits.mp3" id="3_tqpqp"]
 [ext_resource type="AudioStream" uid="uid://qjirkoely2gc" path="res://Assets/audio/sfx/hover.ogg" id="4_vmr8m"]
 [ext_resource type="AudioStream" uid="uid://doxmn7e2mr0cc" path="res://Assets/audio/sfx/transition.wav" id="5_q3gic"]
-[ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/newspaper_drop.wav" id="6_yoybt"]
-[ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/newspaper_pickup.wav" id="7_1xomj"]
-[ext_resource type="AudioStream" uid="uid://c0qmwu4tx1qum" path="res://Assets/audio/sfx/chair_roll.wav" id="8_1xomj"]
-[ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/phone_ring.mp3" id="10_5h4gq"]
-[ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/phone_pickup.wav" id="11_ehvno"]
-[ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/phone_down.wav" id="12_axxev"]
-[ext_resource type="AudioStream" uid="uid://b6qpxhiwlat1h" path="res://Assets/audio/sfx/chair_1.wav" id="13_ddp6m"]
-[ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/click.wav" id="13_ehvno"]
-[ext_resource type="AudioStream" uid="uid://chf25o1q40fv8" path="res://Assets/audio/sfx/chair_2.wav" id="14_6vio7"]
-[ext_resource type="AudioStream" uid="uid://7xvrng0ftqne" path="res://Assets/audio/sfx/chair_3.wav" id="15_62ok4"]
-[ext_resource type="AudioStream" uid="uid://2rw5lfgs1qq3" path="res://Assets/audio/sfx/chair_4.wav" id="16_blkxh"]
-[ext_resource type="AudioStream" uid="uid://bapjb5a5my263" path="res://Assets/audio/sfx/pc_alert.mp3" id="17_6vio7"]
-[ext_resource type="AudioStream" uid="uid://b2ky6papdm1os" path="res://Assets/audio/sfx/lamp_on.wav" id="18_blkxh"]
-[ext_resource type="AudioStream" uid="uid://bl5e2oojqs4k4" path="res://Assets/audio/sfx/lamp_off.wav" id="19_nqmde"]
+[ext_resource type="AudioStream" uid="uid://bt6nabcuiyinw" path="res://Assets/audio/sfx/desktop/newspaper_drop.wav" id="6_yoybt"]
+[ext_resource type="AudioStream" uid="uid://b82nlkhlg4twn" path="res://Assets/audio/sfx/desktop/newspaper_pickup.wav" id="7_1xomj"]
+[ext_resource type="AudioStream" uid="uid://c0qmwu4tx1qum" path="res://Assets/audio/sfx/room/chair_roll.wav" id="8_1xomj"]
+[ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/desktop/phone_ring.mp3" id="10_5h4gq"]
+[ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/desktop/phone_pickup.wav" id="11_ehvno"]
+[ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="12_axxev"]
+[ext_resource type="AudioStream" uid="uid://b6qpxhiwlat1h" path="res://Assets/audio/sfx/room/chair_1.wav" id="13_ddp6m"]
+[ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/desktop/click.wav" id="13_ehvno"]
+[ext_resource type="AudioStream" uid="uid://chf25o1q40fv8" path="res://Assets/audio/sfx/room/chair_2.wav" id="14_6vio7"]
+[ext_resource type="AudioStream" uid="uid://7xvrng0ftqne" path="res://Assets/audio/sfx/room/chair_3.wav" id="15_62ok4"]
+[ext_resource type="AudioStream" uid="uid://2rw5lfgs1qq3" path="res://Assets/audio/sfx/room/chair_4.wav" id="16_blkxh"]
+[ext_resource type="AudioStream" uid="uid://bapjb5a5my263" path="res://Assets/audio/sfx/desktop/pc_alert.mp3" id="17_6vio7"]
+[ext_resource type="AudioStream" uid="uid://b2ky6papdm1os" path="res://Assets/audio/sfx/desktop/lamp_on.wav" id="18_blkxh"]
+[ext_resource type="AudioStream" uid="uid://bl5e2oojqs4k4" path="res://Assets/audio/sfx/desktop/lamp_off.wav" id="19_nqmde"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -31,9 +31,11 @@ bus = &"Music"
 
 [node name="credits" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("3_tqpqp")
+bus = &"Music"
 
 [node name="scene_transition" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_q3gic")
+bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]
 
@@ -51,6 +53,7 @@ bus = &"SFX"
 
 [node name="phone_ring" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_5h4gq")
+mix_target = 1
 bus = &"SFX"
 
 [node name="phone_pickup" type="AudioStreamPlayer" parent="SFX"]
