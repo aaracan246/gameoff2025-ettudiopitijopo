@@ -138,9 +138,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -13.492083, -24
 [node name="Radio" parent="Escenario" instance=ExtResource("3_glc8m")]
 transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 7.588849, -12.231735, -27.90455)
 
-[node name="radio" parent="Escenario" instance=ExtResource("12_0ygp3")]
-transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
-
 [node name="Pc" parent="Escenario" instance=ExtResource("6_yc4g0")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.057461023, -9.2575865, -28.496647)
 
@@ -199,6 +196,7 @@ texture = ExtResource("23_65jo5")
 [connection signal="parking" from="." to="Escenario/Map" method="_on_demo_parking"]
 [connection signal="rescate" from="." to="Escenario/Map" method="_on_demo_rescate"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
+[connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/NewsPaper2" to="." method="_on_news_paper_input_event"]
 [connection signal="input_event" from="Escenario/Map" to="." method="_on_map_input_event"]

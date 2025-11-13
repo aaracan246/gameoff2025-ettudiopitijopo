@@ -72,7 +72,3 @@ autoplay = "idle"
 
 [node name="Camera3D" parent="." instance=ExtResource("2_4u2v5")]
 transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
-
-[node name="Camera3D1" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582215, 0, -0.28582215, 0.9582827, 0, 1.9014039, 4.530482)
-fov = 106.0

@@ -15,6 +15,7 @@ extends Node3D
 @onready var phone_station: StaticBody3D = $Escenario/Phone
 @onready var lampara: StaticBody3D = $Escenario/lampara
 @onready var cat: StaticBody3D = $Escenario/cat
+@onready var puerta: StaticBody3D = $Escenario/puerta
 
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
 
@@ -24,7 +25,8 @@ var is_moving = false
 var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
-
+var door_open = false
+var rotation_door = Vector3(0.0,-90.0,0.0)
 signal entrada
 signal merendero1
 signal parking
@@ -247,3 +249,20 @@ func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: 
 func _on_player_move() -> void:
 	if newspaper_zoom:
 		newspaper_manager()
+
+
+func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
+		if !door_open:
+			door_manager()
+		else:
+			pass
+
+
+func door_manager():
+	if !door_open:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(puerta, "global_rotation",rotation_door, transition_duration )
+		
