@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=25 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/desktop/phone_ring.mp3" id="10_5h4gq"]
 [ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/desktop/phone_pickup.wav" id="11_ehvno"]
 [ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="12_axxev"]
+[ext_resource type="AudioStream" uid="uid://piseul58f1eo" path="res://Assets/audio/sfx/desktop/phone_beep.mp3" id="12_qlx6o"]
 [ext_resource type="AudioStream" uid="uid://b6qpxhiwlat1h" path="res://Assets/audio/sfx/room/chair_1.wav" id="13_ddp6m"]
 [ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/desktop/click.wav" id="13_ehvno"]
 [ext_resource type="AudioStream" uid="uid://chf25o1q40fv8" path="res://Assets/audio/sfx/room/chair_2.wav" id="14_6vio7"]
@@ -20,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://bapjb5a5my263" path="res://Assets/audio/sfx/desktop/pc_alert.mp3" id="17_6vio7"]
 [ext_resource type="AudioStream" uid="uid://b2ky6papdm1os" path="res://Assets/audio/sfx/desktop/lamp_on.wav" id="18_blkxh"]
 [ext_resource type="AudioStream" uid="uid://bl5e2oojqs4k4" path="res://Assets/audio/sfx/desktop/lamp_off.wav" id="19_nqmde"]
+[ext_resource type="AudioStream" uid="uid://byjfwt3r60hmt" path="res://Assets/audio/sfx/atmosphere/ambient_ghost_1.mp3" id="22_o47wu"]
+[ext_resource type="AudioStream" uid="uid://lcg8vlbwff73" path="res://Assets/audio/sfx/desktop/book_glitch.mp3" id="23_1hgve"]
+[ext_resource type="AudioStream" uid="uid://dla4s5amsggyi" path="res://Assets/audio/sfx/desktop/windows_error.mp3" id="24_xced4"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -28,7 +32,6 @@ script = ExtResource("1_6nusx")
 
 [node name="main_menu" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_08g05")
-volume_db = -30.0
 bus = &"Music"
 
 [node name="credits" type="AudioStreamPlayer" parent="Music"]
@@ -70,6 +73,10 @@ bus = &"SFX"
 stream = ExtResource("12_axxev")
 bus = &"SFX"
 
+[node name="phone_beep" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_qlx6o")
+bus = &"SFX"
+
 [node name="pc_click" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("13_ehvno")
 bus = &"SFX"
@@ -105,4 +112,16 @@ bus = &"SFX"
 
 [node name="lamp_off" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("19_nqmde")
+bus = &"SFX"
+
+[node name="ghost_1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("22_o47wu")
+bus = &"SFX"
+
+[node name="book_glitch" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("23_1hgve")
+bus = &"SFX"
+
+[node name="windows_error" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("24_xced4")
 bus = &"SFX"

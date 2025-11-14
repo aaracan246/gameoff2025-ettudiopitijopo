@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ld0cwboc7w6t" path="res://Assets/pc/file_popup.png" id="14_hsj54"]
 [ext_resource type="Texture2D" uid="uid://dp4gvi16f3s7q" path="res://Assets/pc/music_file.png" id="15_1m4y0"]
 [ext_resource type="Texture2D" uid="uid://br604nibp6pfo" path="res://Assets/icons/close_w.png" id="16_er71p"]
-[ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
+[ext_resource type="Script" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
 [ext_resource type="Texture2D" uid="uid://bc4m4ldj5vo51" path="res://Assets/pc/life_idle.png" id="20_v71d2"]
 [ext_resource type="Texture2D" uid="uid://wviefcqnb2gg" path="res://Assets/pc/life_lost.png" id="21_l5hxs"]
@@ -159,7 +159,7 @@ offset_bottom = 168.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_l5hxs")
 
-[node name="book_glitch" type="TextureRect" parent="Destktop/icons/book"]
+[node name="book_ghost" type="TextureRect" parent="Destktop/icons/book"]
 visible = false
 layout_mode = 0
 offset_left = 1.2500011
@@ -190,6 +190,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ir73n")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5aw5c")
 
 [node name="email_alert" type="Sprite2D" parent="Destktop/icons/email"]
+visible = false
 position = Vector2(-174, -28)
 texture = ExtResource("5_7dyi4")
 
@@ -350,6 +351,7 @@ icon = ExtResource("16_er71p")
 
 [node name="file_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
+texture_filter = 1
 layout_mode = 0
 offset_left = 174.0
 offset_top = 26.0
@@ -400,9 +402,9 @@ icon = ExtResource("13_r56by")
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
 layout_mode = 0
-offset_left = 37.0
+offset_left = 124.0
 offset_top = 63.0
-offset_right = 224.0
+offset_right = 311.0
 offset_bottom = 377.0
 color = Color(0.9658, 0.91680646, 0.9181592, 1)
 metadata/_edit_group_ = true
@@ -495,13 +497,73 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
+[node name="trash_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 35.0
+offset_top = 44.0
+offset_right = 210.0
+offset_bottom = 215.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 54.0
+offset_bottom = 25.0
+text = "Bin"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="TextureRect" type="TextureRect" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="trash_p" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 171.0
+flat = true
+
+[node name="trash_close" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 181.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="music_file" type="Button" parent="Destktop/popups/trash_popup"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 272.0
+offset_bottom = 328.0
+scale = Vector2(0.12109375, 0.12499999)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v71d2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_75h4d")
+icon = ExtResource("15_1m4y0")
+
 [node name="gallery_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
 layout_mode = 0
-offset_left = 112.0
-offset_top = 103.0
-offset_right = 348.0
-offset_bottom = 362.0
+offset_left = 104.0
+offset_top = 105.0
+offset_right = 340.0
+offset_bottom = 364.0
 color = Color(0.9658, 0.91680646, 0.9181592, 1)
 script = ExtResource("16_ir73n")
 metadata/_edit_group_ = true
@@ -566,66 +628,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
-[node name="trash_popup" type="ColorRect" parent="Destktop/popups"]
-visible = false
-layout_mode = 0
-offset_left = 153.0
-offset_top = 140.0
-offset_right = 328.0
-offset_bottom = 311.0
-color = Color(0.9658, 0.91680646, 0.9181592, 1)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_right = 175.0
-offset_bottom = 26.0
-color = Color(0.7764706, 0.88235295, 0.88235295, 1)
-
-[node name="Label" type="Label" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 4.0
-offset_right = 54.0
-offset_bottom = 25.0
-text = "Bin"
-label_settings = SubResource("LabelSettings_ir73n")
-
-[node name="TextureRect" type="TextureRect" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="trash_p" type="Button" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_right = 175.0
-offset_bottom = 171.0
-flat = true
-
-[node name="trash_close" type="Button" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_left = 149.0
-offset_right = 181.5
-offset_bottom = 32.499985
-scale = Vector2(0.8, 0.8)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
-icon = ExtResource("13_r56by")
-
-[node name="music_file" type="Button" parent="Destktop/popups/trash_popup"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 32.0
-offset_right = 272.0
-offset_bottom = 328.0
-scale = Vector2(0.12109375, 0.12499999)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_v71d2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_75h4d")
-icon = ExtResource("15_1m4y0")
-
 [node name="life_icons" type="Control" parent="Destktop"]
 anchors_preset = 0
 offset_right = 40.0
@@ -661,23 +663,6 @@ layout_mode = 0
 offset_left = 10.0
 offset_top = 322.0
 offset_right = 110.0
-offset_bottom = 422.0
-texture = ExtResource("21_l5hxs")
-
-[node name="life_3" type="TextureRect" parent="Destktop/life_icons"]
-layout_mode = 0
-offset_left = 46.0
-offset_top = 322.0
-offset_right = 146.0
-offset_bottom = 422.0
-texture = ExtResource("20_v71d2")
-
-[node name="life_lost_3" type="TextureRect" parent="Destktop/life_icons"]
-visible = false
-layout_mode = 0
-offset_left = 46.0
-offset_top = 322.0
-offset_right = 146.0
 offset_bottom = 422.0
 texture = ExtResource("21_l5hxs")
 
@@ -725,9 +710,9 @@ render_target_update_mode = 4
 [connection signal="pressed" from="Destktop/popups/book_popup/book_close" to="." method="_on_book_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/email_popup/email_p" to="." method="_on_email_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/email_popup/email_close" to="." method="_on_email_close_pressed"]
-[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_p" to="." method="_on_gallery_p_pressed"]
-[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_close" to="." method="_on_gallery_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/trash_p" to="." method="_on_trash_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/trash_close" to="." method="_on_trash_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/music_file" to="." method="_on_music_file_pressed"]
+[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_p" to="." method="_on_gallery_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/gallery_popup/gallery_close" to="." method="_on_gallery_close_pressed"]
 [connection signal="pressed" from="Camera/exit" to="." method="_on_exit_pressed"]

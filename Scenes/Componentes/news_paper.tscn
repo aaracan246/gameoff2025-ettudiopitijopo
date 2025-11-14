@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjjxtn2tn0obg"]
+[gd_scene load_steps=7 format=3 uid="uid://bjjxtn2tn0obg"]
 
 [ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodicos/periodico.png" id="1_nykdn"]
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="2_m54ho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i6pun"]
 size = Vector3(13.647919, 19.653255, 0.2715454)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_17mlg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5c3wm"]
+render_priority = 0
+shader = ExtResource("2_m54ho")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/size = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylund"]
+next_pass = SubResource("ShaderMaterial_5c3wm")
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
 
 [node name="NewsPaper" type="StaticBody3D"]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
@@ -14,3 +28,8 @@ texture = ExtResource("1_nykdn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09388746, 0.09043327, 0.022552488)
 shape = SubResource("BoxShape3D_i6pun")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.007326, 0, 0, 0, -4.3711402e-08, -9.940662, 0, 1.0000004, -4.3452016e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_17mlg")
+surface_material_override/0 = SubResource("StandardMaterial3D_ylund")

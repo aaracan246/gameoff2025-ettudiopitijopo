@@ -40,7 +40,7 @@ shadow_mesh = SubResource("ArrayMesh_wymvo")
 render_priority = 0
 shader = ExtResource("1_c74i5")
 shader_parameter/color = Color(1, 1, 0, 1)
-shader_parameter/size = 1.05
+shader_parameter/size = 1.249999994412
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai0s3"]
 next_pass = SubResource("ShaderMaterial_eulq1")
@@ -51,7 +51,7 @@ points = PackedVector3Array(-0.8448225, 3.0370948, 1, 1, 0.62068343, -0.97223806
 
 [node name="puerta" type="StaticBody3D"]
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.8130858, 0, 0, 0, 1.8130858, 0, 0, 0, 0.29407826, 0, 0, 0)
 mesh = SubResource("ArrayMesh_6e77e")
 skeleton = NodePath("")
