@@ -18,6 +18,7 @@ extends Node3D
 @onready var puerta: StaticBody3D = $Escenario/puerta
 
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
+var normal_door :Transform3D
 
 var actual_camera: Camera3D
 var next_camera: Camera3D
@@ -26,7 +27,11 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var rotation_door = Vector3(0.0,-90.0,0.0)
+
+var size_shader = 1.02
+var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
+
+
 signal entrada
 signal merendero1
 signal parking
@@ -48,9 +53,17 @@ var cont = 0
 @onready var temp_camera = $deault_camera
 
 func _ready() -> void:
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper]:
+	normal_door = puerta.global_transform
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
+		var shader = node.get_node("mesh")
+		if shader:
+			shader = shader.get_surface_override_material(0)
+			var outline_material = shader.next_pass
+			if outline_material:
+				outline_material.set_shader_parameter("size", 0.00)
+				outline_material.set_shader_parameter("color",color_shader)
 
 	player.current = true
 	actual_camera = player
@@ -75,18 +88,30 @@ func _on_dialogic_signal(argument):
 		colgar_phone()
 	Global.next_event()
 
-
-
 func colgar_phone():
 	phone_manager()
-	
-	
-func _mouse_entered_area(_node):
+
+
+func shader_manager(node):
+	var shader = node.get_node("mesh")
+	if shader:
+		shader = shader.get_surface_override_material(0)
+		var outline_material = shader.next_pass
+		if outline_material:
+			if interactive:
+				outline_material.set_shader_parameter("size", 1.02)
+			else :
+				outline_material.set_shader_parameter("size", 0.0)
+
+
+func _mouse_entered_area(node):
 	interactive = true
+	shader_manager(node)
 	emit_signal("interactive_object",interactive)
 
-func _mouse_exited_area(_node):
+func _mouse_exited_area(node):
 	interactive = false
+	shader_manager(node)
 	emit_signal("interactive_object",interactive)
 	
 	
@@ -245,16 +270,19 @@ func _on_player_move() -> void:
 
 func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		if !door_open:
-			door_manager()
-		else:
-			pass
+		door_manager()
+
 
 
 func door_manager():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_ELASTIC)
 	if !door_open:
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_ELASTIC)
+
 		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration )
+		door_open = true
+	else:
+		tween.tween_property($Escenario/puerta, "global_transform",normal_door, transition_duration )
+		door_open = false
 		
