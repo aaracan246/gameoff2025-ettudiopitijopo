@@ -40,7 +40,7 @@ shadow_mesh = SubResource("ArrayMesh_wymvo")
 render_priority = 0
 shader = ExtResource("1_c74i5")
 shader_parameter/color = Color(1, 1, 0, 1)
-shader_parameter/size = 1.0
+shader_parameter/size = 1.249999994412
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai0s3"]
 next_pass = SubResource("ShaderMaterial_eulq1")
