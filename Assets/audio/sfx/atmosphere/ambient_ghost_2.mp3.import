@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bdy6hu8ln30t0"
-path="res://.godot/imported/ambient_ghost_2.mp3-a119b865f874a046655135e7f1c30d15.mp3str"
+path="res://.godot/imported/ambient_ghost_2.mp3-7bfc704077dea57354b1d1cae12f69c2.mp3str"
 
 [deps]
 
-source_file="res://Assets/audio/sfx/ambient_ghost_2.mp3"
-dest_files=["res://.godot/imported/ambient_ghost_2.mp3-a119b865f874a046655135e7f1c30d15.mp3str"]
+source_file="res://Assets/audio/sfx/atmosphere/ambient_ghost_2.mp3"
+dest_files=["res://.godot/imported/ambient_ghost_2.mp3-7bfc704077dea57354b1d1cae12f69c2.mp3str"]
 
 [params]
 
