@@ -349,7 +349,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
 icon = ExtResource("16_er71p")
 
 [node name="file_popup" type="ColorRect" parent="Destktop/popups"]
-visible = false
+texture_filter = 1
 layout_mode = 0
 offset_left = 174.0
 offset_top = 26.0

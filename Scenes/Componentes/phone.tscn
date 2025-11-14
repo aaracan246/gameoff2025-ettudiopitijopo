@@ -40,7 +40,7 @@ shadow_mesh = SubResource("ArrayMesh_6eb6m")
 render_priority = 0
 shader = ExtResource("1_x28gj")
 shader_parameter/color = Color(1, 1, 0, 1)
-shader_parameter/size = 1.05
+shader_parameter/size = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idcfg"]
 next_pass = SubResource("ShaderMaterial_lw74p")
@@ -89,7 +89,7 @@ albedo_color = Color(1, 1, 0, 1)
 [node name="Phone" type="StaticBody3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_pkn12")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_idcfg")

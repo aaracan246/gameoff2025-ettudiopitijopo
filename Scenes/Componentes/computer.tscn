@@ -49,7 +49,7 @@ shadow_mesh = SubResource("ArrayMesh_i6ilh")
 render_priority = 0
 shader = ExtResource("2_ctjbw")
 shader_parameter/color = Color(1, 1, 0, 1)
-shader_parameter/size = 1.05
+shader_parameter/size = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52u6t"]
 next_pass = SubResource("ShaderMaterial_1jket")
@@ -141,10 +141,10 @@ shader_parameter/distort_intensity = 0.0290000013775
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 0.03
+shader_parameter/aberration = 4.7499999933364734e-08
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
-shader_parameter/warp_amount = 1.0
+shader_parameter/warp_amount = 0.36800001748
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
@@ -167,7 +167,7 @@ data = PackedVector3Array(0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
 script = ExtResource("1_j2xe6")
 
-[node name="Pc" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_j2xe6")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_52u6t")
@@ -189,7 +189,8 @@ skeleton = NodePath("")
 size = Vector2i(400, 400)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
-z_index = 1000
+visible = false
+z_index = 4
 material = SubResource("ShaderMaterial_cqrlk")
 anchors_preset = 15
 anchor_right = 1.0

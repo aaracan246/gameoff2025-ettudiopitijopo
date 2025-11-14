@@ -81,11 +81,23 @@ func colgar_phone():
 	phone_manager()
 	
 	
-func _mouse_entered_area(_node):
+func _mouse_entered_area(node):
+	var shader = node.get_node("mesh")
+	if shader:
+		shader = shader.get_surface_override_material(0)
+		var outline_material = shader.next_pass
+		if outline_material:
+			outline_material.set_shader_parameter("size", 1.02)
 	interactive = true
 	emit_signal("interactive_object",interactive)
 
-func _mouse_exited_area(_node):
+func _mouse_exited_area(node):
+	var shader = node.get_node("mesh")
+	if shader:
+		shader = shader.get_surface_override_material(0)
+		var outline_material = shader.next_pass
+		if outline_material:
+			outline_material.set_shader_parameter("size", 0.00)
 	interactive = false
 	emit_signal("interactive_object",interactive)
 	
