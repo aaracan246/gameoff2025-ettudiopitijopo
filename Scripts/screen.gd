@@ -54,6 +54,7 @@ func bring_to_front(popup: ColorRect):
 # Email
 func _on_email_btn_pressed() -> void:
 	bring_to_front(email_popup)
+	email_alert.visible = false
 
 func _on_email_close_pressed() -> void:
 	email_popup.visible = false

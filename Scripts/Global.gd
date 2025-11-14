@@ -11,16 +11,9 @@ func _ready() -> void:
 	await get_tree().create_timer(10).timeout
 	screen_node.email_alert_event()
 	
-	#AudioManager.phone_ring.play()
-	##evento1
-	#AudioManager.phone_beep.play()
-	#
-	#await get_tree().create_timer(15).timeout
-	
 	
 
 func next_event():
-
 	Dialogic.start(dialogos[cont])
 	set_process_input(true)
 	set_process_unhandled_input(true)
