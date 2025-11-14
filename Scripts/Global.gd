@@ -2,6 +2,7 @@ extends Node
 
 var cont = 1
 var timer_duration = 1.0
+
 func next_event():
 	var timer = Timer.new()
 	add_child(timer)

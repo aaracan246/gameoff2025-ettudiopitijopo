@@ -10,4 +10,5 @@ karmela: Ah! Poor baby.
 	karmela: Try to climb the tree and get the cat.
 	...
 	walter: miau
+audio "res://Assets/audio/sfx/desktop/phone_beep.mp3"
 [signal arg="colgar"]
