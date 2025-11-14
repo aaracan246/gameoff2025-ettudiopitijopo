@@ -80,7 +80,9 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-variables={}
+variables={
+"incoming_call": false
+}
 glossary/default_case_sensitive=true
 
 [display]

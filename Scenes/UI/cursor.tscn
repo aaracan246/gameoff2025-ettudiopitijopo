@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqpmlm68m0k87"]
 
-[ext_resource type="Texture2D" uid="uid://nklbdd432hyx" path="res://Assets/cursores/Cursor_idle.png" id="1_ua2ut"]
+[ext_resource type="Texture2D" uid="uid://nklbdd432hyx" path="res://Assets/cursores/cursor_idle.png" id="1_ua2ut"]
 [ext_resource type="Script" uid="uid://blhvrqrewpvdg" path="res://Scripts/UI/cursor.gd" id="2_55evu"]
 [ext_resource type="Texture2D" uid="uid://b1jr6wiypbcmu" path="res://Assets/cursores/cursor_pointing.png" id="3_55evu"]
 [ext_resource type="Texture2D" uid="uid://jsgqub8i04nb" path="res://Assets/cursores/cursor_click.png" id="4_7a3k2"]
-[ext_resource type="Texture2D" uid="uid://b1t7le5vpxy55" path="res://Assets/cursores/Cursor_pc.png" id="5_bxphg"]
+[ext_resource type="Texture2D" uid="uid://b1t7le5vpxy55" path="res://Assets/cursores/cursor_pc.png" id="5_bxphg"]
 
 [node name="cursor" type="Sprite2D"]
 z_index = 4096
