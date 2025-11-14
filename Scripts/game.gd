@@ -28,8 +28,8 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 
-var size_shader = 1.02
-var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
+@export var size_shader = 1.02
+@export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
 
 
 signal entrada
@@ -84,6 +84,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_dialogic_signal(argument):
+	Dialogic.Inputs.set_blocking(false)
+	print(Node3D.PROCESS_MODE_ALWAYS)
 	if argument == "colgar":
 		colgar_phone()
 	Global.next_event()
