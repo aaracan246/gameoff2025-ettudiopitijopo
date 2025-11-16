@@ -20,6 +20,7 @@ extends Node3D
 @onready var temp_camera = $deault_camera
 
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
+@onready var screen = $Escenario/Pc/SubViewport/pantalla
 
 var normal_door :Transform3D
 
@@ -53,7 +54,6 @@ signal disble_colisions
 signal colgar
 
 signal interactive_object
-signal email_opened
 var cont = 0
 
 func _ready() -> void:
@@ -73,6 +73,7 @@ func _ready() -> void:
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	
 
@@ -102,7 +103,7 @@ func _on_dialogic_signal(argument):
 	timer.queue_free()
 	incoming_call()
 
-func _on_email_opened() -> void:
+func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
 	timer.start(20)

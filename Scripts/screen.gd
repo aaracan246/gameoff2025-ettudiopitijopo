@@ -27,11 +27,16 @@ const GLITCH = preload("uid://cyxw6yqjsc73o")
 @export var texture_ghost : Resource = preload("res://Assets/pc/book_glitch.png")
 var popup_index = 0
 
+var email_opened = false
+
+signal start_events
+
 func _ready() -> void:
 	camera = get_tree().get_root().get_node("Demo/OutDoor")
 	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
 	Global.screen_node = self
+	
 
 
 func _on_exit_pressed() -> void:
@@ -55,6 +60,9 @@ func bring_to_front(popup: ColorRect):
 
 # Email
 func _on_email_btn_pressed() -> void:
+	email_opened = true
+	if book.texture == texture_ghost:
+		emit_signal("start_events")
 	bring_to_front(email_popup)
 	email_alert.visible = false
 
@@ -85,8 +93,9 @@ func _on_file_p_pressed() -> void:
 func _on_book_btn_pressed() -> void:
 	if book.texture == texture_book:
 		glitch()
-		
 	else:
+		if email_opened:
+			emit_signal("start_events")
 		book_popup.visible = 1
 		#Disable shader
 		book.material = null
