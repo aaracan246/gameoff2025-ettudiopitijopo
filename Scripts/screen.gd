@@ -23,11 +23,13 @@ var camera:Camera3D
 @onready var email_alert: Sprite2D = $Destktop/icons/email/email_alert
 const GLITCH = preload("uid://cyxw6yqjsc73o")
 
-
+@export var texture_book : Resource = preload("res://Assets/pc/book.png")
+@export var texture_ghost : Resource = preload("res://Assets/pc/book_glitch.png")
 var popup_index = 0
 
 func _ready() -> void:
 	camera = get_tree().get_root().get_node("Demo/OutDoor")
+	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
 	Global.screen_node = self
 
@@ -81,6 +83,15 @@ func _on_file_p_pressed() -> void:
 # Book
 	# GLITCH
 func _on_book_btn_pressed() -> void:
+	if book.texture == texture_book:
+		glitch()
+		
+	else:
+		book_popup.visible = 1
+		#Disable shader
+		book.material = null
+
+func glitch():
 	# Book Glitch
 	await get_tree().create_timer(0.5).timeout
 	AudioManager.book_glitch.play()
@@ -107,8 +118,9 @@ func _on_book_btn_pressed() -> void:
 	bring_to_front(trash_popup)
 	AudioManager.windows_error.play()
 	
-	book.visible = false
-	book_ghost.visible = true
+	#book.visible = false
+	#book_ghost.visible = true
+	book.texture = texture_ghost
 	AudioManager.ghost_1.play()
 	await get_tree().create_timer(1).timeout
 	
@@ -120,6 +132,7 @@ func _on_book_btn_pressed() -> void:
 	email_popup.visible = false
 	await get_tree().create_timer(0.2).timeout
 	file_popup.visible = false
+
 
 	
 func _on_book_close_pressed() -> void:

@@ -53,7 +53,7 @@ signal disble_colisions
 signal colgar
 
 signal interactive_object
-
+signal email_opened
 var cont = 0
 
 func _ready() -> void:
@@ -101,6 +101,15 @@ func _on_dialogic_signal(argument):
 	timer.start(timer_duration)
 	timer.queue_free()
 	incoming_call()
+
+func _on_email_opened() -> void:
+	var timer = Timer.new()
+	add_child(timer)
+	timer.start(20)
+	await  timer.timeout
+	timer.queue_free()
+	incoming_call()
+
 
 func incoming_call():
 	print("audio")
