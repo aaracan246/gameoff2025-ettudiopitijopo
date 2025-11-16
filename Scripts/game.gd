@@ -17,7 +17,12 @@ extends Node3D
 @onready var cat: StaticBody3D = $Escenario/cat
 @onready var puerta: StaticBody3D = $Escenario/puerta
 
+@onready var temp_camera = $deault_camera
+
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
+@onready var screen = $Escenario/Pc/SubViewport/pantalla
+
+var normal_door :Transform3D
 
 var actual_camera: Camera3D
 var next_camera: Camera3D
@@ -26,7 +31,12 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var rotation_door = Vector3(0.0,-90.0,0.0)
+var calling = true
+
+@export var size_shader = 1.02
+@export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
+@export var timer_duration = 15.0
+
 signal entrada
 signal merendero1
 signal parking
@@ -45,18 +55,26 @@ signal colgar
 
 signal interactive_object
 var cont = 0
-@onready var temp_camera = $deault_camera
 
 func _ready() -> void:
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper]:
+	normal_door = puerta.global_transform
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
+		
+		var shader = node.get_node("mesh")
+		if shader:
+			shader = shader.get_surface_override_material(0)
+			var outline_material = shader.next_pass
+			if outline_material:
+				outline_material.set_shader_parameter("size", 0.00)
+				outline_material.set_shader_parameter("color",color_shader)
 
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
-	#Global.colgar_phone.connect("next_event")
 	
 
 
@@ -70,35 +88,70 @@ func _process(_delta: float) -> void:
 			newspaper_manager()
 
 
-func _on_dialogic_signal(argument):
+func _on_dialogic_signal(argument):	
 	if argument == "colgar":
 		colgar_phone()
-	Global.next_event()
+		
+	var timer = Timer.new()
+	add_child(timer)
+	timer.autostart = true
+	timer.start(timer_duration)
+	timer.wait_time = timer_duration
+	await  timer.timeout
+	Global.sounds_events()
+	timer.start(timer_duration)
+	timer.queue_free()
+	incoming_call()
+
+func _start_events() -> void:
+	var timer = Timer.new()
+	add_child(timer)
+	timer.start(20)
+	await  timer.timeout
+	timer.queue_free()
+	incoming_call()
+
+
+func incoming_call():
+	print("audio")
+	calling = true
 
 
 
 func colgar_phone():
-	phone_manager()
-	
-	
+	if calling:
+		calling = false
+		phone_manager()
+
+
+func shader_manager(node):
+	var shader = node.get_node("mesh")
+	if shader:
+		shader = shader.get_surface_override_material(0)
+		var outline_material = shader.next_pass
+		if outline_material:
+			if interactive:
+				outline_material.set_shader_parameter("size", 1.02)
+			else :
+				outline_material.set_shader_parameter("size", 0.0)
+
+
 func _mouse_entered_area(node):
-	print(node)
 	interactive = true
+	shader_manager(node)
 	emit_signal("interactive_object",interactive)
 
 func _mouse_exited_area(node):
-	print(node)
 	interactive = false
+	shader_manager(node)
 	emit_signal("interactive_object",interactive)
 	
 	
 func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: Tween = null):
 	from_camera.current = false
-	print(from_camera.global_transform)
 	is_moving = true
 	# Crear cámara temporal para la transición
 	temp_camera.global_transform = from_camera.global_transform
-	print(temp_camera.fov)
 	temp_camera.current = true
 	if tween1:
 		tween1.tween_property(temp_camera, "global_transform", to_camera.global_transform, transition_duration)
@@ -117,21 +170,22 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 	is_moving = false
 	emit_signal("disble_colisions")
 
-
 func input_manager(camera:Camera3D, event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		actual_camera = camera
 		await switch_to_camera_smooth(player, actual_camera)
 
-
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/Radio/Camera3D, event)
 
-
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and not is_zoomed:
+		AudioManager.chair_roll.play()
 	input_manager($Escenario/Mapa, event)
 
+
+			
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		cont = randi_range(0,9)
 		match cont:
@@ -156,32 +210,31 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 			9:
 				emit_signal("rescate")
 
-
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	await input_manager($Escenario/Computer, event)
-
 
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving :
 		is_moving = true
-		
+
 		if !phone.visible:
 			phone_manager()
 		else:
-			Global.next_event()
+			
 			AudioManager.phone_pickup.play()
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CIRC)
 			tween.tween_property(phone, "global_transform",view_phone.global_transform, transition_duration)
 			await tween.finished
-			print(phone.visible)
 			phone_manager()
 			
 		is_moving = false
 
 
 func phone_manager():
+	if calling:
+		Global.next_event()
 	if !view_phone.visible:
 		view_phone.visible = true
 		phone.visible = false
@@ -234,6 +287,9 @@ func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		var onOff = $Escenario/lampara/SpotLight3D.visible
 		$Escenario/lampara/SpotLight3D.visible = !onOff
+		(AudioManager.lamp_on if onOff else AudioManager.lamp_off).play()
+
+
 
 
 func _on_player_move() -> void:
@@ -243,16 +299,19 @@ func _on_player_move() -> void:
 
 func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		if !door_open:
-			door_manager()
-		else:
-			pass
+		door_manager()
+
 
 
 func door_manager():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_ELASTIC)
 	if !door_open:
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(puerta, "global_rotation",rotation_door, transition_duration )
+
+		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration )
+		door_open = true
+	else:
+		tween.tween_property($Escenario/puerta, "global_transform",normal_door, transition_duration )
+		door_open = false
 		

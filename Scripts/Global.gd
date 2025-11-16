@@ -1,13 +1,25 @@
 extends Node
 
-var cont = 3
 var timer_duration = 1.0
+var screen_node: Node = null
+var cont = 0
+var dialogos = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
+var sounds = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
+
+
+func _ready() -> void:
+	await get_tree().create_timer(10).timeout
+	screen_node.email_alert_event()
+	
+	
+
 func next_event():
-	var timer = Timer.new()
-	add_child(timer)
-	timer.autostart = true
-	timer.start(timer_duration)
-	timer.wait_time = timer_duration
-	await  timer.timeout
-	Dialogic.start("evento" + str(cont))
+	Dialogic.start(dialogos[cont])
+	set_process_input(true)
+	set_process_unhandled_input(true)
 	cont+=1
+
+func sounds_events():
+	print(randi_range(0,sounds.size()))
+	pass
+	

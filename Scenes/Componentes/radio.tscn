@@ -39,8 +39,8 @@ shadow_mesh = SubResource("ArrayMesh_6edua")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psx7p"]
 render_priority = 0
 shader = ExtResource("1_bas83")
-shader_parameter/color = Color(1, 1, 0.5647059, 1)
-shader_parameter/size = 1.05
+shader_parameter/color = Color(1, 1, 0, 0.61960787)
+shader_parameter/size = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u0pu"]
 next_pass = SubResource("ShaderMaterial_psx7p")
@@ -66,7 +66,7 @@ animations = [{
 
 [node name="Radio" type="StaticBody3D"]
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8y21s")
 skeleton = NodePath("")

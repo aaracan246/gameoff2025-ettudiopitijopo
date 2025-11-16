@@ -1,0 +1,27 @@
+victima: Please help! I’m being followed… please please please I need help
+karmela: What’s the matter? Who is following you?
+victima: Idk, I was at the park and suddenly I saw someone from the corner of the eye, im scared please help
+karmela: Okay try to stay calm. Where are you exactly??
+victima: [Position aprox], please send help do something he is following me
+karmela: Okay, Give me a sec while I find you on the map
+karmela: (It might be the serial killer that escaped prison the other day. Her life depends on me.)
+[wait time="3.0"]
+label Choice1
+victima: Please tell me where to go
+- Left
+	ghosty_ghost: Go...left...
+	- Confirm
+	- Choose another
+		jump Choice1
+	karmela: Okay, to the left now.  You should walk until you reach the picnic area.
+	karmela: Please call me back when you arrive there.
+	victima: Okay... I'll call you back in a moment.
+- Right
+	ghosty_ghost: Go...left...
+	- Confirm
+	- Choose another
+		jump Choice1
+	karmela: Okay, to the right now. You will reach the entrance of the forest this way.
+	[signal arg="fail"]
+	jump Choice1
+[signal arg="colgar"]

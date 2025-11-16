@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://csykyo4ikmj0w"]
+[gd_scene load_steps=10 format=3 uid="uid://csykyo4ikmj0w"]
 
 [ext_resource type="Script" uid="uid://dqctrhr8pbsvu" path="res://Scripts/map.gd" id="1_26yhd"]
-[ext_resource type="Texture2D" uid="uid://bgdtbfvupwjk7" path="res://Assets/map.jpg" id="1_ci6au"]
+[ext_resource type="Texture2D" uid="uid://hdovltx318gx" path="res://Assets/Mapa.png" id="2_n6y0p"]
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="3_so7d2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcdmn"]
 size = Vector3(15.866699, 11.916931, 1)
@@ -11,16 +12,30 @@ size = Vector3(15.866699, 11.916931, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci6au"]
 albedo_color = Color(1, 0, 0.043137256, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_4aiyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pefh5"]
+render_priority = 0
+shader = ExtResource("3_so7d2")
+shader_parameter/color = Color(1, 1, 0, 0.5529412)
+shader_parameter/size = 1.0
+shader_parameter/disable = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c140"]
+next_pass = SubResource("ShaderMaterial_pefh5")
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
 [node name="Map" type="StaticBody3D"]
-transform = Transform3D(0.0031066646, 0, -0.9999952, 0, 1, 0, 0.9999952, 0, 0.0031066646, 0, 0, 0)
+transform = Transform3D(0.0041939975, 0, -1.3499935, 0, 1.35, 0, 1.3499935, 0, 0.0041939975, 0, 0, 0)
 script = ExtResource("1_26yhd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
-texture = ExtResource("1_ci6au")
+texture = ExtResource("2_n6y0p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.99999034, 0, -1.2665987e-07, 0, 0.99999976, 0, 1.2665987e-07, 0, 0.99999034, 0.09401345, -0.028900687, 0)
+transform = Transform3D(0.57767683, 0, -1.2549572e-07, 0, 0.7866703, 0, 7.264316e-08, 0, 0.9985954, -1.0517435, 0.18461508, -0.0035595016)
 shape = SubResource("BoxShape3D_tcdmn")
 
 [node name="pinEntrada" type="MeshInstance3D" parent="."]
@@ -82,3 +97,8 @@ transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09,
 visible = false
 mesh = SubResource("SphereMesh_ci6au")
 surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.680258, 0.014540138, 0.014540067, -0.014540136, -2.0458259e-07, 4.680281, 0.014540067, -4.6802807, 4.4966757e-05, -0.74395275, 0.07085288, -0.0023112232)
+mesh = SubResource("PlaneMesh_4aiyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_4c140")
