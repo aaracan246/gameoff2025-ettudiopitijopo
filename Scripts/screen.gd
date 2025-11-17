@@ -35,7 +35,10 @@ func _ready() -> void:
 	camera = get_tree().get_root().get_node("Demo/OutDoor")
 	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
-	Global.screen_node = self
+	#Global.screen_node = self
+	await get_tree().create_timer(2).timeout
+
+	email_alert_event()
 	
 
 
@@ -141,6 +144,8 @@ func glitch():
 	email_popup.visible = false
 	await get_tree().create_timer(0.2).timeout
 	file_popup.visible = false
+	await get_tree().create_timer(0.2).timeout
+	book_popup.visible = false
 
 
 	
