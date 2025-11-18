@@ -65,6 +65,7 @@ func _on_email_btn_pressed() -> void:
 	email_opened = true
 	if book.texture == texture_ghost:
 		emit_signal("start_events")
+
 	bring_to_front(email_popup)
 	email_alert.visible = false
 

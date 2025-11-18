@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 	rot_actual.x = lerp_angle(rot_actual.x, objetivo_rot.x, suavizado * delta)
 	rot_actual.y = lerp_angle(rot_actual.y, objetivo_rot.y, suavizado * delta)
 	rotation = rot_actual
+	process_mode = Node.PROCESS_MODE_ALWAYS
  
 
 func rotation_manager():
