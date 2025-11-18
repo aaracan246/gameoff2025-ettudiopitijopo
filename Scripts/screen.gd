@@ -38,15 +38,7 @@ func _ready() -> void:
 	#Global.screen_node = self
 	await get_tree().create_timer(2).timeout
 	
-	for node in [email_popup, file_popup, book_popup, gallery_popup]:
-		node.mouse_entered.connect(_on_popup_click.bind(node))
-		node.mouse_exited.connect(_on_popup_click.bind(node))
-	
 	email_alert_event()
-
-#Click popup
-func _on_popup_click(node):
-	pass
 
 
 
