@@ -69,12 +69,15 @@ func _ready() -> void:
 			if outline_material:
 				outline_material.set_shader_parameter("size", 0.00)
 				outline_material.set_shader_parameter("color",color_shader)
-
+	#process_mode = Node.PROCESS_MODE_ALWAYS
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
+	Dialogic.timeline_started.connect(set_physics_process.bind(true))
+	Dialogic.timeline_started.connect(set_process_input.bind(true))
+
 	
 
 
@@ -91,6 +94,8 @@ func _process(_delta: float) -> void:
 func _on_dialogic_signal(argument):	
 	if argument == "colgar":
 		colgar_phone()
+	if argument == "pausar":
+		set_process_input(true)
 		
 	var timer = Timer.new()
 	add_child(timer)
@@ -130,7 +135,7 @@ func shader_manager(node):
 		shader = shader.get_surface_override_material(0)
 		var outline_material = shader.next_pass
 		if outline_material:
-			if interactive:
+			if interactive and !is_zoomed:
 				outline_material.set_shader_parameter("size", 1.02)
 			else :
 				outline_material.set_shader_parameter("size", 0.0)
@@ -173,6 +178,7 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 func input_manager(camera:Camera3D, event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
+		
 		actual_camera = camera
 		await switch_to_camera_smooth(player, actual_camera)
 
@@ -233,8 +239,9 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 
 func phone_manager():
-	if calling:
+	if calling == true:
 		Global.next_event()
+		
 	if !view_phone.visible:
 		view_phone.visible = true
 		phone.visible = false

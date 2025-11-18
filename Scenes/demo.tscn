@@ -66,6 +66,8 @@ shadow_mesh = SubResource("ArrayMesh_rx0ni")
 albedo_color = Color(1, 1, 0, 1)
 
 [node name="Demo" type="Node3D"]
+process_priority = 14105
+process_physics_priority = 29535
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
 script = ExtResource("1_tcdmn")
 

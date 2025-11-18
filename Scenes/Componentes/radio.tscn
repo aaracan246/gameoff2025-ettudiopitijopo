@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2w3amblmdkc1"]
+[gd_scene load_steps=14 format=4 uid="uid://b2w3amblmdkc1"]
 
-[ext_resource type="Texture2D" uid="uid://dh6ih858v64we" path="res://Assets/Hondas.png" id="1_8y21s"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_bas83"]
+[ext_resource type="Script" uid="uid://cib5mqts2eecn" path="res://Scenes/Componentes/radio.gd" id="1_fyv47"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="2_4u2v5"]
+[ext_resource type="VideoStream" uid="uid://bpowpjqd37lpw" path="res://Assets/radio ondas/ondas_picudas/turn_right_onda.ogv" id="3_bas83"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lwbs"]
 
@@ -49,22 +50,56 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8y21s"]
 points = PackedVector3Array(-1, -0.99287724, -0.9991096, 0.82470787, 0.7564, 1.0727051, 0.817, 1.6467109, -0.8062726, -0.80627, 1.6433278, 0.817, 0.99898416, -0.9800348, 1, -0.9903682, -0.9800348, 1, 1, -0.9813893, -0.99013466, -0.9763921, 1, -0.97451806, 0.81488585, 1.6433278, 0.817, 0.98500806, 1, -0.97451806, -0.817, 1.6604984, -0.8153192, -0.9763921, 1, 0.9866101, 0.98500806, 1, 0.9866101, -0.8243268, 0.59463465, 1.0414242, 0.85758823, 0.14304711, 1.0629681, 0.90083015, 0.38679436, 1.0658923)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bdbpc"]
-atlas = ExtResource("1_8y21s")
-region = Rect2(0, 0, 176, 64)
+[sub_resource type="ViewportTexture" id="ViewportTexture_2u0pu"]
+viewport_path = NodePath("SubViewportContainer/SubViewport2")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6jxtu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bdbpc")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bas83"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2u0pu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_psx7p"]
+material = SubResource("StandardMaterial3D_bas83")
 
 [node name="Radio" type="StaticBody3D"]
+script = ExtResource("1_fyv47")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport2" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+size = Vector2i(400, 400)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport2"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport2/Control"]
+z_index = 5
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_bas83")
+autoplay = true
+expand = true
+loop = true
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
@@ -76,11 +111,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2u0pu")
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_8y21s")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1.2740902, 0, 0, 0, 1.0618628, 0, 0, 0, 0.40460753, 0.09349522, -0.0025820993, 1.9804159)
-sprite_frames = SubResource("SpriteFrames_6jxtu")
-animation = &"idle"
-autoplay = "idle"
-
 [node name="Camera3D" parent="." instance=ExtResource("2_4u2v5")]
 transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.2136903, 0, 0, 0, 0.67538893, 5.8582778e-08, 0, -1.1808875e-07, 0.3350544, 0.09349522, -0.0025820993, 1.9804159)
+mesh = SubResource("QuadMesh_psx7p")
