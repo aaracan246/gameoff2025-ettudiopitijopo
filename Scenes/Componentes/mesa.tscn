@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://dtfa8a77sksdk"]
+[gd_scene load_steps=5 format=4 uid="uid://dtfa8a77sksdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6f1a"]
 
@@ -34,9 +34,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fbl5e")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l84pr"]
+albedo_color = Color(0.28603607, 0.14094543, 4.813075e-08, 1)
+
 [node name="Mesa" type="Node3D"]
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.303148, 0, 0, 0, 0.511677, 0, 0, 0, 4.0338383, 0, 0, 0)
 mesh = SubResource("ArrayMesh_t1wyp")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_l84pr")

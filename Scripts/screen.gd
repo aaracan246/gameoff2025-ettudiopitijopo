@@ -37,9 +37,9 @@ func _ready() -> void:
 	new_camera.global_transform = camera.global_transform
 	#Global.screen_node = self
 	await get_tree().create_timer(2).timeout
-
-	email_alert_event()
 	
+	email_alert_event()
+
 
 
 func _on_exit_pressed() -> void:
@@ -50,35 +50,34 @@ func _on_camera_btn_pressed() -> void:
 	destktop.visible = false
 	Outdoor_camera.visible = true
 
-
 func _on_settings_btn_pressed() -> void:
 	pause_menu.visible = true
 	pause_menu.pause_game()
-	
+
 func bring_to_front(popup: ColorRect):
 	popup_index += 1
 	popup.z_index = popup_index
 	popup.visible = true
-	
 
 # Email
+
 func _on_email_btn_pressed() -> void:
 	email_opened = true
 	if book.texture == texture_ghost:
 		emit_signal("start_events")
+
 	bring_to_front(email_popup)
 	email_alert.visible = false
 
 func _on_email_close_pressed() -> void:
 	email_popup.visible = false
-	
+
 func _on_email_p_pressed() -> void:
 	bring_to_front(email_popup)
 
 func email_alert_event():
 	AudioManager.pc_alert.play()
 	email_alert.visible = true
-	
 
 # File
 func _on_file_btn_pressed() -> void:
@@ -86,18 +85,17 @@ func _on_file_btn_pressed() -> void:
 
 func _on_file_close_pressed() -> void:
 	file_popup.visible = false
-	
+
 func _on_file_p_pressed() -> void:
 	bring_to_front(file_popup)
 
-
 # Book
-	# GLITCH
+
 func _on_book_btn_pressed() -> void:
 	if book.texture == texture_book:
 		glitch()
 	else:
-		if email_opened:
+		if email_opened and book.texture == book_ghost:
 			emit_signal("start_events")
 		book_popup.visible = 1
 		#Disable shader
@@ -147,8 +145,6 @@ func glitch():
 	await get_tree().create_timer(0.2).timeout
 	book_popup.visible = false
 
-
-	
 func _on_book_close_pressed() -> void:
 	book_popup.visible = false
 
@@ -158,10 +154,9 @@ func _on_book_p_pressed() -> void:
 func book_glitch_event():
 	AudioManager.pc_alert.play()
 	email_alert.visible = true
-	
-
 
 # Gallery
+
 func _on_gallery_btn_pressed() -> void:
 	bring_to_front(gallery_popup)
 
@@ -173,6 +168,7 @@ func _on_gallery_p_pressed() -> void:
 
 
 # TRASH_BIN
+
 func _on_trash_btn_pressed() -> void:
 	bring_to_front(trash_popup)
 
@@ -192,7 +188,6 @@ func _on_music_close_pressed() -> void:
 
 func _on_music_p_pressed() -> void:
 	music_popup.visible = true
-	
 
 func _on_off_btn_pressed() -> void:
 	pantalla.visible = false
