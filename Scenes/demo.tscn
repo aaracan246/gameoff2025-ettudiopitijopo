@@ -69,7 +69,7 @@ process_physics_priority = 29535
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
 script = ExtResource("1_tcdmn")
 
-[node name="WorldEnvironment2" parent="." instance=ExtResource("2_nv0j3")]
+[node name="Skybox" parent="." instance=ExtResource("2_nv0j3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4346
