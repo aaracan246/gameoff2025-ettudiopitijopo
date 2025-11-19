@@ -15,9 +15,7 @@ func _ready() -> void:
 
 func next_event():
 	Dialogic.start(dialogos[cont])
-	set_process_input(true)
-	set_process_unhandled_input(true)
-	print(Dialogic.Inputs.is_input_blocked())
+
 	
 	cont+=1
 
