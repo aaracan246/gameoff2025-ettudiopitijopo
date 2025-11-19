@@ -101,19 +101,9 @@ func _on_dialogic_signal(argument):
 	if argument == "radio":
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
 
-	var timer = Timer.new()
-	add_child(timer)
-	timer.autostart = true
-	timer.start(timer_duration)
-	timer.wait_time = timer_duration
-	await  timer.timeout
-	Global.sounds_events()
-	timer.start(timer_duration)
-	timer.queue_free()
-	incoming_call()
+
 
 func _start_events() -> void:
-	print(22)
 	var timer = Timer.new()
 	add_child(timer)
 	timer.start(20)
@@ -124,7 +114,6 @@ func _start_events() -> void:
 
 func incoming_call():
 	AudioManager.phone_ring.play()
-	print(222)
 	calling = true
 
 
@@ -133,6 +122,19 @@ func colgar_phone():
 	if calling:
 		calling = false
 		phone_manager()
+		var timer = Timer.new()
+		add_child(timer)
+		timer.autostart = true
+		timer.start(timer_duration)
+		timer.wait_time = timer_duration
+		await  timer.timeout
+		Global.sounds_events()
+		timer.start(timer_duration)
+		await  timer.timeout
+		timer.queue_free()
+		
+		incoming_call()
+
 
 
 func shader_manager(node):
