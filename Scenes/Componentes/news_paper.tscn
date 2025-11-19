@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjjxtn2tn0obg"]
 
-[ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodicos/periodico.png" id="1_nykdn"]
+[ext_resource type="Texture2D" uid="uid://173gtcp8kfcu" path="res://Assets/periodicos/2.png" id="1_m54ho"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="2_m54ho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i6pun"]
@@ -23,7 +23,7 @@ albedo_color = Color(1, 1, 1, 0)
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-texture = ExtResource("1_nykdn")
+texture = ExtResource("1_m54ho")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09388746, 0.09043327, 0.022552488)
