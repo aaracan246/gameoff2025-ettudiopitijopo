@@ -320,10 +320,11 @@ func door_manager():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	if !door_open:
-
-		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+		#ABRIR
+		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 		door_open = true
 	else:
-		tween.tween_property($Escenario/puerta, "global_transform",normal_door, transition_duration * 3)
+		#CERRAR
+		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
 		
