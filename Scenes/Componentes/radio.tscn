@@ -47,15 +47,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_idi27")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwe6a"]
-albedo_texture = ExtResource("4_5hd2e")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qxgo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyv47"]
 render_priority = 0
-next_pass = SubResource("StandardMaterial3D_iwe6a")
 shader = ExtResource("1_bas83")
-shader_parameter/color = Color(1, 0.9019608, 0, 0.5058824)
-shader_parameter/size = 1.01999999955296
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwe6a"]
+next_pass = SubResource("ShaderMaterial_fyv47")
+albedo_texture = ExtResource("4_5hd2e")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8y21s"]
 points = PackedVector3Array(-1, -0.99287724, -0.9991096, 0.82470787, 0.7564, 1.0727051, 0.817, 1.6467109, -0.8062726, -0.80627, 1.6433278, 0.817, 0.99898416, -0.9800348, 1, -0.9903682, -0.9800348, 1, 1, -0.9813893, -0.99013466, -0.9763921, 1, -0.97451806, 0.81488585, 1.6433278, 0.817, 0.98500806, 1, -0.97451806, -0.817, 1.6604984, -0.8153192, -0.9763921, 1, 0.9866101, 0.98500806, 1, 0.9866101, -0.8243268, 0.59463465, 1.0414242, 0.85758823, 0.14304711, 1.0629681, 0.90083015, 0.38679436, 1.0658923)
@@ -97,7 +97,7 @@ loop = true
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ugvv1")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_3qxgo")
+surface_material_override/0 = SubResource("StandardMaterial3D_iwe6a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
