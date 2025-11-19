@@ -212,7 +212,6 @@ skeleton = NodePath("")
 size = Vector2i(400, 400)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
-visible = false
 z_index = 1434
 material = SubResource("ShaderMaterial_cqrlk")
 anchors_preset = 15
