@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2y1hecxrpgd1"]
+
+[ext_resource type="Script" uid="uid://cjyfwr5da6coo" path="res://Scripts/dialogos.gd" id="1_01jfj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vyuc"]
+font_color = Color(0, 1, 1, 1)
+
+[node name="Dialogos" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01jfj")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8vyuc")
+
+[node name="Text" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "sdsd[shake]Tengo miedo[/shake]     [wave]holaaaa[/wave]"
+fit_content = true
+
+[node name="Panel" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4826389
+anchor_top = 0.8
+anchor_right = 0.5173611
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Panel/Panel"]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(0.29, 0.29)
+text = "Space to continue..."
