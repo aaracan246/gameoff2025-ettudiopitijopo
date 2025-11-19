@@ -88,6 +88,7 @@ visible = false
 
 [node name="Escenario2" parent="." instance=ExtResource("8_yc4g0")]
 transform = Transform3D(0.40097302, 0, 0, 0, 0.40097302, 0, 0, 0, 0.40097302, -81.88017, -1.6798649, 2.1218452)
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, -9.122, -14.581188)
