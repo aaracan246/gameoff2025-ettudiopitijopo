@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6esky41j75qu"]
+[gd_scene load_steps=7 format=3 uid="uid://b6esky41j75qu"]
 
-[ext_resource type="VideoStream" uid="uid://bpowpjqd37lpw" path="res://Assets/radio ondas/ondas_picudas/turn_right_onda.ogv" id="1_34wsd"]
+[ext_resource type="VideoStream" uid="uid://bpowpjqd37lpw" path="res://Assets/radio ondas/video/ondas_picudas/turn_right_onda.ogv" id="1_34wsd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nskf2"]
 viewport_path = NodePath("SubViewport")
@@ -13,6 +13,8 @@ albedo_texture = SubResource("ViewportTexture_nskf2")
 [sub_resource type="QuadMesh" id="QuadMesh_g4thu"]
 material = SubResource("StandardMaterial3D_ym7p0")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34wsd"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_jtunb"]
 
 [node name="Node3D" type="Node3D"]
@@ -20,6 +22,7 @@ material = SubResource("StandardMaterial3D_ym7p0")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 1.0321248, 0)
 mesh = SubResource("QuadMesh_g4thu")
+surface_material_override/0 = SubResource("StandardMaterial3D_34wsd")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.7725108, 0, 0, 0, 3.7725108, 0, 0, 0, 3.7725108, 0, 0, 0)
