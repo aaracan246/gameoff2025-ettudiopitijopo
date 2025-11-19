@@ -114,13 +114,7 @@ viewport_path = NodePath("Camera/SubViewport")
 
 [node name="pantalla" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -753.0
-offset_bottom = -254.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_6t4fl")
 
 [node name="Destktop" type="TextureRect" parent="."]
@@ -667,7 +661,6 @@ offset_bottom = 422.0
 texture = ExtResource("21_l5hxs")
 
 [node name="Camera" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 400.0
@@ -677,15 +670,14 @@ texture = SubResource("ViewportTexture_6t4fl")
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-offset_left = 360.0
-offset_top = 10.0
-offset_right = 380.0
-offset_bottom = 30.0
+offset_left = 325.0
+offset_top = 30.0
+offset_right = 345.0
+offset_bottom = 50.0
 grow_horizontal = 0
 scale = Vector2(1.5, 1.5)
 icon = ExtResource("4_rpafq")
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Camera"]
 snap_2d_transforms_to_pixel = true
