@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=29 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
-[ext_resource type="PackedScene" uid="uid://ba3spl3lum1ow" path="res://Assets/3D/Escenario.blend" id="8_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://lcegqjtlylwd" path="res://Scenes/Componentes/jarron.tscn" id="10_84mi4"]
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
@@ -86,10 +85,6 @@ visible = false
 
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
 
-[node name="Escenario2" parent="." instance=ExtResource("8_yc4g0")]
-transform = Transform3D(0.40097302, 0, 0, 0, 0.40097302, 0, 0, 0, 0.40097302, -81.88017, -1.6798649, 2.1218452)
-visible = false
-
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, -9.122, -14.581188)
 
@@ -110,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.580523, -14.395881, 19.829748)
 
 [node name="puerta2" parent="Escenario" instance=ExtResource("7_l50oi")]
-transform = Transform3D(2.178556, 0, -3.3546824, 0, 4, 0, 3.3546824, 0, 2.178556, 23.209587, -14.395881, 13.88896)
+transform = Transform3D(3.858543, 0, -1.0543478, 0, 4, 0, 1.0543478, 0, 3.858543, 20.124165, -14.395881, 17.94478)
 visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
