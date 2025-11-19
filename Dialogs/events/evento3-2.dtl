@@ -2,6 +2,18 @@ victima: I have arrived to the picnic area. Please, what do I do now???
 karmela: Let me check the map... You should go to...
 label Choice2
 victima: Please, where do I go?
+- Look at the map
+	[signal arg="mapa"]
+	[wait_input]
+	jump Choice2
+- Look at the computer
+	[signal arg="pc"]
+	[wait_input]
+	jump Choice2
+- Look at the radio
+	[signal arg="radio"]
+	[wait_input]
+	jump Choice2
 - Left
 	ghosty_ghost: Go...right...
 	- Confirm

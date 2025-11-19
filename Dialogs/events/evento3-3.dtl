@@ -2,6 +2,18 @@ victima: Hey? I have arrived to the resting area.
 karmela: Thank god. You are getting closer now. You should go to...
 label Choice3
 victima: Please, I can hear him closer. Where do I go?
+- Look at the map
+	[signal arg="mapa"]
+	[wait_input]
+	jump Choice3
+- Look at the computer
+	[signal arg="pc"]
+	[wait_input]
+	jump Choice3
+- Look at the radio
+	[signal arg="radio"]
+	[wait_input]
+	jump Choice3
 - Left
 	ghosty_ghost: Go...right...
 	- Confirm

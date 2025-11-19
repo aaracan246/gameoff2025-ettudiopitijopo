@@ -4,19 +4,6 @@ awela: My little Walter, he climbed up a tree and cant get down!!!!!!
 karmela: But is Walter your son or something?
 awela: Noo!!! My cat!!
 karmela: Ah! Poor baby.
-label rechoice
-- pc
-	[signal arg="pc"]
-	[wait_input]
-	jump rechoice
-- radio
-	[signal arg="radio"]
-	[wait_input]
-	jump rechoice
-- mirar mapa
-	[signal arg="mapa"]
-	[wait_input]
-	jump rechoice
 
 - Send firefighters
 	karmela: Ill send firefighters right now. Please, wait till they arrive and do not attempt anything that might be dangerous.
