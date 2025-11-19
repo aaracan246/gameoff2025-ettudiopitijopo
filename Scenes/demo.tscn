@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
 [ext_resource type="PackedScene" uid="uid://csykyo4ikmj0w" path="res://Scenes/Componentes/map.tscn" id="2_f2jw5"]
+[ext_resource type="PackedScene" uid="uid://bf0xyvrrudv7x" path="res://Assets/Skybox/skybox_atardecer.tscn" id="2_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/Componentes/radio.tscn" id="3_glc8m"]
 [ext_resource type="PackedScene" uid="uid://w0hrl0r07jba" path="res://Scenes/UI/ambient_crossfade.tscn" id="4_43er0"]
 [ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/Componentes/news_paper.tscn" id="4_f2jw5"]
@@ -24,9 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-
-[sub_resource type="Environment" id="Environment_nsw6b"]
-ambient_light_energy = 1.48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oj0u"]
 
@@ -71,6 +69,8 @@ process_physics_priority = 29535
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.160152, 0)
 script = ExtResource("1_tcdmn")
 
+[node name="WorldEnvironment2" parent="." instance=ExtResource("2_nv0j3")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4346
 
@@ -85,9 +85,6 @@ script = ExtResource("6_qwjex")
 visible = false
 
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nsw6b")
 
 [node name="Escenario2" parent="." instance=ExtResource("8_yc4g0")]
 transform = Transform3D(0.40097302, 0, 0, 0, 0.40097302, 0, 0, 0, 0.40097302, -81.88017, -1.6798649, 2.1218452)
