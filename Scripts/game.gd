@@ -31,7 +31,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
+var calling = false
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
@@ -94,19 +94,14 @@ func _process(_delta: float) -> void:
 func _on_dialogic_signal(argument):	
 	if argument == "colgar":
 		colgar_phone()
-	if argument == "pausar":
-		set_process_input(true)
-		
-	var timer = Timer.new()
-	add_child(timer)
-	timer.autostart = true
-	timer.start(timer_duration)
-	timer.wait_time = timer_duration
-	await  timer.timeout
-	Global.sounds_events()
-	timer.start(timer_duration)
-	timer.queue_free()
-	incoming_call()
+	if argument == "mapa":
+		switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
+	if argument == "pc":
+		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
+	if argument == "radio":
+		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
+
+
 
 func _start_events() -> void:
 	var timer = Timer.new()
@@ -118,7 +113,7 @@ func _start_events() -> void:
 
 
 func incoming_call():
-	print("audio")
+	AudioManager.phone_ring.play()
 	calling = true
 
 
@@ -127,6 +122,19 @@ func colgar_phone():
 	if calling:
 		calling = false
 		phone_manager()
+		var timer = Timer.new()
+		add_child(timer)
+		timer.autostart = true
+		timer.start(timer_duration)
+		timer.wait_time = timer_duration
+		await  timer.timeout
+		Global.sounds_events()
+		timer.start(timer_duration)
+		await  timer.timeout
+		timer.queue_free()
+		
+		incoming_call()
+
 
 
 func shader_manager(node):
@@ -172,6 +180,7 @@ func switch_to_camera_smooth(from_camera: Camera3D, to_camera: Camera3D,tween1: 
 		await tween.finished
 	# Activar cámara final y limpiar
 	to_camera.current = true
+	actual_camera = to_camera
 	is_moving = false
 	emit_signal("disble_colisions")
 
@@ -240,6 +249,7 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 func phone_manager():
 	if calling == true:
+		AudioManager.phone_ring.stop()
 		Global.next_event()
 		
 	if !view_phone.visible:

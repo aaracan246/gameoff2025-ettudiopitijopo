@@ -64,6 +64,7 @@ bus = &"SFX"
 stream = ExtResource("10_5h4gq")
 mix_target = 1
 bus = &"SFX"
+parameters/looping = true
 
 [node name="phone_pickup" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_ehvno")
