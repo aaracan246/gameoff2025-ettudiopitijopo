@@ -3,6 +3,18 @@ victima: Hey, you there? I can see the watchtower now. What do I do?
 karmela: You are almost here. Let me see...
 label Choice4
 victima: Please, fast. Tell me what to do
+- Look at the map
+	[signal arg="mapa"]
+	[wait_input]
+	jump Choice4
+- Look at the computer
+	[signal arg="pc"]
+	[wait_input]
+	jump Choice4
+- Look at the radio
+	[signal arg="radio"]
+	[wait_input]
+	jump Choice4
 - Left
 	ghosty_ghost: Go...right...
 	- Confirm
