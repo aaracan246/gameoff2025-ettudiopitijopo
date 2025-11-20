@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf0xyvrrudv7x"]
 
-[ext_resource type="Sky" uid="uid://bv8gg05x7py66" path="res://Assets/Skybox/atardecer.tres" id="1_33k3l"]
+[ext_resource type="Sky" uid="uid://cx2j7qf1ec6n4" path="res://Assets/Skybox/anochecer.tres" id="1_33k3l"]
 
 [sub_resource type="Environment" id="Environment_phpjp"]
 background_mode = 2

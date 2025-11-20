@@ -55,13 +55,13 @@ signal colgar
 
 signal interactive_object
 var cont = 0
-var sounds_map = {
-	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("ring") },
-	"cat":{"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")}
-}
-var sounds_list =[
-	cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),
-]
+#var sounds_map = {
+	#"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("ring") },
+	#"cat":{"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")}
+#}
+#var sounds_list =[
+#	cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),
+#]
 
 func _ready() -> void:
 	normal_door = puerta.global_transform

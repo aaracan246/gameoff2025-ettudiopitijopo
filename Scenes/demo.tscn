@@ -107,10 +107,10 @@ transform = Transform3D(-0.04494856, -0.7235313, 0.6888267, -0.40496847, 0.64352
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0.04974556)
 
 [node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
-transform = Transform3D(-4, 0, -1.599199e-07, 0, 4, 0, 3.496911e-07, 0, -1.8292705, 19.58052, -14.395881, 19.829748)
+transform = Transform3D(-2.9930103, 0, -1.599199e-07, 0, 3.0768063, 0, 2.6165728e-07, 0, -1.8292705, 20.40216, -17.19314, 20.891012)
 
 [node name="puerta2" parent="Escenario" instance=ExtResource("7_l50oi")]
-transform = Transform3D(-3.1803968, 0, 0.55111516, 0, 4, 0, -0.99076575, 0, -1.7691011, 20.124165, -14.395881, 17.94478)
+transform = Transform3D(-2.4132223, 0, 0.59671295, 0, 3.0768063, 0, -0.7517735, 0, -1.915472, 20.80894, -17.19314, 19.006044)
 visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
