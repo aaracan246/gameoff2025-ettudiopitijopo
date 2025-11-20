@@ -13,7 +13,7 @@ config_version=5
 config/name="Waves from Beyond"
 run/main_scene="uid://byhbhtnyyn47m"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bpkckpq405fi1"
 
 [audio]
 
