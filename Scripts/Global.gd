@@ -21,5 +21,7 @@ func next_event():
 
 func sounds_events():
 	print(randi_range(0,sounds.size()))
+	if randi_range(0,sounds.size()) == 2:
+		pass
 	pass
 	

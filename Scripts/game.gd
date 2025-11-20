@@ -63,13 +63,15 @@ func _ready() -> void:
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		
 		var shader = node.get_node("mesh")
+		print(node)
 		if shader:
 			shader = shader.get_surface_override_material(0)
+			print(node)
+			print(shader.next_pass)
 			var outline_material = shader.next_pass
 			if outline_material:
 				outline_material.set_shader_parameter("size", 0.00)
 				outline_material.set_shader_parameter("color",color_shader)
-	#process_mode = Node.PROCESS_MODE_ALWAYS
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
@@ -77,8 +79,6 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	Dialogic.timeline_started.connect(set_physics_process.bind(true))
 	Dialogic.timeline_started.connect(set_process_input.bind(true))
-
-	
 
 
 func _process(_delta: float) -> void:
@@ -102,7 +102,6 @@ func _on_dialogic_signal(argument):
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
 
 
-
 func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
@@ -115,7 +114,6 @@ func _start_events() -> void:
 func incoming_call():
 	AudioManager.phone_ring.play()
 	calling = true
-
 
 
 func colgar_phone():
@@ -323,12 +321,13 @@ func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: V
 func door_manager():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.set_trans(Tween.TRANS_CUBIC)
 	if !door_open:
-
-		tween.tween_property($Escenario/puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration )
+		#ABRIR
+		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 		door_open = true
 	else:
-		tween.tween_property($Escenario/puerta, "global_transform",normal_door, transition_duration )
+		#CERRAR
+		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
 		
