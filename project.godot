@@ -86,6 +86,8 @@ glossary/default_case_sensitive=true
 
 [display]
 
+window/size/mode=3
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://nklbdd432hyx"
 
 [editor_plugins]
