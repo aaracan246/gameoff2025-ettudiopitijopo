@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj6jkelbtdy2j"]
+
+[ext_resource type="Texture2D" uid="uid://cnka1ih3ytxwq" path="res://Assets/pc/book_popup.png" id="1_77fe8"]
+[ext_resource type="Texture2D" uid="uid://bnoeeno2cdlve" path="res://Assets/icons/close_b.png" id="2_da78h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kyj5b"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij6ka"]
+content_margin_left = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntk6p"]
+content_margin_left = 8.0
+bg_color = Color(0.76831985, 0.43501496, 0.4419158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud8bu"]
+content_margin_left = 8.0
+bg_color = Color(0.81405455, 0.49997014, 0.50064003, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book_popup" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="book_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="book_popup"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 25.0
+text = "Los fantasmikos"
+label_settings = SubResource("LabelSettings_kyj5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="book_popup"]
+position = Vector2(95, 169.00002)
+scale = Vector2(0.35714284, 0.3950437)
+texture = ExtResource("1_77fe8")
+
+[node name="book_p" type="Button" parent="book_popup"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="book_popup"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij6ka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ntk6p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ud8bu")
+icon = ExtResource("2_da78h")

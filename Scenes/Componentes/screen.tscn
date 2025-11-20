@@ -442,6 +442,153 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
+[node name="book_popup2" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 63.0
+offset_right = 311.0
+offset_bottom = 377.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/book_popup2"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/book_popup2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 25.0
+text = "Los fantasmikos"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/book_popup2"]
+position = Vector2(95, 169.00002)
+scale = Vector2(0.35714284, 0.3950437)
+texture = ExtResource("10_0jn38")
+
+[node name="book_p" type="Button" parent="Destktop/popups/book_popup2"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="Destktop/popups/book_popup2"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="book_popup3" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 63.0
+offset_right = 311.0
+offset_bottom = 377.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/book_popup3"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/book_popup3"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 25.0
+text = "Los fantasmikos"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/book_popup3"]
+position = Vector2(95, 169.00002)
+scale = Vector2(0.35714284, 0.3950437)
+texture = ExtResource("10_0jn38")
+
+[node name="book_p" type="Button" parent="Destktop/popups/book_popup3"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="Destktop/popups/book_popup3"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
+[node name="book_popup4" type="ColorRect" parent="Destktop/popups"]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 63.0
+offset_right = 311.0
+offset_bottom = 377.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/book_popup4"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Label" type="Label" parent="Destktop/popups/book_popup4"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 25.0
+text = "Los fantasmikos"
+label_settings = SubResource("LabelSettings_ir73n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Destktop/popups/book_popup4"]
+position = Vector2(95, 169.00002)
+scale = Vector2(0.35714284, 0.3950437)
+texture = ExtResource("10_0jn38")
+
+[node name="book_p" type="Button" parent="Destktop/popups/book_popup4"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="Destktop/popups/book_popup4"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 193.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
+icon = ExtResource("13_r56by")
+
 [node name="email_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
 layout_mode = 0
@@ -700,6 +847,12 @@ render_target_update_mode = 4
 [connection signal="pressed" from="Destktop/popups/file_popup/file_close" to="." method="_on_file_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/book_popup/book_p" to="." method="_on_book_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/book_popup/book_close" to="." method="_on_book_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup2/book_p" to="." method="_on_book_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup2/book_close" to="." method="_on_book_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup3/book_p" to="." method="_on_book_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup3/book_close" to="." method="_on_book_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup4/book_p" to="." method="_on_book_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/book_popup4/book_close" to="." method="_on_book_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/email_popup/email_p" to="." method="_on_email_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/email_popup/email_close" to="." method="_on_email_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/trash_p" to="." method="_on_trash_p_pressed"]
