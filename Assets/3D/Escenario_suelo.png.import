@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48kfgbimkbqe"
-path.s3tc="res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"
+uid="uid://bn6tg42fvl6kk"
+path.s3tc="res://.godot/imported/Escenario_suelo.png-4bd3cb8229169940d0c2c26bb20d5102.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "3d277d19b0bb80940a04275bea4eb0e5"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/madera_ventana.png"
-dest_files=["res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"]
+source_file="res://Assets/3D/Escenario_suelo.png"
+dest_files=["res://.godot/imported/Escenario_suelo.png-4bd3cb8229169940d0c2c26bb20d5102.s3tc.ctex"]
 
 [params]
 

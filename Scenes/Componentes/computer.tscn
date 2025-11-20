@@ -63,8 +63,8 @@ roughness = 0.0
 roughness_texture_channel = 4
 normal_scale = 10.35
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1jket"]
-points = PackedVector3Array(0.06273052, 1.1514131, 0.76348454, -1.2595556, -1.8245591, -1.2444555, -1.2595556, -1.8245591, 1.2630333, 1.2479331, -1.8245591, -1.2444555, 1.2479331, -1.8245591, 1.2630333, -0.9924117, 0.9739378, -0.7939464, 1.0204357, 1.011804, -0.65199643, -1.2210804, 1.0643784, 0.9952082, 1.2098843, 1.0651481, 0.995554, 0.70577997, 0.46933287, -1.2075866, -0.7174023, 0.46933287, -1.2075866, -1.1254036, 1.0596751, -0.10475685, 0.19952933, 1.1493893, -0.013447755, 1.1511086, 1.0500396, -0.0133080995, 0.9859293, 0.98060954, -0.7979362, -0.30536738, 1.1175376, 1, -0.30299637, 1.1526461, 0.1234631, -1.1599313, 1.0464625, 0.03159642, 1.1985964, 1.05237, 0.44101763, -0.94228536, 1.013713, -0.698696, 1.2479331, -1.7774378, 1.2630333, -1.2595556, -1.7771415, 1.2630333, -1.2595556, -1.7771415, -1.2444555, 1.2479331, -1.7774378, -1.2444555, -1.2108803, 1.0528338, 0.6231475, 0.7923827, 1.1027367, 0.03176991, 0.2912605, 1.1520866, 0.16921407, -1.0263445, 1.0044395, -0.64831495, 0.97445107, 1.0110734, -0.6972853, -0.028600413, 1.1527674, 0.80999887, 0.7890199, 0.5971549, -1.1034274, -0.30350834, 1.1086719, -0.24255387)
+[sub_resource type="BoxShape3D" id="BoxShape3D_52u6t"]
+size = Vector3(2.3757324, 2.888916, 2.032547)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k86p0"]
 resource_name = "Material"
@@ -182,7 +182,7 @@ albedo_texture = SubResource("ViewportTexture_4xga7")
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_m7p0i")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4xga7"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_52u6t"]
 data = PackedVector3Array(0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0)
 
 [node name="Pc" type="StaticBody3D"]
@@ -195,8 +195,8 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_52u6t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07216059)
-shape = SubResource("ConvexPolygonShape3D_1jket")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025268564, -0.35900885, -0.2087192)
+shape = SubResource("BoxShape3D_52u6t")
 
 [node name="Teclado" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.7929575, 0, 0, 0, -0.12039853, 0, 0, 0, 0.61542636, 0, -1.787905, 2.468661)
@@ -231,7 +231,7 @@ offset_right = -106.40001
 offset_bottom = -189.0
 
 [node name="Screen" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.7548244, 0, 0, 0, 1.6020675, 0, 0, 0, 1, 0, -0.022776527, 0.91530305)
+transform = Transform3D(1.7548244, 0, 0, 0, 1.6020675, 0, 0, 0, 1, 0, -0.022776527, 0.86886454)
 mesh = SubResource("QuadMesh_tlg0j")
 
 [node name="Area3D" type="Area3D" parent="Screen"]
@@ -239,8 +239,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2093637, -0.018772274, 3.31
 monitoring = false
 
 [node name="CollisionScreen" type="CollisionShape3D" parent="Screen/Area3D"]
-transform = Transform3D(0.86885524, 0, 0, 0, 0.89986944, 0, 0, 0, 0.7635371, -0.22161263, 0.034889743, -3.1408215)
-shape = SubResource("ConcavePolygonShape3D_4xga7")
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.2093637, 0.018772274, -3.319933)
+shape = SubResource("ConcavePolygonShape3D_52u6t")
 
 [connection signal="input_event" from="Screen/Area3D" to="." method="_mouse_input_event"]
 [connection signal="mouse_entered" from="Screen/Area3D" to="." method="_mouse_entered_area"]

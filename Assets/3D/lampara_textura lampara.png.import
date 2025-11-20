@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48kfgbimkbqe"
-path.s3tc="res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"
+uid="uid://b32cj84e3s6fe"
+path.s3tc="res://.godot/imported/lampara_textura lampara.png-7c8fdc60d4e650e1efbc08ed3c124070.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "cd91619cf5666ea0d959ed1dd1bdf5ee"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/madera_ventana.png"
-dest_files=["res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"]
+source_file="res://Assets/3D/lampara_textura lampara.png"
+dest_files=["res://.godot/imported/lampara_textura lampara.png-7c8fdc60d4e650e1efbc08ed3c124070.s3tc.ctex"]
 
 [params]
 

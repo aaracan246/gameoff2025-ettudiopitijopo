@@ -63,11 +63,8 @@ func _ready() -> void:
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		
 		var shader = node.get_node("mesh")
-		print(node)
 		if shader:
 			shader = shader.get_surface_override_material(0)
-			print(node)
-			print(shader.next_pass)
 			var outline_material = shader.next_pass
 			if outline_material:
 				outline_material.set_shader_parameter("size", 0.00)
@@ -190,9 +187,13 @@ func input_manager(camera:Camera3D, event: InputEvent):
 		await switch_to_camera_smooth(player, actual_camera)
 
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(radio)
 	input_manager($Escenario/Radio/Camera3D, event)
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(map)
 	if event is InputEventMouseButton and event.pressed and not is_zoomed:
 		AudioManager.chair_roll.play()
 	input_manager($Escenario/Mapa, event)
@@ -224,9 +225,16 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 				emit_signal("rescate")
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(pc)
+
 	await input_manager($Escenario/Computer, event)
 
+
+
 func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(phone)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving :
 		is_moving = true
 
@@ -266,6 +274,8 @@ func phone_manager():
 
 
 func _on_news_paper_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(newspaper)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		is_zoomed = true
 		
@@ -289,6 +299,8 @@ func newspaper_manager():
 
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if is_zoomed:
+		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48kfgbimkbqe"
-path.s3tc="res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"
+uid="uid://bcahri02gkyfc"
+path.s3tc="res://.godot/imported/Sofa_sofa2.png-3e7ce7b29718bd21616062c769998708.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b42b7b80972f7f28e9442e72dbd6acd2"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/madera_ventana.png"
-dest_files=["res://.godot/imported/madera_ventana.png-2f903d4a7fd6c755cb06876d7f61d4ed.s3tc.ctex"]
+source_file="res://Assets/3D/Sofa_sofa2.png"
+dest_files=["res://.godot/imported/Sofa_sofa2.png-3e7ce7b29718bd21616062c769998708.s3tc.ctex"]
 
 [params]
 

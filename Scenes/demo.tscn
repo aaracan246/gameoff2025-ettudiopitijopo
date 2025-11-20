@@ -187,6 +187,7 @@ texture = ExtResource("23_65jo5")
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 
+[connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
 [connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
 [connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
