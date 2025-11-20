@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=33 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
+[ext_resource type="Texture2D" uid="uid://c772i30rajp2w" path="res://Assets/Textures/pared.png" id="26_65jo5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -68,6 +69,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hmy8t")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05lpk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dulbf"]
+next_pass = SubResource("StandardMaterial3D_05lpk")
+albedo_texture = ExtResource("26_65jo5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iv11p"]
+material = SubResource("StandardMaterial3D_dulbf")
+
 [node name="Demo" type="Node3D"]
 process_priority = 14105
 process_physics_priority = 29535
@@ -105,6 +115,16 @@ transform = Transform3D(-0.04494856, -0.7235313, 0.6888267, -0.40496847, 0.64352
 
 [node name="Escenario" parent="." instance=ExtResource("10_a1i4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0.04974556)
+
+[node name="techo" type="MeshInstance3D" parent="Escenario"]
+transform = Transform3D(29.560806, 0, 0, 0, -24.995668, -0.24897832, 0, 0.22380322, -27.807356, 0.028256416, 14.001608, -6.435095)
+mesh = SubResource("PlaneMesh_iv11p")
+skeleton = NodePath("../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Escenario/techo"]
+transform = Transform3D(0.033828575, 0, 0, 0, -1.5736354e-09, -0.039969046, 0, 0.036000583, -1.7471025e-09, 0, 0, 0)
+light_color = Color(0.9944199, 0.8654636, 0.53133893, 1)
+light_energy = 100.0
 
 [node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(-2.9930103, 0, -1.599199e-07, 0, 3.0768063, 0, 2.6165728e-07, 0, -1.8292705, 20.40216, -17.19314, 20.891012)
@@ -186,6 +206,13 @@ transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, 
 texture = ExtResource("23_65jo5")
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 166.30806, 0)
+light_color = Color(0.80081093, 0.6034188, 0.08136376, 1)
+light_energy = 2.0
+light_bake_mode = 1
+sky_mode = 1
 
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
 [connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
