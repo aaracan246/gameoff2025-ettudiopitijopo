@@ -64,7 +64,7 @@ roughness_texture_channel = 4
 normal_scale = 10.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52u6t"]
-size = Vector3(2.3757324, 2.888916, 2.032547)
+size = Vector3(2.7614136, 3.6793213, 2.1222305)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k86p0"]
 resource_name = "Material"
@@ -190,12 +190,13 @@ transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
 script = ExtResource("1_j2xe6")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2457396, 0, 0, 0, 1.2457396, 0, 0, 0, 1.2457396, 0, 0.46220782, 0)
 mesh = SubResource("ArrayMesh_wrsch")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_52u6t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025268564, -0.35900885, -0.2087192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07687382, 0.03619378, -0.25356096)
 shape = SubResource("BoxShape3D_52u6t")
 
 [node name="Teclado" type="MeshInstance3D" parent="."]
@@ -231,7 +232,7 @@ offset_right = -106.40001
 offset_bottom = -189.0
 
 [node name="Screen" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.7548244, 0, 0, 0, 1.6020675, 0, 0, 0, 1, 0, -0.022776527, 0.86886454)
+transform = Transform3D(2.1870093, 0, 0, 0, 1.9966311, 0, 0, 0, 1.246284, 0.015032087, 0.46113953, 1.1342992)
 mesh = SubResource("QuadMesh_tlg0j")
 
 [node name="Area3D" type="Area3D" parent="Screen"]

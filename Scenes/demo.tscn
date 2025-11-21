@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
 [ext_resource type="PackedScene" uid="uid://csykyo4ikmj0w" path="res://Scenes/Componentes/map.tscn" id="2_f2jw5"]
-[ext_resource type="PackedScene" uid="uid://bf0xyvrrudv7x" path="res://Assets/Skybox/skybox_atardecer.tscn" id="2_nv0j3"]
+[ext_resource type="PackedScene" uid="uid://drq25tfinfg4r" path="res://Assets/Skybox/skybox_atardecer.tscn" id="2_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b2w3amblmdkc1" path="res://Scenes/Componentes/radio.tscn" id="3_glc8m"]
 [ext_resource type="PackedScene" uid="uid://w0hrl0r07jba" path="res://Scenes/UI/ambient_crossfade.tscn" id="4_43er0"]
 [ext_resource type="PackedScene" uid="uid://bjjxtn2tn0obg" path="res://Scenes/Componentes/news_paper.tscn" id="4_f2jw5"]
@@ -166,7 +166,7 @@ transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.44676876, -9.5983925, -28.545406)
 
 [node name="Computer" parent="Escenario" instance=ExtResource("12_0ygp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019283295, -9.184779, -23.43837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3297596, -8.675583, -23.750977)
 
 [node name="Phone" parent="Escenario" instance=ExtResource("9_a1i4p")]
 transform = Transform3D(1.3937474, 0, 0.5544987, 0, 1.5, 0, -0.5544987, 0, 1.3937474, -7.6146517, -11.461858, -24.79234)
@@ -187,7 +187,7 @@ transform = Transform3D(-0.698927, 0.16237885, 0.69651586, -0.020137832, 0.96903
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)
 
 [node name="murders" type="Node3D" parent="Escenario"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.230873, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.648182, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Escenario/murders"]
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, -5.5886803, -13.606451)
