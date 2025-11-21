@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://b8sgyrmmvcyh7"]
+[gd_scene load_steps=14 format=4 uid="uid://b8sgyrmmvcyh7"]
 
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="1_tuchq"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_x28gj"]
 [ext_resource type="Texture2D" uid="uid://cf286ekd3lf1v" path="res://Assets/Textures/Textura telefono.png" id="2_4ro1e"]
+[ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/desktop/phone_ring.mp3" id="4_4ro1e"]
+[ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="5_44o3h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -108,3 +110,11 @@ shape = SubResource("ConvexPolygonShape3D_oju8d")
 transform = Transform3D(0, -2.1721833e-08, 0.7288638, 0.24909341, 0.684978, 2.0413935e-08, -0.684978, 0.24909341, 7.423562e-09, -0.5034843, -0.27565178, 0.14727753)
 mesh = SubResource("ArrayMesh_mtb8w")
 skeleton = NodePath("")
+
+[node name="ring" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-0.9304176, 0, -0.36650115, 0, 1, 0, 0.36650115, 0, -0.9304176, 0, 0, 0)
+stream = ExtResource("4_4ro1e")
+bus = &"SFX"
+
+[node name="down" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_44o3h")

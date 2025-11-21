@@ -1,8 +1,8 @@
 extends Control
 
-@onready var continue_btn: Button = $VBoxContainer/continue_btn
-@onready var settings_btn: Button = $VBoxContainer/settings_btn
-@onready var credits_btn: Button = $VBoxContainer/credits_btn
+@onready var continue_btn: Button = $play_btn
+@onready var settings_btn: Button = $settings_btn
+@onready var credits_btn: Button = $credits_btn
 
 @onready var settings_menu: Control = $settings_menu
 
@@ -18,15 +18,11 @@ func _input(event: InputEvent) -> void:
 	
 		
 # === ON PRESSED === #
-func _on_continue_btn_pressed() -> void:
+
+func _on_play_btn_pressed() -> void:
 	AudioManager.fade_out(AudioManager.main_menu, 2.0)
 	AudioManager.scene_transition.play()
 	get_tree().change_scene_to_file("res://Scenes/UI/loading.tscn")
-
-#func _on_new_game_btn_pressed() -> void:
-	#AudioManager.fade_out(AudioManager.main_menu, 2.0)
-	#AudioManager.scene_transition.play()
-	#
 	
 func _on_settings_btn_pressed() -> void:
 	settings_menu.visible = true
@@ -37,14 +33,27 @@ func _on_credits_pressed() -> void:
 
 
 # == HOVER SOUND == #
-func _on_continue_btn_mouse_entered() -> void:
+func _on_play_btn_mouse_entered() -> void:
+	continue_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
 	
-func _on_new_game_btn_mouse_entered() -> void:
-	AudioManager.hover.play()
-
 func _on_settings_btn_mouse_entered() -> void:
+	settings_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
 
 func _on_credits_mouse_entered() -> void:
+	credits_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
+
+
+#------------------------
+func _on_play_btn_mouse_exited() -> void:
+	continue_btn.add_theme_font_size_override("font_size", 50)
+
+
+func _on_settings_btn_mouse_exited() -> void:
+	settings_btn.add_theme_font_size_override("font_size", 50)
+
+
+func _on_credits_btn_mouse_exited() -> void:
+	credits_btn.add_theme_font_size_override("font_size", 50)

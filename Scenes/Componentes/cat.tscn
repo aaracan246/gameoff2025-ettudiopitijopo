@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://chs8uklp8h7x0"]
+[gd_scene load_steps=12 format=4 uid="uid://chs8uklp8h7x0"]
 
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_trddh"]
+[ext_resource type="AudioStream" uid="uid://fbg1hlqoxvyd" path="res://Assets/audio/sfx/room/cat_meow.mp3" id="2_50yu3"]
+[ext_resource type="AudioStream" uid="uid://chcekd0udox06" path="res://Assets/audio/sfx/room/cat_hiss.mp3" id="3_ch38s"]
+[ext_resource type="AudioStream" uid="uid://dnmn2i8isfb6v" path="res://Assets/audio/sfx/room/cat_shake.mp3" id="4_nvw0t"]
+[ext_resource type="AudioStream" uid="uid://htn0vol76gqp" path="res://Assets/audio/sfx/room/cat_meow_purr.mp3" id="5_qgkp0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y64yx"]
 
@@ -59,3 +63,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uifvk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12133789, 0.5326538, 0)
 shape = SubResource("BoxShape3D_uifvk")
+
+[node name="meow" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_50yu3")
+
+[node name="hiss" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ch38s")
+
+[node name="shake" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_nvw0t")
+
+[node name="purr" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_qgkp0")

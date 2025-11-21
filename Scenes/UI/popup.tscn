@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj6jkelbtdy2j"]
+
+[ext_resource type="Texture2D" uid="uid://dxkdonrvjwwht" path="res://Assets/pc/newPopUps/6.svg" id="1_da78h"]
+[ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_kyj5b"]
+[ext_resource type="Texture2D" uid="uid://bnoeeno2cdlve" path="res://Assets/icons/close_b.png" id="2_da78h"]
+[ext_resource type="Texture2D" uid="uid://cvg50r14i7362" path="res://Assets/pc/newPopUps/7.svg" id="2_kyj5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kyj5b"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij6ka"]
+content_margin_left = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntk6p"]
+content_margin_left = 8.0
+bg_color = Color(0.76831985, 0.43501496, 0.4419158, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud8bu"]
+content_margin_left = 8.0
+bg_color = Color(0.81405455, 0.49997014, 0.50064003, 1)
+
+[node name="book_popup" type="ColorRect"]
+offset_right = 312.0
+offset_bottom = 314.0
+color = Color(0.9658, 0.91680646, 0.9181592, 1)
+script = ExtResource("1_kyj5b")
+metadata/_edit_group_ = true
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(15, 64)
+scale = Vector2(2.1599998, 1)
+points = PackedVector2Array(42, 3, 0, 3)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 26.0
+color = Color(0.7764706, 0.88235295, 0.88235295, 1)
+
+[node name="Name" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 46.0
+offset_right = 125.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 28
+text = "Peter"
+label_settings = SubResource("LabelSettings_kyj5b")
+
+[node name="Clue1_name" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 95.0
+offset_right = 125.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 28
+text = "Vertical waves"
+label_settings = SubResource("LabelSettings_kyj5b")
+
+[node name="Clue2_name" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 179.0
+offset_right = 125.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 28
+text = "Red frequency"
+label_settings = SubResource("LabelSettings_kyj5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(244, 127.00001)
+scale = Vector2(0.16570494, 0.18328995)
+texture = ExtResource("1_da78h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(244, 201)
+scale = Vector2(0.15126288, 0.16731523)
+texture = ExtResource("2_kyj5b")
+
+[node name="book_p" type="Button" parent="."]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 314.0
+flat = true
+
+[node name="book_close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_right = 318.5
+offset_bottom = 32.499985
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij6ka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ntk6p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ud8bu")
+icon = ExtResource("2_da78h")

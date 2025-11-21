@@ -1,23 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://byhbhtnyyn47m"]
+[gd_scene load_steps=5 format=3 uid="uid://byhbhtnyyn47m"]
 
 [ext_resource type="Script" uid="uid://b5o5sdyfcpdbd" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
 [ext_resource type="PackedScene" uid="uid://fymcpiyww0nr" path="res://Scenes/UI/settings_menu.tscn" id="2_i2xx2"]
 [ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="2_o14dv"]
+[ext_resource type="Texture2D" uid="uid://bebs2buepvrdk" path="res://Assets/Mainmenu.png" id="2_u7lva"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_5wsvm")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 4346
-
-[node name="cursor" parent="CanvasLayer" instance=ExtResource("2_o14dv")]
-process_mode = 3
+[node name="Mainmenu" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_u7lva")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -26,54 +28,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+color = Color(0.27058825, 0.27058825, 0.47058824, 0.14117648)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4346
+
+[node name="cursor" parent="CanvasLayer" instance=ExtResource("2_o14dv")]
+process_mode = 3
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 116.0
+offset_right = 619.0
+offset_bottom = 206.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 70
+text = "Waves From Beyond"
+
+[node name="play_btn" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -45.5
-offset_top = -83.5
-offset_right = 45.5
-offset_bottom = 83.5
+anchors_preset = -1
+anchor_left = 0.21900001
+anchor_top = 0.47300002
+anchor_right = 0.21900001
+anchor_bottom = 0.47300002
+offset_left = -47.28801
+offset_top = -36.503998
+offset_right = 47.71199
+offset_bottom = 36.496002
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "play"
+flat = true
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "main menu"
-
-[node name="WFB_logo" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="continue_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "continue"
-
-[node name="new_game_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "new_game"
-
-[node name="settings_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="settings_btn" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22100002
+anchor_top = 0.59300005
+anchor_right = 0.22100002
+anchor_bottom = 0.59300005
+offset_left = -90.59201
+offset_top = -36.264038
+offset_right = 94.40799
+offset_bottom = 36.735962
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
 text = "settings"
+flat = true
 
-[node name="credits_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="credits_btn" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22100002
+anchor_top = 0.717
+anchor_right = 0.22100002
+anchor_bottom = 0.717
+offset_left = -79.59201
+offset_top = -36.615997
+offset_right = 84.40799
+offset_bottom = 36.384003
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
 text = "credits"
+flat = true
 
 [node name="settings_menu" parent="." instance=ExtResource("2_i2xx2")]
 visible = false
 layout_mode = 1
 
-[connection signal="mouse_entered" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/continue_btn" to="." method="_on_continue_btn_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/new_game_btn" to="." method="_on_new_game_btn_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/credits_btn" to="." method="_on_credits_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/credits_btn" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="play_btn" to="." method="_on_play_btn_mouse_entered"]
+[connection signal="mouse_exited" from="play_btn" to="." method="_on_play_btn_mouse_exited"]
+[connection signal="pressed" from="play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="mouse_entered" from="settings_btn" to="." method="_on_settings_btn_mouse_entered"]
+[connection signal="mouse_exited" from="settings_btn" to="." method="_on_settings_btn_mouse_exited"]
+[connection signal="pressed" from="settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="mouse_entered" from="credits_btn" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="credits_btn" to="." method="_on_credits_btn_mouse_exited"]
+[connection signal="pressed" from="credits_btn" to="." method="_on_credits_pressed"]

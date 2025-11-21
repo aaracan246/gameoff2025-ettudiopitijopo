@@ -1,0 +1,9 @@
+[gd_resource type="Sky" load_steps=3 format=3 uid="uid://cx2j7qf1ec6n4"]
+
+[ext_resource type="Texture2D" uid="uid://fuc5atqucotm" path="res://Assets/Skybox/3_noche.png" id="1_haw4k"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_erxeg"]
+panorama = ExtResource("1_haw4k")
+
+[resource]
+sky_material = SubResource("PanoramaSkyMaterial_erxeg")
