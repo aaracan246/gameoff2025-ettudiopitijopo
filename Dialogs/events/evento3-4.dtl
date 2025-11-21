@@ -16,6 +16,7 @@ victima: Please, fast. Tell me what to do
 	[wait_input]
 	jump Choice4
 - Left
+	[signal arg="fem_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
@@ -24,6 +25,7 @@ victima: Please, fast. Tell me what to do
 	[signal arg="fail"]
 	jump Choice4
 - Right
+	[signal arg="fem_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
