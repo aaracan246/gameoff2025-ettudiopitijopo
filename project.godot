@@ -88,6 +88,7 @@ glossary/default_case_sensitive=true
 
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://nklbdd432hyx"
+mouse_cursor/tooltip_position_offset=Vector2(36.395, 28.215)
 
 [editor_plugins]
 
