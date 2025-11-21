@@ -57,12 +57,18 @@ signal interactive_object
 var cont = 0
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
-	"cat":{"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")}
+	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
+	"puerta": puerta.get_node("close_open"),
+	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
+	
 }
 
 @onready var sounds_list =[
 	cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),
 ]
+
+signal change_video(string:String)
+
 
 func _ready() -> void:
 	normal_door = puerta.global_transform
@@ -84,6 +90,9 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	Dialogic.timeline_started.connect(set_physics_process.bind(true))
 	Dialogic.timeline_started.connect(set_process_input.bind(true))
+	
+	Global.update_sounds(sounds_map)
+	
 
 
 func _process(_delta: float) -> void:
@@ -106,6 +115,8 @@ func _on_dialogic_signal(argument):
 		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
 	if argument == "radio":
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
+	else:
+		emit_signal("change_video",argument)
 
 
 func _start_events() -> void:

@@ -6,6 +6,8 @@ var cont = 0
 var dialogos = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
 var sounds = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
 var vhs_enabled := true
+var sounds_map = {}
+
 
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout
@@ -20,3 +22,7 @@ func sounds_events():
 		pass
 	pass
 	
+func update_sounds(soundss: Dictionary):
+	sounds_map = soundss
+	
+	pass

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://wvnwavhmsta8"]
+[gd_scene load_steps=4 format=3 uid="uid://wvnwavhmsta8"]
 
 [ext_resource type="Script" uid="uid://dju7vlywfo2em" path="res://Scripts/UI/credits.gd" id="1_h87vg"]
+[ext_resource type="Texture2D" uid="uid://bebs2buepvrdk" path="res://Assets/Mainmenu.png" id="2_q4iv0"]
+[ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="3_lm48m"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -11,6 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h87vg")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4346
+
+[node name="cursor" parent="CanvasLayer" instance=ExtResource("3_lm48m")]
+process_mode = 3
+
+[node name="Mainmenu" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_q4iv0")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+color = Color(0.20784314, 0.20784314, 0.20784314, 0.54901963)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -40,21 +53,21 @@ text = "[center]
 [font_size=24][b]Êttudio Pitijopo[/b][/font_size]
 [center]──────────────────────────────[/center]
 
+[font_size=18][b]Lead Designer[/b][/font_size]
+[font_size=22]Morri[/font_size]
 
 [font_size=18][b]Production & Design[/b][/font_size]
-[font_size=22]Lara Narváez Otero[/font_size]
-
-
-[font_size=18][b]Design Director[/b][/font_size]
-[font_size=22]Morri[/font_size]
+[font_size=22]Laruxx[/font_size]
 
 
 [font_size=18][b]Programming[/b][/font_size]
-[font_size=22]Sergio Morales Coronil[/font_size]
-
-
-[font_size=18][b]Programming, Audio & Web Dev[/b][/font_size]
+[font_size=22]Morales[/font_size]
 [font_size=22]Samuel Urbina Flor[/font_size]
+
+
+[font_size=18][b]Audio[/b][/font_size]
+[font_size=22]Samuel Urbina Flor[/font_size]
+[font_size=22]Morri[/font_size]
 
 
 [font_size=18][b]2D Art & Animation[/b][/font_size]
@@ -74,7 +87,7 @@ text = "[center]
 
 [center]──────────────────────────────[/center]
 
-[center][i]Thank you for playing[/i][/center]
+[center][i]Thank you for playing our game[/i][/center]
 "
 scroll_active = false
 
