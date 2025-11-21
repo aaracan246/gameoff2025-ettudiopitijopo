@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://b8sgyrmmvcyh7"]
+[gd_scene load_steps=15 format=4 uid="uid://b8sgyrmmvcyh7"]
 
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="1_tuchq"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_x28gj"]
 [ext_resource type="Texture2D" uid="uid://cf286ekd3lf1v" path="res://Assets/Textures/Textura telefono.png" id="2_4ro1e"]
 [ext_resource type="AudioStream" uid="uid://bgh0h3fg54v7i" path="res://Assets/audio/sfx/desktop/phone_ring.mp3" id="4_4ro1e"]
 [ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="5_44o3h"]
+[ext_resource type="AudioStream" uid="uid://piseul58f1eo" path="res://Assets/audio/sfx/desktop/phone_beep.mp3" id="6_7mogq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -118,3 +119,6 @@ bus = &"SFX"
 
 [node name="down" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_44o3h")
+
+[node name="beep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_7mogq")

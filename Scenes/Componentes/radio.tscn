@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_bas83"]
 [ext_resource type="Script" uid="uid://cib5mqts2eecn" path="res://Scenes/Componentes/radio.gd" id="1_fyv47"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="2_4u2v5"]
-[ext_resource type="VideoStream" uid="uid://bpowpjqd37lpw" path="res://Assets/radio ondas/video/ondas_picudas/turn_right_onda.ogv" id="3_bas83"]
+[ext_resource type="VideoStream" path="res://Assets/radio ondas/video/ondas_rectas/buzz.ogv" id="2_fyv47"]
 [ext_resource type="Texture2D" uid="uid://dumfwpssgn5cb" path="res://Assets/3D/Radio_Textura radio.png" id="3_fyv47"]
 [ext_resource type="Texture2D" uid="uid://bgwm8fvtqall" path="res://Assets/Textures/Textura radio.png" id="4_5hd2e"]
 
@@ -88,7 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("3_bas83")
+stream = ExtResource("2_fyv47")
 autoplay = true
 expand = true
 loop = true
@@ -107,6 +107,9 @@ shape = SubResource("ConvexPolygonShape3D_8y21s")
 transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.2136903, 0, 0, 0, 0.67538893, 5.8582778e-08, 0, -1.1808875e-07, 0.3350544, 0.09349522, -0.0025820993, 1.9804159)
+transform = Transform3D(1.3469516, 0, 0, 0, 0.4109501, 3.564553e-08, 0, -7.1852796e-08, 0.20386866, -0.027720124, 0.31701562, 1.920075)
 mesh = SubResource("QuadMesh_psx7p")
 surface_material_override/0 = SubResource("StandardMaterial3D_fyv47")
+
+[node name="sounds" type="AudioStreamPlayer3D" parent="."]
+autoplay = true
