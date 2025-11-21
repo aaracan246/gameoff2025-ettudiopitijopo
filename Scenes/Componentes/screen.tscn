@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=44 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_6t4fl"]
 [ext_resource type="Texture2D" uid="uid://da252jvsrquw6" path="res://Assets/pc/wallpaper.png" id="2_fujxl"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dcojodhi4plbv" path="res://Assets/pc/book.png" id="5_b4031"]
 [ext_resource type="Texture2D" uid="uid://bt5upa0h5uhsi" path="res://Assets/pc/gallery.png" id="5_ixi4j"]
 [ext_resource type="Texture2D" uid="uid://xg5y4hq746lj" path="res://Assets/pc/email_popup.png" id="6_dw2fv"]
-[ext_resource type="Texture2D" uid="uid://bc8sivv3wt08h" path="res://Assets/pc/book_glitch.png" id="7_dw2fv"]
 [ext_resource type="Texture2D" uid="uid://f1ldfmvj8pt0" path="res://Assets/pc/file.png" id="7_p5gwp"]
 [ext_resource type="Texture2D" uid="uid://fdjq5iva3edk" path="res://Assets/pc/trash.png" id="8_dw2fv"]
 [ext_resource type="Texture2D" uid="uid://bctoqd3paxy3b" path="res://Assets/pc/OFF.png" id="9_hsj54"]
@@ -152,15 +151,6 @@ offset_right = 80.0
 offset_bottom = 168.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_l5hxs")
-
-[node name="book_ghost" type="TextureRect" parent="Destktop/icons/book"]
-visible = false
-layout_mode = 0
-offset_left = 1.2500011
-offset_top = 82.5
-offset_right = 101.25
-offset_bottom = 182.5
-texture = ExtResource("7_dw2fv")
 
 [node name="email" type="Control" parent="Destktop/icons"]
 anchors_preset = 0
@@ -808,6 +798,7 @@ offset_bottom = 422.0
 texture = ExtResource("21_l5hxs")
 
 [node name="Camera" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 400.0
