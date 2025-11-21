@@ -366,6 +366,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
 icon = ExtResource("16_er71p")
 
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 68.0

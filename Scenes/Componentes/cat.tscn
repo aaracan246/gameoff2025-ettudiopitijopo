@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://chs8uklp8h7x0"]
+[gd_scene load_steps=13 format=4 uid="uid://chs8uklp8h7x0"]
 
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_trddh"]
 [ext_resource type="AudioStream" uid="uid://fbg1hlqoxvyd" path="res://Assets/audio/sfx/room/cat_meow.mp3" id="2_50yu3"]
 [ext_resource type="AudioStream" uid="uid://chcekd0udox06" path="res://Assets/audio/sfx/room/cat_hiss.mp3" id="3_ch38s"]
 [ext_resource type="AudioStream" uid="uid://dnmn2i8isfb6v" path="res://Assets/audio/sfx/room/cat_shake.mp3" id="4_nvw0t"]
 [ext_resource type="AudioStream" uid="uid://htn0vol76gqp" path="res://Assets/audio/sfx/room/cat_meow_purr.mp3" id="5_qgkp0"]
+[ext_resource type="PackedScene" uid="uid://do7ews2ctscxq" path="res://Assets/3D/Gato.glb" id="6_nvw0t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y64yx"]
 
@@ -51,17 +52,18 @@ next_pass = SubResource("ShaderMaterial_50yu3")
 albedo_color = Color(0.15952033, 0.08460461, 0.00089643523, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uifvk"]
-size = Vector3(4.4624023, 2.0653076, 1)
+size = Vector3(2.889038, 1.4006958, 2.33667)
 
 [node name="cat" type="StaticBody3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("ArrayMesh_72nfq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uifvk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12133789, 0.5326538, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058044434, 0.2003479, -0.66833496)
 shape = SubResource("BoxShape3D_uifvk")
 
 [node name="meow" type="AudioStreamPlayer3D" parent="."]
@@ -75,3 +77,5 @@ stream = ExtResource("4_nvw0t")
 
 [node name="purr" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_qgkp0")
+
+[node name="Gato" parent="." instance=ExtResource("6_nvw0t")]
