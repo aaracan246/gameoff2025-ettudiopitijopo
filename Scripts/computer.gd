@@ -11,15 +11,13 @@ var last_event_time: float = -1.0
 @onready var node_quad = $Screen
 @onready var node_area: Area3D = $Screen/Area3D
 
+@onready var vhs_filter = $SubViewport/ColorRect
 
 
 signal pc_mouse(inside:bool)
 
-#func _ready():
-
-	#node_area.mouse_entered.connect(_mouse_entered_area)
-	#node_area.mouse_exited.connect(_mouse_exited_area)
-	#node_area.input_event.connect(_mouse_input_event)
+func _ready():
+	vhs_filter.visible = Global.vhs_enabled
 
 
 func _mouse_entered_area():
@@ -117,3 +115,7 @@ func _on_demo_disble_colisions() -> void:
 		node_area.collision_layer = 1
 	else:
 		node_area.collision_layer = 0
+		
+func _on_vhs_filter_changed(enabled: bool) -> void:
+	print("vhs")
+	vhs_filter.visible = enabled

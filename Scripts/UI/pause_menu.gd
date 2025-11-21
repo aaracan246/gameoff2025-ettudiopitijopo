@@ -8,9 +8,13 @@ extends Control
 @onready var confirm_exit: ConfirmationDialog = $confirm_exit
 @onready var settings: Control = $settings
 
+@onready var computer_scene = "res://Scenes/demo.tscn"
+@onready var computer = get_node("/root/Demo/Escenario/Pc")
+
 func _ready() -> void:
 	confirm_exit.visible = false
 	settings.visible = false
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -40,6 +44,8 @@ func _on_resume_btn_pressed() -> void:
 
 func _on_settings_btn_pressed() -> void:
 	settings.visible = true
+	if not settings.connect("vhs_filter_changed", Callable(computer, "_on_vhs_filter_changed")):
+		settings.connect("vhs_filter_changed", Callable(computer, "_on_vhs_filter_changed"))
 	
 func _on_exit_btn_pressed() -> void:
 	confirm_exit.visible = true

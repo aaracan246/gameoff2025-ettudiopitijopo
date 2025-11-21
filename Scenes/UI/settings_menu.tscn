@@ -16,15 +16,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_kfh4b")
 
-[node name="Blurr" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-flat = true
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -32,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -59.5
-offset_right = 52.0
-offset_bottom = 59.5
+offset_left = -401.00348
+offset_top = -229.25
+offset_right = 401.00348
+offset_bottom = 229.25
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -59,6 +50,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Container/Header"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "SETTINGS"
 
 [node name="close" type="Button" parent="PanelContainer/MarginContainer/Container/Header"]
@@ -69,11 +61,14 @@ flat = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Container"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 50
+alignment = 1
 
 [node name="Volume" type="VBoxContainer" parent="PanelContainer/MarginContainer/Container/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
+alignment = 1
 script = ExtResource("3_vrd41")
 
 [node name="Master" type="HBoxContainer" parent="PanelContainer/MarginContainer/Container/HBoxContainer/Volume"]
@@ -142,17 +137,20 @@ value = 100.0
 
 [node name="VHS" type="VBoxContainer" parent="PanelContainer/MarginContainer/Container/HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 23
 text = "Filtro VHS"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[connection signal="pressed" from="Blurr" to="." method="_on_blurr_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Header/close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_master_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="." method="_on_master_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Music/Music_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_music_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/SFX/SFX_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_sfx_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/VHS/CheckButton" to="." method="_on_check_button_pressed"]
