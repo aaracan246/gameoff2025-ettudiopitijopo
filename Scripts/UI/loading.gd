@@ -38,13 +38,13 @@ func load_scene_in_background():
 		else:
 			push_error("Error al cargar escena: " + next_scene_path)
 			return
-
+		
 	# Esperar a que pase al menos el tiempo mínimo de carga
 	while elapsed_time < loading_time:
 		await get_tree().process_frame
 		elapsed_time += get_process_delta_time()
 		progress_bar.value = lerp(progress_bar.value, 100.0, 0.05)  # suaviza el avance
-
+		$IconoJuego.rotate(0.1)
 	# Cuando haya terminado la carga y pasado el tiempo mínimo:
 	if loaded:
 		var new_scene = ResourceLoader.load_threaded_get(next_scene_path)
