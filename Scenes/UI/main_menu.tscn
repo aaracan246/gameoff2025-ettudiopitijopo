@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byhbhtnyyn47m"]
+[gd_scene load_steps=6 format=3 uid="uid://byhbhtnyyn47m"]
 
 [ext_resource type="Script" uid="uid://b5o5sdyfcpdbd" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
 [ext_resource type="PackedScene" uid="uid://fymcpiyww0nr" path="res://Scenes/UI/settings_menu.tscn" id="2_i2xx2"]
 [ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="2_o14dv"]
 [ext_resource type="Texture2D" uid="uid://bebs2buepvrdk" path="res://Assets/Mainmenu.png" id="2_u7lva"]
+[ext_resource type="VideoStream" uid="uid://cupjakdnt3k2y" path="res://Assets/mainmenu_animado_1.ogv" id="5_mrfpk"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -30,6 +31,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.27058825, 0.27058825, 0.47058824, 0.14117648)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.9999695
+offset_right = 767.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6012372, 0.60075366)
+stream = ExtResource("5_mrfpk")
+autoplay = true
+expand = true
+loop = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4346
