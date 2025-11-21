@@ -166,7 +166,7 @@ transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.44676876, -9.5983925, -28.545406)
 
 [node name="Computer" parent="Escenario" instance=ExtResource("12_0ygp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019283295, -9.184779, -23.43837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3297596, -8.675583, -23.750977)
 
 [node name="Phone" parent="Escenario" instance=ExtResource("9_a1i4p")]
 transform = Transform3D(1.3937474, 0, 0.5544987, 0, 1.5, 0, -0.5544987, 0, 1.3937474, -7.6146517, -11.461858, -24.79234)
