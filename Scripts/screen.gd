@@ -19,7 +19,6 @@ extends Control
 @onready var music_popup: Control = $Destktop/popups/music_popup
 
 @onready var book: TextureRect = $Destktop/icons/book/book
-@onready var book_ghost: TextureRect = $Destktop/icons/book/book_ghost
 @onready var email_alert: Sprite2D = $Destktop/icons/email/email_alert
 const GLITCH = preload("uid://cyxw6yqjsc73o")
 
@@ -28,7 +27,7 @@ const GLITCH = preload("uid://cyxw6yqjsc73o")
 var popup_index = 0
 
 var email_opened = false
-
+var disable_start = false
 signal start_events
 
 func _ready() -> void:
@@ -40,7 +39,11 @@ func _ready() -> void:
 	
 	email_alert_event()
 
+func unlock_calls():
 
+	if book.texture == texture_ghost and email_opened and disable_start == false:
+		disable_start = true
+		emit_signal("start_events")
 
 func _on_exit_pressed() -> void:
 	destktop.visible = true
@@ -63,8 +66,7 @@ func bring_to_front(popup: ColorRect):
 
 func _on_email_btn_pressed() -> void:
 	email_opened = true
-	if book.texture == texture_ghost:
-		emit_signal("start_events")
+	unlock_calls()
 
 	bring_to_front(email_popup)
 	email_alert.visible = false
@@ -94,9 +96,9 @@ func _on_file_p_pressed() -> void:
 func _on_book_btn_pressed() -> void:
 	if book.texture == texture_book:
 		glitch()
+		
 	else:
-		if email_opened and book.texture == book_ghost:
-			emit_signal("start_events")
+		unlock_calls()
 		book_popup.visible = 1
 		#Disable shader
 		book.material = null
