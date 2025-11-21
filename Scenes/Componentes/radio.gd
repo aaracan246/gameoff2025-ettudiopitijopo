@@ -59,3 +59,11 @@ func change_video(_name:String):
 		sounds.stream = video_sounds[_name]["audio"]
 		video_stream_player.play()
 		sounds.play()
+
+
+func _on_video_stream_player_finished() -> void:
+	change_video("default")
+
+
+func _on_sounds_finished() -> void:
+	change_video("default")

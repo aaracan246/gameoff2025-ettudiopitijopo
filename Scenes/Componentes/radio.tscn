@@ -91,7 +91,6 @@ grow_vertical = 2
 stream = ExtResource("2_fyv47")
 autoplay = true
 expand = true
-loop = true
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 0)
@@ -113,3 +112,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fyv47")
 
 [node name="sounds" type="AudioStreamPlayer3D" parent="."]
 autoplay = true
+
+[connection signal="finished" from="SubViewport2/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="sounds" to="." method="_on_sounds_finished"]
