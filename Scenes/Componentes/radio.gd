@@ -29,6 +29,7 @@ const TURN_RIGHT_FINAL = preload("uid://clkioqrea0adv")
 
 
 #VIDEOS
+#PICUDAS
 const BEHIND_YOU_GHOST_ONDA = preload("res://Assets/radio ondas/video/ondas_picudas/behind_you_ghost_onda.ogv")
 const BUZZ_ONDA = preload("uid://c6y6vk5xb7xfx")
 const GO_LEFT_GHOST_ONDA_1 = preload("uid://fqmmln03j3h0")
@@ -36,6 +37,7 @@ const MIDLE_PATH_ONDA_1 = preload("uid://dpcmgvqfwfcp4")
 const TURN_BACK_ONDA = preload("res://Assets/radio ondas/video/ondas_picudas/turn_back_onda.ogv")
 const TURN_RIGHT_ONDA = preload("uid://bpowpjqd37lpw")
 
+#RECTAS
 const BEHIND_YOU_GHOST = preload("res://Assets/radio ondas/video/ondas_rectas/behind_you_ghost.ogv")
 const BUZZ = preload("res://Assets/radio ondas/video/ondas_rectas/buzz.ogv")
 const GO_LEFT_GHOST = preload("res://Assets/radio ondas/video/ondas_rectas/go_left_ghost.ogv")
@@ -59,7 +61,11 @@ func change_video(_name:String):
 		sounds.stream = video_sounds[_name]["audio"]
 		video_stream_player.play()
 		sounds.play()
-
+		if _name == "default":
+			sounds.volume_db = -10
+		else:
+			sounds.volume_db = 0
+		
 
 func _on_video_stream_player_finished() -> void:
 	change_video("default")
