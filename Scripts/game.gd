@@ -55,13 +55,14 @@ signal colgar
 
 signal interactive_object
 var cont = 0
-#var sounds_map = {
-	#"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("ring") },
-	#"cat":{"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")}
-#}
-#var sounds_list =[
-#	cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),
-#]
+@onready var sounds_map = {
+	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
+	"cat":{"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")}
+}
+
+@onready var sounds_list =[
+	cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),
+]
 
 func _ready() -> void:
 	normal_door = puerta.global_transform
@@ -110,7 +111,7 @@ func _on_dialogic_signal(argument):
 func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
-	timer.start(2)
+	timer.start(5)
 	await  timer.timeout
 	timer.queue_free()
 	incoming_call()
@@ -310,6 +311,7 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if is_zoomed:
 		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
+		sounds_map["cat"]["meow"].play()
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_LINEAR)

@@ -231,7 +231,7 @@ offset_right = -106.40001
 offset_bottom = -189.0
 
 [node name="Screen" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.7548244, 0, 0, 0, 1.6020675, 0, 0, 0, 1, 0, -0.022776527, 0.86886454)
+transform = Transform3D(1.7548244, 0, 0, 0, 1.6020675, 0, 0, 0, 1, 0, 0.029831113, 0.89849025)
 mesh = SubResource("QuadMesh_tlg0j")
 
 [node name="Area3D" type="Area3D" parent="Screen"]
