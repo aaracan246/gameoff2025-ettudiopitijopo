@@ -14,7 +14,12 @@ extends Control
 @onready var email_popup: ColorRect = $Destktop/popups/email_popup
 @onready var file_popup: ColorRect = $Destktop/popups/file_popup
 @onready var gallery_popup: ColorRect = $Destktop/popups/gallery_popup
+
 @onready var book_popup: ColorRect = $Destktop/popups/book_popup
+@onready var book_popup2: ColorRect = $Destktop/popups/book_popup2
+@onready var book_popup3: ColorRect = $Destktop/popups/book_popup3
+@onready var book_popup4: ColorRect = $Destktop/popups/book_popup4
+
 @onready var trash_popup: ColorRect = $Destktop/popups/trash_popup
 @onready var music_popup: Control = $Destktop/popups/music_popup
 
@@ -146,9 +151,15 @@ func glitch():
 	file_popup.visible = false
 	await get_tree().create_timer(0.2).timeout
 	book_popup.visible = false
+	book_popup2.visible = false
+	book_popup3.visible = false
+	book_popup4.visible = false
 
 func _on_book_close_pressed() -> void:
 	book_popup.visible = false
+	book_popup2.visible = false
+	book_popup3.visible = false
+	book_popup4.visible = false
 
 func _on_book_p_pressed() -> void:
 	bring_to_front(book_popup)
