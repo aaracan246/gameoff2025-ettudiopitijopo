@@ -1,6 +1,34 @@
 extends StaticBody3D
 
 @onready var video_sounds = {
+	"peter_left":{"video":GO_LEFT_GHOST,"audio":GO_LEFT_FINAL, "color":RED} ,
+	"peter_behind":{"video":BEHIND_YOU_GHOST,"audio":BEHIND_YOU_FINAL, "color":RED},
+	"peter_middle":{"video":MIDLE_PATH_GHOST,"audio":MIDDLE_PATH_FINAL, "color":RED},
+	"peter_right":{"video":TURN_RIGHT_GHOST,"audio":TURN_RIGHT_FINAL, "color":RED},
+	"peter_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":RED},
+	
+	"nico_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":GO_LEFT_FINAL, "color":RED} ,
+	"nico_behind":{"video":BEHIND_YOU_GHOST_ONDA,"audio":BEHIND_YOU_FINAL, "color":RED},
+	"nico_middle":{"video":MIDLE_PATH_ONDA_1,"audio":MIDDLE_PATH_FINAL, "color":RED},
+	"nico_right":{"video":TURN_RIGHT_ONDA,"audio":TURN_RIGHT_FINAL, "color":RED},
+	"nico_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":RED},
+	
+	"eva_left":{"video":GO_LEFT_GHOST,"audio":GO_LEFT_FINAL, "color":GREEN} ,
+	"eva_behind":{"video":BEHIND_YOU_GHOST,"audio":BEHIND_YOU_FINAL, "color":GREEN},
+	"eva_middle":{"video":MIDLE_PATH_GHOST,"audio":MIDDLE_PATH_FINAL, "color":GREEN},
+	"eva_right":{"video":TURN_RIGHT_GHOST,"audio":TURN_RIGHT_FINAL, "color":GREEN},
+	"eva_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":GREEN},
+	
+	"johanna_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":GO_LEFT_FINAL, "color":RED} ,
+	"johanna_behind":{"video":BEHIND_YOU_GHOST_ONDA,"audio":BEHIND_YOU_FINAL, "color":RED},
+	"johanna_middle":{"video":MIDLE_PATH_ONDA_1,"audio":MIDDLE_PATH_FINAL, "color":RED},
+	"johanna_right":{"video":TURN_RIGHT_ONDA,"audio":TURN_RIGHT_FINAL, "color":RED},
+	"johanna_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":RED},
+	
+	"default":{"video":BUZZ_ONDA,"audio":THE_BUZZER_2__7481_KHZ__DUTCH_PIRATE},
+
+	#QUITAR ESTO CUANDO CAMBIEIS LAS SEÑALES DE LOS DIALOGOS
+	
 	"fem_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":FEM_GO_LEFT_TRUE} ,
 	"fem_behind":{"video":BEHIND_YOU_GHOST_ONDA,"audio":FEM_BEHIND_YOU_TRUE},
 	"fem_middle":{"video":MIDLE_PATH_ONDA_1,"audio":FEM_MIDDLE_PATH_TRUE},
@@ -10,8 +38,8 @@ extends StaticBody3D
 	"man_behind":{"video":BEHIND_YOU_GHOST,"audio":BEHIND_YOU_FINAL},
 	"man_middle":{"video":MIDLE_PATH_GHOST,"audio":MIDDLE_PATH_FINAL},
 	"man_right":{"video":TURN_RIGHT_GHOST,"audio":TURN_RIGHT_FINAL},
-	"man_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL},
-	"default":{"video":BUZZ_ONDA,"audio":THE_BUZZER_2__7481_KHZ__DUTCH_PIRATE}
+	"man_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL}
+	#HASTA AQUI
 }
 
 #AUDIOS
@@ -45,11 +73,15 @@ const MIDLE_PATH_GHOST = preload("res://Assets/radio ondas/video/ondas_rectas/mi
 const TURN_BACK_GHOST = preload("res://Assets/radio ondas/video/ondas_rectas/turn_back_ghost.ogv")
 const TURN_RIGHT_GHOST = preload("res://Assets/radio ondas/video/ondas_rectas/turn_right_ghost.ogv")
 
+const RED = Color.RED
+const  GREEN = Color.GREEN
 
 @onready var video_stream_player: VideoStreamPlayer = $SubViewport2/VideoStreamPlayer
 
 @onready var sounds: AudioStreamPlayer3D = $sounds
 
+@onready var red: OmniLight3D = $red
+@onready var green: OmniLight3D = $green
 
 func _ready() -> void:
 	change_video("default")
@@ -63,8 +95,15 @@ func change_video(_name:String):
 		sounds.play()
 		if _name == "default":
 			sounds.volume_db = -10
+			red.visible = false
+			green.visible = false
+			
 		else:
 			sounds.volume_db = 0
+			if video_sounds[_name]["color"] == RED:
+				red.visible = true
+			elif video_sounds[_name]["color"] == GREEN:
+				green.visible = true
 		
 
 func _on_video_stream_player_finished() -> void:

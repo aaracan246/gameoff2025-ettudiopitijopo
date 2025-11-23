@@ -33,3 +33,4 @@ victima: Please, where do I go?
 	karmela: Call me back when you reach that place. Be careful, please.
 	victima: Okay... I'll call you in a minute.
 [signal arg="colgar"]
+[signal arg_type="dict" arg="{"fem_right":""}"]

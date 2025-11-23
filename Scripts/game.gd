@@ -58,7 +58,7 @@ var cont = 0
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
-	"puerta": puerta.get_node("close_open"),
+	"puerta": {"open/close":puerta.get_node("close_open")},
 	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
 	
 }
@@ -75,7 +75,6 @@ func _ready() -> void:
 	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
-		
 		var shader = node.get_node("mesh")
 		if shader:
 			shader = shader.get_surface_override_material(0)
@@ -92,6 +91,7 @@ func _ready() -> void:
 	Dialogic.timeline_started.connect(set_process_input.bind(true))
 	
 	Global.update_sounds(sounds_map)
+	Global.random_sound()
 	
 
 
@@ -144,7 +144,7 @@ func colgar_phone():
 		timer.start(timer_duration)
 		timer.wait_time = timer_duration
 		await  timer.timeout
-		Global.sounds_events()
+		Global.random_sound()
 		timer.start(timer_duration)
 		await  timer.timeout
 		timer.queue_free()

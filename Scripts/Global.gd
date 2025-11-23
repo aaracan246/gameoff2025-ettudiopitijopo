@@ -16,13 +16,11 @@ func next_event():
 	Dialogic.start(dialogos[cont])
 	cont+=1
 
-func sounds_events():
-	print(randi_range(0,sounds.size()))
-	if randi_range(0,sounds.size()) == 2:
-		pass
-	pass
+func random_sound():
+	sounds_map["random"][randi_range(0,sounds_map["random"].size() -1) ].play()
 	
 func update_sounds(soundss: Dictionary):
 	sounds_map = soundss
-	
-	pass
+
+func reproduce_sound(object:String,sound:String = ""):
+	sounds_map[object][sound].play()
