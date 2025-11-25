@@ -32,6 +32,7 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 var calling = true
+var vidas = 2 
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
@@ -104,6 +105,18 @@ func _process(_delta: float) -> void:
 
 
 func _on_dialogic_signal(argument):	
+	if argument == "fail":
+		vidas -= 1
+		print("¡Has perdido una vida! Vidas restantes: %d" % vidas)
+		
+		var screen_node = get_node("res://Scenes/Componentes/screen.tscn")
+		if vidas == 1:
+			screen_node.lost_1()
+		elif vidas == 0:
+			screen_node.lost_2()
+			#game_over() 
+	return
+		
 	if argument == "colgar":
 		colgar_phone()
 	if argument == "mapa":

@@ -1053,6 +1053,7 @@ offset_bottom = 422.0
 texture = ExtResource("20_v71d2")
 
 [node name="life_lost_1" type="TextureRect" parent="Destktop/life_icons"]
+visible = false
 layout_mode = 0
 offset_left = -24.0
 offset_top = 322.0
@@ -1071,9 +1072,9 @@ texture = ExtResource("20_v71d2")
 [node name="life_lost_2" type="TextureRect" parent="Destktop/life_icons"]
 visible = false
 layout_mode = 0
-offset_left = 10.0
+offset_left = 18.0
 offset_top = 322.0
-offset_right = 110.0
+offset_right = 118.0
 offset_bottom = 422.0
 texture = ExtResource("21_l5hxs")
 

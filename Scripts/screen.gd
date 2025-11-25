@@ -26,6 +26,8 @@ extends Control
 @onready var book: TextureRect = $Destktop/icons/book/book
 @onready var email_alert: Sprite2D = $Destktop/icons/email/email_alert
 const GLITCH = preload("uid://cyxw6yqjsc73o")
+@onready var life_lost_1: TextureRect = $Destktop/life_icons/life_lost_1
+@onready var life_lost_2: TextureRect = $Destktop/life_icons/life_lost_2
 
 @export var texture_book : Resource = preload("res://Assets/pc/book.png")
 @export var texture_ghost : Resource = preload("res://Assets/pc/book_glitch.png")
@@ -210,3 +212,9 @@ func _on_music_p_pressed() -> void:
 
 func _on_off_btn_pressed() -> void:
 	pantalla.visible = false
+
+
+func lost_1() -> void: 
+	life_lost_1.visible = true 
+func lost_2() -> void: 
+	life_lost_2.visible = true
