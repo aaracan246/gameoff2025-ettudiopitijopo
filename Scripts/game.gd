@@ -59,7 +59,7 @@ var cont = 0
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
 	"puerta": {"open/close":puerta.get_node("close_open")},
-	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
+	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),puerta.get_node("close_open")],
 	
 }
 
@@ -355,6 +355,7 @@ func door_manager():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
+	Global.reproduce_sound("puerta","open/close")
 	if !door_open:
 		#ABRIR
 		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
