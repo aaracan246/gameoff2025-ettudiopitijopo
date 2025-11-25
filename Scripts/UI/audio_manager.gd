@@ -22,6 +22,8 @@ extends Node
 @onready var ghost_1: AudioStreamPlayer = $SFX/ghost_1
 @onready var book_glitch: AudioStreamPlayer = $SFX/book_glitch
 @onready var windows_error: AudioStreamPlayer = $SFX/windows_error
+@onready var door_closing: AudioStreamPlayer = $SFX/door_closing
+@onready var door_opening: AudioStreamPlayer = $SFX/door_opening
 
 
 

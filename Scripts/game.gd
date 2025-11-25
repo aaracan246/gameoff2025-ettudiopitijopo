@@ -381,13 +381,15 @@ func door_manager():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	Global.reproduce_sound("puerta","open/close")
+	#Global.reproduce_sound("puerta","open/close")he importado nuevo audio y lo he metio con el audiomanager
 	if !door_open:
 		#ABRIR
+		AudioManager.door_opening.play()
 		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 		door_open = true
 	else:
 		#CERRAR
+		AudioManager.door_closing.play()
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
 		

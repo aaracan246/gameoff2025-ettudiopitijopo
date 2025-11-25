@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=27 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://byjfwt3r60hmt" path="res://Assets/audio/sfx/atmosphere/ambient_ghost_1.mp3" id="22_o47wu"]
 [ext_resource type="AudioStream" uid="uid://lcg8vlbwff73" path="res://Assets/audio/sfx/desktop/book_glitch.mp3" id="23_1hgve"]
 [ext_resource type="AudioStream" uid="uid://dla4s5amsggyi" path="res://Assets/audio/sfx/desktop/windows_error.mp3" id="24_xced4"]
+[ext_resource type="AudioStream" uid="uid://bmadbyasqjdns" path="res://Assets/audio/sfx/room/door_closing.wav" id="25_0836o"]
+[ext_resource type="AudioStream" uid="uid://dagqlq1rdqm3m" path="res://Assets/audio/sfx/room/door_openning.wav" id="26_65aux"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -126,4 +128,12 @@ bus = &"SFX"
 
 [node name="windows_error" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("24_xced4")
+bus = &"SFX"
+
+[node name="door_closing" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("25_0836o")
+bus = &"SFX"
+
+[node name="door_opening" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("26_65aux")
 bus = &"SFX"
