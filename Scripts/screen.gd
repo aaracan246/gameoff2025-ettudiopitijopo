@@ -105,6 +105,9 @@ func _on_book_btn_pressed() -> void:
 	else:
 		unlock_calls()
 		book_popup.visible = 1
+		book_popup2.visible = 1
+		book_popup3.visible = 1
+		book_popup4.visible = 1
 		#Disable shader
 		book.material = null
 
@@ -163,6 +166,9 @@ func _on_book_close_pressed() -> void:
 
 func _on_book_p_pressed() -> void:
 	bring_to_front(book_popup)
+	bring_to_front(book_popup2)
+	bring_to_front(book_popup3)
+	bring_to_front(book_popup4)
 
 func book_glitch_event():
 	AudioManager.pc_alert.play()
