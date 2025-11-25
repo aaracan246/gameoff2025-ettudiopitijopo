@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=39 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -17,7 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://dbf5isgtfk0ch" path="res://Scenes/Componentes/post_it.tscn" id="10_iv11p"]
 [ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
+[ext_resource type="Texture2D" uid="uid://bk136mt7pi04k" path="res://Assets/post-itPC2.svg" id="11_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="12_0ygp3"]
+[ext_resource type="Texture2D" uid="uid://ccvbnyypfowe8" path="res://Assets/post-itRadioOpciones.svg" id="12_8f0p5"]
+[ext_resource type="Texture2D" uid="uid://cgnrfo6qjkbp7" path="res://Assets/post-itGhosts.svg" id="12_mn375"]
 [ext_resource type="PackedScene" uid="uid://dwo7pp58155af" path="res://Scenes/Componentes/cassettes.tscn" id="12_p0f3u"]
 [ext_resource type="PackedScene" uid="uid://dntax556ktsn8" path="res://Scenes/Componentes/book.tscn" id="14_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
@@ -121,6 +124,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0
 
 [node name="post-it" parent="Escenario" instance=ExtResource("10_iv11p")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.8519363, -7.191576, -26.297993)
+texture = ExtResource("11_8f0p5")
+
+[node name="post-it3" parent="Escenario" instance=ExtResource("10_iv11p")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.920096, -8.449427, -26.297993)
+texture = ExtResource("12_mn375")
+
+[node name="post-it2" parent="Escenario" instance=ExtResource("10_iv11p")]
+transform = Transform3D(3.1786668, 0.4559457, -2.3849933, -0.4514291, 3.9713206, 0.15755343, 2.385852, 0.14396136, 3.2073328, 7.462531, -12.324265, -25.60014)
+texture = ExtResource("12_8f0p5")
 
 [node name="Mesa2" parent="Escenario" instance=ExtResource("10_l50oi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3797693, -16.80943, 15.943062)
