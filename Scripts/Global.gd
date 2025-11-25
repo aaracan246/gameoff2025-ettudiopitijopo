@@ -24,3 +24,9 @@ func update_sounds(soundss: Dictionary):
 
 func reproduce_sound(object:String,sound:String = ""):
 	sounds_map[object][sound].play()
+
+func stop_sound(object:String, sound:String = ""):
+	var audio_node = sounds_map[object][sound]
+
+	if audio_node.playing:
+		audio_node.stop()

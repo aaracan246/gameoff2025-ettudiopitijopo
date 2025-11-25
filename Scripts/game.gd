@@ -56,7 +56,7 @@ signal colgar
 signal interactive_object
 var cont = 0
 @onready var sounds_map = {
-	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
+	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
 	"puerta": {"open/close":puerta.get_node("close_open")},
 	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),puerta.get_node("close_open")],
@@ -127,7 +127,7 @@ func _start_events() -> void:
 
 func incoming_call():
 	phone_station.get_node("ring").play()
-	AudioManager.phone_ring.play()
+	Global.reproduce_sound("phone","ring")
 	calling = true
 
 
@@ -280,18 +280,24 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 		is_moving = false
 
 
+
 func phone_manager():
 	if calling == true:
-		AudioManager.phone_ring.stop()
+		Global.stop_sound("phone","ring")
+		Global.reproduce_sound("phone","pickup")
 		Global.next_event()
-		
-	if !view_phone.visible:
+		view_phone.visible = true
+		phone.visible = false
+	elif !view_phone.visible and !calling:
+		Global.reproduce_sound("phone","pickup")
+		Global.reproduce_sound("phone","beep")
 		view_phone.visible = true
 		phone.visible = false
 	elif !phone.visible:
 		view_phone.visible = false
 		phone.visible = true
-		AudioManager.phone_down.play()
+		Global.stop_sound("phone","beep")
+		Global.reproduce_sound("phone","down")
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
