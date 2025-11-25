@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=36 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -15,8 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://lcegqjtlylwd" path="res://Scenes/Componentes/jarron.tscn" id="10_84mi4"]
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
+[ext_resource type="PackedScene" uid="uid://dbf5isgtfk0ch" path="res://Scenes/Componentes/post_it.tscn" id="10_iv11p"]
 [ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="12_0ygp3"]
+[ext_resource type="PackedScene" uid="uid://dwo7pp58155af" path="res://Scenes/Componentes/cassettes.tscn" id="12_p0f3u"]
+[ext_resource type="PackedScene" uid="uid://dntax556ktsn8" path="res://Scenes/Componentes/book.tscn" id="14_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
@@ -116,6 +119,72 @@ transform = Transform3D(-0.04494856, -0.7235313, 0.6888267, -0.40496847, 0.64352
 [node name="Escenario" parent="." instance=ExtResource("10_a1i4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0.04974556)
 
+[node name="post-it" parent="Escenario" instance=ExtResource("10_iv11p")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.8519363, -7.191576, -26.297993)
+
+[node name="Mesa2" parent="Escenario" instance=ExtResource("10_l50oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3797693, -16.80943, 15.943062)
+
+[node name="Cassettes" type="Node3D" parent="Escenario/Mesa2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7157135, 14.934231, -20.3852)
+
+[node name="Cassette" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.463938, 0, 0.3269338, 0, 1.5, 0, -0.3269338, 0, 1.463938, -6.936531, -13.595482, 16.128746)
+
+[node name="Cassette7" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.3694379, 0.24856944, 0.55933076, -0.28843203, 1.4710736, 0.052430123, -0.5398564, -0.15541923, 1.3908267, 0.06398487, -13.7024975, 17.217354)
+
+[node name="Cassette2" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.2181252, 0, 0.87531185, 0, 1.5, 0, -0.87531185, 0, 1.2181252, -6.936531, -13.263403, 16.128746)
+
+[node name="Cassette3" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.4806961, 0, 0.23987347, 0, 1.5, 0, -0.23987347, 0, 1.4806961, -6.936531, -12.990362, 16.128746)
+
+[node name="Cassette4" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.463938, 0, 0.3269338, 0, 1.5, 0, -0.3269338, 0, 1.463938, -6.936531, -12.709152, 16.128746)
+
+[node name="Cassette5" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.2181252, 0, 0.87531185, 0, 1.5, 0, -0.87531185, 0, 1.2181252, -6.936531, -12.492622, 16.128746)
+
+[node name="Cassette6" parent="Escenario/Mesa2/Cassettes" instance=ExtResource("12_p0f3u")]
+transform = Transform3D(1.4806961, 0, 0.23987347, 0, 1.5, 0, -0.23987347, 0, 1.4806961, -6.936531, -12.219582, 16.128746)
+
+[node name="jarron2" parent="Escenario/Mesa2" instance=ExtResource("10_84mi4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.820711, 1.80336, 0.3723297)
+
+[node name="jarron3" parent="Escenario/Mesa2" instance=ExtResource("10_84mi4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.9499626, 1.80336, 1.9366112)
+
+[node name="books" type="Node3D" parent="Escenario/Mesa2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.418484, 15.80254, -16.674055)
+
+[node name="Book" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.607428, -13.928469, 19.216587)
+
+[node name="Book2" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.004111, -13.928469, 19.216587)
+
+[node name="Book3" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.271702, -13.928469, 19.216587)
+
+[node name="Book4" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.408438, -13.928469, 19.216587)
+
+[node name="Book6" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.40709, -13.928469, 19.216587)
+
+[node name="Book7" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.803773, -13.928469, 19.216587)
+
+[node name="Book8" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.071363, -13.928469, 19.216587)
+
+[node name="Book9" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2081, -13.928469, 19.216587)
+
+[node name="Book5" parent="Escenario/Mesa2/books" instance=ExtResource("14_8f0p5")]
+transform = Transform3D(0.0030785128, -0.60521686, -0.9191239, -0.9957337, -0.029843373, 0.012138765, -0.027338069, 1.0188373, -0.5456288, -16.877098, -14.532446, 15.520266)
+
 [node name="techo" type="MeshInstance3D" parent="Escenario"]
 transform = Transform3D(29.560806, 0, 0, 0, -24.995668, -0.24897832, 0, 0.22380322, -27.807356, 0.028256416, 14.001608, -6.435095)
 mesh = SubResource("PlaneMesh_iv11p")
@@ -156,8 +225,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.6
 [node name="jarron" parent="Escenario" instance=ExtResource("10_84mi4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.163513, -20.768715, -25.471386)
 
+[node name="jarron2" parent="Escenario" instance=ExtResource("10_84mi4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.527527, -20.768715, 13.626289)
+
 [node name="Mesa" parent="Escenario" instance=ExtResource("10_l50oi")]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -13.492083, -24.399017)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -14.413258, -24.399017)
 
 [node name="Radio" parent="Escenario" instance=ExtResource("3_glc8m")]
 transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 7.588849, -12.231735, -27.90455)
@@ -178,7 +250,7 @@ transform = Transform3D(0.41700703, -0.019068226, 0.90870327, 0.35594487, -0.916
 transform = Transform3D(-1.3818094e-07, 0, 2, 0, 2, 0, -3.1612113, 0, -8.742278e-08, -25.357618, -19.975285, -7.9936066)
 
 [node name="lampara" parent="Escenario" instance=ExtResource("15_84mi4")]
-transform = Transform3D(0.89412296, 0, -0.4478215, 0, 1, 0, 0.4478215, 0, 0.89412296, -5.9156513, -12.107304, -30.12648)
+transform = Transform3D(0.85268575, 0, -0.5224241, 0, 1, 0, 0.5224241, 0, 0.85268575, -6.1370983, -12.107304, -29.276321)
 
 [node name="cat" parent="Escenario" instance=ExtResource("17_43er0")]
 transform = Transform3D(-0.05999375, -0.37012702, -1.4523798, -0.030206798, 1.453546, -0.36917657, 1.4984955, 0.014482301, -0.06558932, -24.723576, -18.560324, -11.0307255)
