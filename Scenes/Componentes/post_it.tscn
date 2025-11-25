@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=4 uid="uid://dbf5isgtfk0ch"]
+
+[ext_resource type="Texture2D" uid="uid://nyiqiiof5gx5" path="res://Assets/3D/post-it_posit.png" id="1_qn7gc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48bo8"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_qn7gc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qpo73"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.42176265, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAAAAQABgAHAAAABwADAAAABwAIAAMA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("/38AAP9/AAD//wAAAAAAAP//AAD/fwAA/38AAAAAAAD/fwAA//8AAP//AAD//wAAAAAAAP//AAAAAAAA/38AAP4s//+1HgAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b7g5q"]
+resource_name = "post-it_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.42176265, 2),
+"attribute_data": PackedByteArray("/3//f///AAD///9//38AAP9/////////AAD//wAA/38AAP9//38AAP9//38AAAAA"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAAAAQABgAHAAAACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_48bo8"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/38AAP9//7///wAAAAD/v///AAD/f/+//38AAAAA/7//fwAA////v///AAD///+/AAAAAP///78AAAAA/3//vwAAAAD/f+y0/38AAAAA5bT/fwAA/38ztf4s//+1Hqy0////f////3////9/////f////3////9/////f////3/f4Mtq8OB0akfg0G3I4Sdm")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qpo73")
+
+[node name="post-it" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.12641513, 0, 0, 0, 0, -0.12641513, 0, 0.12641513, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_b7g5q")
+skeleton = NodePath("")

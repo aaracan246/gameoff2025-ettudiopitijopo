@@ -200,12 +200,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07687382, 0.03619378, -0.2
 shape = SubResource("BoxShape3D_52u6t")
 
 [node name="Teclado" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.7929575, 0, 0, 0, -0.12039853, 0, 0, 0, 0.61542636, 0, -1.787905, 2.468661)
+transform = Transform3D(1.7929579, 0, 0, 0, -0.12039855, 0, 0, 0, 0.61542636, 0, -1.7879053, 3.3275735)
 mesh = SubResource("ArrayMesh_52u6t")
 skeleton = NodePath("")
 
 [node name="Raton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.17809208, 0, 0, 0, 0.1125691, 0, 0, 0, 0.1125691, 2.2014227, -1.9168131, 2.3905704)
+transform = Transform3D(0.17809208, 0, 0, 0, 0.11256912, 0, 0, 0, 0.11256912, 2.2014227, -1.9168135, 3.2494829)
 mesh = SubResource("ArrayMesh_6k2vb")
 skeleton = NodePath("")
 

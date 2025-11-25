@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://dwo7pp58155af"]
+
+[ext_resource type="Texture2D" uid="uid://cof81mucvosn7" path="res://Assets/3D/Cassettes_caja cd.png" id="1_al8vu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2ljp"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_al8vu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xj4jj"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fpsbd"]
+resource_name = "Cassettes_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("NAJl5qsPYAM0AmADqw9l5jQCZearD2ADNAJgA6sPZearD2XmNAJgA6sPYAM0AmXmqw9l5jQCYAOrD2ADNAJl5jQC+hyrD///qw/6HDQC/////wAAAAD//wAAAAD/////"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_g2ljp"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/P///AAD///8///8AAAAA/z8AAAAA////P/////8AAP+/AAD//////78AAP//AAD/v/////////+//z//f/8//3//P/9//z//f////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xj4jj")
+
+[node name="Cassettes" type="Node3D"]
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.08824935, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_fpsbd")
+skeleton = NodePath("")

@@ -31,7 +31,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = false
+var calling = true
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
@@ -56,10 +56,10 @@ signal colgar
 signal interactive_object
 var cont = 0
 @onready var sounds_map = {
-	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down") },
+	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
 	"puerta": {"open/close":puerta.get_node("close_open")},
-	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
+	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),puerta.get_node("close_open")],
 	
 }
 
@@ -75,13 +75,10 @@ func _ready() -> void:
 	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
-		var shader = node.get_node("mesh")
-		if shader:
-			shader = shader.get_surface_override_material(0)
-			var outline_material = shader.next_pass
-			if outline_material:
-				outline_material.set_shader_parameter("size", 0.00)
-				outline_material.set_shader_parameter("color",color_shader)
+		var outline_material = get_shader(node)
+		if outline_material:
+			outline_material.set_shader_parameter("size", 0.00)
+			outline_material.set_shader_parameter("color",color_shader)
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
@@ -130,7 +127,7 @@ func _start_events() -> void:
 
 func incoming_call():
 	phone_station.get_node("ring").play()
-	AudioManager.phone_ring.play()
+	Global.reproduce_sound("phone","ring")
 	calling = true
 
 
@@ -151,17 +148,27 @@ func colgar_phone():
 		
 		incoming_call()
 
+func get_shader(node):
+	var shader = node.get_node("mesh")
+	if node == cat:
+		shader = node.get_node("Gato").get_node("metarig/Skeleton3D/Cylinder")
+	if shader:
+		if node == lampara or node == cat:
+				
+			shader = shader.get_active_material(0)
+		else:
+			shader = shader.get_surface_override_material(0)
+			#EL GATO AL ALÑADIRLE EL SHADER NO LO DETECTA
+		return shader.next_pass
 
 func shader_manager(node):
-	var shader = node.get_node("mesh")
-	if shader:
-		shader = shader.get_surface_override_material(0)
-		var outline_material = shader.next_pass
-		if outline_material:
-			if interactive and !is_zoomed:
-				outline_material.set_shader_parameter("size", 1.02)
-			else :
-				outline_material.set_shader_parameter("size", 0.0)
+	var outline_material = get_shader(node)
+	if outline_material:
+		if interactive and !is_zoomed:
+			
+			outline_material.set_shader_parameter("size", 1.02)
+		else :
+			outline_material.set_shader_parameter("size", 0.0)
 
 
 func _mouse_entered_area(node):
@@ -273,18 +280,24 @@ func _on_phone_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 		is_moving = false
 
 
+
 func phone_manager():
 	if calling == true:
-		AudioManager.phone_ring.stop()
+		Global.stop_sound("phone","ring")
+		Global.reproduce_sound("phone","pickup")
 		Global.next_event()
-		
-	if !view_phone.visible:
+		view_phone.visible = true
+		phone.visible = false
+	elif !view_phone.visible and !calling:
+		Global.reproduce_sound("phone","pickup")
+		Global.reproduce_sound("phone","beep")
 		view_phone.visible = true
 		phone.visible = false
 	elif !phone.visible:
 		view_phone.visible = false
 		phone.visible = true
-		AudioManager.phone_down.play()
+		Global.stop_sound("phone","beep")
+		Global.reproduce_sound("phone","down")
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
@@ -355,6 +368,7 @@ func door_manager():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
+	Global.reproduce_sound("puerta","open/close")
 	if !door_open:
 		#ABRIR
 		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
