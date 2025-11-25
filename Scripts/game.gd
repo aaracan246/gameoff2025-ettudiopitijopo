@@ -159,7 +159,6 @@ func get_shader(node):
 		else:
 			shader = shader.get_surface_override_material(0)
 			#EL GATO AL ALÑADIRLE EL SHADER NO LO DETECTA
-
 		return shader.next_pass
 
 func shader_manager(node):

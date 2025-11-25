@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://bawjc05gyx2t1"]
+[gd_scene load_steps=8 format=4 uid="uid://bawjc05gyx2t1"]
 
 [ext_resource type="Texture2D" uid="uid://b32cj84e3s6fe" path="res://Assets/3D/lampara_textura lampara.png" id="1_bpfpx"]
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="2_mt0xp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mt0xp"]
+render_priority = 0
+shader = ExtResource("2_mt0xp")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/size = 1.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2urv2"]
 resource_name = "Material.001"
@@ -53,7 +58,7 @@ points = PackedVector3Array(-0.0678959, -0.9649617, -0.97187567, 0.0395735, 1.25
 [node name="lampara" type="StaticBody3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mt0xp")
 skeleton = NodePath("")
 
