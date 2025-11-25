@@ -52,7 +52,7 @@ next_pass = SubResource("ShaderMaterial_50yu3")
 albedo_color = Color(0.15952033, 0.08460461, 0.00089643523, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uifvk"]
-size = Vector3(2.889038, 1.4006958, 2.33667)
+size = Vector3(2.889038, 4.4865875, 2.5419312)
 
 [node name="cat" type="StaticBody3D"]
 
@@ -63,7 +63,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uifvk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058044434, 0.2003479, -0.66833496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058044434, 1.7432938, -0.7709656)
 shape = SubResource("BoxShape3D_uifvk")
 
 [node name="meow" type="AudioStreamPlayer3D" parent="."]
@@ -79,3 +79,4 @@ stream = ExtResource("4_nvw0t")
 stream = ExtResource("5_qgkp0")
 
 [node name="Gato" parent="." instance=ExtResource("6_nvw0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021394014, 2.3841858e-07, 0.013838768)

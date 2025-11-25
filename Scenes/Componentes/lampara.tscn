@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://bawjc05gyx2t1"]
+[gd_scene load_steps=7 format=4 uid="uid://bawjc05gyx2t1"]
 
 [ext_resource type="Texture2D" uid="uid://b32cj84e3s6fe" path="res://Assets/3D/lampara_textura lampara.png" id="1_bpfpx"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt0xp"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2urv2"]
 resource_name = "Material.001"
+next_pass = SubResource("ShaderMaterial_mt0xp")
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0

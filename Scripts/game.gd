@@ -75,13 +75,10 @@ func _ready() -> void:
 	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
-		var shader = node.get_node("mesh")
-		if shader:
-			shader = shader.get_surface_override_material(0)
-			var outline_material = shader.next_pass
-			if outline_material:
-				outline_material.set_shader_parameter("size", 0.00)
-				outline_material.set_shader_parameter("color",color_shader)
+		var outline_material = get_shader(node)
+		if outline_material:
+			outline_material.set_shader_parameter("size", 0.00)
+			outline_material.set_shader_parameter("color",color_shader)
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
@@ -151,17 +148,28 @@ func colgar_phone():
 		
 		incoming_call()
 
+func get_shader(node):
+	var shader = node.get_node("mesh")
+	if node == cat:
+		shader = node.get_node("Gato").get_node("metarig/Skeleton3D/Cylinder")
+	if shader:
+		if node == lampara or node == cat:
+				
+			shader = shader.get_active_material(0)
+		else:
+			shader = shader.get_surface_override_material(0)
+			#EL GATO AL ALÑADIRLE EL SHADER NO LO DETECTA
+
+		return shader.next_pass
 
 func shader_manager(node):
-	var shader = node.get_node("mesh")
-	if shader:
-		shader = shader.get_surface_override_material(0)
-		var outline_material = shader.next_pass
-		if outline_material:
-			if interactive and !is_zoomed:
-				outline_material.set_shader_parameter("size", 1.02)
-			else :
-				outline_material.set_shader_parameter("size", 0.0)
+	var outline_material = get_shader(node)
+	if outline_material:
+		if interactive and !is_zoomed:
+			
+			outline_material.set_shader_parameter("size", 1.02)
+		else :
+			outline_material.set_shader_parameter("size", 0.0)
 
 
 func _mouse_entered_area(node):
