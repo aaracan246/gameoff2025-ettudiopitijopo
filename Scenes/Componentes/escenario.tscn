@@ -61,8 +61,9 @@ emission_texture = ExtResource("2_85tyo")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77ie7"]
 resource_name = "Material.004"
+transparency = 1
 cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0, 0, 0, 0.1764706)
 metallic = 1.0
 emission_enabled = true
 emission_texture = ExtResource("3_ukeyu")

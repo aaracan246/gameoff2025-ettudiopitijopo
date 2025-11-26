@@ -31,7 +31,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
+var calling = false
 var vidas = 2 
 
 @export var size_shader = 1.02
@@ -85,8 +85,6 @@ func _ready() -> void:
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
-	Dialogic.timeline_started.connect(set_physics_process.bind(true))
-	Dialogic.timeline_started.connect(set_process_input.bind(true))
 	
 	Global.update_sounds(sounds_map)
 	Global.random_sound()
@@ -118,14 +116,14 @@ func _on_dialogic_signal(argument):
 
 	return
 	if argument == "win":
-		
+		return
 	if argument == "colgar":
 		colgar_phone()
-	if argument == "mapa":
+	elif argument == "mapa":
 		switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
-	if argument == "pc":
+	elif argument == "pc":
 		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
-	if argument == "radio":
+	elif argument == "radio":
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
 	else:
 		emit_signal("change_video",argument)
