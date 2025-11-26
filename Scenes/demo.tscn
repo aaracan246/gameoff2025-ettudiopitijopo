@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=37 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
-[ext_resource type="Texture2D" uid="uid://bmmvs0xs50eg7" path="res://Assets/Textures/suelo.png" id="18_mn375"]
 [ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="19_m3jaw"]
 [ext_resource type="Texture2D" uid="uid://doucrya8qx7t0" path="res://Assets/periodicos/EvaBay.png" id="20_c1500"]
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
@@ -76,7 +75,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hmy8t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn375"]
-albedo_texture = ExtResource("18_mn375")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iv11p"]
 material = SubResource("StandardMaterial3D_mn375")
