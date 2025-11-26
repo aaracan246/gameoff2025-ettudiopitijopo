@@ -397,13 +397,15 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if is_zoomed:
 		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		sounds_map["cat"]["meow"].play()
+		#sounds_map["cat"]["meow"].play()
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_LINEAR)
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
+	elif event is InputEventMouseMotion and event.button_mask == 1  :
+		sounds_map["cat"]["purr"].play()
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
