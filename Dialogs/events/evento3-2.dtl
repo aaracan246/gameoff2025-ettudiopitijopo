@@ -15,7 +15,7 @@ victima: Please, where do I go?
 	[wait_input]
 	jump Choice2
 - Left
-	[signal arg="fem_right"]
+	[signal arg="eva_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
@@ -24,7 +24,7 @@ victima: Please, where do I go?
 	[signal arg="fail"]
 	jump Choice2
 - Right
-	[signal arg="fem_right"]
+	[signal arg="eva_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
