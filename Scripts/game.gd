@@ -444,3 +444,7 @@ func door_manager():
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
 		
+
+
+func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	input_manager($Escenario/murder, event)

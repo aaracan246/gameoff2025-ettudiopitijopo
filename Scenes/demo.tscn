@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=42 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
-[ext_resource type="PackedScene" uid="uid://cvuordhbd6vo3" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
-[ext_resource type="PackedScene" uid="uid://bt77cukjktm04" path="res://Scenes/UI/win.tscn" id="8_awa06"]
+[ext_resource type="PackedScene" uid="uid://dwsdfsk1meviw" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/win.tscn" id="8_awa06"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="8_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -84,6 +84,9 @@ albedo_texture = ExtResource("18_mn375")
 [sub_resource type="PlaneMesh" id="PlaneMesh_iv11p"]
 material = SubResource("StandardMaterial3D_mn375")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_64qud"]
+size = Vector3(1, 17.627014, 15.325195)
+
 [node name="Demo" type="Node3D"]
 process_priority = 14105
 process_physics_priority = 29535
@@ -108,14 +111,6 @@ visible = false
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
 
 [node name="lifes_UI" parent="UI" instance=ExtResource("7_vpp5g")]
-
-[node name="fade_out" type="ColorRect" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
 
 [node name="win" parent="UI" instance=ExtResource("8_awa06")]
 visible = false
@@ -219,8 +214,9 @@ skeleton = NodePath("../..")
 [node name="SpotLight3D" type="SpotLight3D" parent="Escenario/techo"]
 transform = Transform3D(0.033828575, 0, 0, 0, -1.4842954e-09, -0.04000533, 0, 0.035960265, -1.1641532e-09, 0, 0.014147639, 0.00011385977)
 light_color = Color(0.9944199, 0.8654636, 0.53133893, 1)
-light_energy = 100.0
+light_energy = 16.0
 spot_range = 50.2293
+spot_angle = 64.68749
 
 [node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(-2.9930103, 0, -1.599199e-07, 0, 3.0768063, 0, 2.6165728e-07, 0, -1.8292705, 20.40216, -17.19314, 20.891012)
@@ -228,13 +224,6 @@ transform = Transform3D(-2.9930103, 0, -1.599199e-07, 0, 3.0768063, 0, 2.6165728
 [node name="puerta2" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(-2.4132223, 0, 0.59671295, 0, 3.0768063, 0, -0.7517735, 0, -1.915472, 20.80894, -17.19314, 19.006044)
 visible = false
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Escenario"]
-transform = Transform3D(1, 7.450581e-09, 1.3877788e-16, 0, -5.2154064e-08, 1, 7.450581e-09, -1, -5.2154064e-08, -1.2139053, 44.717648, -4.2476416)
-light_color = Color(0.7490196, 0.73333335, 0.54509807, 1)
-light_energy = 16.0
-spot_range = 78.303
-spot_attenuation = 0.3
 
 [node name="NewsPaper" parent="Escenario" instance=ExtResource("4_f2jw5")]
 transform = Transform3D(0.14265335, 0.20530476, 8.9741565e-09, 0, -1.0927847e-08, 0.25, 0.20530476, -0.14265335, -6.2355747e-09, 9.354418, -12.948207, -23.156898)
@@ -285,24 +274,32 @@ transform = Transform3D(-0.05999375, -0.37012702, -1.4523798, -0.030206798, 1.45
 [node name="Gato" parent="Escenario" instance=ExtResource("12_0ygp3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)
 
-[node name="murders" type="Node3D" parent="Escenario"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.648182, -3.5765247, 3.7252903e-09)
+[node name="murder" parent="Escenario" instance=ExtResource("12_0ygp3")]
+transform = Transform3D(-7.350006e-08, -0.030259386, 0.9995421, -9.018031e-10, 0.9995421, 0.030259386, -1, 1.3226766e-09, -7.3493695e-08, -16.68922, -2.8656902, -8.321171)
+
+[node name="murders" type="StaticBody3D" parent="Escenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7340426, -3.5765247, 6.6612234)
 
 [node name="Sprite3D" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, -5.5886803, -13.606451)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, -5.5886803, -13.606451)
 texture = ExtResource("20_c1500")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, -1.7421398, -19.42565)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, -1.7421398, -19.42565)
 texture = ExtResource("21_0ygp3")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.174267, 0.967886, -7.7811155)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -21.957209, 0.967886, -7.7811155)
 texture = ExtResource("22_nv0j3")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -19.328712, 6.2039204, -15.444973)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, 6.2039204, -15.444973)
 texture = ExtResource("23_65jo5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/murders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.019382, 0.35134888, -12.999727)
+visible = false
+shape = SubResource("BoxShape3D_64qud")
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false
@@ -317,6 +314,9 @@ sky_mode = 1
 
 [node name="balcon" parent="." instance=ExtResource("33_vpp5g")]
 transform = Transform3D(-2.165051e-07, 0, 3.1149068, 0, 1, 0, -4.953059, 0, -1.361569e-07, -15.097992, -24.6103, 12.06405)
+
+[node name="balcon3" parent="." instance=ExtResource("33_vpp5g")]
+transform = Transform3D(4.9530587, 0, -2.842171e-14, 0, 1, 0, 4.2632564e-14, 0, 3.1149065, -18.362953, -24.56383, -16.492128)
 
 [node name="balcon2" parent="." instance=ExtResource("33_vpp5g")]
 transform = Transform3D(-2.165051e-07, 0, -3.1149068, 0, 1, 0, 4.953059, 0, -1.361569e-07, 16.424194, -24.6103, -19.434967)
@@ -340,3 +340,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 113.
 [connection signal="input_event" from="Escenario/Phone" to="." method="_on_phone_input_event"]
 [connection signal="input_event" from="Escenario/lampara" to="." method="_on_lampara_input_event"]
 [connection signal="input_event" from="Escenario/cat" to="." method="_on_cat_input_event"]
+[connection signal="input_event" from="Escenario/murders" to="." method="_on_murders_input_event"]
