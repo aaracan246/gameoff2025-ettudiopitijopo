@@ -141,6 +141,7 @@ func _start_events() -> void:
 
 func incoming_call():
 	phone_station.get_node("ring").play()
+	phone_station.get_node("green").visible = true
 	Global.reproduce_sound("phone","ring")
 	calling = true
 
@@ -149,6 +150,8 @@ func colgar_phone():
 	if calling:
 		calling = false
 		phone_manager()
+		phone_station.get_node("green").visible = false
+
 		var timer = Timer.new()
 		add_child(timer)
 		timer.autostart = true

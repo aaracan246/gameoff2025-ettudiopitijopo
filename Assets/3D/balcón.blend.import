@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bso8ulbjxxqd2"
-path="res://.godot/imported/Estantes.blend-7b0d89be9afe192c639dc90908e4dfb3.scn"
+uid="uid://cfs238fjck3er"
+path="res://.godot/imported/balcón.blend-d7e316b632438fb860908c3d756dee1f.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Estantes.blend"
-dest_files=["res://.godot/imported/Estantes.blend-7b0d89be9afe192c639dc90908e4dfb3.scn"]
+source_file="res://Assets/3D/balcón.blend"
+dest_files=["res://.godot/imported/balcón.blend-d7e316b632438fb860908c3d756dee1f.scn"]
 
 [params]
 
