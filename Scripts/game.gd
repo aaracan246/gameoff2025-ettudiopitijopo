@@ -32,7 +32,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = false
+var calling = true
 var vidas = 2 
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
@@ -60,12 +60,12 @@ signal disble_colisions
 signal colgar
 
 signal interactive_object
-var cont = 0
+var cont = 2
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
-	"puerta": {"open/close":puerta.get_node("close_open")},
-	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),puerta.get_node("close_open")],
+	"puerta": {"open":puerta.get_node("open"),"close":puerta.get_node("close"),"forzar":puerta.get_node("forzar")},
+	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
 	
 	
 }
@@ -201,7 +201,6 @@ func _start_events() -> void:
 
 
 func incoming_call():
-	phone_station.get_node("ring").play()
 	phone_station.get_node("green").visible = true
 	Global.reproduce_sound("phone","ring")
 	calling = true
@@ -219,9 +218,15 @@ func colgar_phone():
 		timer.start(timer_duration)
 		timer.wait_time = timer_duration
 		await  timer.timeout
-		Global.random_sound()
+		if cont == 2:
+			door_event()
+		else:
+			cont +=1
+			Global.random_sound()
 		timer.start(timer_duration)
 		await  timer.timeout
+		if door_open:
+			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
 		timer.queue_free()
 		
 		incoming_call()
@@ -451,16 +456,21 @@ func door_manager():
 	#Global.reproduce_sound("puerta","open/close")he importado nuevo audio y lo he metio con el audiomanager
 	if !door_open:
 		#ABRIR
-		AudioManager.door_opening.play()
-		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
-		door_open = true
-	else:
+		Global.reproduce_sound("puerta","forzar")
+
+	if door_open:
 		#CERRAR
-		AudioManager.door_closing.play()
+		Global.reproduce_sound("puerta","close")
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
 		
-
+func door_event():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	Global.reproduce_sound("puerta","open")
+	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+	door_open = true
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/murder, event)

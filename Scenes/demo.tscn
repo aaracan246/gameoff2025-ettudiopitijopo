@@ -189,6 +189,15 @@ color = Color(0, 0, 0, 0)
 visible = false
 script = null
 
+[node name="fade_out" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, -9.122, -14.581188)
 
