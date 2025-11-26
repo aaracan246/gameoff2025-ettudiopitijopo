@@ -113,9 +113,11 @@ func _on_dialogic_signal(argument):
 		if vidas == 1:
 			screen_node.lost_1()
 		elif vidas == 0:
-			screen_node.lost_2()
-			#game_over() 
+			screen_node.lost_2() #esto envd no se ve nunca
+			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
+
 	return
+	if argument == "win":
 		
 	if argument == "colgar":
 		colgar_phone()

@@ -31,4 +31,5 @@ victima: Please, fast. Tell me what to do
 	- Choose another
 		jump Choice4
 	karmela: Run towards the watchtower. I'll wait by the door. Be safe.
+	[signal arg="win"]
 [signal arg="colgar"]
