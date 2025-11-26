@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dplllkuughgax"]
+
+[ext_resource type="PackedScene" uid="uid://iyw6ch3j2fa0" path="res://Assets/3D/balcón.glb" id="1_77wgw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="balcón" parent="." instance=ExtResource("1_77wgw")]

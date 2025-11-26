@@ -94,7 +94,7 @@ mouse_cursor/tooltip_position_offset=Vector2(36.395, 28.215)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [gui]
 

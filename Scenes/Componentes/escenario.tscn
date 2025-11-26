@@ -49,6 +49,7 @@ cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
+emission_energy_multiplier = 0.2
 emission_texture = ExtResource("1_4iuk3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxqdk"]
@@ -57,6 +58,7 @@ cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
+emission_energy_multiplier = 0.7
 emission_texture = ExtResource("2_85tyo")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77ie7"]
@@ -74,6 +76,7 @@ cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
+emission_energy_multiplier = 0.7
 emission_texture = ExtResource("4_ki88w")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_75flm"]

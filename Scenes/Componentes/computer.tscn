@@ -231,6 +231,12 @@ anchor_bottom = 0.54
 offset_right = -106.40001
 offset_bottom = -189.0
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.5714286, 0, 0, 0, 0.5714286, 0, 0, 0, 0.5714286, 0, 0.61140513, 3.3594918)
+light_color = Color(1, 1, 0.77254903, 1)
+light_energy = 2.767
+spot_attenuation = 0.05
+
 [node name="Screen" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.1870093, 0, 0, 0, 1.9966311, 0, 0, 0, 1.246284, 0.015032087, 0.46113953, 1.1342992)
 mesh = SubResource("QuadMesh_tlg0j")

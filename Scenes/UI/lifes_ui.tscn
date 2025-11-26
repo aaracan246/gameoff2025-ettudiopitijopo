@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvuordhbd6vo3"]
+[gd_scene load_steps=6 format=3 uid="uid://dwsdfsk1meviw"]
 
 [ext_resource type="Texture2D" uid="uid://bc4m4ldj5vo51" path="res://Assets/pc/life_idle.png" id="1_ayt6x"]
-[ext_resource type="Script" uid="uid://bu7eqpluas4el" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
+[ext_resource type="Script" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
 [ext_resource type="Texture2D" uid="uid://wviefcqnb2gg" path="res://Assets/pc/life_lost.png" id="2_x4s43"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbhil"]
@@ -9,6 +9,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndsd6"]
 
 [node name="lifes_UI" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -21,9 +22,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -204.0
-offset_bottom = 100.0
+offset_left = -249.0
+offset_top = -45.0
+offset_right = -45.0
+offset_bottom = 55.0
 grow_horizontal = 0
+scale = Vector2(2.1129067, 2.1129067)
+theme_override_constants/separation = -55
 
 [node name="Container" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -32,6 +37,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_jbhil")
 [node name="life_1" type="TextureRect" parent="HBoxContainer/Container"]
 layout_mode = 2
 texture = ExtResource("1_ayt6x")
+stretch_mode = 3
 
 [node name="life_lost_1" type="TextureRect" parent="HBoxContainer/Container"]
 visible = false
