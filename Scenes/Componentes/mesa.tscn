@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=4 uid="uid://dtfa8a77sksdk"]
 
-[ext_resource type="Texture2D" uid="uid://d1rdu4imrvyq8" path="res://Assets/3D/Mesa_mesa.png" id="1_bcku2"]
+[ext_resource type="Texture2D" uid="uid://bmmvs0xs50eg7" path="res://Assets/Textures/suelo.png" id="1_bcku2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4iiq"]
 resource_name = "Material"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_bcku2")
 metallic = 1.0
 emission_enabled = true
+emission_energy_multiplier = 0.4
 emission_texture = ExtResource("1_bcku2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_opirs"]
