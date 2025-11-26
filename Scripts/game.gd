@@ -16,6 +16,7 @@ extends Node3D
 @onready var lampara: StaticBody3D = $Escenario/lampara
 @onready var cat: StaticBody3D = $Escenario/cat
 @onready var puerta: StaticBody3D = $Escenario/puerta
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 @onready var temp_camera = $deault_camera
 
@@ -33,6 +34,9 @@ var interactive = true
 var door_open = false
 var calling = false
 var vidas = 2 
+@onready var lifes_ui: Control = $UI/lifes_UI
+@onready var ui: CanvasLayer = $UI
+@onready var win_ui: Control = $UI/win
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
@@ -73,6 +77,7 @@ signal change_video(string:String)
 
 
 func _ready() -> void:
+	
 	normal_door = puerta.global_transform
 	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
@@ -89,6 +94,10 @@ func _ready() -> void:
 	
 	Global.update_sounds(sounds_map)
 	Global.random_sound()
+	
+	#para probar
+	#win()
+	
 	
 
 
@@ -108,16 +117,15 @@ func _on_dialogic_signal(argument):
 		vidas -= 1
 		print("¡Has perdido una vida! Vidas restantes: %d" % vidas)
 		
-		var screen_node = get_node("res://Scenes/Componentes/screen.tscn")
 		if vidas == 1:
-			screen_node.lost_1()
+			lifes_ui.lost_1()
 		elif vidas == 0:
-			screen_node.lost_2() #esto envd no se ve nunca
+			lifes_ui.lost_2()
 			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
-
 	
 	if argument == "win":
-		pass
+		win()
+		
 	if argument == "colgar":
 		colgar_phone()
 	elif argument == "mapa":
@@ -129,7 +137,44 @@ func _on_dialogic_signal(argument):
 	else:
 		emit_signal("change_video",argument)
 
+func win():
+	# Empieza a sonar la musica de los creditos
+	await get_tree().create_timer(3).timeout
 
+	# Se gira hacia la puerta
+	player.positionXYZ = 2
+	player.rotation_manager()
+	await get_tree().create_timer(3).timeout
+	
+	# Animación de puerta abriéndose
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	AudioManager.door_opening.play()
+	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+	
+	# Empieza a sonar la musica de los creditos
+	AudioManager.credits.play()
+	
+	# Se silencia el bus de los efectos
+	await get_tree().create_timer(2).timeout
+	var sfx = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_mute(sfx, true)
+	
+	# Fundido a negro
+	ui.fade_out()
+	
+	await get_tree().create_timer(3).timeout
+	
+	# Pantalla de Win
+	win_ui.visible = true
+	
+	# Creditos
+	await get_tree().create_timer(14).timeout
+	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
+	ui.visible = false
+
+	
 func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
@@ -141,6 +186,7 @@ func _start_events() -> void:
 
 func incoming_call():
 	phone_station.get_node("ring").play()
+	phone_station.get_node("green").visible = true
 	Global.reproduce_sound("phone","ring")
 	calling = true
 
@@ -149,6 +195,8 @@ func colgar_phone():
 	if calling:
 		calling = false
 		phone_manager()
+		phone_station.get_node("green").visible = false
+
 		var timer = Timer.new()
 		add_child(timer)
 		timer.autostart = true
@@ -349,13 +397,15 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if is_zoomed:
 		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		sounds_map["cat"]["meow"].play()
+		#sounds_map["cat"]["meow"].play()
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_LINEAR)
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
+	elif event is InputEventMouseMotion and event.button_mask == 1  :
+		sounds_map["cat"]["purr"].play()
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:

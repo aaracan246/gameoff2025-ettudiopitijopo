@@ -5,6 +5,7 @@ extends Control
 @onready var credits_btn: Button = $credits_btn
 
 @onready var settings_menu: Control = $settings_menu
+signal interactive_object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,26 +35,32 @@ func _on_credits_pressed() -> void:
 
 # == HOVER SOUND == #
 func _on_play_btn_mouse_entered() -> void:
+	emit_signal("interactive_object",true)
 	continue_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
 	
 func _on_settings_btn_mouse_entered() -> void:
 	settings_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
+	emit_signal("interactive_object",true)
 
 func _on_credits_mouse_entered() -> void:
 	credits_btn.add_theme_font_size_override("font_size", 70)
 	AudioManager.hover.play()
+	emit_signal("interactive_object",true)
 
 
 #------------------------
 func _on_play_btn_mouse_exited() -> void:
 	continue_btn.add_theme_font_size_override("font_size", 50)
+	emit_signal("interactive_object",false)
 
 
 func _on_settings_btn_mouse_exited() -> void:
 	settings_btn.add_theme_font_size_override("font_size", 50)
+	emit_signal("interactive_object",false)
 
 
 func _on_credits_btn_mouse_exited() -> void:
 	credits_btn.add_theme_font_size_override("font_size", 50)
+	emit_signal("interactive_object",false)
