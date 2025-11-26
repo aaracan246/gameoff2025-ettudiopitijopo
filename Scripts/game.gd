@@ -36,7 +36,7 @@ var calling = true
 var vidas = 2 
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
-@onready var win_ui: Control = $UI/win
+#@onready var win_ui: Control = $UI/win
 @onready var fade_out_ui: ColorRect = $UI/fade_out
 
 @export var size_shader = 1.02
@@ -183,7 +183,7 @@ func win():
 	await get_tree().create_timer(3).timeout
 	
 	# Pantalla de Win
-	win_ui.visible = true
+	#win_ui.visible = true
 	
 	# Creditos
 	await get_tree().create_timer(14).timeout
