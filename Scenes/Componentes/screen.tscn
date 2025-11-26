@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=51 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_6t4fl"]
 [ext_resource type="Texture2D" uid="uid://da252jvsrquw6" path="res://Assets/pc/wallpaper.png" id="2_fujxl"]
@@ -23,8 +23,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://c1vfndw5tjdv1" path="res://Assets/pc/newPopUps/8.svg" id="17_6yc7f"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
-[ext_resource type="Texture2D" uid="uid://bc4m4ldj5vo51" path="res://Assets/pc/life_idle.png" id="20_v71d2"]
-[ext_resource type="Texture2D" uid="uid://wviefcqnb2gg" path="res://Assets/pc/life_lost.png" id="21_l5hxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
 
@@ -1038,45 +1036,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0hu2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
-
-[node name="life_icons" type="Control" parent="Destktop"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="life_1" type="TextureRect" parent="Destktop/life_icons"]
-layout_mode = 0
-offset_left = -24.0
-offset_top = 322.0
-offset_right = 76.0
-offset_bottom = 422.0
-texture = ExtResource("20_v71d2")
-
-[node name="life_lost_1" type="TextureRect" parent="Destktop/life_icons"]
-visible = false
-layout_mode = 0
-offset_left = -24.0
-offset_top = 322.0
-offset_right = 76.0
-offset_bottom = 422.0
-texture = ExtResource("21_l5hxs")
-
-[node name="life_2" type="TextureRect" parent="Destktop/life_icons"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 322.0
-offset_right = 118.0
-offset_bottom = 422.0
-texture = ExtResource("20_v71d2")
-
-[node name="life_lost_2" type="TextureRect" parent="Destktop/life_icons"]
-visible = false
-layout_mode = 0
-offset_left = 18.0
-offset_top = 322.0
-offset_right = 118.0
-offset_bottom = 422.0
-texture = ExtResource("21_l5hxs")
 
 [node name="Camera" type="TextureRect" parent="."]
 visible = false
