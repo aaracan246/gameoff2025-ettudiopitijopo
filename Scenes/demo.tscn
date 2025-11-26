@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=39 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -25,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dntax556ktsn8" path="res://Scenes/Componentes/book.tscn" id="14_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
+[ext_resource type="Script" uid="uid://cjbsuxm806iwt" path="res://Scripts/mesa.gd" id="15_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
+[ext_resource type="Texture2D" uid="uid://bmmvs0xs50eg7" path="res://Assets/Textures/suelo.png" id="18_mn375"]
 [ext_resource type="PackedScene" uid="uid://cqpmlm68m0k87" path="res://Scenes/UI/cursor.tscn" id="19_m3jaw"]
 [ext_resource type="Texture2D" uid="uid://doucrya8qx7t0" path="res://Assets/periodicos/EvaBay.png" id="20_c1500"]
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
@@ -75,6 +77,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hmy8t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn375"]
+albedo_texture = ExtResource("18_mn375")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iv11p"]
 material = SubResource("StandardMaterial3D_mn375")
@@ -131,6 +134,7 @@ texture = ExtResource("12_8f0p5")
 
 [node name="Mesa2" parent="Escenario" instance=ExtResource("10_l50oi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3797693, -16.80943, 15.943062)
+script = ExtResource("15_vpp5g")
 
 [node name="Cassettes" type="Node3D" parent="Escenario/Mesa2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7157135, 14.934231, -20.3852)
@@ -238,6 +242,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.527527, -20.768715, 13.62
 
 [node name="Mesa" parent="Escenario" instance=ExtResource("10_l50oi")]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -14.413258, -24.399017)
+script = ExtResource("15_vpp5g")
 
 [node name="Radio" parent="Escenario" instance=ExtResource("3_glc8m")]
 transform = Transform3D(0.86824214, 0, -0.49614072, 0, 1, 0, 0.49614072, 0, 0.86824214, 7.588849, -12.231735, -27.90455)
