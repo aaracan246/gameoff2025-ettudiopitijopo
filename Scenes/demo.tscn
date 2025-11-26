@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=40 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
+[ext_resource type="PackedScene" uid="uid://b1dga64vsqxmn" path="res://Scenes/Tree.tscn" id="34_awa06"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -300,6 +301,11 @@ light_color = Color(0.80081093, 0.6034188, 0.08136376, 1)
 light_energy = 2.0
 light_bake_mode = 1
 sky_mode = 1
+
+[node name="forest" type="Node" parent="."]
+
+[node name="tree" parent="forest" instance=ExtResource("34_awa06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.910492, -6.3147736, -82)
 
 [connection signal="change_video" from="." to="Escenario/Radio" method="change_video"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
