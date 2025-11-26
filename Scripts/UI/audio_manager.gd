@@ -42,3 +42,7 @@ func fade_out(player: AudioStreamPlayer, duration) -> void:
 		player.volume_db = 0
 	)
 	
+func stop_all_sounds():
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			child.stop()

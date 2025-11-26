@@ -37,6 +37,7 @@ var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 @onready var win_ui: Control = $UI/win
+@onready var fade_out_ui: ColorRect = $UI/fade_out
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
@@ -97,6 +98,9 @@ func _ready() -> void:
 	
 	#para probar
 	#win()
+	await get_tree().create_timer(3).timeout
+	
+	game_over()
 	
 	
 
@@ -115,14 +119,13 @@ func _process(_delta: float) -> void:
 func _on_dialogic_signal(argument):	
 	if argument == "fail":
 		vidas -= 1
-		print("¡Has perdido una vida! Vidas restantes: %d" % vidas)
 		
 		if vidas == 1:
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
-			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
-	
+			game_over()
+			
 	if argument == "win":
 		win()
 		
@@ -137,6 +140,18 @@ func _on_dialogic_signal(argument):
 	else:
 		emit_signal("change_video",argument)
 
+func game_over():
+	fade_out_ui.visible = true
+	
+	await get_tree().create_timer(3).timeout
+	lifes_ui.visible = false
+	
+	ui.fade_in()
+	await get_tree().create_timer(3).timeout
+	get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
+	ui.fade_out()
+	
+	
 func win():
 	# Empieza a sonar la musica de los creditos
 	await get_tree().create_timer(3).timeout
@@ -162,7 +177,8 @@ func win():
 	AudioServer.set_bus_mute(sfx, true)
 	
 	# Fundido a negro
-	ui.fade_out()
+	fade_out_ui.visible = true
+	ui.fade_in()
 	
 	await get_tree().create_timer(3).timeout
 	
@@ -172,7 +188,7 @@ func win():
 	# Creditos
 	await get_tree().create_timer(14).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
-	ui.visible = false
+	ui.fade_out()
 
 	
 func _start_events() -> void:

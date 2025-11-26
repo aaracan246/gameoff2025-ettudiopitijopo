@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=40 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -109,6 +109,7 @@ visible = false
 [node name="lifes_UI" parent="UI" instance=ExtResource("7_vpp5g")]
 
 [node name="fade_out" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

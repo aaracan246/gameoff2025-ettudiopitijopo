@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1onmlb7q1p7b"]
+[gd_scene load_steps=3 format=3 uid="uid://b1onmlb7q1p7b"]
 
 [ext_resource type="Script" uid="uid://b3k06xyyh7u7r" path="res://Scripts/UI/game_over.gd" id="1_jxkuk"]
+[ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="2_wpaxx"]
 
 [node name="game_over" type="Control"]
 self_modulate = Color(0, 0, 0, 1)
@@ -28,10 +29,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -10.5
-offset_right = 50.0
-offset_bottom = 10.5
+offset_left = -333.0
+offset_top = -68.0
+offset_right = 333.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 107
 text = "GAME OVER"
+
+[node name="NicoLai" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(569, 334.00003)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("2_wpaxx")
