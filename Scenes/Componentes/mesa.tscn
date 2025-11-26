@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://dtfa8a77sksdk"]
+[gd_scene load_steps=5 format=4 uid="uid://dtfa8a77sksdk"]
 
-[ext_resource type="Texture2D" uid="uid://d1rdu4imrvyq8" path="res://Assets/3D/Mesa_mesa.png" id="1_bcku2"]
-[ext_resource type="Script" uid="uid://cjbsuxm806iwt" path="res://Scripts/mesa.gd" id="1_tsfhe"]
+[ext_resource type="Texture2D" uid="uid://bmmvs0xs50eg7" path="res://Assets/Textures/suelo.png" id="1_bcku2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4iiq"]
 resource_name = "Material"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_bcku2")
 metallic = 1.0
 emission_enabled = true
+emission_energy_multiplier = 0.4
 emission_texture = ExtResource("1_bcku2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_opirs"]
@@ -46,7 +47,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_opirs")
 
 [node name="Mesa" type="Node3D"]
-script = ExtResource("1_tsfhe")
 
 [node name="body2" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.303148, 0, 0, 0, 0.83947456, 0, 0, 0, 5.971329, 0, 0, -1.892457)
