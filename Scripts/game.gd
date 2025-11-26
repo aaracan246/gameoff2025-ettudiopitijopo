@@ -62,6 +62,7 @@ var cont = 0
 	"puerta": {"open/close":puerta.get_node("close_open")},
 	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake"),puerta.get_node("close_open")],
 	
+	
 }
 
 @onready var sounds_list =[
