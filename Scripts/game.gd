@@ -98,9 +98,9 @@ func _ready() -> void:
 	
 	#para probar
 	#win()
-	await get_tree().create_timer(3).timeout
-	
-	game_over()
+	#await get_tree().create_timer(3).timeout
+	#
+	#game_over()
 	
 	
 
@@ -124,7 +124,7 @@ func _on_dialogic_signal(argument):
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
-			game_over()
+			#game_over()
 			
 	if argument == "win":
 		win()
@@ -140,16 +140,16 @@ func _on_dialogic_signal(argument):
 	else:
 		emit_signal("change_video",argument)
 
-func game_over():
-	fade_out_ui.visible = true
-	
-	await get_tree().create_timer(3).timeout
-	lifes_ui.visible = false
-	
-	ui.fade_in()
-	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
-	ui.fade_out()
+#func game_over():
+	#fade_out_ui.visible = true
+	#
+	#await get_tree().create_timer(3).timeout
+	#lifes_ui.visible = false
+	#
+	#ui.fade_in()
+	#await get_tree().create_timer(3).timeout
+	#get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
+	#ui.fade_out()
 	
 	
 func win():

@@ -807,6 +807,7 @@ text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="file_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 34.0
