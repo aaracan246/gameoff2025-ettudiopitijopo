@@ -15,7 +15,7 @@ victima: Please, I can hear him closer. Where do I go?
 	[wait_input]
 	jump Choice3
 - Left
-	[signal arg="man_right"]
+	[signal arg="peter_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
@@ -31,7 +31,7 @@ victima: Please, I can hear him closer. Where do I go?
 		jump Choice3
 	karmela: Okay, go through the middle path. You should reach the cafeteria this way. Go through the bridge.
 - Right
-	[signal arg="man_right"]
+	[signal arg="peter_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another

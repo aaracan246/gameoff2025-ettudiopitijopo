@@ -64,10 +64,13 @@ visible = false
 layout_mode = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
 [connection signal="canceled" from="confirm_exit" to="." method="_on_confirm_exit_canceled"]
 [connection signal="confirmed" from="confirm_exit" to="." method="_on_confirm_exit_confirmed"]

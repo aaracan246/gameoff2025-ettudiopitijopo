@@ -10,11 +10,15 @@ extends Control
 
 @onready var computer_scene = "res://Scenes/demo.tscn"
 @onready var computer = get_node("/root/Demo/Escenario/Pc")
-
+signal interactive_object
 func _ready() -> void:
 	confirm_exit.visible = false
 	settings.visible = false
-	
+	settings.connect("interactive_object", Callable(self, "cursor_manager"))
+
+func cursor_manager(argument):
+	emit_signal("interactive_object",argument)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -61,10 +65,26 @@ func _on_confirm_exit_canceled() -> void:
 
 
 func _on_resume_btn_mouse_entered() -> void:
-		AudioManager.hover.play()
+	AudioManager.hover.play()
+	emit_signal("interactive_object",true)
 
 func _on_settings_btn_mouse_entered() -> void:
 	AudioManager.hover.play()
+	emit_signal("interactive_object",true)
 
 func _on_exit_btn_mouse_entered() -> void:
 	AudioManager.hover.play()
+	emit_signal("interactive_object",true)
+
+
+
+func _on_exit_btn_mouse_exited() -> void:
+	emit_signal("interactive_object",false)
+
+
+func _on_settings_btn_mouse_exited() -> void:
+	emit_signal("interactive_object",false)
+
+
+func _on_resume_btn_mouse_exited() -> void:
+	emit_signal("interactive_object",false)

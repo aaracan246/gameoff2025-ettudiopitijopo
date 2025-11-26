@@ -1,5 +1,7 @@
 extends Node
 
+const MAIN_MENU = preload("uid://dhu87bav51ish")
+
 # == MUSIC == #
 @onready var main_menu: AudioStreamPlayer = $Music/main_menu
 @onready var credits: AudioStreamPlayer = $Music/credits
