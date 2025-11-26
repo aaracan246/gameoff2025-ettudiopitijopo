@@ -310,6 +310,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.910492, -6.3147736, -82)
 [connection signal="change_video" from="." to="Escenario/Radio" method="change_video"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
 [connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
+[connection signal="interactive_object" from="UI/pause_menu" to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
 [connection signal="down" from="Player" to="." method="_on_player_move"]
 [connection signal="input_event" from="Escenario/puerta" to="." method="_on_puerta_input_event"]
 [connection signal="input_event" from="Escenario/puerta2" to="." method="_on_puerta_input_event"]

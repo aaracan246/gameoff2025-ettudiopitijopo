@@ -131,6 +131,7 @@ flat = true
 visible = false
 layout_mode = 1
 
+[connection signal="interactive_object" from="." to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
 [connection signal="mouse_entered" from="play_btn" to="." method="_on_play_btn_mouse_entered"]
 [connection signal="mouse_exited" from="play_btn" to="." method="_on_play_btn_mouse_exited"]
 [connection signal="pressed" from="play_btn" to="." method="_on_play_btn_pressed"]
@@ -140,3 +141,4 @@ layout_mode = 1
 [connection signal="mouse_entered" from="credits_btn" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="credits_btn" to="." method="_on_credits_btn_mouse_exited"]
 [connection signal="pressed" from="credits_btn" to="." method="_on_credits_pressed"]
+[connection signal="interactive_object" from="settings_menu" to="CanvasLayer/cursor" method="_on_demo_interactive_object"]
