@@ -292,6 +292,7 @@ visible = false
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 166.30806, 0)
+visible = false
 light_color = Color(0.80081093, 0.6034188, 0.08136376, 1)
 light_energy = 2.0
 light_bake_mode = 1

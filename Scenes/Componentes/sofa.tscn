@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://b3gedxksqujxh"]
+[gd_scene load_steps=8 format=4 uid="uid://b3gedxksqujxh"]
 
 [ext_resource type="Texture2D" uid="uid://doumg8fqldgsd" path="res://Assets/3D/Sofa_sofa.png" id="1_ntp7l"]
 [ext_resource type="Texture2D" uid="uid://bcahri02gkyfc" path="res://Assets/3D/Sofa_sofa2.png" id="2_2ebp2"]
@@ -75,8 +75,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4f2w4")
 
-[node name="Sofa" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntp7l"]
+size = Vector3(6.864746, 3.9117432, 1.4921265)
+
+[node name="Sofa" type="StaticBody3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_nh1ug")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012939453, 1.0037231, -1.3457336)
+shape = SubResource("BoxShape3D_ntp7l")
