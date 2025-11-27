@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
-[ext_resource type="PackedScene" uid="uid://dwsdfsk1meviw" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://br8nvyl05x1p0" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="8_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
@@ -36,11 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
-[ext_resource type="PackedScene" uid="uid://c6t0ma4kqunrb" path="res://Assets/3D/Jarron2.glb" id="40_2wjwq"]
+[ext_resource type="PackedScene" uid="uid://c3x2lp5xbemci" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -689,9 +689,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.685177, 0, -39.65446)
 stream = ExtResource("39_rvukw")
 bus = &"SFX"
 
-[node name="Jarron2" parent="Escenario" instance=ExtResource("40_2wjwq")]
-transform = Transform3D(7.8787947, 0, -1.7503693, 0, 6.727801, 0, -1.8088276, 0, -7.6241655, -9.1445875, -12.426241, -6.9339404)
-
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false
 
@@ -711,6 +708,12 @@ transform = Transform3D(4.9530587, 0, -2.842171e-14, 0, 1, 0, 4.2632564e-14, 0, 
 
 [node name="balcon2" parent="." instance=ExtResource("33_vpp5g")]
 transform = Transform3D(-2.165051e-07, 0, -3.1149068, 0, 1, 0, 4.953059, 0, -1.361569e-07, 16.424194, -24.6103, -19.434967)
+
+[node name="jarronFlor" parent="." instance=ExtResource("40_2wjwq")]
+transform = Transform3D(0.40361, 0, 0.69072354, 0, 0.8, 0, -0.69072354, 0, 0.40361, -9.433181, -12.875584, -28.370695)
+
+[node name="jarronFlor2" parent="." instance=ExtResource("40_2wjwq")]
+transform = Transform3D(-0.30894384, 0, 0.73793876, 0, 0.79999995, 0, -0.73793876, 0, -0.30894384, -3.9977353, -15.173626, 16.63596)
 
 [connection signal="change_video" from="." to="Escenario/Radio" method="change_video"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
