@@ -29,6 +29,7 @@ const MAIN_MENU = preload("uid://dhu87bav51ish")
 @onready var game_over: AudioStreamPlayer = $Screen/game_over
 @onready var game_over_2: AudioStreamPlayer = $Screen/game_over2
 @onready var newspaper: AudioStreamPlayer = $Screen/newspaper
+@onready var murdered: AudioStreamPlayer = $SFX/murdered
 
 
 

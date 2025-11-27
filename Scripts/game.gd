@@ -38,7 +38,6 @@ var calling = true
 var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
-@onready var win_ui: Control = $UI/win
 @onready var fade_out_ui: ColorRect = $UI/fade_out
 
 @export var size_shader = 1.02
@@ -88,13 +87,13 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	
 	Global.update_sounds(sounds_map)
+
 	#Global.random_sound()
-	
 	#para probar
 	#win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 1
-	#game_over()
+	game_over()
 	
 	
 
@@ -141,7 +140,19 @@ func game_over():
 	
 	await get_tree().create_timer(3).timeout
 	lifes_ui.visible = false
-	
+	player.positionXYZ = 2
+	player.rotation_manager()
+	$Escenario/dead.visible = true
+	door_event()
+	await get_tree().create_timer(3).timeout
+
+	Global.reproduce_sound("puerta","open")
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Escenario/dead, "global_transform", $Escenario/dead2.global_transform, transition_duration)
+	AudioManager.murdered.play()
+	await tween.finished
 	ui.fade_in() # Efecto fundido negro
 	
 	# Sonido transición
