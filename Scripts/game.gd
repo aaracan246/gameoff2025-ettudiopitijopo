@@ -175,11 +175,7 @@ func win():
 	
 	# Animación de puerta abriéndose
 	door_event()
-	#var tween = create_tween()
-	#tween.set_ease(Tween.EASE_IN_OUT)
-	#tween.set_trans(Tween.TRANS_CUBIC)
-	#Global.reproduce_sound("puerta","open")
-	#tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+	AudioManager.door_opening.play()
 	
 	# Empieza a sonar la musica de los creditos
 	AudioManager.credits.play()
