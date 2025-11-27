@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt77cukjktm04"]
+[gd_scene load_steps=3 format=3 uid="uid://bt77cukjktm04"]
 
 [ext_resource type="Script" uid="uid://bg6qcmwjyphgk" path="res://Scripts/UI/win.gd" id="1_b6vlb"]
 [ext_resource type="Texture2D" uid="uid://cof5rj3x7dbc" path="res://Assets/periodicos/8.png" id="2_o836s"]
-[ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodicos/periodico.png" id="3_e04vb"]
 
 [node name="win" type="Control"]
 self_modulate = Color(0, 0, 0, 1)
@@ -56,10 +55,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="newspaper_1" type="Sprite2D" parent="Container"]
+[node name="newspaper" type="Sprite2D" parent="Container"]
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("2_o836s")
-
-[node name="newspaper_2" type="Sprite2D" parent="Container"]
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("3_e04vb")
