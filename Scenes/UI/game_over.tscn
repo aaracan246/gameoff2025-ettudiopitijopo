@@ -40,13 +40,13 @@ theme_override_font_sizes/font_size = 107
 text = "GAME OVER"
 
 [node name="newspaper1" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 position = Vector2(569, 334.00003)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("2_wpaxx")
 
 [node name="newspaper2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 position = Vector2(569, 334.00003)
-scale = Vector2(0.62, 0.62)
+scale = Vector2(0.725, 0.725)
 texture = ExtResource("3_jqelu")
