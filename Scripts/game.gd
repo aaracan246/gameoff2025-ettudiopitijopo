@@ -85,8 +85,11 @@ func _ready() -> void:
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		var outline_material = get_shader(node)
 		if outline_material:
+			
 			outline_material.set_shader_parameter("size", 0.00)
 			outline_material.set_shader_parameter("color",color_shader)
+			print(node)
+			print(outline_material.get_shader_parameter("color"))
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
