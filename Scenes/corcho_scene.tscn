@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxctp7orus43n"]
+
+[ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="1_drgr8"]
+
+[node name="corcho" instance=ExtResource("1_drgr8")]
