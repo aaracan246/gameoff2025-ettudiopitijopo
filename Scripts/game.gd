@@ -33,7 +33,7 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 var calling = true
-var vidas = 2 
+var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 #@onready var win_ui: Control = $UI/win
@@ -99,6 +99,7 @@ func _ready() -> void:
 	#para probar
 	#win()
 	#await get_tree().create_timer(3).timeout
+	Global.game_over = 2
 	game_over()
 	
 	
@@ -115,7 +116,7 @@ func _process(_delta: float) -> void:
 
 
 
-func _on_dialogic_signal(argument):	
+func _on_dialogic_signal(argument):
 	if argument == "fail":
 		vidas -= 1
 		
@@ -123,7 +124,8 @@ func _on_dialogic_signal(argument):
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
-			#game_over()
+			Global.game_over = 1 # Importante para saber que final es
+			game_over()
 			
 	if argument == "win":
 		win()
@@ -154,7 +156,7 @@ func game_over():
 	# Detener TODOS los audios del juego
 	AudioManager.stop_all_players_in_bus("SFX")
 	AudioManager.stop_all_players_in_bus("Music")
-
+	
 	get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
 	ui.fade_out()
 	fade_out_ui.visible = false
@@ -237,6 +239,7 @@ func colgar_phone():
 		timer.start(timer_duration)
 		await  timer.timeout
 		if door_open:
+			Global.game_over = 2  # Importante para saber que final es
 			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
 		timer.queue_free()
 		
