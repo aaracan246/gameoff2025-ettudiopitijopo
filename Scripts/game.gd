@@ -93,8 +93,8 @@ func _ready() -> void:
 	#para probar
 	#win()
 	#await get_tree().create_timer(3).timeout
-	#Global.game_over = 2
-	#game_over()
+	Global.game_over = 1
+	game_over()
 	
 	
 
@@ -118,13 +118,11 @@ func _on_dialogic_signal(argument):
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
-			colgar_phone()
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
 			
 	
 	if argument == "win":
-		colgar_phone()
 		win()
 		
 	if argument == "colgar":
