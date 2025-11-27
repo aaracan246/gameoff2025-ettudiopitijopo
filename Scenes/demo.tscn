@@ -35,8 +35,11 @@
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
 [ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="PackedScene" uid="uid://b1dga64vsqxmn" path="res://Scenes/Tree.tscn" id="35_q8r4w"]
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -160,7 +163,11 @@ last_shadow_lod = 0
 lod0_range = 128.0
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [sub_resource type="Image" id="Image_q8r4w"]
+=======
+[sub_resource type="Image" id="Image_awa06"]
+>>>>>>> Stashed changes
 =======
 [sub_resource type="Image" id="Image_awa06"]
 >>>>>>> Stashed changes
@@ -174,9 +181,15 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_q8r4w"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 image = SubResource("Image_q8r4w")
 
 [sub_resource type="Image" id="Image_rnfmn"]
+=======
+image = SubResource("Image_awa06")
+
+[sub_resource type="Image" id="Image_64qud"]
+>>>>>>> Stashed changes
 =======
 image = SubResource("Image_awa06")
 
@@ -192,7 +205,11 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_0s84x"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 image = SubResource("Image_rnfmn")
+=======
+image = SubResource("Image_64qud")
+>>>>>>> Stashed changes
 =======
 image = SubResource("Image_64qud")
 >>>>>>> Stashed changes
@@ -620,6 +637,45 @@ multimesh = SubResource("MultiMesh_64qud")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/forest/arboleo1"]
 transform = Transform3D(134.54297, 0, 0, 0, 0.99722064, 0, 9.094947e-13, 0, 91.70937, 0.016473733, 116.152466, -44.56433)
 mesh = SubResource("PlaneMesh_rvukw")
+<<<<<<< Updated upstream
+=======
+skeleton = NodePath("")
+
+[node name="arboleo2" type="Node3D" parent="Escenario/forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.104369e-06, -137.44235, 185.41013)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Escenario/forest/arboleo2"]
+transform = Transform3D(-0.99999994, 0, -7.152439e-08, 0, 1.0823189, 0, 8.742277e-08, 0, -0.81814367, -4.2654574e-06, 0, -97.59811)
+multimesh = SubResource("MultiMesh_awa06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/forest/arboleo2"]
+transform = Transform3D(134.54297, 0, 0, 0, 0.99722064, 0, 9.094947e-13, 0, 91.70937, 0.016473733, 116.152466, -44.56433)
+mesh = SubResource("PlaneMesh_rvukw")
+skeleton = NodePath("")
+
+[node name="arboleo3" type="Node3D" parent="Escenario/forest"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -192.14676, -137.44235, 50.87388)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Escenario/forest/arboleo3"]
+transform = Transform3D(-0.99999994, 0, -7.152439e-08, 0, 1.0823189, 0, 8.742277e-08, 0, -0.81814367, -4.2654574e-06, 0, -97.59811)
+multimesh = SubResource("MultiMesh_awa06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/forest/arboleo3"]
+transform = Transform3D(134.54297, 0, 0, 0, 0.99722064, 0, 9.094947e-13, 0, 91.70937, 0.016473733, 116.152466, -44.56433)
+mesh = SubResource("PlaneMesh_rvukw")
+skeleton = NodePath("")
+
+[node name="arboleo4" type="Node3D" parent="Escenario/forest"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 181.75064, -137.44235, 13.202772)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Escenario/forest/arboleo4"]
+transform = Transform3D(-0.99999994, 0, -7.152439e-08, 0, 1.0823189, 0, 8.742277e-08, 0, -0.81814367, -4.2654574e-06, 0, -97.59811)
+multimesh = SubResource("MultiMesh_awa06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/forest/arboleo4"]
+transform = Transform3D(134.54297, 0, 0, 0, 0.99722064, 0, 9.094947e-13, 0, 91.70937, 0.016473733, 116.152466, -44.56433)
+mesh = SubResource("PlaneMesh_rvukw")
+>>>>>>> Stashed changes
 skeleton = NodePath("")
 
 <<<<<<< Updated upstream
