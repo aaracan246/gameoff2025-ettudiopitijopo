@@ -311,6 +311,8 @@ process_mode = 3
 script = ExtResource("6_qwjex")
 
 [node name="lifes_UI" parent="UI" instance=ExtResource("7_vpp5g")]
+offset_right = -798.3726
+offset_bottom = -451.4203
 
 [node name="pause_menu" parent="UI" instance=ExtResource("8_lsgl7")]
 visible = false
