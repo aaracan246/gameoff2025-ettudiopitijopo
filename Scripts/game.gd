@@ -83,6 +83,7 @@ func _ready() -> void:
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+	
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	
@@ -90,7 +91,7 @@ func _ready() -> void:
 	#Global.random_sound()
 	
 	#para probar
-	win()
+	#win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 2
 	#game_over()
@@ -315,22 +316,22 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
-
-	
 		shader_manager(map)
 	
 	if event is InputEventMouseButton and event.pressed and not is_zoomed:
 		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
-		await tween.finished
-		var tween2 = create_tween()
-		tween2.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
+		if randf() < 0.4:
+			#INSERTAR AUDIO !!!!!PELIGRO KILLER!!!!!!!!
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
+			await tween.finished
+			var tween2 = create_tween()
+			tween2.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
 	
 
 
@@ -479,3 +480,6 @@ func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: 
 
 func _on_sofa_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/Gato, event)
+	if is_zoomed:
+		var collision_cat = cat.get_node("CollisionShape3D")
+		collision_cat.disabled = false
