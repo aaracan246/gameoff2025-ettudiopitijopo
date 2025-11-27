@@ -17,6 +17,8 @@ extends Node3D
 @onready var cat: StaticBody3D = $Escenario/cat
 @onready var puerta: StaticBody3D = $Escenario/puerta
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var murders: StaticBody3D = $Escenario/murders
+@onready var sofa: StaticBody3D = $Escenario/Sofa
 
 @onready var temp_camera = $deault_camera
 
@@ -80,7 +82,7 @@ signal change_video(string:String)
 func _ready() -> void:
 	
 	normal_door = puerta.global_transform
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		var outline_material = get_shader(node)
@@ -97,7 +99,7 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	
 	Global.update_sounds(sounds_map)
-	Global.random_sound()
+	#Global.random_sound()
 	
 	#para probar
 	#win()
@@ -477,3 +479,7 @@ func door_event():
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/murder, event)
+
+
+func _on_sofa_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	input_manager($Escenario/Gato, event)
