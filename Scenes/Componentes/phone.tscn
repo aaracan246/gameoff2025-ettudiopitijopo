@@ -121,13 +121,16 @@ parameters/looping = true
 
 [node name="down" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_44o3h")
+bus = &"SFX"
 
 [node name="beep" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_7mogq")
+bus = &"SFX"
 parameters/looping = true
 
 [node name="pickup" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_bv63d")
+bus = &"SFX"
 
 [node name="green" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7647121, -0.016200941, -0.72088385)

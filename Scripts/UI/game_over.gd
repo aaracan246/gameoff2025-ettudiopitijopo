@@ -13,7 +13,7 @@ func _ready() -> void:
 	# Fade-in del sprite
 	var tween = create_tween()
 	tween.tween_property(nico_lai, "modulate:a", 1.0, 2.0)
-	AudioManager.newspaper_pickup.play()
+	AudioManager.newspaper.play()
 	await tween.finished
 	
 	await get_tree().create_timer(5.0).timeout
@@ -26,6 +26,7 @@ func _ready() -> void:
 	await get_tree().create_timer(2.0).timeout
 	
 	# Fade-in del label
+	AudioManager.game_over_2.play()
 	tween = create_tween()
 	tween.tween_property(label, "modulate:a", 1.0, 2.0)
 	await tween.finished

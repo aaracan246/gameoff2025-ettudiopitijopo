@@ -108,8 +108,11 @@ shape = SubResource("ConvexPolygonShape3D_htvv6")
 [node name="close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_srieo")
 volume_db = 22.983
+bus = &"SFX"
 
 [node name="open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_fwh48")
+bus = &"SFX"
 
 [node name="forzar" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
