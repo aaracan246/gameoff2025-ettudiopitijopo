@@ -12,6 +12,7 @@ var sounds_map = {}
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout
 
+
 func next_event():
 	Dialogic.start(dialogos[cont])
 	cont+=1
