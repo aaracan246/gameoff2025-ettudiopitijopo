@@ -45,7 +45,10 @@ directories/dtl_directory={
 "evento3-3": "res://Dialogs/events/evento3-3.dtl",
 "evento3-4": "res://Dialogs/events/evento3-4.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://dialogicStyle.tres",
+"dialogicStyle": "res://dialogicStyle.tres"
+}
 layout/style_list=["res://dialogicStyle.tres"]
 layout/default_style="res://dialogicStyle.tres"
 extensions_folder="res://addons/dialogic_additions"

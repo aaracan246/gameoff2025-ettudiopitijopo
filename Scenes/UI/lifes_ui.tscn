@@ -1,58 +1,67 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwsdfsk1meviw"]
+[gd_scene load_steps=4 format=3 uid="uid://dwsdfsk1meviw"]
 
-[ext_resource type="Texture2D" uid="uid://bc4m4ldj5vo51" path="res://Assets/pc/life_idle.png" id="1_ayt6x"]
-[ext_resource type="Script" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
-[ext_resource type="Texture2D" uid="uid://wviefcqnb2gg" path="res://Assets/pc/life_lost.png" id="2_x4s43"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbhil"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndsd6"]
+[ext_resource type="Script" uid="uid://bu7eqpluas4el" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
+[ext_resource type="Texture2D" uid="uid://cxpowwqxscunc" path="res://Assets/pc/life_idle2.png" id="2_jbhil"]
+[ext_resource type="Texture2D" uid="uid://ccdeeohoy3yth" path="res://Assets/pc/muerto.svg" id="2_x4s43"]
 
 [node name="lifes_UI" type="Control"]
 texture_filter = 1
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-grow_horizontal = 0
+anchors_preset = 0
+offset_left = 24.0
+offset_right = 24.0
+scale = Vector2(0.7571594, 0.6722961)
 script = ExtResource("1_x4s43")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -249.0
-offset_top = -45.0
-offset_right = -45.0
-offset_bottom = 55.0
-grow_horizontal = 0
-scale = Vector2(2.1129067, 2.1129067)
-theme_override_constants/separation = -55
+layout_mode = 0
+offset_top = 16.36184
+offset_right = 86.0
+offset_bottom = 58.36184
+scale = Vector2(1.531789, 1.531789)
 
-[node name="Container" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_jbhil")
-
-[node name="life_1" type="TextureRect" parent="HBoxContainer/Container"]
-layout_mode = 2
-texture = ExtResource("1_ayt6x")
-stretch_mode = 3
-
-[node name="life_lost_1" type="TextureRect" parent="HBoxContainer/Container"]
-visible = false
+[node name="life_1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_x4s43")
+stretch_mode = 4
 
-[node name="Container2" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ndsd6")
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/life_1"]
+modulate = Color(0, 0, 0, 0.5411765)
+z_index = -120
+layout_mode = 0
+offset_top = -14.07956
+offset_right = 40.0
+offset_bottom = 25.92044
+scale = Vector2(1.4587553, 2.951145)
 
-[node name="life_2" type="TextureRect" parent="HBoxContainer/Container2"]
-layout_mode = 2
-texture = ExtResource("1_ayt6x")
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/life_1"]
+modulate = Color(0.18, 1, 0.19366664, 1)
+z_index = -120
+layout_mode = 0
+offset_top = 88.36531
+offset_right = 40.0
+offset_bottom = 128.36531
+scale = Vector2(1.457618, 0.40676245)
 
-[node name="life_lost_2" type="TextureRect" parent="HBoxContainer/Container2"]
-visible = false
+[node name="life_2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_x4s43")
+texture = ExtResource("2_jbhil")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/life_2"]
+modulate = Color(0, 0, 0, 0.5411765)
+z_index = -120
+layout_mode = 0
+offset_top = -10.55967
+offset_right = 40.0
+offset_bottom = 29.44033
+scale = Vector2(1, 1.4797224)
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/life_2"]
+modulate = Color(0.89066666, 1, 0.18, 1)
+z_index = -120
+layout_mode = 0
+offset_top = 42.938335
+offset_right = 40.0
+offset_bottom = 82.93834
+scale = Vector2(1, 0.2790597)

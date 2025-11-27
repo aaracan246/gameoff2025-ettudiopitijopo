@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=63 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -18,11 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cbb7shysawkb8" path="res://Scenes/Componentes/escenario.tscn" id="10_a1i4p"]
 [ext_resource type="PackedScene" uid="uid://dbf5isgtfk0ch" path="res://Scenes/Componentes/post_it.tscn" id="10_iv11p"]
 [ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
+[ext_resource type="Texture2D" uid="uid://c465q57ru55xn" path="res://Assets/Killer/sprites/killer_3.png" id="10_rvukw"]
+[ext_resource type="Texture2D" uid="uid://v12s3nillaq1" path="res://Assets/Killer/sprites/killer_2.png" id="11_2wjwq"]
 [ext_resource type="Texture2D" uid="uid://bk136mt7pi04k" path="res://Assets/post-itPC2.svg" id="11_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="12_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://ccvbnyypfowe8" path="res://Assets/post-itRadioOpciones.svg" id="12_8f0p5"]
 [ext_resource type="Texture2D" uid="uid://cgnrfo6qjkbp7" path="res://Assets/post-itGhosts.svg" id="12_mn375"]
 [ext_resource type="PackedScene" uid="uid://dwo7pp58155af" path="res://Scenes/Componentes/cassettes.tscn" id="12_p0f3u"]
+[ext_resource type="Texture2D" uid="uid://dts5gq7plr2o1" path="res://Assets/Killer/sprites/killer_1.png" id="12_q33jt"]
 [ext_resource type="PackedScene" uid="uid://dntax556ktsn8" path="res://Scenes/Componentes/book.tscn" id="14_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
@@ -33,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 
@@ -297,12 +300,12 @@ process_mode = 3
 process_mode = 3
 script = ExtResource("6_qwjex")
 
+[node name="lifes_UI" parent="UI" instance=ExtResource("7_vpp5g")]
+
 [node name="pause_menu" parent="UI" instance=ExtResource("8_lsgl7")]
 visible = false
 
 [node name="ambient_crossfade" parent="UI" instance=ExtResource("4_43er0")]
-
-[node name="lifes_UI" parent="UI" instance=ExtResource("7_vpp5g")]
 
 [node name="fade_out" type="ColorRect" parent="UI"]
 visible = false
@@ -333,6 +336,21 @@ skeleton = NodePath("")
 
 [node name="OutDoor" type="Camera3D" parent="."]
 transform = Transform3D(-0.41880843, -0.44543484, 0.79132, -0.14263241, 0.89287764, 0.4271131, -0.89680296, 0.066010684, -0.43747813, 29.51702, 1.1385155, 22.347675)
+
+[node name="big" type="Sprite3D" parent="OutDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101379395, -1.1674824, -4.275738)
+visible = false
+texture = ExtResource("10_rvukw")
+
+[node name="medium" type="Sprite3D" parent="OutDoor"]
+transform = Transform3D(0.99999964, 0, 1.7881393e-07, 7.4505806e-08, 0.9999995, -5.9604645e-08, 4.172325e-07, 3.5762787e-07, 0.9999992, 1.8353729, -2.6459627, -6.498686)
+visible = false
+texture = ExtResource("11_2wjwq")
+
+[node name="small" type="Sprite3D" parent="OutDoor"]
+transform = Transform3D(0.9999995, 1.4901161e-08, 2.682209e-07, 5.9604645e-08, 0.99999946, -1.4901161e-07, 5.662441e-07, 5.364418e-07, 0.9999989, 3.419613, -0.7615833, -6.8131332)
+visible = false
+texture = ExtResource("12_q33jt")
 
 [node name="Escenario" parent="." instance=ExtResource("10_a1i4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0.04974556)
@@ -443,6 +461,20 @@ transform = Transform3D(0.004659997, 0, -1.4999927, 0, 1.5, 0, 1.4999927, 0, 0.0
 
 [node name="corcho2" parent="Escenario/Map" instance=ExtResource("34_q8r4w")]
 transform = Transform3D(1.6207718, 0, -6.9849193e-10, 0, 2.473019, 0, 1.3969839e-09, 0, 0.9982123, -0.70387363, 0.09080505, -0.10441017)
+
+[node name="small2" type="Sprite3D" parent="Escenario/Map"]
+transform = Transform3D(-4.586581, 1.4097977e-08, 0.029833049, 2.7353548e-07, 4.590818, -1.3275483e-07, -0.15367842, -2.463615e-06, -0.8904004, 7.6355457, -21.376661, -0.95970345)
+visible = false
+texture = ExtResource("12_q33jt")
+
+[node name="small" type="Sprite3D" parent="Escenario/Map"]
+transform = Transform3D(-4.5865827, 1.4097978e-08, 0.029833049, 2.7353556e-07, 4.5908194, -1.3275488e-07, -0.15367842, -2.463615e-06, -0.8904004, 2.5581193, -21.37667, -0.9754734)
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+texture = ExtResource("12_q33jt")
+
+[node name="small3" type="Sprite3D" parent="Escenario/Map"]
+transform = Transform3D(-4.5865817, 1.4097978e-08, 0.029833049, 2.735355e-07, 4.5908184, -1.3275485e-07, -0.15367842, -2.463615e-06, -0.8904004, 2.8594003, -21.376663, -0.9745407)
+texture = ExtResource("12_q33jt")
 
 [node name="Mapa" parent="Escenario" instance=ExtResource("12_0ygp3")]
 transform = Transform3D(-4.35899e-08, 0, -0.99722064, 0, 0.99722064, 0, 0.99722064, 0, -4.35899e-08, 15.649042, -2.6015682, -17.4758)

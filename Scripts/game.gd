@@ -70,7 +70,6 @@ signal change_video(string:String)
 
 
 func _ready() -> void:
-
 	normal_door = puerta.global_transform
 	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
@@ -80,8 +79,7 @@ func _ready() -> void:
 			
 			outline_material.set_shader_parameter("size", 0.00)
 			outline_material.set_shader_parameter("color",color_shader)
-			print(node)
-			print(outline_material.get_shader_parameter("color"))
+
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
@@ -299,10 +297,23 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
+
+	
 		shader_manager(map)
+	
 	if event is InputEventMouseButton and event.pressed and not is_zoomed:
+		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
-	input_manager($Escenario/Mapa, event)
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
+		await tween.finished
+		var tween2 = create_tween()
+		tween2.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
+	
 
 
 
