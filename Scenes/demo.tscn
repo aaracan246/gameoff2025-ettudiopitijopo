@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=68 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
-[ext_resource type="PackedScene" uid="uid://br8nvyl05x1p0" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://dwsdfsk1meviw" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="8_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
+[ext_resource type="PackedScene" uid="uid://c6t0ma4kqunrb" path="res://Assets/3D/Jarron2.glb" id="40_2wjwq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -687,6 +688,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rvukw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.685177, 0, -39.65446)
 stream = ExtResource("39_rvukw")
 bus = &"SFX"
+
+[node name="Jarron2" parent="Escenario" instance=ExtResource("40_2wjwq")]
+transform = Transform3D(7.8787947, 0, -1.7503693, 0, 6.727801, 0, -1.8088276, 0, -7.6241655, -9.1445875, -12.426241, -6.9339404)
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false
