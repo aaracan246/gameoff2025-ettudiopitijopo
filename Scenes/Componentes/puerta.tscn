@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ciwu0q5fei8fc"]
+[gd_scene load_steps=15 format=4 uid="uid://ciwu0q5fei8fc"]
 
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_c74i5"]
 [ext_resource type="Texture2D" uid="uid://vu4yl4obller" path="res://Assets/3D/Puerta_textura puerta.png" id="1_jf8w2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jvhf2ef0p8l6" path="res://Assets/Textures/textura puerta.png" id="3_srieo"]
 [ext_resource type="AudioStream" uid="uid://dagqlq1rdqm3m" path="res://Assets/audio/sfx/room/door_openning.wav" id="5_fwh48"]
 [ext_resource type="AudioStream" uid="uid://bmadbyasqjdns" path="res://Assets/audio/sfx/room/door_closing.wav" id="5_srieo"]
+[ext_resource type="AudioStream" uid="uid://b7eccef8ponfj" path="res://Assets/audio/sfx/trying-to-open-a-locked-door-104302 (mp3cut.net).mp3" id="7_3wvlg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxhir"]
 resource_name = "Material.001"
@@ -115,4 +116,5 @@ stream = ExtResource("5_fwh48")
 bus = &"SFX"
 
 [node name="forzar" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_3wvlg")
 bus = &"SFX"

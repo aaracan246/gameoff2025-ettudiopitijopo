@@ -93,7 +93,7 @@ func _ready() -> void:
 	#win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 1
-	game_over()
+	#game_over()
 	
 	
 
@@ -332,13 +332,13 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
 			tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
+			
 			await tween.finished
+			AudioManager.killer.play()
 			var tween2 = create_tween()
 			tween2.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
 			tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
-	
-
 
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -425,15 +425,17 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if is_zoomed:
 		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		#sounds_map["cat"]["meow"].play()
+		Global.reproduce_sound("cat","meow")
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_LINEAR)
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
-	elif event is InputEventMouseMotion and event.button_mask == 1  :
-		sounds_map["cat"]["purr"].play()
+	elif event is InputEventMouseMotion and event.button_mask == 1 and !sounds_map["cat"]["purr"].is_playing():
+		Global.reproduce_sound("cat","purr")
+	elif event.button_mask != 1 and sounds_map["cat"]["purr"].is_playing():
+		Global.stop_sound("cat","purr")
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
