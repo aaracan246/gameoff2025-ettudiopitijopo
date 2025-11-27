@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=70 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
-[ext_resource type="PackedScene" uid="uid://br8nvyl05x1p0" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://dwsdfsk1meviw" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="8_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
@@ -36,11 +36,13 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
 [ext_resource type="PackedScene" uid="uid://c3x2lp5xbemci" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
+[ext_resource type="Texture2D" uid="uid://vaudt3ib8d40" path="res://Assets/periodicos/mountain_1.png" id="42_q33jt"]
+[ext_resource type="Texture2D" uid="uid://bv41vd6qk4b0m" path="res://Assets/periodicos/mountain_2.png" id="43_tdg8g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -714,6 +716,42 @@ transform = Transform3D(0.40361, 0, 0.69072354, 0, 0.8, 0, -0.69072354, 0, 0.403
 
 [node name="jarronFlor2" parent="." instance=ExtResource("40_2wjwq")]
 transform = Transform3D(-0.30894384, 0, 0.73793876, 0, 0.79999995, 0, -0.73793876, 0, -0.30894384, -3.9977353, -15.173626, 16.63596)
+
+[node name="mountains" type="Sprite3D" parent="."]
+transform = Transform3D(-2.7592228e-06, 0, 1, 0, 44.279514, 0, -63.123657, 0, -4.371139e-08, 127.57959, -6.000149, -5.576681e-06)
+texture = ExtResource("42_q33jt")
+
+[node name="mountains2" type="Sprite3D" parent="."]
+transform = Transform3D(-2.7592228e-06, 0, 1, 0, 44.279514, 0, -63.123657, 0, -4.371139e-08, -160.89668, 7.3040504, -315.17047)
+texture = ExtResource("42_q33jt")
+
+[node name="mountains3" type="Sprite3D" parent="."]
+transform = Transform3D(-2.7592228e-06, 0, 1, 0, 44.279514, 0, -63.123657, 0, -4.371139e-08, -160.89665, -6.000149, 433.09546)
+texture = ExtResource("42_q33jt")
+
+[node name="mountains4" type="Sprite3D" parent="."]
+transform = Transform3D(63.123657, 0, 0, 0, 44.279514, 0, 0, 0, 1, -160.89667, 7.3040504, 170.96472)
+texture = ExtResource("42_q33jt")
+
+[node name="mountains5" type="Sprite3D" parent="."]
+transform = Transform3D(63.123657, 0, 0, 0, 44.279514, 0, 0, 0, 1, -482.04184, 7.3040504, -154.93694)
+texture = ExtResource("42_q33jt")
+
+[node name="mountains_exterior5" type="Sprite3D" parent="."]
+transform = Transform3D(-2.7592228e-06, 0, 1, 0, 90.140594, 0, -63.123657, 0, -4.371139e-08, 638.1595, 8.19138, -25.333708)
+texture = ExtResource("43_tdg8g")
+
+[node name="mountains_exterior6" type="Sprite3D" parent="."]
+transform = Transform3D(-2.7592228e-06, 0, 1, 0, 90.140594, 0, -63.123657, 0, -4.371139e-08, -754.301, 8.19138, -25.333647)
+texture = ExtResource("43_tdg8g")
+
+[node name="mountains_exterior7" type="Sprite3D" parent="."]
+transform = Transform3D(99.662155, 0, 0, 0, 90.140594, 0, 4.5474735e-13, 0, 1, -123.19901, -30.356136, 557.3801)
+texture = ExtResource("43_tdg8g")
+
+[node name="mountains_exterior8" type="Sprite3D" parent="."]
+transform = Transform3D(99.662155, 0, 0, 0, 90.140594, 0, 4.5474735e-13, 0, 1, -123.199066, -30.356136, -646.51904)
+texture = ExtResource("43_tdg8g")
 
 [connection signal="change_video" from="." to="Escenario/Radio" method="change_video"]
 [connection signal="disble_colisions" from="." to="Escenario/Pc" method="_on_demo_disble_colisions"]
