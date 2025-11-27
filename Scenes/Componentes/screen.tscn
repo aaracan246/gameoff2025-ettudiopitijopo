@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dd2vgnu771yby"]
+[gd_scene load_steps=52 format=3 uid="uid://dd2vgnu771yby"]
 
 [ext_resource type="Script" uid="uid://u20tesglg1ip" path="res://Scripts/screen.gd" id="1_6t4fl"]
 [ext_resource type="Texture2D" uid="uid://da252jvsrquw6" path="res://Assets/pc/wallpaper.png" id="2_fujxl"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://c1vfndw5tjdv1" path="res://Assets/pc/newPopUps/8.svg" id="17_6yc7f"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
-[ext_resource type="Script" uid="uid://xet5tnybacav" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
+[ext_resource type="Script" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
+[ext_resource type="Shader" uid="uid://cyxw6yqjsc73o" path="res://Assets/shaders/glitch.gdshader" id="22_l5hxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
 
@@ -129,6 +130,16 @@ bg_color = Color(0.81405455, 0.49997014, 0.50064003, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75h4d"]
 bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.14509805)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5aw5c"]
+shader = ExtResource("22_l5hxs")
+shader_parameter/glitch_intensity = 3.0
+shader_parameter/block_distort = 80.0
+shader_parameter/shake_power = 0.15
+shader_parameter/shake_rate = 0.4
+shader_parameter/shake_speed = 9.0
+shader_parameter/color_split = 0.05
+shader_parameter/uv_drift = 0.02
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_6t4fl"]
 viewport_path = NodePath("Camera/SubViewport")
 
@@ -138,6 +149,7 @@ anchors_preset = 0
 script = ExtResource("1_6t4fl")
 
 [node name="Destktop" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 400.0
@@ -1062,7 +1074,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
 [node name="Camera" type="TextureRect" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_5aw5c")
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 400.0

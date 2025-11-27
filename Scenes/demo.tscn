@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 
@@ -335,7 +335,6 @@ transform = Transform3D(-0.41880843, -0.44543484, 0.79132, -0.14263241, 0.892877
 
 [node name="big" type="Sprite3D" parent="OutDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101379395, -1.1674824, -4.275738)
-visible = false
 texture = ExtResource("10_rvukw")
 
 [node name="medium" type="Sprite3D" parent="OutDoor"]

@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bu7eqpluas4el" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
 [ext_resource type="Texture2D" uid="uid://cxpowwqxscunc" path="res://Assets/pc/life_idle2.png" id="2_jbhil"]
-[ext_resource type="Texture2D" uid="uid://ccdeeohoy3yth" path="res://Assets/pc/muerto.svg" id="2_x4s43"]
+[ext_resource type="Texture2D" uid="uid://qc0v1df6qgnw" path="res://Assets/pc/life-idle2.svg" id="2_x4s43"]
 
 [node name="lifes_UI" type="Control"]
-texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 24.0
 offset_right = 24.0
-scale = Vector2(0.7571594, 0.6722961)
+scale = Vector2(0.44114232, 0.3916986)
 script = ExtResource("1_x4s43")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -32,16 +31,16 @@ layout_mode = 0
 offset_top = -14.07956
 offset_right = 40.0
 offset_bottom = 25.92044
-scale = Vector2(1.4587553, 2.951145)
+scale = Vector2(2.080247, 4.208458)
 
 [node name="ColorRect2" type="ColorRect" parent="HBoxContainer/life_1"]
 modulate = Color(0.18, 1, 0.19366664, 1)
 z_index = -120
 layout_mode = 0
-offset_top = 88.36531
+offset_top = 132.65192
 offset_right = 40.0
-offset_bottom = 128.36531
-scale = Vector2(1.457618, 0.40676245)
+offset_bottom = 172.65192
+scale = Vector2(2.0657256, 0.5764608)
 
 [node name="life_2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
