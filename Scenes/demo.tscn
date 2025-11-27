@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=66 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
+[ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2hqx"]
 resource_name = "TELEFONO"
@@ -335,6 +336,7 @@ transform = Transform3D(-0.41880843, -0.44543484, 0.79132, -0.14263241, 0.892877
 
 [node name="big" type="Sprite3D" parent="OutDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101379395, -1.1674824, -4.275738)
+visible = false
 texture = ExtResource("10_rvukw")
 
 [node name="medium" type="Sprite3D" parent="OutDoor"]
@@ -650,30 +652,37 @@ light_color = Color(0.423, 0.54, 0, 1)
 omni_range = 0.46304613
 omni_attenuation = 10.0
 
-[node name="medium2" type="Sprite3D" parent="Escenario"]
-transform = Transform3D(3.8970048, 0, 0.4401425, 0, 4.899997, 0, -1.9102193, 0, 0.897927, 20.114536, -24.151716, 30.782314)
+[node name="Killers" type="Node" parent="Escenario"]
+
+[node name="dead" type="Sprite3D" parent="Escenario/Killers"]
+transform = Transform3D(1.9102192, 0, -0.897927, 0, 4.899997, 0, 3.8970048, 0, 0.44014248, -30.83206, 2.9568405, 20.086277)
+visible = false
 flip_h = true
 modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
 texture = ExtResource("11_2wjwq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/medium2"]
+[node name="dead2" type="Sprite3D" parent="Escenario/Killers"]
+transform = Transform3D(1.9102192, 0, -0.897927, 0, 4.899997, 0, 3.8970048, 0, 0.44014248, 6.842804, -1.140955, 3.49901)
+visible = false
+flip_h = true
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+texture = ExtResource("11_2wjwq")
+
+[node name="medium2" type="Sprite3D" parent="Escenario/Killers"]
+transform = Transform3D(1.9102192, 0, -0.897927, 0, 4.899997, 0, 3.8970048, 0, 0.44014248, -30.83206, 2.9568405, 20.086277)
+flip_h = true
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+texture = ExtResource("11_2wjwq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/Killers/medium2"]
 transform = Transform3D(4.7886515, -0.5638315, 0.22461364, 0.51720726, 1.5809382, -2.7279184, 0.37705612, 4.992133, 0.88925993, 0.9549086, 0.53599465, 0.24835968)
 mesh = SubResource("CapsuleMesh_k56yo")
 surface_material_override/0 = SubResource("StandardMaterial3D_rvukw")
 
-[node name="dead" type="Sprite3D" parent="Escenario"]
-transform = Transform3D(3.8970048, 0, 0.4401425, 0, 4.899997, 0, -1.9102193, 0, 0.897927, 20.114536, -24.151716, 30.782314)
-visible = false
-flip_h = true
-modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
-texture = ExtResource("11_2wjwq")
-
-[node name="dead2" type="Sprite3D" parent="Escenario"]
-transform = Transform3D(3.8970048, 0, 0.4401425, 0, 4.899997, 0, -1.9102193, 0, 0.897927, 3.5272663, -28.249512, -6.8925495)
-visible = false
-flip_h = true
-modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
-texture = ExtResource("11_2wjwq")
+[node name="steps" type="AudioStreamPlayer3D" parent="Escenario/Killers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.685177, 0, -39.65446)
+stream = ExtResource("39_rvukw")
+bus = &"SFX"
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false

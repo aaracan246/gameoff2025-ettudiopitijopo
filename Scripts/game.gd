@@ -34,7 +34,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
+var calling = false
 var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
@@ -55,7 +55,8 @@ var cont = 2
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
-	"puerta": {"open":puerta.get_node("open"),"close":puerta.get_node("close"),"forzar":puerta.get_node("forzar")},
+	"puerta": {"open":puerta.get_node("open"),"close":puerta.get_node("close"),"forzar":puerta.get_node("forzar"),"knock":puerta.get_node("knock")},
+	"killer":{"steps":$Escenario/Killers/steps},
 	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
 	
 	
@@ -87,6 +88,7 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	
 	Global.update_sounds(sounds_map)
+	Global.reproduce_sound("killer","steps")
 
 	#Global.random_sound()
 	#para probar
@@ -142,15 +144,17 @@ func game_over():
 	lifes_ui.visible = false
 	player.positionXYZ = 2
 	player.rotation_manager()
-	$Escenario/dead.visible = true
-	door_event()
-	await get_tree().create_timer(3).timeout
-
-	Global.reproduce_sound("puerta","open")
+	$Escenario/Killers/dead.visible = true
+	if !door_open:
+		door_event()
+		await get_tree().create_timer(3).timeout
+		
+	Global.reproduce_sound("puerta","knock")
+	await get_tree().create_timer(1).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($Escenario/dead, "global_transform", $Escenario/dead2.global_transform, transition_duration)
+	tween.tween_property($Escenario/Killers/dead, "global_transform", $Escenario/Killers/dead2.global_transform, transition_duration)
 	AudioManager.murdered.play()
 	await tween.finished
 	ui.fade_in() # Efecto fundido negro
@@ -228,14 +232,15 @@ func colgar_phone():
 		calling = false
 		phone_manager()
 		phone_station.get_node("green").visible = false
-
+		if cont == 2:
+			Global.reproduce_sound("killer","steps")
 		var timer = Timer.new()
 		add_child(timer)
 		timer.autostart = true
 		timer.start(timer_duration)
 		timer.wait_time = timer_duration
 		await  timer.timeout
-		if cont == 2:
+		if cont == 0:
 			door_event()
 		else:
 			cont +=1
@@ -244,7 +249,7 @@ func colgar_phone():
 		await  timer.timeout
 		if door_open:
 			Global.game_over = 2  # Importante para saber que final es
-			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
+			game_over()
 		timer.queue_free()
 		
 		incoming_call()
@@ -327,7 +332,6 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
 		if randf() < 0.4:
-			#INSERTAR AUDIO !!!!!PELIGRO KILLER!!!!!!!!
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
@@ -472,8 +476,11 @@ func door_manager():
 		Global.reproduce_sound("puerta","close")
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
-		
+
+
 func door_event():
+	await Global.reproduce_sound("killer","steps")
+	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)

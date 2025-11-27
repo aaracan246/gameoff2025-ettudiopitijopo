@@ -31,6 +31,7 @@ const MAIN_MENU = preload("uid://dhu87bav51ish")
 @onready var newspaper: AudioStreamPlayer = $Screen/newspaper
 @onready var murdered: AudioStreamPlayer = $SFX/murdered
 @onready var killer: AudioStreamPlayer = $SFX/killer
+@onready var glitch_killer: AudioStreamPlayer = $SFX/glitch_killer
 
 
 

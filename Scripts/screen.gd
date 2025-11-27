@@ -37,11 +37,13 @@ signal start_events
 
 func _ready() -> void:
 	#camera = $"../../../../OutDoor"
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.00)
 	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
+	
 	#Global.screen_node = self
 	await get_tree().create_timer(2).timeout
-	
+	camera_glich()
 	email_alert_event()
 
 func unlock_calls():
@@ -110,6 +112,30 @@ func _on_book_btn_pressed() -> void:
 		book_popup4.visible = 1
 		#Disable shader
 		book.material = null
+
+func camera_glich():
+	var small = camera.get_node("small")
+	var medium = camera.get_node("medium")
+	var big = camera.get_node("big")
+	Global.reproduce_sound("killer","steps")
+	await get_tree().create_timer(2).timeout
+	await transition_killer(small)
+	await transition_killer(medium)
+	await transition_killer(big)
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 10.0)
+	AudioManager.glitch_killer.play()
+	await get_tree().create_timer(1).timeout
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.0)
+
+func transition_killer(node:Node):
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity",7.77)
+	AudioManager.glitch_killer.play()
+	await get_tree().create_timer(1).timeout
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.0)
+	node.visible = true
+	await get_tree().create_timer(1).timeout
+	node.visible = false
+
 
 func glitch():
 	# Book Glitch
