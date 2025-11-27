@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=65 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -282,6 +282,11 @@ buffer = PackedFloat32Array(-1.3888607, 0, 0, 66.46999, 0, 1.3888607, 0, -36.304
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rvukw"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k56yo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvukw"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Demo" type="Node3D"]
 process_priority = 14105
 process_physics_priority = 29535
@@ -435,10 +440,10 @@ spot_angle = 64.68749
 
 [node name="puerta" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(-2.9930103, 0, -1.599199e-07, 0, 3.0768063, 0, 2.6165728e-07, 0, -1.8292705, 20.40216, -17.19314, 20.891012)
+visible = false
 
 [node name="puerta2" parent="Escenario" instance=ExtResource("7_l50oi")]
 transform = Transform3D(-2.4132223, 0, 0.59671295, 0, 3.0768063, 0, -0.7517735, 0, -1.915472, 20.80894, -17.19314, 19.006044)
-visible = false
 
 [node name="NewsPaper" parent="Escenario" instance=ExtResource("4_f2jw5")]
 transform = Transform3D(0.14265335, 0.20530476, 8.9741565e-09, 0, -1.0927847e-08, 0.25, 0.20530476, -0.14265335, -6.2355747e-09, 9.354418, -12.948207, -23.156898)
@@ -645,6 +650,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4716797, 9.178343, 2.630533
 light_color = Color(0.423, 0.54, 0, 1)
 omni_range = 0.46304613
 omni_attenuation = 10.0
+
+[node name="medium2" type="Sprite3D" parent="Escenario"]
+transform = Transform3D(3.8970048, 0, 0.4401425, 0, 4.899997, 0, -1.9102193, 0, 0.897927, 20.114536, -24.151716, 30.782314)
+flip_h = true
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+texture = ExtResource("11_2wjwq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/medium2"]
+transform = Transform3D(4.7886515, -0.5638315, 0.22461364, 0.51720726, 1.5809382, -2.7279184, 0.37705612, 4.992133, 0.88925993, 0.9549086, 0.53599465, 0.24835968)
+mesh = SubResource("CapsuleMesh_k56yo")
+surface_material_override/0 = SubResource("StandardMaterial3D_rvukw")
 
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false
