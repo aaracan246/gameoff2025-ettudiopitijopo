@@ -93,7 +93,7 @@ func _ready() -> void:
 
 
 
-	door_event()
+	#door_event()
 
 	#Global.random_sound()
 	#para probar
