@@ -44,10 +44,16 @@ func _ready() -> void:
 	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.00)
 	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
-	
+	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+
 	#Global.screen_node = self
 	await get_tree().create_timer(2).timeout
 	email_alert_event()
+
+func _on_dialogic_signal(argument):
+	if argument == "pc":
+		_on_book_btn_pressed() 
+
 
 func unlock_calls():
 
