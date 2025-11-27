@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=29 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -26,6 +26,8 @@
 [ext_resource type="AudioStream" uid="uid://dla4s5amsggyi" path="res://Assets/audio/sfx/desktop/windows_error.mp3" id="24_xced4"]
 [ext_resource type="AudioStream" uid="uid://bmadbyasqjdns" path="res://Assets/audio/sfx/room/door_closing.wav" id="25_0836o"]
 [ext_resource type="AudioStream" uid="uid://dagqlq1rdqm3m" path="res://Assets/audio/sfx/room/door_openning.wav" id="26_65aux"]
+[ext_resource type="AudioStream" uid="uid://wsac4hrpaks4" path="res://Assets/audio/sfx/atmosphere/game_over.wav" id="27_65aux"]
+[ext_resource type="AudioStream" uid="uid://bc5o7mrgi1ofm" path="res://Assets/audio/sfx/atmosphere/game_over2.wav" id="28_mxrcy"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -137,3 +139,17 @@ bus = &"SFX"
 [node name="door_opening" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("26_65aux")
 bus = &"SFX"
+
+[node name="Screen" type="Node" parent="."]
+
+[node name="game_over" type="AudioStreamPlayer" parent="Screen"]
+stream = ExtResource("27_65aux")
+bus = &"Screen"
+
+[node name="game_over2" type="AudioStreamPlayer" parent="Screen"]
+stream = ExtResource("28_mxrcy")
+bus = &"Screen"
+
+[node name="newspaper" type="AudioStreamPlayer" parent="Screen"]
+stream = ExtResource("7_1xomj")
+bus = &"Screen"

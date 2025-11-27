@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt77cukjktm04"]
+
+[ext_resource type="Script" uid="uid://bg6qcmwjyphgk" path="res://Scripts/UI/win.gd" id="1_b6vlb"]
+[ext_resource type="Texture2D" uid="uid://cof5rj3x7dbc" path="res://Assets/periodicos/8.png" id="2_o836s"]
+[ext_resource type="Texture2D" uid="uid://2jv7fqb51e0v" path="res://Assets/periodicos/periodico.png" id="3_e04vb"]
+
+[node name="win" type="Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6vlb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -62.5
+offset_right = 353.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "Karmela stayed with the victim until the emergency services arrived."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Container" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="newspaper_1" type="Sprite2D" parent="Container"]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_o836s")
+
+[node name="newspaper_2" type="Sprite2D" parent="Container"]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("3_e04vb")

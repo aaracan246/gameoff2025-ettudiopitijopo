@@ -8,6 +8,7 @@ var sounds = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4
 var vhs_enabled := true
 var sounds_map = {}
 
+var game_over: int
 
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout

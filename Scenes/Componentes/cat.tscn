@@ -39,15 +39,19 @@ disabled = true
 
 [node name="meow" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_50yu3")
+bus = &"SFX"
 
 [node name="hiss" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ch38s")
+bus = &"SFX"
 
 [node name="shake" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_nvw0t")
+bus = &"SFX"
 
 [node name="purr" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_qgkp0")
+bus = &"SFX"
 
 [node name="Gato" parent="." instance=ExtResource("6_nvw0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021394014, 2.3841858e-07, 0.013838768)
