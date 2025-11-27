@@ -670,6 +670,7 @@ texture = ExtResource("11_2wjwq")
 
 [node name="medium2" type="Sprite3D" parent="Escenario/Killers"]
 transform = Transform3D(1.9102192, 0, -0.897927, 0, 4.899997, 0, 3.8970048, 0, 0.44014248, -30.83206, 2.9568405, 20.086277)
+visible = false
 flip_h = true
 modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
 texture = ExtResource("11_2wjwq")

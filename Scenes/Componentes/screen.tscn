@@ -149,7 +149,6 @@ anchors_preset = 0
 script = ExtResource("1_6t4fl")
 
 [node name="Destktop" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 400.0
@@ -1074,6 +1073,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
 [node name="Camera" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_5aw5c")
 layout_mode = 1
 offset_right = 400.0

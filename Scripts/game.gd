@@ -49,6 +49,7 @@ signal disble_colisions
 
 @warning_ignore("unused_signal")
 signal colgar
+signal camera_glitch
 
 signal interactive_object
 var cont = 2
@@ -87,8 +88,12 @@ func _ready() -> void:
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	
-	Global.update_sounds(sounds_map)
-	Global.reproduce_sound("killer","steps")
+	await Global.update_sounds(sounds_map)
+	
+
+
+
+	door_event()
 
 	#Global.random_sound()
 	#para probar
@@ -247,9 +252,6 @@ func colgar_phone():
 			Global.random_sound()
 		timer.start(timer_duration)
 		await  timer.timeout
-		if door_open:
-			Global.game_over = 2  # Importante para saber que final es
-			game_over()
 		timer.queue_free()
 		
 		incoming_call()
@@ -479,14 +481,18 @@ func door_manager():
 
 
 func door_event():
-	await Global.reproduce_sound("killer","steps")
-	
+	emit_signal("camera_glitch")
+	await get_tree().create_timer(9).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	Global.reproduce_sound("puerta","open")
 	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 	door_open = true
+	await get_tree().create_timer(3).timeout
+	if door_open:
+		Global.game_over = 2  # Importante para saber que final es
+		game_over()
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/murder, event)
