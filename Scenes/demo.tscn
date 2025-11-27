@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=72 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -84,6 +84,11 @@ albedo_texture = ExtResource("18_mn375")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iv11p"]
 material = SubResource("StandardMaterial3D_mn375")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_q8r4w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnfmn"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_64qud"]
 
@@ -538,6 +543,9 @@ visible = false
 [node name="Map" parent="Escenario" instance=ExtResource("2_f2jw5")]
 transform = Transform3D(0.004659997, 0, -1.4999927, 0, 1.5, 0, 1.4999927, 0, 0.004659997, 29.336021, -2.4530487, -15.40611)
 
+[node name="corcho2" parent="Escenario/Map" instance=ExtResource("34_q8r4w")]
+transform = Transform3D(1.6207718, 0, -6.9849193e-10, 0, 2.473019, 0, 1.3969839e-09, 0, 0.9982123, -0.70387363, 0.09080505, -0.10441017)
+
 [node name="Mapa" parent="Escenario" instance=ExtResource("12_0ygp3")]
 transform = Transform3D(-4.35899e-08, 0, -0.99722064, 0, 0.99722064, 0, 0.99722064, 0, -4.35899e-08, 15.649042, -2.6015682, -17.4758)
 
@@ -581,20 +589,40 @@ transform = Transform3D(-7.350006e-08, -0.030259386, 0.9995421, -9.018031e-10, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7340426, -3.5765247, 6.6612234)
 
 [node name="Sprite3D" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, -5.5886803, -13.606451)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -4.0439587, -13.294213)
 texture = ExtResource("20_c1500")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D"]
+transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 2.7352276, 0)
+mesh = SubResource("TubeTrailMesh_q8r4w")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
+
 [node name="Sprite3D2" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, -1.7421398, -19.42565)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -1.7421398, -20.269447)
 texture = ExtResource("21_0ygp3")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D2"]
+transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 2.7352276, 0)
+mesh = SubResource("TubeTrailMesh_q8r4w")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
+
 [node name="Sprite3D3" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -21.957209, 0.967886, -7.7811155)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -21.95721, 3.081194, -7.7811155)
 texture = ExtResource("22_nv0j3")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D3"]
+transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 3.2181644, 0)
+mesh = SubResource("TubeTrailMesh_q8r4w")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
+
 [node name="Sprite3D4" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111654, 6.2039204, -15.444973)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, 5.2611523, -14.871769)
 texture = ExtResource("23_65jo5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D4"]
+transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 2.7352276, 0)
+mesh = SubResource("TubeTrailMesh_q8r4w")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="mesh" type="MeshInstance3D" parent="Escenario/murders"]
 transform = Transform3D(-9.696319e-07, 0, -1, 0, 19.2372, 0, 22.18259, 0, -4.371139e-08, -22.248528, 0.09080696, -14.197008)
