@@ -46,8 +46,8 @@ directories/dtl_directory={
 "evento3-4": "res://Dialogs/events/evento3-4.dtl"
 }
 layout/style_directory={}
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://dialogicStyle.tres"]
+layout/default_style="res://dialogicStyle.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -94,7 +94,7 @@ mouse_cursor/tooltip_position_offset=Vector2(36.395, 28.215)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [gui]
 

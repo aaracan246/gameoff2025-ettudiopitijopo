@@ -52,6 +52,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("2_gus5t")
 flat = true
+icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Container"]
 layout_mode = 2

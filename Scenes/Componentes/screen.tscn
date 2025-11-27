@@ -806,7 +806,7 @@ offset_bottom = 225.22198
 text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
-[node name="email_popup" type="ColorRect" parent="Destktop/popups"]
+[node name="file_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -816,13 +816,13 @@ offset_right = 300.0
 offset_bottom = 192.0
 color = Color(0.9658, 0.91680646, 0.9181592, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Destktop/popups/email_popup"]
+[node name="ColorRect2" type="ColorRect" parent="Destktop/popups/file_popup"]
 layout_mode = 0
 offset_right = 266.0
 offset_bottom = 26.0
 color = Color(0.7764706, 0.88235295, 0.88235295, 1)
 
-[node name="Name" type="Label" parent="Destktop/popups/email_popup"]
+[node name="Name" type="Label" parent="Destktop/popups/file_popup"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 11.0
@@ -832,7 +832,7 @@ offset_bottom = 25.0
 text = "Forest Rangers for Dummies"
 label_settings = SubResource("LabelSettings_ir73n")
 
-[node name="Body" type="Label" parent="Destktop/popups/email_popup"]
+[node name="Body" type="Label" parent="Destktop/popups/file_popup"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
@@ -847,13 +847,13 @@ text = "How to be a good forest ranger:
 - Survive the night"
 label_settings = SubResource("LabelSettings_ir73n")
 
-[node name="email_p" type="Button" parent="Destktop/popups/email_popup"]
+[node name="file_p" type="Button" parent="Destktop/popups/file_popup"]
 layout_mode = 0
 offset_right = 322.0
 offset_bottom = 171.0
 flat = true
 
-[node name="email_close" type="Button" parent="Destktop/popups/email_popup"]
+[node name="file_close" type="Button" parent="Destktop/popups/file_popup"]
 layout_mode = 0
 offset_left = 240.0
 offset_right = 272.5
@@ -866,7 +866,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_r56by")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v71d2")
 icon = ExtResource("13_r56by")
 
-[node name="file_popup" type="ColorRect" parent="Destktop/popups"]
+[node name="email_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
 layout_mode = 0
 offset_left = 32.0
@@ -876,13 +876,13 @@ offset_bottom = 346.0
 color = Color(0.9658, 0.91680646, 0.9181592, 1)
 metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Destktop/popups/file_popup"]
+[node name="ColorRect" type="ColorRect" parent="Destktop/popups/email_popup"]
 layout_mode = 0
 offset_right = 301.0
 offset_bottom = 26.0
 color = Color(0.7764706, 0.88235295, 0.88235295, 1)
 
-[node name="Name" type="Label" parent="Destktop/popups/file_popup"]
+[node name="Name" type="Label" parent="Destktop/popups/email_popup"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 4.0
@@ -891,7 +891,7 @@ offset_bottom = 25.0
 text = "EMAIL"
 label_settings = SubResource("LabelSettings_ir73n")
 
-[node name="Body" type="RichTextLabel" parent="Destktop/popups/file_popup"]
+[node name="Body" type="RichTextLabel" parent="Destktop/popups/email_popup"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 31.0
@@ -911,13 +911,13 @@ scroll_following_visible_characters = true
 context_menu_enabled = true
 script = ExtResource("18_6yc7f")
 
-[node name="file_p" type="Button" parent="Destktop/popups/file_popup"]
+[node name="email_p" type="Button" parent="Destktop/popups/email_popup"]
 layout_mode = 0
 offset_right = 187.0
 offset_bottom = 314.0
 flat = true
 
-[node name="file_close" type="Button" parent="Destktop/popups/file_popup"]
+[node name="email_close" type="Button" parent="Destktop/popups/email_popup"]
 layout_mode = 0
 offset_left = 273.0
 offset_right = 305.5
@@ -1106,10 +1106,10 @@ render_target_update_mode = 4
 [connection signal="pressed" from="Destktop/popups/book_popup3/book_close" to="." method="_on_book_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/book_popup4/book_p" to="." method="_on_book_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/book_popup4/book_close" to="." method="_on_book_close_pressed"]
-[connection signal="pressed" from="Destktop/popups/email_popup/email_p" to="." method="_on_email_p_pressed"]
-[connection signal="pressed" from="Destktop/popups/email_popup/email_close" to="." method="_on_email_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/file_popup/file_p" to="." method="_on_file_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/file_popup/file_close" to="." method="_on_file_close_pressed"]
+[connection signal="pressed" from="Destktop/popups/email_popup/email_p" to="." method="_on_email_p_pressed"]
+[connection signal="pressed" from="Destktop/popups/email_popup/email_close" to="." method="_on_email_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/trash_p" to="." method="_on_trash_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/trash_close" to="." method="_on_trash_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/trash_popup/music_file" to="." method="_on_music_file_pressed"]

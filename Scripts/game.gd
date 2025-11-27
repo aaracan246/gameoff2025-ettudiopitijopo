@@ -17,6 +17,8 @@ extends Node3D
 @onready var cat: StaticBody3D = $Escenario/cat
 @onready var puerta: StaticBody3D = $Escenario/puerta
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var murders: StaticBody3D = $Escenario/murders
+@onready var sofa: StaticBody3D = $Escenario/Sofa
 
 @onready var temp_camera = $deault_camera
 
@@ -43,16 +45,6 @@ var vidas = 2
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
 @export var timer_duration = 15.0
 
-signal entrada
-signal merendero1
-signal parking
-signal merendero2
-signal obras
-signal embarcadero
-signal cafe
-signal mirador
-signal descanso
-signal rescate
 
 signal disble_colisions
 
@@ -78,15 +70,18 @@ signal change_video(string:String)
 
 
 func _ready() -> void:
-	
+
 	normal_door = puerta.global_transform
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		var outline_material = get_shader(node)
 		if outline_material:
+			
 			outline_material.set_shader_parameter("size", 0.00)
 			outline_material.set_shader_parameter("color",color_shader)
+			print(node)
+			print(outline_material.get_shader_parameter("color"))
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
@@ -94,7 +89,7 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	
 	Global.update_sounds(sounds_map)
-	Global.random_sound()
+	#Global.random_sound()
 	
 	#para probar
 	win()
@@ -128,6 +123,7 @@ func _on_dialogic_signal(argument):
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
 			
+	
 	if argument == "win":
 		colgar_phone()
 		win()
@@ -180,11 +176,12 @@ func win():
 	await get_tree().create_timer(1.5).timeout
 	
 	# Animación de puerta abriéndose
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	AudioManager.door_opening.play()
-	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+	door_event()
+	#var tween = create_tween()
+	#tween.set_ease(Tween.EASE_IN_OUT)
+	#tween.set_trans(Tween.TRANS_CUBIC)
+	#Global.reproduce_sound("puerta","open")
+	#tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 	
 	# Empieza a sonar la musica de los creditos
 	AudioManager.credits.play()
@@ -326,30 +323,6 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	input_manager($Escenario/Mapa, event)
 
 
-			
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		cont = randi_range(0,9)
-		match cont:
-			0:
-				emit_signal("entrada")
-			1:
-				emit_signal("cafe")
-			2:
-				emit_signal("descanso")
-			3:
-				emit_signal("embarcadero")
-			4:
-				emit_signal("merendero1")
-			5:
-				emit_signal("merendero2")
-			6:
-				emit_signal("mirador")
-			7:
-				emit_signal("obras")
-			8:
-				emit_signal("parking")
-			9:
-				emit_signal("rescate")
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
@@ -491,3 +464,7 @@ func door_event():
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/murder, event)
+
+
+func _on_sofa_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	input_manager($Escenario/Gato, event)

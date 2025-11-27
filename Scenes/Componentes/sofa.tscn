@@ -1,23 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://b3gedxksqujxh"]
+[gd_scene load_steps=10 format=4 uid="uid://b3gedxksqujxh"]
 
 [ext_resource type="Texture2D" uid="uid://doumg8fqldgsd" path="res://Assets/3D/Sofa_sofa.png" id="1_ntp7l"]
 [ext_resource type="Texture2D" uid="uid://bcahri02gkyfc" path="res://Assets/3D/Sofa_sofa2.png" id="2_2ebp2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48vmf"]
-resource_name = "Material"
-cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
-metallic = 1.0
-emission_enabled = true
-emission_texture = ExtResource("1_ntp7l")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu5rd"]
-resource_name = "Material.001"
-cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
-metallic = 1.0
-emission_enabled = true
-emission_texture = ExtResource("2_2ebp2")
+[ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="2_nh1ug"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4f2w4"]
 _surfaces = [{
@@ -53,7 +38,6 @@ _surfaces = [{
 "index_count": 378,
 "index_data": PackedByteArray("eAB5ABEAeAATAHkAEAB4ABEAEAARABIAeQAUABEAFAASABEAeQB6ABQAegAWABQAegAVABYAEgAUABcAFwAUABgAEgAXABkAewB8AH0AewBLAHwAfgB7AH0AfAB/AH0AfACAAH8AfgB9AIEASQB/AIAAggB+AIEAfwBJAE0ATQBJAE4AfwBNAIMAfQB/AIQAgwCEAH8AfQCEAIEAhACDAEwAhABMAEcAgQCEAIUARwCFAIQAggCBAIYAgQCFAIYASgCCAIYASgCGAIcAhgCIAIcAhgCFAIgAhQBHAIkAiQBHAEYAhQCJAIoAigCIAIUARgCLAEgAiACKAEUARQCKAEQAiABFAEMAjAABAAIAjAAAAAEAAwCMAAIAAwACAI0ABAACAAEAAgCOAI0AAgAEAAYABgAEAAcAAgAGAAgAAgAIAI4ACAAFAI4ACAAJAAUAjwAMAJAAjwALAAwAkQCPAJAAkQCQAAoAkgCPAJEAkwALAI8AkgCTAI8AkwCUAAsAlQCTAJIAlgCUAJMAlQCWAJMADQCWAJUAlgAOAJQADQCXAJYAlwAOAJYAlwAPAA4AGgAbABwAGgCYABsAHQCYABoAHQAeAJgAmQBxAJoAmQBzAHEAcACZAJoAcACaAHIAHwAgACEAHwAiACAAIwAkACUAIwAmACQAJwAoACkAJwAqACgAKwAsAC0AKwAuACwALwAwADEALwAyADAAMwA0ADUAMwA2ADQAmwA5ADcAmwA4ADkAPQA+AD8APgA9AEAAQAA9AEEAPgBAAEIATwBRAJwATwBQAFEAVgBXAFgAVwBWAFkAWQBWAFoAVwBZAFsAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZQBkAGcAZwBkAGgAZQBnAGkAagBrAGwAawBqAG0AbQBqAG4AawBtAG8AdAB1AHYAdgCdAHcAngA8AJ8AngA6ADwAVACgAFUAVAChAKAAogCjAKQAogA7AKMApQBSAFMApQCmAFIA"),
 "lods": [0.45404875, PackedByteArray("AAABAAIAAwAAAAIABAACAAEAAgAFAAMAAgAEAAYABgAEAAcAAgAGAAgAAgAIAAUACAAJAAUACgALAAwADQALAAoADQAOAAsADQAPAA4AEAARABIAEAATABEAEwAUABEAFAASABEAEwAVABQAFQAWABQAEgAUABcAFwAUABgAEgAXABkAGgAbABwAHQAbABoAHQAeABsAHwAgACEAHwAiACAAIwAkACUAIwAmACQAJwAoACkAJwAqACgAKwAsAC0AKwAuACwALwAwADEALwAyADAAMwA0ADUAMwA2ADQANwA4ADkAOgA4ADcAOgA7ADgAOgA8ADsAPQA+AD8APgA9AEAAQAA9AEEAPgBAAEIAQwBEAEUAQwBGAEQAQwBHAEYARgBHAEgARwBDAEkASgBJAEMASgBLAEkASQBMAEcASQBNAEwATQBJAE4ATwBQAFEATwBRAFIATwBSAFMAVABTAFIAVABSAFUAVgBXAFgAVwBWAFkAWQBWAFoAVwBZAFsAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZQBkAGcAZwBkAGgAZQBnAGkAagBrAGwAawBqAG0AbQBqAG4AawBtAG8AcABxAHIAcABzAHEAdAB1AHYAdgB1AHcA")],
-"material": SubResource("StandardMaterial3D_48vmf"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -65,7 +49,6 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 78,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAALAAgADAANAAsADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMAJgAnACgAJwAmACkAJwApACoAKwAsAC0ALAArAC4ALAAuAC8A"),
-"material": SubResource("StandardMaterial3D_tu5rd"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -75,14 +58,39 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4f2w4")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tu1nc"]
+render_priority = 0
+shader = ExtResource("2_nh1ug")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48vmf"]
+resource_name = "Material"
+next_pass = SubResource("ShaderMaterial_tu1nc")
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_ntp7l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu5rd"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("2_2ebp2")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ntp7l"]
 size = Vector3(6.864746, 3.9117432, 1.4921265)
 
 [node name="Sofa" type="StaticBody3D"]
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_nh1ug")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_48vmf")
+surface_material_override/1 = SubResource("StandardMaterial3D_tu5rd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012939453, 1.0037231, -1.3457336)
