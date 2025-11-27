@@ -36,7 +36,7 @@ var calling = true
 var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
-#@onready var win_ui: Control = $UI/win
+@onready var win_ui: Control = $UI/win
 @onready var fade_out_ui: ColorRect = $UI/fade_out
 
 @export var size_shader = 1.02
@@ -97,10 +97,10 @@ func _ready() -> void:
 	Global.random_sound()
 	
 	#para probar
-	#win()
+	win()
 	#await get_tree().create_timer(3).timeout
-	Global.game_over = 2
-	game_over()
+	#Global.game_over = 2
+	#game_over()
 	
 	
 
@@ -124,10 +124,12 @@ func _on_dialogic_signal(argument):
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
+			colgar_phone()
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
 			
 	if argument == "win":
+		colgar_phone()
 		win()
 		
 	if argument == "colgar":
@@ -164,14 +166,18 @@ func game_over():
 	
 
 func win():
-	# Empieza a sonar la musica de los creditos
 	await get_tree().create_timer(3).timeout
-
+	
+	# Sale del zoom si lo tiene
+	switch_to_camera_smooth(actual_camera, player)
+	is_zoomed = false
+	await get_tree().create_timer(1).timeout
+	
 	# Se gira hacia la puerta
 	fade_out_ui.visible = true
 	player.positionXYZ = 2
 	player.rotation_manager()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	# Animación de puerta abriéndose
 	var tween = create_tween()
@@ -191,19 +197,16 @@ func win():
 	# Fundido a negro
 	fade_out_ui.visible = true
 	ui.fade_in()
+	lifes_ui.visible = false
 	
-	await get_tree().create_timer(3).timeout
-	
+	await get_tree().create_timer(5).timeout
 	# Pantalla de Win
-	#win_ui.visible = true
+	get_tree().change_scene_to_file("res://Scenes/UI/win.tscn")
 	
-	# Creditos
-	await get_tree().create_timer(14).timeout
-	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
 	ui.fade_out()
-	
+	fade_out_ui.visible = false
+	self.queue_free()
 
-	
 func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
