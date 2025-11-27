@@ -152,7 +152,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Header/close" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="." method="_on_master_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_master_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Music/Music_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_music_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/SFX/SFX_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_sfx_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/VHS/CheckButton" to="." method="_on_check_button_pressed"]

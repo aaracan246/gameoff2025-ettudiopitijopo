@@ -93,8 +93,8 @@ func _ready() -> void:
 	#para probar
 	#win()
 	#await get_tree().create_timer(3).timeout
-	Global.game_over = 1
-	game_over()
+	#Global.game_over = 1
+	#game_over()
 	
 	
 
