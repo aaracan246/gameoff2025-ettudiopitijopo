@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var life_lost_1: TextureRect = $MarginContainer/BoxContainer/HBoxContainer/life_1
-@onready var life_lost_2: TextureRect = $MarginContainer/BoxContainer/HBoxContainer/life_2
+@onready var life_lost_1: Sprite2D = $MarginContainer/BoxContainer/HBoxContainer/life_1
+@onready var life_lost_2: Sprite2D = $MarginContainer/BoxContainer/HBoxContainer/life_2
 const LIFE_IDLE_2 = preload("res://Assets/pc/life_idle2.png")
 const LIFE_LOST = preload("uid://bcss78ks18dp4")
 
