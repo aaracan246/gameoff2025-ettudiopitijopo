@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://cq3tykgg15qkd"]
+[gd_scene load_steps=73 format=4 uid="uid://cq3tykgg15qkd"]
 
 [ext_resource type="PackedScene" uid="uid://ct3rcan86re81" path="res://Scenes/player.tscn" id="1_nsw6b"]
 [ext_resource type="Script" uid="uid://cgge5upov1qgl" path="res://Scripts/game.gd" id="1_tcdmn"]
@@ -36,9 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="Texture2D" uid="uid://b5euh3gjukakc" path="res://Assets/periodicos/Wanted.png" id="34_5jgnt"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
+[ext_resource type="Texture2D" uid="uid://4yi2trxxpmfg" path="res://Assets/tutorial_puerta.png" id="34_qxtr8"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="Texture2D" uid="uid://bjfa231tcnasj" path="res://Assets/periodicos/kebab_only_carne.png" id="37_iico5"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
@@ -524,7 +525,7 @@ transform = Transform3D(-7.350006e-08, -0.030259386, 0.9995421, -9.018031e-10, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7340426, -3.5765247, 6.6612234)
 
 [node name="Sprite3D" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -4.0439587, -6.681093)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -4.0439587, -7.3604646)
 texture = ExtResource("20_c1500")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D"]
@@ -532,8 +533,17 @@ transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08,
 mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
+[node name="Sprite3D7" type="Sprite3D" parent="Escenario/murders"]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -22.16119, 4.859354, -19.38461)
+texture = ExtResource("34_qxtr8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D7"]
+transform = Transform3D(1, 4.371138e-08, -1.9106853e-15, 0, -4.371139e-08, -1, -4.371138e-08, 1, -4.371139e-08, 0, 5.173458, 0)
+mesh = SubResource("TubeTrailMesh_q8r4w")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
+
 [node name="Sprite3D5" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(-1.7763568e-15, 0, 1.0000001, 0, 0.3997924, 0, -0.3926793, 0, 0, -22.074854, 2.65872, -17.603706)
+transform = Transform3D(-1.7763568e-15, 0, 1.0000001, 0, 0.3997924, 0, -0.3926793, 0, 0, -22.074856, 0.13404465, -16.414423)
 texture = ExtResource("34_5jgnt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D5"]
@@ -560,7 +570,7 @@ mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="Sprite3D6" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -21.829224, -1.8206615, -10.7711115)
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -21.829224, -1.7859802, -11.943033)
 texture = ExtResource("37_iico5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D6"]
@@ -569,7 +579,7 @@ mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.187325, 5.2611523, -14.733007)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.187325, 5.2611523, -13.2300415)
 texture = ExtResource("23_65jo5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D4"]
