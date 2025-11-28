@@ -338,7 +338,7 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if event is InputEventMouseButton and event.pressed and not is_zoomed:
 		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
-		if randf() < 0.4:
+		if randf() < 0.2:
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
