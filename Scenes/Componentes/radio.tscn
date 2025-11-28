@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_bas83"]
 [ext_resource type="Script" uid="uid://cib5mqts2eecn" path="res://Scripts/radio.gd" id="1_fyv47"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="2_4u2v5"]
-[ext_resource type="VideoStream" path="res://Assets/radio ondas/video/ondas_rectas/buzz.ogv" id="2_fyv47"]
+[ext_resource type="VideoStream" uid="uid://dbc160mhkrfi3" path="res://Assets/radio ondas/video/ondas_rectas/buzz.ogv" id="2_fyv47"]
 [ext_resource type="Texture2D" uid="uid://dumfwpssgn5cb" path="res://Assets/3D/Radio_Textura radio.png" id="3_fyv47"]
 [ext_resource type="Texture2D" uid="uid://bgwm8fvtqall" path="res://Assets/Textures/Textura radio.png" id="4_5hd2e"]
 
@@ -106,7 +106,7 @@ shape = SubResource("ConvexPolygonShape3D_8y21s")
 transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.3469516, 0, 0, 0, 0.4109501, 3.564553e-08, 0, -7.1852796e-08, 0.20386866, -0.027720124, 0.31701562, 1.920075)
+transform = Transform3D(1.7, 0, 0, 0, 0.55, 1.7484555e-10, 0, -9.616505e-08, 0.001, -0.0007521212, 0.305904, 1.9141623)
 mesh = SubResource("QuadMesh_psx7p")
 surface_material_override/0 = SubResource("StandardMaterial3D_fyv47")
 
