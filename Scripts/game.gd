@@ -53,7 +53,7 @@ signal colgar
 signal camera_glitch
 
 signal interactive_object
-var cont = 1
+var cont = 0
 
 
 @onready var sounds_map = {
@@ -95,7 +95,7 @@ func _ready() -> void:
 	lifes_ui.visible = false
 	
 	#door_manager()
-	door_event()
+	#door_event()
 
 	#Global.random_sound()
 	#para probar
@@ -150,6 +150,7 @@ func _on_dialogic_signal(argument):
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
 	else:
 		emit_signal("change_video",argument)
+
 
 func game_over():
 	fade_out_ui.visible = true # Esto bloquea toda interacción del ratón
@@ -252,7 +253,7 @@ func colgar_phone():
 		calling = false
 		phone_manager()
 		phone_station.get_node("green").visible = false
-		if cont == 2:
+		if cont == 3:
 			Global.reproduce_sound("killer","steps")
 		var timer = Timer.new()
 		add_child(timer)
@@ -260,13 +261,13 @@ func colgar_phone():
 		timer.start(timer_duration)
 		timer.wait_time = timer_duration
 		await  timer.timeout
-		if cont == 0:
+		if cont == 3:
 			door_event()
 		else:
 			cont +=1
 			Global.random_sound()
 		timer.start(timer_duration)
-		await  timer.timeout
+		await timer.timeout
 		timer.queue_free()
 		
 		incoming_call()
@@ -519,6 +520,7 @@ func door_event():
 		game_over()
 	else:
 		$Escenario/Killers/medium2.visible = false
+
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	await input_manager($Escenario/murder, event)

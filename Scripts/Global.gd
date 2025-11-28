@@ -13,10 +13,10 @@ var game_over: int
 
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout
-	print(dialogos.size())
+	
 
 func next_event():
-	if dialogos.size() <= cont:
+	if dialogos.size() > cont:
 		Dialogic.start(dialogos[cont])
 		cont+=1
 

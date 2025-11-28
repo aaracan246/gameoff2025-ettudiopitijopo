@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://c1vfndw5tjdv1" path="res://Assets/pc/newPopUps/8.svg" id="17_6yc7f"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
-[ext_resource type="Script" uid="uid://xet5tnybacav" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
+[ext_resource type="Script" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
 [ext_resource type="Shader" uid="uid://cyxw6yqjsc73o" path="res://Assets/shaders/glitch.gdshader" id="22_l5hxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
@@ -325,14 +325,6 @@ offset_top = 315.0
 offset_right = 371.0
 offset_bottom = 365.0
 texture = ExtResource("9_hsj54")
-
-[node name="off_btn" type="Button" parent="Destktop/icons/off"]
-layout_mode = 0
-offset_left = 334.0
-offset_top = 328.0
-offset_right = 359.0
-offset_bottom = 352.0
-flat = true
 
 [node name="popups" type="Control" parent="Destktop"]
 anchors_preset = 0
@@ -1107,7 +1099,6 @@ render_target_update_mode = 4
 [connection signal="pressed" from="Destktop/icons/file/file_btn" to="." method="_on_file_btn_pressed"]
 [connection signal="pressed" from="Destktop/icons/trash/trash_btn" to="." method="_on_trash_btn_pressed"]
 [connection signal="pressed" from="Destktop/icons/gallery/gallery_btn" to="." method="_on_gallery_btn_pressed"]
-[connection signal="pressed" from="Destktop/icons/off/off_btn" to="." method="_on_off_btn_pressed"]
 [connection signal="pressed" from="Destktop/popups/music_popup/music_p" to="." method="_on_music_p_pressed"]
 [connection signal="pressed" from="Destktop/popups/music_popup/music_close" to="." method="_on_music_close_pressed"]
 [connection signal="pressed" from="Destktop/popups/book_popup/book_p" to="." method="_on_book_p_pressed"]

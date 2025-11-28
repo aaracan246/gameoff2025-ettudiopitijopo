@@ -125,7 +125,7 @@ func _on_book_btn_pressed() -> void:
 func _camera_glitch():
 	if !Outdoor_camera.visible:
 		_on_camera_btn_pressed()
-		
+	AudioManager.pc_alert.play()
 	var small = camera.get_node("small")
 	var medium = camera.get_node("medium")
 	var big = camera.get_node("big")
@@ -248,6 +248,3 @@ func _on_music_close_pressed() -> void:
 
 func _on_music_p_pressed() -> void:
 	music_popup.visible = true
-
-func _on_off_btn_pressed() -> void:
-	pantalla.visible = false
