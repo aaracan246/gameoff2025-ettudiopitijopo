@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=28 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -13,11 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://wjai304mf6nm" path="res://Assets/audio/sfx/desktop/phone_pickup.wav" id="11_ehvno"]
 [ext_resource type="AudioStream" uid="uid://crqef2n2cb4ps" path="res://Assets/audio/sfx/desktop/phone_down.wav" id="12_axxev"]
 [ext_resource type="AudioStream" uid="uid://piseul58f1eo" path="res://Assets/audio/sfx/desktop/phone_beep.mp3" id="12_qlx6o"]
-[ext_resource type="AudioStream" uid="uid://b6qpxhiwlat1h" path="res://Assets/audio/sfx/room/chair_1.wav" id="13_ddp6m"]
 [ext_resource type="AudioStream" uid="uid://bglidqp7qvy3g" path="res://Assets/audio/sfx/desktop/click.wav" id="13_ehvno"]
-[ext_resource type="AudioStream" uid="uid://chf25o1q40fv8" path="res://Assets/audio/sfx/room/chair_2.wav" id="14_6vio7"]
-[ext_resource type="AudioStream" uid="uid://7xvrng0ftqne" path="res://Assets/audio/sfx/room/chair_3.wav" id="15_62ok4"]
-[ext_resource type="AudioStream" uid="uid://2rw5lfgs1qq3" path="res://Assets/audio/sfx/room/chair_4.wav" id="16_blkxh"]
 [ext_resource type="AudioStream" uid="uid://bapjb5a5my263" path="res://Assets/audio/sfx/desktop/pc_alert.mp3" id="17_6vio7"]
 [ext_resource type="AudioStream" uid="uid://b2ky6papdm1os" path="res://Assets/audio/sfx/desktop/lamp_on.wav" id="18_blkxh"]
 [ext_resource type="AudioStream" uid="uid://bl5e2oojqs4k4" path="res://Assets/audio/sfx/desktop/lamp_off.wav" id="19_nqmde"]
@@ -93,22 +89,6 @@ bus = &"SFX"
 [node name="chair_roll" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_1xomj")
 volume_db = 12.404
-bus = &"SFX"
-
-[node name="chair_1" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("13_ddp6m")
-bus = &"SFX"
-
-[node name="chair_2" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("14_6vio7")
-bus = &"SFX"
-
-[node name="chair_3" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("15_62ok4")
-bus = &"SFX"
-
-[node name="chair_4" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("16_blkxh")
 bus = &"SFX"
 
 [node name="pc_alert" type="AudioStreamPlayer" parent="SFX"]
