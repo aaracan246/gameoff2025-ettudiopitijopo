@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	global_position = lerp(global_position, get_global_mouse_position(), 16.5*delta)
-	
+	cursor.scale = Vector2(0.5, 0.5)
 	if pc:
 		cursor.texture = texture_pc
 		cursor.offset = offset_pc
