@@ -47,6 +47,7 @@ func load_scene_in_background():
 		$IconoJuego.rotate(0.1)
 	# Cuando haya terminado la carga y pasado el tiempo mínimo:
 	if loaded:
+		Global.cont = 0
 		var new_scene = ResourceLoader.load_threaded_get(next_scene_path)
 		get_tree().root.call_deferred("add_child", new_scene.instantiate())
 		queue_free()  # eliminamos la pantalla de carga
