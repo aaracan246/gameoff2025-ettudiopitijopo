@@ -22,6 +22,8 @@ victima: Please, I can hear him closer. Where do I go?
 		jump Choice3
 	karmela: Okay, go to your left. You should reach the animal rescue building.
 	[signal arg="fail"]
+	victima: [shake][lspeed=-1]!!!!!!!!
+	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	jump Choice3
 - Middle path
 	[signal arg="peter_right"]
@@ -38,8 +40,7 @@ victima: Please, I can hear him closer. Where do I go?
 		jump Choice3
 	karmela: Okay, go through the middle path. You should arrive to the docks.
 	[signal arg="fail"]
-	jump Choice3
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
-	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
+	jump Choice3
 [signal arg="colgar"]

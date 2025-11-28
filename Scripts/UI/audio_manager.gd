@@ -65,5 +65,3 @@ func _stop_recursive(node: Node, bus_name: String):
 				child.stop()
 
 		_stop_recursive(child, bus_name)
-
-		

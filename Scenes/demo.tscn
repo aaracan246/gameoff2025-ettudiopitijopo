@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="Texture2D" uid="uid://b5euh3gjukakc" path="res://Assets/periodicos/Wanted.png" id="34_5jgnt"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
