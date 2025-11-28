@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt77cukjktm04"]
+[gd_scene load_steps=6 format=3 uid="uid://bt77cukjktm04"]
 
 [ext_resource type="Script" uid="uid://bg6qcmwjyphgk" path="res://Scripts/UI/win.gd" id="1_b6vlb"]
-[ext_resource type="Texture2D" uid="uid://cof5rj3x7dbc" path="res://Assets/periodicos/8.png" id="2_o836s"]
+[ext_resource type="Texture2D" uid="uid://173gtcp8kfcu" path="res://Assets/periodicos/2.png" id="1_o836s"]
+[ext_resource type="FontFile" uid="uid://eml7vef6jevt" path="res://Assets/icons/IMFellEnglishSC-Regular.ttf" id="2_e04vb"]
+[ext_resource type="Texture2D" uid="uid://dmk2pehvlv2bn" path="res://Assets/periodicos/GOOD ENDING.png" id="3_plt4t"]
 
-[node name="win" type="Control"]
-self_modulate = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_plt4t"]
+font = ExtResource("2_e04vb")
+font_size = 46
+
+[node name="Win" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,37 +29,34 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -353.0
-offset_top = -62.5
-offset_right = 353.0
-offset_bottom = 62.5
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.2962963
+anchor_right = 0.8472222
+anchor_bottom = 0.69135803
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 107
 text = "Karmela stayed with the victim until the emergency services arrived."
-horizontal_alignment = 1
-autowrap_mode = 2
-clip_text = true
+label_settings = SubResource("LabelSettings_plt4t")
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Container" type="BoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="newspaper" type="Node2D" parent="."]
+visible = false
 
-[node name="newspaper" type="Sprite2D" parent="Container"]
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("2_o836s")
+[node name="newspaper3" type="Sprite2D" parent="newspaper"]
+position = Vector2(714.99994, 321.9991)
+scale = Vector2(0.39204016, 0.39204016)
+texture = ExtResource("1_o836s")
+
+[node name="newspaper1" type="Sprite2D" parent="newspaper"]
+position = Vector2(301, 320)
+scale = Vector2(0.39226422, 0.3922642)
+texture = ExtResource("3_plt4t")
+
+[node name="newspaper2" type="Sprite2D" parent="newspaper"]
+position = Vector2(716.21875, 320.2753)
+scale = Vector2(0.39204016, 0.39204016)
+texture = ExtResource("3_plt4t")
