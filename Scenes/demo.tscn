@@ -533,16 +533,16 @@ mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="Sprite3D5" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(-1.7763568e-15, 0, 1.0000001, 0, 0.3997924, 0, -0.3926793, 0, 0, -21.648136, 2.65872, -17.603704)
+transform = Transform3D(-1.7763568e-15, 0, 1.0000001, 0, 0.3997924, 0, -0.3926793, 0, 0, -21.263638, 2.65872, -17.603704)
 texture = ExtResource("34_5jgnt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D5"]
-transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 2.7352276, 0)
+transform = Transform3D(0.8, 3.4969087e-08, -1.5285472e-15, 0, -3.4969112e-08, -0.8, -3.4969087e-08, 0.8, -3.4969112e-08, 0, 7.0418243, 0)
 mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -1.7421398, -20.269447)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, -3.4774113, -21.494034)
 texture = ExtResource("21_0ygp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D2"]
@@ -564,12 +564,12 @@ transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-
 texture = ExtResource("37_iico5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D6"]
-transform = Transform3D(0.36545616, 1.5974594e-08, -1.5974598e-08, -1.59746e-08, -1.5974596e-08, -0.36545616, -1.5974594e-08, 0.36545616, -1.5974596e-08, 0, 3.2181644, 0)
+transform = Transform3D(0.8639145, 3.1589583e-08, -3.5059074e-08, -3.776291e-08, -3.1589586e-08, -0.8020579, -3.7762895e-08, 0.72268546, -3.505907e-08, 0, 6.8250084, 0)
 mesh = SubResource("TubeTrailMesh_q8r4w")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnfmn")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Escenario/murders"]
-transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.111656, 5.2611523, -14.871769)
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -22.15864, 5.2611523, -14.871769)
 texture = ExtResource("23_65jo5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/murders/Sprite3D4"]
