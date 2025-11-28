@@ -13,11 +13,12 @@ var game_over: int
 
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout
-
+	print(dialogos.size())
 
 func next_event():
-	Dialogic.start(dialogos[cont])
-	cont+=1
+	if dialogos.size() <= cont:
+		Dialogic.start(dialogos[cont])
+		cont+=1
 
 func random_sound():
 	sounds_map["random"][randi_range(0,sounds_map["random"].size() -1) ].play()

@@ -94,7 +94,7 @@ func change_video(_name:String):
 		video_stream_player.stream = video_sounds[_name]["video"]
 		sounds.stream = video_sounds[_name]["audio"]
 		video_stream_player.play()
-		sounds.play()
+		sounds.play() 
 		if _name == "default":
 			sounds.volume_db = -10
 			red.visible = false

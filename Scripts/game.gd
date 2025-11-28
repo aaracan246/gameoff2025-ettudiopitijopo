@@ -34,7 +34,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = false
+var calling = true
 var vidas = 2
 
 @onready var lifes_ui: Control = $UI/lifes_UI
@@ -54,6 +54,8 @@ signal camera_glitch
 
 signal interactive_object
 var cont = 1
+
+
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
@@ -93,7 +95,7 @@ func _ready() -> void:
 	lifes_ui.visible = false
 	
 	#door_manager()
-	#door_event()
+	door_event()
 
 	#Global.random_sound()
 	#para probar
@@ -143,6 +145,7 @@ func _on_dialogic_signal(argument):
 		switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
 	elif argument == "pc":
 		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
+		
 	elif argument == "radio":
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)
 	else:
@@ -452,6 +455,8 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		Global.reproduce_sound("cat","purr")
 	elif event.button_mask != 1 and sounds_map["cat"]["purr"].is_playing():
 		Global.stop_sound("cat","purr")
+	elif event is InputEventMouseMotion and event.button_mask == 1:
+		Global.stop_sound("cat","purr")
 		#if randf()<1:
 			#var animacion = cat.get_node("Gato").get_node("AnimationPLayer")
 			#animacion.play("EmptyAction")
@@ -508,10 +513,12 @@ func door_event():
 	Global.reproduce_sound("puerta","open")
 	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 	door_open = true
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(4).timeout
 	if door_open:
 		Global.game_over = 2  # Importante para saber que final es
 		game_over()
+	else:
+		$Escenario/Killers/medium2.visible = false
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	await input_manager($Escenario/murder, event)
