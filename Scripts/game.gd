@@ -267,6 +267,7 @@ func colgar_phone():
 		await  timer.timeout
 		if cont == 3:
 			door_event()
+			cont +=1
 		else:
 			cont +=1
 			Global.random_sound()
