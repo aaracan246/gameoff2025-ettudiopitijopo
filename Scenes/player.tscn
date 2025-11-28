@@ -47,6 +47,7 @@ texture = ExtResource("2_cvnsp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0, -0.148)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018116325, 0, 0)
 shape = SubResource("BoxShape3D_cvnsp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left"]
