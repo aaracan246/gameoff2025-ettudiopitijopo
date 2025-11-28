@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.45882353, 0.8666667, 0.95686275, 1),
+&"color": Color(0.79198074, 0.5444336, 0.87109375, 1),
 &"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
@@ -12,9 +12,9 @@
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "Sweet grandma",
+&"display_name": "Female Ghost",
 &"mirror": false,
-&"nicknames": ["Awela"],
+&"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0

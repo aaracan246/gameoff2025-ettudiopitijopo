@@ -16,16 +16,18 @@ victima: Please, where do I go?
 	jump Choice2
 - Left
 	[signal arg="eva_right"]
-	ghosty_ghost: [wave]Go...right...
+	fem_ghost: [wave]Go...right...
 	- Confirm
 	- Choose another
 		jump Choice2
 	karmela: Okay, to the left now. You should reach the animal rescue building after a while.
 	[signal arg="fail"]
-	jump Choice2
+	victima: [shake][lspeed=-1]!!!!!!!!
+	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
+	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
 - Right
 	[signal arg="eva_right"]
-	ghosty_ghost: [wave]Go...right...
+	fem_ghost: [wave]Go...right...
 	- Confirm
 	- Choose another
 		jump Choice2

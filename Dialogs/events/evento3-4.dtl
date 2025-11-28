@@ -17,16 +17,18 @@ victima: Please, fast. Tell me what to do
 	jump Choice4
 - Left
 	[signal arg="johanna_right"]
-	ghosty_ghost: Go...right...
+	fem_ghost: Go...right...
 	- Confirm
 	- Choose another
 		jump Choice4
 	karmela: Run towards the hill viewpoint. I'll tell you more when you arrive there.
 	[signal arg="fail"]
-	jump Choice4
+	victima: [shake][lspeed=-1]!!!!!!!!
+	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
+	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
 - Right
 	[signal arg="johanna_right"]
-	ghosty_ghost: Go...right...
+	fem_ghost: Go...right...
 	- Confirm
 	- Choose another
 		jump Choice4

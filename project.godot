@@ -32,6 +32,7 @@ Global="*res://Scripts/Global.gd"
 directories/dch_directory={
 "awela": "res://Dialogs/characters/awela.dch",
 "camper": "res://Dialogs/characters/camper.dch",
+"fem_ghost": "res://Dialogs/characters/fem_ghost.dch",
 "ghosty_ghost": "res://Dialogs/characters/ghosty_ghost.dch",
 "karmela": "res://Dialogs/characters/karmela.dch",
 "victima": "res://Dialogs/characters/victima.dch",
