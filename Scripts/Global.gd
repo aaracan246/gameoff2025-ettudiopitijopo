@@ -11,6 +11,13 @@ var dead_awela:bool
 var dead_camper:bool
 var game_over: int
 
+var pin_parking =false 
+var pin_merendero =false 
+var pin_puerto =false 
+var pin_cafe =false 
+
+signal pin_active
+
 func _ready() -> void:
 	await get_tree().create_timer(10).timeout
 	
@@ -18,7 +25,9 @@ func _ready() -> void:
 func next_event():
 	if dialogos.size() > cont:
 		Dialogic.start(dialogos[cont])
-		
+		if pins[cont]:
+			set(pins[cont],true)
+			emit_signal("pin_active")
 		cont+=1
 
 func random_sound():
