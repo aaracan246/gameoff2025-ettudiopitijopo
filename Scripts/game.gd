@@ -35,7 +35,7 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 var calling = false
-var vidas = 0
+var vidas = 1
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 @onready var fade_out_ui: ColorRect = $UI/fade_out
@@ -87,8 +87,6 @@ func _ready() -> void:
 	
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
-	vidas = Dialogic.VAR.LIFES
-	print(vidas)
 	await Global.update_sounds(sounds_map)
 	
 
@@ -119,12 +117,13 @@ func _process(_delta: float) -> void:
 
 func _on_dialogic_signal(argument):
 	if argument == "fail":
-		vidas = Dialogic.VAR.LIFES
+		vidas -= 1
 		
 		if vidas == 1:
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
+			Dialogic.end_timeline()
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
 			
@@ -134,6 +133,7 @@ func _on_dialogic_signal(argument):
 		
 	if argument == "colgar":
 		colgar_phone()
+		
 	elif argument == "mapa":
 		switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
 	elif argument == "pc":
