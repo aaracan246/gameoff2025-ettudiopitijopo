@@ -94,7 +94,7 @@ skeleton = NodePath("../../mesh")
 surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
 
 [node name="pin_parking" type="Node3D" parent="."]
-transform = Transform3D(-0.113521926, -0.9935294, -0.0034593553, 0.9935292, -0.11353275, 0.0030865737, -0.0034593525, -0.003086578, 0.9999887, -1.3029675, 4.0311527, -0.0040479014)
+transform = Transform3D(-0.72625786, -0.687401, -0.0053629284, 0.687401, -0.72627485, 0.0021355315, -0.005362927, -0.0021355352, 0.99998283, -0.94280356, 4.0311527, -0.0029289878)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="pin_parking"]
 transform = Transform3D(-0.076038405, -0.48802677, -0.0010091282, 0.59909415, -0.06194671, 0.0008891394, -0.0021123632, -0.0015161431, 0.28849673, 0, 0.073269844, 0)
