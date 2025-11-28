@@ -5,7 +5,6 @@ karmela: Okay try to stay calm. Where are you exactly??
 victima: I'm in a parking lot, please send help do something he is following me
 karmela: Okay, Give me a sec while I find you on the map
 karmela: (It might be the serial killer that escaped prison the other day. Her life depends on me.)
-[wait time="3.0"]
 label Choice1
 victima: Please tell me where to go
 - Look at the map
@@ -22,7 +21,7 @@ victima: Please tell me where to go
 	jump Choice1
 - Left
 	[signal arg="nico_left"]
-	ghosty_ghost: Go...left...
+	ghosty_ghost: [wave]Go...left...
 	- Confirm
 	- Choose another
 		jump Choice1
@@ -31,11 +30,14 @@ victima: Please tell me where to go
 	victima: Okay... I'll call you back in a moment.
 - Right
 	[signal arg="nico_left"]
-	ghosty_ghost: Go...left...
+	ghosty_ghost: [wave]Go...left...
 	- Confirm
 	- Choose another
 		jump Choice1
 	karmela: Okay, to the right now. You will reach the entrance of the forest this way.
+	victima: [shake][lspeed=-1]!!!!!!!!
+	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
+	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
+	set {LIFES} -= 1.0
 	[signal arg="fail"]
-	jump Choice1
 [signal arg="colgar"]

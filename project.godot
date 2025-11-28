@@ -85,7 +85,7 @@ audio/channel_defaults={
 }
 }
 variables={
-"incoming_call": false
+"LIFES": 2
 }
 glossary/default_case_sensitive=true
 
