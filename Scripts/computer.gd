@@ -111,7 +111,7 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 
 func _on_demo_disble_colisions() -> void:
-	if node_area.collision_layer == 0:
+	if node_area.collision_layer == 0 and $"../..".is_zoomed:
 		node_area.collision_layer = 1
 	else:
 		node_area.collision_layer = 0
