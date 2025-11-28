@@ -43,9 +43,8 @@ text = "GAME OVER"
 [node name="newspaper" type="Node2D" parent="."]
 
 [node name="newspaper3" type="Sprite2D" parent="newspaper"]
-visible = false
 position = Vector2(714.99994, 321.9991)
-scale = Vector2(0.2927863, 0.29278633)
+scale = Vector2(0.39204016, 0.39204016)
 texture = ExtResource("2_w88jv")
 
 [node name="newspaper1" type="Sprite2D" parent="newspaper"]

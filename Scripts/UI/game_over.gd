@@ -73,7 +73,9 @@ func animation():
 	await get_tree().create_timer(3).timeout
 	# PASAR PAGINA
 	newspaper_1.texture = newspaper_2.texture
-	newspaper_2.texture = newspaper_3.texture
+	var tween6 = create_tween()
+	tween6.tween_property(newspaper_2, "modulate:a", 0.0, 2.0)
+	await tween6.finished
 	#var tween4 = create_tween()
 	#tween4.tween_property(newspaper_1, "texture", newspaper_2.texture, 1.0)
 	#tween4.tween_property(newspaper_2, "texture", newspaper_3.texture, 1.0)
@@ -85,7 +87,7 @@ func animation():
 	
 	var tween8 = create_tween()
 	tween8.tween_property(newspaper, "modulate:a", 0.0, 2.0)
-	
+	await tween8.finished
 	#var tween9 = create_tween()
 	#tween9.tween_property(newspaper, "modulate:a", 0.0, 2.0)
 	#await tween9.finished
