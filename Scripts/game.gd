@@ -34,8 +34,9 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
+var calling = false
 var vidas = 2
+
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 @onready var fade_out_ui: ColorRect = $UI/fade_out
@@ -333,7 +334,7 @@ func input_manager(camera:Camera3D, event: InputEvent):
 func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
 		shader_manager(radio)
-	input_manager($Escenario/Radio/Camera3D, event)
+	await input_manager($Escenario/Radio/Camera3D, event)
 
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
@@ -474,7 +475,7 @@ func _on_player_move() -> void:
 
 func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		door_manager()
+		await door_manager()
 
 
 
@@ -513,11 +514,11 @@ func door_event():
 		game_over()
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Escenario/murder, event)
+	await input_manager($Escenario/murder, event)
 
 
 func _on_sofa_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	input_manager($Escenario/Gato, event)
+	await input_manager($Escenario/Gato, event)
 	if is_zoomed:
 		var collision_cat = cat.get_node("CollisionShape3D")
 		collision_cat.disabled = false
