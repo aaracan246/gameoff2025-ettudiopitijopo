@@ -334,7 +334,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_nsw6b")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.027, -9.122, -14.581188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, -9.122, -14.581188)
 
 [node name="auricular" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(-0.30064932, -0.644006, -0.16158164, 0.5357256, -0.13050391, -0.47666442, 0.39223754, -0.31538466, 0.5271856, -1.7980514, -0.17534065, -1.4076319)

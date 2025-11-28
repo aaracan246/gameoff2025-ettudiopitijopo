@@ -103,7 +103,7 @@ transform = Transform3D(2.434029, 0, 0, 0, 0.7473945, 0, 0, 0, 1.9135255, 0, 0, 
 shape = SubResource("ConvexPolygonShape3D_8y21s")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_4u2v5")]
-transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.9014039, 4.530482)
+transform = Transform3D(1, 0, 0, 0, 0.9582827, 0.28582212, 0, -0.28582212, 0.9582827, 0, 1.3184943, 3.6237779)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.7, 0, 0, 0, 0.55, 1.7484555e-10, 0, -9.616505e-08, 0.001, -0.0007521212, 0.305904, 1.9141623)

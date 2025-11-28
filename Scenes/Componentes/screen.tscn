@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://c1vfndw5tjdv1" path="res://Assets/pc/newPopUps/8.svg" id="17_6yc7f"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
-[ext_resource type="Script" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
+[ext_resource type="Script" uid="uid://xet5tnybacav" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
 [ext_resource type="Shader" uid="uid://cyxw6yqjsc73o" path="res://Assets/shaders/glitch.gdshader" id="22_l5hxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
@@ -367,7 +367,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
 icon = ExtResource("16_er71p")
 
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
-visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 8.0
@@ -477,7 +476,6 @@ text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup2" type="ColorRect" parent="Destktop/popups"]
-visible = false
 layout_mode = 0
 offset_left = 227.00002
 offset_top = 7.0
@@ -588,7 +586,6 @@ text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup3" type="ColorRect" parent="Destktop/popups"]
-visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 177.00002
@@ -699,7 +696,6 @@ text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup4" type="ColorRect" parent="Destktop/popups"]
-visible = false
 layout_mode = 0
 offset_left = 186.0
 offset_top = 164.0
