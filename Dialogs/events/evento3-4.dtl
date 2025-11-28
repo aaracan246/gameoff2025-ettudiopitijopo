@@ -15,8 +15,8 @@ victima: Please, fast. Tell me what to do
 	[wait_input]
 	jump Choice4
 - Left
-	[signal arg="johanna_right"]
-	fem_ghost: Go...right...
+	[signal arg="johanna_left"]
+	fem_ghost: Go...leftt...
 	- Confirm
 	- Choose another
 		jump Choice4
@@ -26,8 +26,8 @@ victima: Please, fast. Tell me what to do
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
 - Right
-	[signal arg="johanna_right"]
-	fem_ghost: Go...right...
+	[signal arg="johanna_left"]
+	fem_ghost: Go...left...
 	- Confirm
 	- Choose another
 		jump Choice4
