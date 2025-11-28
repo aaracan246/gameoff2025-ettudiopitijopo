@@ -88,6 +88,9 @@ variables={
 "LIFES": 2
 }
 glossary/default_case_sensitive=true
+history/simple_history_enabled=true
+history/simple_history_save=false
+text/autocolor_names=true
 
 [display]
 
