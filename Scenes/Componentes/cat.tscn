@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://chcekd0udox06" path="res://Assets/audio/sfx/room/cat_hiss.mp3" id="3_ch38s"]
 [ext_resource type="AudioStream" uid="uid://dnmn2i8isfb6v" path="res://Assets/audio/sfx/room/cat_shake.mp3" id="4_nvw0t"]
 [ext_resource type="AudioStream" uid="uid://htn0vol76gqp" path="res://Assets/audio/sfx/room/cat_meow_purr.mp3" id="5_qgkp0"]
-[ext_resource type="PackedScene" uid="uid://do7ews2ctscxq" path="res://Assets/3D/Gato.glb" id="6_nvw0t"]
+[ext_resource type="PackedScene" uid="uid://2u4eiw3qfpni" path="res://Scenes/gato.tscn" id="6_nvw0t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nvw0t"]
 

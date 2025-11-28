@@ -264,10 +264,8 @@ func colgar_phone():
 
 func get_shader(node):
 	var shader = node.get_node("mesh")
-	if node == cat:
-		shader = node.get_node("Gato").get_node("metarig/Skeleton3D/Cylinder")
 	if shader:
-		if node == lampara or node == cat:
+		if node == lampara :
 				
 			shader = shader.get_active_material(0)
 		else:
@@ -448,6 +446,11 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		Global.reproduce_sound("cat","purr")
 	elif event.button_mask != 1 and sounds_map["cat"]["purr"].is_playing():
 		Global.stop_sound("cat","purr")
+		#if randf()<1:
+			#var animacion = cat.get_node("Gato").get_node("AnimationPLayer")
+			#animacion.play("EmptyAction")
+			#await animacion.animation_finished
+			#animacion.play("metaringAction")
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:

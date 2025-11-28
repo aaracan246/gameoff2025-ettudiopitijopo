@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://2u4eiw3qfpni"]
+
+[ext_resource type="PackedScene" uid="uid://do7ews2ctscxq" path="res://Assets/3D/Gato.glb" id="1_3mgsb"]
+
+[node name="Gato" instance=ExtResource("1_3mgsb")]
+
+[node name="Skeleton3D" parent="Empty/metarig" index="0"]
+bones/1/rotation = Quaternion(0.7757642, -0.16058536, 0.25292143, 0.5553675)
+bones/2/rotation = Quaternion(-0.11744045, -0.04300863, 0.28277314, 0.9509981)
+bones/3/rotation = Quaternion(-0.46974984, -0.1354669, 0.29410112, 0.8212723)
+bones/4/rotation = Quaternion(0.004333237, -0.22390956, 0.03778967, 0.9738674)
+bones/5/rotation = Quaternion(-0.12384303, 0.0057160207, 0.031681877, 0.9917795)
+bones/7/rotation = Quaternion(-0.014041253, -0.03602141, 0.58057076, 0.8132915)
+bones/10/rotation = Quaternion(0.49279147, -0.27930164, -0.044130757, 0.8229214)
+bones/14/rotation = Quaternion(-0.8037264, 0.26760158, 0.11839392, 0.5180696)
+bones/15/rotation = Quaternion(0.9495289, -0.13772437, -0.055213384, 0.2763667)
+bones/16/rotation = Quaternion(-0.026862904, 0.012353549, -0.09508745, 0.9950298)
+bones/18/rotation = Quaternion(-0.18688053, 0.8805401, 0.4353149, -0.015024516)
+bones/19/rotation = Quaternion(-0.81859285, -0.24133727, -0.06763612, 0.51680505)
+bones/20/rotation = Quaternion(0.9598118, 0.04600373, 0.033855796, 0.27477035)
+bones/21/rotation = Quaternion(-0.031246167, 0.041630708, 0.05058845, 0.9973622)
+bones/23/position = Vector3(6.1741906e-10, 0.023422733, 0.060433466)
+bones/25/position = Vector3(-0.0052100373, 0.049706575, -0.00737717)
+bones/25/rotation = Quaternion(-0.25457454, 0.7390035, 0.57618976, -0.2388955)
+bones/26/rotation = Quaternion(-0.46985435, 0.11857968, -0.0042746123, 0.8747329)
+bones/27/rotation = Quaternion(0.89009345, 0.042535305, -0.077175245, 0.44717842)
+bones/28/rotation = Quaternion(-0.24141333, 0.013900373, -0.0557779, 0.9687184)
+bones/31/position = Vector3(0.005210034, 0.049706597, -0.007377181)
+bones/31/rotation = Quaternion(0.25457448, 0.73900354, 0.57618976, 0.23889554)
+bones/32/rotation = Quaternion(-0.46967864, -0.11955558, 0.0040903743, 0.87469524)
+bones/33/rotation = Quaternion(0.89068246, -0.021913577, 0.06788063, 0.44899538)
+bones/34/rotation = Quaternion(-0.2414133, -0.013899948, 0.055778436, 0.96871835)
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "metarigAction"
