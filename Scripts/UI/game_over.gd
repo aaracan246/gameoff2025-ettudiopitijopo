@@ -91,4 +91,6 @@ func animation():
 	#var tween9 = create_tween()
 	#tween9.tween_property(newspaper, "modulate:a", 0.0, 2.0)
 	#await tween9.finished
+	AudioManager.stop_all_players_in_bus("music")
+	AudioManager.stop_all_players_in_bus("sfx")
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")

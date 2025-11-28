@@ -58,6 +58,8 @@ func _on_exit_btn_pressed() -> void:
 func _on_confirm_exit_confirmed() -> void:
 	get_tree().paused = false
 	pause_menu.visible = false
+	AudioManager.stop_all_players_in_bus("music")
+	AudioManager.stop_all_players_in_bus("sfx")
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
 
 func _on_confirm_exit_canceled() -> void:
