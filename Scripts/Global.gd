@@ -7,7 +7,8 @@ var dialogos = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3
 var sounds = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
 var vhs_enabled := true
 var sounds_map = {}
-
+var dead_awela:bool
+var dead_camper:bool
 var game_over: int
 
 func _ready() -> void:

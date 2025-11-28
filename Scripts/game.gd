@@ -70,6 +70,7 @@ var cont = 1
 signal change_video(string:String)
 
 
+
 func _ready() -> void:
 	normal_door = puerta.global_transform
 	for node in [map, radio, pc, phone_station, lampara, newspaper, puerta,murders,sofa]:
@@ -126,12 +127,15 @@ func _on_dialogic_signal(argument):
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
 			
-	
-	if argument == "win":
+	elif argument == "awela":
+		Global.dead_awela = true
+	elif argument == "camper":
+		Global.dead_camper = true
+	elif argument == "win":
 		win()
-	if argument == "lifes_on":
+	elif argument == "lifes_on":
 		lifes_ui.visible = true
-	if argument == "colgar":
+	elif argument == "colgar":
 		colgar_phone()
 		
 	elif argument == "mapa":
