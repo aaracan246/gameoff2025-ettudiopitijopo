@@ -147,7 +147,7 @@ alignment = 1
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Filtro VHS"
+text = "VHS Filter"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
 layout_mode = 2
