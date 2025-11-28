@@ -38,6 +38,5 @@ victima: Please tell me where to go
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
-	set {LIFES} -= 1.0
 	[signal arg="fail"]
 [signal arg="colgar"]

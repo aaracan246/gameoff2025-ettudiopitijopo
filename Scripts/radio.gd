@@ -88,6 +88,8 @@ func _ready() -> void:
 	pass
 
 func change_video(_name:String):
+	if _name not in video_sounds:
+		return 
 	if video_sounds[_name]:
 		video_stream_player.stream = video_sounds[_name]["video"]
 		sounds.stream = video_sounds[_name]["audio"]

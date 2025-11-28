@@ -54,4 +54,3 @@ stream = ExtResource("5_qgkp0")
 bus = &"SFX"
 
 [node name="Gato" parent="." instance=ExtResource("6_nvw0t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021394014, 2.3841858e-07, 0.013838768)

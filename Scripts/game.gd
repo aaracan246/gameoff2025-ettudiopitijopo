@@ -52,7 +52,7 @@ signal colgar
 signal camera_glitch
 
 signal interactive_object
-var cont = 2
+var cont = 1
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
@@ -72,7 +72,7 @@ signal change_video(string:String)
 
 func _ready() -> void:
 	normal_door = puerta.global_transform
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta,murders,sofa]:
+	for node in [map, radio, pc, phone_station, lampara, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		var outline_material = get_shader(node)
@@ -88,10 +88,9 @@ func _ready() -> void:
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	await Global.update_sounds(sounds_map)
-	
 
 
-
+	#door_manager()
 	#door_event()
 
 	#Global.random_sound()
@@ -145,14 +144,19 @@ func _on_dialogic_signal(argument):
 
 func game_over():
 	fade_out_ui.visible = true # Esto bloquea toda interacción del ratón
-	
+	Global.reproduce_sound("killer","steps")
 	await get_tree().create_timer(3).timeout
 	lifes_ui.visible = false
 	player.positionXYZ = 2
 	player.rotation_manager()
 	$Escenario/Killers/dead.visible = true
 	if !door_open:
-		door_event()
+		var tween2 = create_tween()
+		tween2.set_ease(Tween.EASE_IN_OUT)
+		tween2.set_trans(Tween.TRANS_CUBIC)
+		Global.reproduce_sound("puerta","open")
+		tween2.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+		door_open = true
 		await get_tree().create_timer(3).timeout
 		
 	Global.reproduce_sound("puerta","knock")
@@ -473,7 +477,11 @@ func door_manager():
 	if !door_open:
 		#ABRIR
 		Global.reproduce_sound("puerta","forzar")
-
+	elif !door_open and vidas < 1:
+		print("222")
+		Global.reproduce_sound("puerta","open")
+		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+		door_open = true
 	if door_open:
 		#CERRAR
 		Global.reproduce_sound("puerta","close")
