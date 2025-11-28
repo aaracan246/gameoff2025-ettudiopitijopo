@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://br8nvyl05x1p0"]
+[gd_scene load_steps=4 format=3 uid="uid://br8nvyl05x1p0"]
 
-[ext_resource type="Script" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
+[ext_resource type="Script" uid="uid://bu7eqpluas4el" path="res://Scripts/UI/lifes_ui.gd" id="1_x4s43"]
 [ext_resource type="Texture2D" uid="uid://t6h3o8jxpftk" path="res://Assets/3D/corcho_corcho.png" id="2_jbhil"]
-[ext_resource type="Texture2D" uid="uid://qc0v1df6qgnw" path="res://Assets/pc/life-idle2.svg" id="2_x4s43"]
 [ext_resource type="Texture2D" uid="uid://deqm0mxat54ee" path="res://Assets/pc/life-idle.svg" id="3_x4s43"]
 
 [node name="lifes_UI" type="Control"]
@@ -23,33 +22,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 75
-theme_override_constants/margin_top = 30
-
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(184.18544, 98.04319)
-scale = Vector2(1.3002907, 1.3002908)
-texture = ExtResource("2_jbhil")
+theme_override_constants/margin_left = 105
+theme_override_constants/margin_top = 50
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -2871
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/BoxContainer"]
+position = Vector2(117.67966, 73.57302)
+scale = Vector2(1.6991944, 1.6991944)
+texture = ExtResource("2_jbhil")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BoxContainer"]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 59
+theme_override_constants/separation = 74
 
-[node name="life_1" type="TextureRect" parent="MarginContainer/BoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("2_x4s43")
-stretch_mode = 4
-
-[node name="life_2" type="TextureRect" parent="MarginContainer/BoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
+[node name="life_1" type="Sprite2D" parent="MarginContainer/BoxContainer/HBoxContainer"]
+position = Vector2(49.145264, 72.54321)
+scale = Vector2(1.2846762, 1.2846761)
 texture = ExtResource("3_x4s43")
-stretch_mode = 4
+
+[node name="life_2" type="Sprite2D" parent="MarginContainer/BoxContainer/HBoxContainer"]
+position = Vector2(189.68947, 72.54319)
+scale = Vector2(1.2846762, 1.2846761)
+texture = ExtResource("3_x4s43")
