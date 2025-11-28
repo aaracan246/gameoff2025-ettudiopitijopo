@@ -54,7 +54,7 @@ signal camera_glitch
 
 signal interactive_object
 var cont = 0
-
+var finish = false
 
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
@@ -99,7 +99,7 @@ func _ready() -> void:
 
 	#Global.random_sound()
 	#para probar
-	#win()
+	win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 1
 	#game_over()
@@ -142,7 +142,9 @@ func _on_dialogic_signal(argument):
 		colgar_phone()
 		
 	elif argument == "mapa":
-		switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
+		await switch_to_camera_smooth(actual_camera,$Escenario/Mapa)
+		if randf()<0.2:
+			killer_boo()
 	elif argument == "pc":
 		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
 		
@@ -153,6 +155,7 @@ func _on_dialogic_signal(argument):
 
 
 func game_over():
+	finish = true
 	fade_out_ui.visible = true # Esto bloquea toda interacción del ratón
 	Global.reproduce_sound("killer","steps")
 	await get_tree().create_timer(3).timeout
@@ -195,8 +198,9 @@ func game_over():
 	
 
 func win():
+	finish = true
 	await get_tree().create_timer(3).timeout
-	
+	fade_out_ui.visible = true
 	# Sale del zoom si lo tiene
 	switch_to_camera_smooth(actual_camera, player)
 	is_zoomed = false
@@ -209,7 +213,7 @@ func win():
 	await get_tree().create_timer(1.5).timeout
 	
 	# Animación de puerta abriéndose
-	door_event()
+	await door_manager()
 	AudioManager.door_opening.play()
 	
 	# Empieza a sonar la musica de los creditos
@@ -348,18 +352,20 @@ func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
 		if randf() < 0.2:
-			var tween = create_tween()
-			tween.set_ease(Tween.EASE_IN_OUT)
-			tween.set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
-			
-			await tween.finished
-			AudioManager.killer.play()
-			var tween2 = create_tween()
-			tween2.set_ease(Tween.EASE_IN_OUT)
-			tween.set_trans(Tween.TRANS_CUBIC)
-			tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
+			killer_boo()
 
+func killer_boo():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
+			
+	await tween.finished
+	AudioManager.killer.play()
+	var tween2 = create_tween()
+	tween2.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
@@ -490,10 +496,10 @@ func door_manager():
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	#Global.reproduce_sound("puerta","open/close")he importado nuevo audio y lo he metio con el audiomanager
-	if !door_open:
+	if !door_open and !finish:
 		#ABRIR
 		Global.reproduce_sound("puerta","forzar")
-	elif !door_open and vidas < 1:
+	elif !door_open and finish:
 		print("222")
 		Global.reproduce_sound("puerta","open")
 		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
