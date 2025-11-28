@@ -1,3 +1,4 @@
+[signal arg="movement_off"]
 victima: I have arrived to the picnic area. Please, what do I do now???
 karmela: Let me check the map... You should go to...
 label Choice2
@@ -35,3 +36,4 @@ victima: Please, where do I go?
 	karmela: Call me back when you reach that place. Be careful, please.
 	victima: Okay... I'll call you in a minute.
 [signal arg="colgar"]
+[signal arg="movement_on"]

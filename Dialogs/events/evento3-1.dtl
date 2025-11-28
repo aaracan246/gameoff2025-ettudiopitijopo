@@ -1,4 +1,5 @@
 [signal arg="lifes_on"]
+[signal arg="movement_off"]
 victima: Please help! I’m being followed… please please please I need help
 karmela: What’s the matter? Who is following you?
 victima: Idk, I was at the park and suddenly I saw someone from the corner of the eye, im scared please help
@@ -41,3 +42,4 @@ victima: Please tell me where to go
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
 [signal arg="colgar"]
+[signal arg="movement_on"]

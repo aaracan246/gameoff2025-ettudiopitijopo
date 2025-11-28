@@ -25,6 +25,9 @@ extends Node3D
 @onready var phone_position = $Escenario/Phone/auricular.global_transform
 @onready var screen = $Escenario/Pc/SubViewport/pantalla
 
+@onready var right = $Player/Right
+@onready var left = $Player/Left
+
 var normal_door :Transform3D
 
 var actual_camera: Camera3D
@@ -129,7 +132,12 @@ func _on_dialogic_signal(argument):
 			Dialogic.end_timeline()
 			Global.game_over = 1 # Importante para saber que final es
 			game_over()
-			
+	elif argument == "movement_off":
+		right.visible = false
+		left.visible = false
+	elif argument == "movement_on":
+		right.visible = true
+		left.visible = true
 	elif argument == "awela":
 		Global.dead_awela = true
 	elif argument == "camper":

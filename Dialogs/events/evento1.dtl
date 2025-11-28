@@ -1,3 +1,4 @@
+[signal arg="movement_off"]
 awela: Helppp!!!! Helppp me! My little Walter is trapped
 karmela: Okay stay calm. Tell me what happened
 awela: My little Walter, he climbed up a tree and cant get down!!!!!!
@@ -13,3 +14,4 @@ karmela: Ah! Poor baby.
 	walter: miau
 audio "res://Assets/audio/sfx/desktop/phone_beep.mp3"
 [signal arg="colgar"]
+[signal arg="movement_on"]

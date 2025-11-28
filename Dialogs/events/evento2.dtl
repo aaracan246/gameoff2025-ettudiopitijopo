@@ -1,3 +1,4 @@
+[signal arg="movement_off"]
 karmela: Hi there! What can I help you with?
 camper: Hi! I was trying to check the watchtower but my car got stuck in the mud..
 karmela: Ah, yeah. We are in the rainy season and every year there are landslides in the roads of the forest.
@@ -7,3 +8,4 @@ camper: Okay, then please tell me what can I do, because I’m in the middle of 
 - Keep backtracking
 	karmela: Okay, backtrack until you reach the entrance of the forest and I’ll call for a tow truck tomorrow so you can retrieve your car
 [signal arg="colgar"]
+[signal arg="movement_on"]

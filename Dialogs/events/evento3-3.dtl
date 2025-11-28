@@ -1,3 +1,4 @@
+[signal arg="movement_off"]
 victima: Hey? I have arrived to the resting area.
 karmela: Thank god. You are getting closer now. You should go to...
 label Choice3
@@ -44,3 +45,4 @@ victima: Please, I can hear him closer. Where do I go?
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	jump Choice3
 [signal arg="colgar"]
+[signal arg="movement_on"]
