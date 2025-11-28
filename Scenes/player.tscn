@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct3rcan86re81"]
+[gd_scene load_steps=8 format=3 uid="uid://ct3rcan86re81"]
 
 [ext_resource type="Script" uid="uid://cu57r7amwj8a7" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://dq5f7k5dpduq6" path="res://Assets/arrow.svg" id="2_cvnsp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0iea"]
 size = Vector3(0.15356445, 0.1470635, 0.15216064)
@@ -34,6 +35,14 @@ transform = Transform3D(0.158, 0, 0, 0, 0.152, 0, 0, 0, 0.15, 0, 0, 0)
 mesh = SubResource("BoxMesh_v0iea")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
 
+[node name="Sprite3D" type="Sprite3D" parent="Right"]
+transform = Transform3D(0.008826219, 0, -5.820766e-10, 0, 0.09912503, 0, -3.1832315e-12, 0, 1.0017142, 0.28107637, 0, -0.35507852)
+texture = ExtResource("2_cvnsp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Right"]
+transform = Transform3D(0.008826219, 0, -5.820766e-10, 0, 0.09912503, 0, -3.1832315e-12, 0, 1.0017142, 0.30038434, 0, -0.35509303)
+texture = ExtResource("2_cvnsp")
+
 [node name="Left" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0, -0.148)
 
@@ -44,6 +53,16 @@ shape = SubResource("BoxShape3D_cvnsp")
 transform = Transform3D(0.158, 0, 0, 0, 0.152, 0, 0, 0, 0.15, 0, 0, 0)
 mesh = SubResource("BoxMesh_cvnsp")
 surface_material_override/0 = SubResource("StandardMaterial3D_v0iea")
+
+[node name="Sprite3D" type="Sprite3D" parent="Left"]
+transform = Transform3D(0.008826219, 0, -5.820766e-10, 0, 0.09912503, 0, -3.1832315e-12, 0, 1.0017142, -0.3013629, 0, -0.35507852)
+flip_h = true
+texture = ExtResource("2_cvnsp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Left"]
+transform = Transform3D(0.008826219, 0, -5.820766e-10, 0, 0.09912503, 0, -3.1832315e-12, 0, 1.0017142, -0.28205493, 0, -0.355093)
+flip_h = true
+texture = ExtResource("2_cvnsp")
 
 [node name="rotationTimer" type="Timer" parent="."]
 one_shot = true
