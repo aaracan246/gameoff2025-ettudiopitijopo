@@ -25,7 +25,7 @@ func _ready() -> void:
 func next_event():
 	if dialogos.size() > cont:
 		Dialogic.start(dialogos[cont])
-		if pins[cont]:
+		if pins.has(cont):
 			set(pins[cont],true)
 			emit_signal("pin_active")
 		cont+=1
