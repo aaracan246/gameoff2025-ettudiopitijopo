@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://csykyo4ikmj0w"]
+[gd_scene load_steps=12 format=3 uid="uid://csykyo4ikmj0w"]
 
+[ext_resource type="Script" uid="uid://dqctrhr8pbsvu" path="res://Scripts/map.gd" id="1_4aiyt"]
 [ext_resource type="Texture2D" uid="uid://hdovltx318gx" path="res://Assets/Mapa.png" id="2_n6y0p"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="3_4aiyt"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="3_so7d2"]
@@ -20,8 +21,16 @@ next_pass = SubResource("ShaderMaterial_pefh5")
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
+[sub_resource type="SphereMesh" id="SphereMesh_so7d2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4aiyt"]
+albedo_color = Color(0, 0.39999986, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_pefh5"]
+
 [node name="Map" type="StaticBody3D"]
 transform = Transform3D(0.0041939975, 0, -1.3499935, 0, 1.35, 0, 1.3499935, 0, 0.0041939975, 0, 0, 0)
+script = ExtResource("1_4aiyt")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -38,3 +47,63 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4c140")
 
 [node name="corcho" parent="." instance=ExtResource("3_4aiyt")]
 transform = Transform3D(1.6207718, 0, -6.9849193e-10, 0, 2.473019, 0, 1.3969839e-09, 0, 0.9982123, -0.70387363, 0.09080505, -0.10441017)
+
+[node name="pin_cafe" type="Node3D" parent="."]
+transform = Transform3D(0.9999999, 0, -1.3969839e-09, 0, 1, 0, 1.3969839e-09, 0, 0.9999999, -0.5298199, -2.1499798, -0.0016459815)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pin_cafe"]
+transform = Transform3D(-0.076038405, -0.48802677, -0.0010091282, 0.59909415, -0.06194671, 0.0008891394, -0.0021123632, -0.0015161431, 0.28849673, 0, 0.073269844, 0)
+mesh = SubResource("SphereMesh_so7d2")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pin_cafe"]
+transform = Transform3D(-0.048344642, -0.31028393, -0.000641597, 0.38089985, -0.03938527, 0.00056530867, -0.001343026, -0.000963953, 0.18342431, -0.40192965, 0, -0.0012486664)
+mesh = SubResource("PrismMesh_pefh5")
+skeleton = NodePath("../../mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="pin_puerto" type="Node3D" parent="."]
+transform = Transform3D(-0.4582477, -0.8888129, -0.004530307, 0.88881284, -0.45826182, 0.0027612539, -0.004530305, -0.002761257, 0.9999858, 1.7382691, 1.6821592, 0.005400247)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pin_puerto"]
+transform = Transform3D(-0.076038405, -0.48802677, -0.0010091282, 0.59909415, -0.06194671, 0.0008891394, -0.0021123632, -0.0015161431, 0.28849673, 0, 0.073269844, 0)
+mesh = SubResource("SphereMesh_so7d2")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pin_puerto"]
+transform = Transform3D(-0.048344642, -0.31028393, -0.000641597, 0.38089985, -0.03938527, 0.00056530867, -0.001343026, -0.000963953, 0.18342431, -0.40192965, 0, -0.0012486664)
+mesh = SubResource("PrismMesh_pefh5")
+skeleton = NodePath("../../mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="pin_merendero" type="Node3D" parent="."]
+transform = Transform3D(-0.1068434, -0.9942698, -0.0034386069, 0.9942697, -0.10685417, 0.0030888743, -0.0034386045, -0.0030888785, 0.9999887, 0.93775725, 4.0311527, 0.002913314)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pin_merendero"]
+transform = Transform3D(-0.076038405, -0.48802677, -0.0010091282, 0.59909415, -0.06194671, 0.0008891394, -0.0021123632, -0.0015161431, 0.28849673, 0, 0.073269844, 0)
+mesh = SubResource("SphereMesh_so7d2")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pin_merendero"]
+transform = Transform3D(-0.048344642, -0.31028393, -0.000641597, 0.38089985, -0.03938527, 0.00056530867, -0.001343026, -0.000963953, 0.18342431, -0.40192965, 0, -0.0012486664)
+mesh = SubResource("PrismMesh_pefh5")
+skeleton = NodePath("../../mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="pin_parking" type="Node3D" parent="."]
+transform = Transform3D(-0.113521926, -0.9935294, -0.0034593553, 0.9935292, -0.11353275, 0.0030865737, -0.0034593525, -0.003086578, 0.9999887, -1.3029675, 4.0311527, -0.0040479014)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pin_parking"]
+transform = Transform3D(-0.076038405, -0.48802677, -0.0010091282, 0.59909415, -0.06194671, 0.0008891394, -0.0021123632, -0.0015161431, 0.28849673, 0, 0.073269844, 0)
+mesh = SubResource("SphereMesh_so7d2")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pin_parking"]
+transform = Transform3D(-0.048344642, -0.31028393, -0.000641597, 0.38089985, -0.03938527, 0.00056530867, -0.001343026, -0.000963953, 0.18342431, -0.40192965, 0, -0.0012486664)
+mesh = SubResource("PrismMesh_pefh5")
+skeleton = NodePath("../../mesh")
+surface_material_override/0 = SubResource("StandardMaterial3D_4aiyt")
