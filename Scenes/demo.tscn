@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://d4kpru3vqxmy8" path="res://Scripts/UI/canvas_layer.gd" id="6_qwjex"]
 [ext_resource type="PackedScene" uid="uid://cuc8r1mt88ftx" path="res://Scenes/Componentes/computer.tscn" id="6_yc4g0"]
 [ext_resource type="PackedScene" uid="uid://ciwu0q5fei8fc" path="res://Scenes/Componentes/puerta.tscn" id="7_l50oi"]
-[ext_resource type="PackedScene" uid="uid://dwsdfsk1meviw" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://br8nvyl05x1p0" path="res://Scenes/UI/lifes_ui.tscn" id="7_vpp5g"]
 [ext_resource type="PackedScene" uid="uid://bpcg4cb1udhug" path="res://Scenes/UI/pause_menu.tscn" id="8_lsgl7"]
 [ext_resource type="Texture2D" uid="uid://d0tmo0ct52mqm" path="res://Assets/3D/Teléfono_Textura telefono.png" id="8_nv0j3"]
 [ext_resource type="PackedScene" uid="uid://b8sgyrmmvcyh7" path="res://Scenes/Componentes/phone.tscn" id="9_a1i4p"]
@@ -510,7 +510,7 @@ transform = Transform3D(-1.3818094e-07, 0, 2, 0, 2, 0, -3.1612113, 0, -8.742278e
 transform = Transform3D(0.344217, -5.2884577e-09, -0.93889004, 0.11359238, 0.99265426, 0.041645374, 0.9319932, -0.120985806, 0.34168848, -4.5624137, -12.107304, -27.502762)
 
 [node name="cat" parent="Escenario" instance=ExtResource("17_43er0")]
-transform = Transform3D(-0.05999375, -0.37012702, -1.4523798, -0.030206798, 1.453546, -0.36917657, 1.4984955, 0.014482301, -0.06558932, -24.723576, -18.560324, -11.0307255)
+transform = Transform3D(0.065983474, -0.04337111, 1.4979204, -0.012565717, 1.4993029, 0.043964654, -1.4984955, -0.014482251, 0.06558946, -24.723576, -18.281773, -11.0307255)
 
 [node name="Gato" parent="Escenario" instance=ExtResource("12_0ygp3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.51806, -15.903016, -10.013409)

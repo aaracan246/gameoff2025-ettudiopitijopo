@@ -88,7 +88,7 @@ func _ready() -> void:
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	await Global.update_sounds(sounds_map)
-
+	lifes_ui.visible = false
 	
 	#door_manager()
 	#door_event()
@@ -129,7 +129,8 @@ func _on_dialogic_signal(argument):
 	
 	if argument == "win":
 		win()
-		
+	if argument == "lifes_on":
+		lifes_ui.visible = true
 	if argument == "colgar":
 		colgar_phone()
 		
