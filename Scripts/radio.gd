@@ -13,10 +13,10 @@ extends StaticBody3D
 	"nico_right":{"video":TURN_RIGHT_ONDA,"audio":TURN_RIGHT_FINAL, "color":RED},
 	"nico_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":RED},
 	
-	"eva_left":{"video":GO_LEFT_GHOST,"audio":GO_LEFT_FINAL, "color":GREEN} ,
-	"eva_behind":{"video":BEHIND_YOU_GHOST,"audio":BEHIND_YOU_FINAL, "color":GREEN},
-	"eva_middle":{"video":MIDLE_PATH_GHOST,"audio":MIDDLE_PATH_FINAL, "color":GREEN},
-	"eva_right":{"video":TURN_RIGHT_GHOST,"audio":TURN_RIGHT_FINAL, "color":GREEN},
+	"eva_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":GO_LEFT_FINAL, "color":GREEN} ,
+	"eva_behind":{"video":BEHIND_YOU_GHOST_ONDA,"audio":BEHIND_YOU_FINAL, "color":GREEN},
+	"eva_middle":{"video":MIDLE_PATH_ONDA_1,"audio":MIDDLE_PATH_FINAL, "color":GREEN},
+	"eva_right":{"video":TURN_RIGHT_ONDA,"audio":TURN_RIGHT_FINAL, "color":GREEN},
 	"eva_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":GREEN},
 	
 	"johanna_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":GO_LEFT_FINAL, "color":RED} ,

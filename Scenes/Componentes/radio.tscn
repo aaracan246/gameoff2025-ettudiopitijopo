@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=4 uid="uid://b2w3amblmdkc1"]
 
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_bas83"]
-[ext_resource type="Script" path="res://Scripts/radio.gd" id="1_fyv47"]
+[ext_resource type="Script" uid="uid://cib5mqts2eecn" path="res://Scripts/radio.gd" id="1_fyv47"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="2_4u2v5"]
-[ext_resource type="VideoStream" uid="uid://dbc160mhkrfi3" path="res://Assets/radio ondas/video/ondas_rectas/buzz.ogv" id="2_fyv47"]
+[ext_resource type="VideoStream" path="res://Assets/radio ondas/video/ondas_rectas/buzz.ogv" id="2_fyv47"]
 [ext_resource type="Texture2D" uid="uid://dumfwpssgn5cb" path="res://Assets/3D/Radio_Textura radio.png" id="3_fyv47"]
 [ext_resource type="Texture2D" uid="uid://bgwm8fvtqall" path="res://Assets/Textures/Textura radio.png" id="4_5hd2e"]
 
