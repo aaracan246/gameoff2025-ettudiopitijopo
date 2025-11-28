@@ -25,21 +25,7 @@ extends StaticBody3D
 	"johanna_right":{"video":TURN_RIGHT_ONDA,"audio":TURN_RIGHT_FINAL, "color":RED},
 	"johanna_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL, "color":RED},
 	
-	"default":{"video":BUZZ_ONDA,"audio":THE_BUZZER_2__7481_KHZ__DUTCH_PIRATE},
-
-	#QUITAR ESTO CUANDO CAMBIEIS LAS SEÑALES DE LOS DIALOGOS
-	
-	"fem_left":{"video":GO_LEFT_GHOST_ONDA_1,"audio":FEM_GO_LEFT_TRUE} ,
-	"fem_behind":{"video":BEHIND_YOU_GHOST_ONDA,"audio":FEM_BEHIND_YOU_TRUE},
-	"fem_middle":{"video":MIDLE_PATH_ONDA_1,"audio":FEM_MIDDLE_PATH_TRUE},
-	"fem_right":{"video":TURN_RIGHT_ONDA,"audio":FEM_TURN_RIGHT_TRUE},
-	
-	"man_left":{"video":GO_LEFT_GHOST,"audio":GO_LEFT_FINAL} ,
-	"man_behind":{"video":BEHIND_YOU_GHOST,"audio":BEHIND_YOU_FINAL},
-	"man_middle":{"video":MIDLE_PATH_GHOST,"audio":MIDDLE_PATH_FINAL},
-	"man_right":{"video":TURN_RIGHT_GHOST,"audio":TURN_RIGHT_FINAL},
-	"man_back":{"video":TURN_BACK_GHOST,"audio":TURN_BACK_FINAL}
-	#HASTA AQUI
+	"default":{"video":BUZZ_ONDA,"audio":THE_BUZZER_2__7481_KHZ__DUTCH_PIRATE}
 }
 
 #AUDIOS

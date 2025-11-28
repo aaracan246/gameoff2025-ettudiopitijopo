@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1hktcpe4xo0b"]
+[gd_scene load_steps=32 format=3 uid="uid://c1hktcpe4xo0b"]
 
 [ext_resource type="Script" uid="uid://ctqyuedvou33j" path="res://Scripts/UI/audio_manager.gd" id="1_6nusx"]
 [ext_resource type="AudioStream" uid="uid://dhu87bav51ish" path="res://Assets/audio/music/main_menu.mp3" id="2_08g05"]
@@ -22,11 +22,15 @@
 [ext_resource type="AudioStream" uid="uid://dla4s5amsggyi" path="res://Assets/audio/sfx/desktop/windows_error.mp3" id="24_xced4"]
 [ext_resource type="AudioStream" uid="uid://bmadbyasqjdns" path="res://Assets/audio/sfx/room/door_closing.wav" id="25_0836o"]
 [ext_resource type="AudioStream" uid="uid://dagqlq1rdqm3m" path="res://Assets/audio/sfx/room/door_openning.wav" id="26_65aux"]
+[ext_resource type="AudioStream" uid="uid://mvia80erjavk" path="res://Assets/audio/sfx/room/chair_1.wav" id="26_pqdkq"]
 [ext_resource type="AudioStream" uid="uid://wsac4hrpaks4" path="res://Assets/audio/sfx/atmosphere/game_over.wav" id="27_65aux"]
+[ext_resource type="AudioStream" uid="uid://dgmh5ajbqrdu6" path="res://Assets/audio/sfx/room/chair_2.wav" id="27_hix8x"]
 [ext_resource type="AudioStream" uid="uid://blj6sq2vvs0wx" path="res://Assets/audio/sfx/horror-orchestra-warning-338415.mp3" id="27_i1dkd"]
 [ext_resource type="AudioStream" uid="uid://bke4ixpltwq2y" path="res://Assets/audio/sfx/horror-atmosphere-443138.mp3" id="27_mcuf8"]
 [ext_resource type="AudioStream" uid="uid://cqh836n7eurcl" path="res://Assets/audio/sfx/glitch_07-226603.mp3" id="27_pqdkq"]
+[ext_resource type="AudioStream" uid="uid://d16vqrg7imivj" path="res://Assets/audio/sfx/room/chair_3.wav" id="28_gr6n4"]
 [ext_resource type="AudioStream" uid="uid://bc5o7mrgi1ofm" path="res://Assets/audio/sfx/atmosphere/game_over2.wav" id="28_mxrcy"]
+[ext_resource type="AudioStream" uid="uid://be5wpnoq0wrmd" path="res://Assets/audio/sfx/room/chair_4.wav" id="29_uw048"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_6nusx")
@@ -133,6 +137,18 @@ bus = &"SFX"
 [node name="murdered" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("27_mcuf8")
 bus = &"SFX"
+
+[node name="chair_1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("26_pqdkq")
+
+[node name="chair_2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("27_hix8x")
+
+[node name="chair_3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("28_gr6n4")
+
+[node name="chair_4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("29_uw048")
 
 [node name="Screen" type="Node" parent="."]
 
