@@ -35,7 +35,7 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 var calling = false
-var vidas = 1
+var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 @onready var fade_out_ui: ColorRect = $UI/fade_out
@@ -89,7 +89,7 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	await Global.update_sounds(sounds_map)
 
-
+	
 	#door_manager()
 	#door_event()
 
@@ -158,6 +158,7 @@ func game_over():
 		tween2.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 		door_open = true
 		await get_tree().create_timer(3).timeout
+		
 		
 	Global.reproduce_sound("puerta","knock")
 	await get_tree().create_timer(1).timeout

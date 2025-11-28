@@ -35,6 +35,7 @@ victima: Please tell me where to go
 	- Choose another
 		jump Choice1
 	karmela: Okay, to the right now. You will reach the entrance of the forest this way.
+	[signal arg="fail"]
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
