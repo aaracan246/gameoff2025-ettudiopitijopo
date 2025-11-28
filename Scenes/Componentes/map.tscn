@@ -1,16 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://csykyo4ikmj0w"]
+[gd_scene load_steps=8 format=3 uid="uid://csykyo4ikmj0w"]
 
-[ext_resource type="Script" uid="uid://dqctrhr8pbsvu" path="res://Scripts/map.gd" id="1_26yhd"]
 [ext_resource type="Texture2D" uid="uid://hdovltx318gx" path="res://Assets/Mapa.png" id="2_n6y0p"]
+[ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="3_4aiyt"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="3_so7d2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcdmn"]
 size = Vector3(15.866699, 11.916931, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_ci6au"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci6au"]
-albedo_color = Color(1, 0, 0.043137256, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4aiyt"]
 
@@ -19,7 +14,6 @@ render_priority = 0
 shader = ExtResource("3_so7d2")
 shader_parameter/color = Color(1, 1, 0, 0.5529412)
 shader_parameter/size = 1.0
-shader_parameter/disable = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c140"]
 next_pass = SubResource("ShaderMaterial_pefh5")
@@ -28,7 +22,6 @@ albedo_color = Color(1, 1, 1, 0)
 
 [node name="Map" type="StaticBody3D"]
 transform = Transform3D(0.0041939975, 0, -1.3499935, 0, 1.35, 0, 1.3499935, 0, 0.0041939975, 0, 0, 0)
-script = ExtResource("1_26yhd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -38,67 +31,10 @@ texture = ExtResource("2_n6y0p")
 transform = Transform3D(0.57767683, 0, -1.2549572e-07, 0, 0.7866703, 0, 7.264316e-08, 0, 0.9985954, -1.0517435, 0.18461508, -0.0035595016)
 shape = SubResource("BoxShape3D_tcdmn")
 
-[node name="pinEntrada" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -6.183559, 3.0314276, 0.051097743)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinMerendero1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -4.0609922, -2.7115626, 0.05769182)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinParking" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -2.0302405, 4.140437, 0.06400066)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinObras" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, -1.6099991, 0.14434463, 0.0653062)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinCafe" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 1.2917906, -1.8993456, 0.07432106)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinMerendero2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 1.4974095, 3.935076, 0.074959844)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinEmbarcadero" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 2.008164, 0.96875495, 0.07654658)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinDescanso" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 3.4618511, 2.1081371, 0.08106269)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinRescate" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 5.3870025, 2.618895, 0.087043464)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
-[node name="pinMirador" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.405, 0, -3.958121e-09, 0, 0.40500015, 0, 3.958121e-09, 0, 0.405, 3.010027, -3.470906, 0.07965903)
-visible = false
-mesh = SubResource("SphereMesh_ci6au")
-surface_material_override/0 = SubResource("StandardMaterial3D_ci6au")
-
 [node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.680258, 0.014540138, 0.014540067, -0.014540136, -2.0458259e-07, 4.680281, 0.014540067, -4.6802807, 4.4966757e-05, -0.74395275, 0.07085288, -0.0023112232)
+transform = Transform3D(5.7282104, 0.014540143, 0.019457083, -0.017795807, -2.0458259e-07, 6.263015, 0.017795725, -4.6802807, 6.0173206e-05, -0.74364537, 0.07085288, -0.1011439)
 mesh = SubResource("PlaneMesh_4aiyt")
 surface_material_override/0 = SubResource("StandardMaterial3D_4c140")
+
+[node name="corcho" parent="." instance=ExtResource("3_4aiyt")]
+transform = Transform3D(1.6207718, 0, -6.9849193e-10, 0, 2.473019, 0, 1.3969839e-09, 0, 0.9982123, -0.70387363, 0.09080505, -0.10441017)

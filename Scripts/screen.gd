@@ -1,6 +1,8 @@
 extends Control
 
 @onready var camera:Camera3D =$"../../../../OutDoor"
+@onready var demo: Node3D = $"../../../.."
+
 @onready var new_camera:Camera3D = $Camera/SubViewport/Camera3D
 @onready var subviewport = $Camera/SubViewport
 @onready var destktop = $Destktop
@@ -35,14 +37,23 @@ var email_opened = false
 var disable_start = false
 signal start_events
 
+
 func _ready() -> void:
 	#camera = $"../../../../OutDoor"
+	demo.camera_glitch.connect(_camera_glitch)
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.00)
 	book.texture = texture_book
 	new_camera.global_transform = camera.global_transform
+	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+
 	#Global.screen_node = self
 	await get_tree().create_timer(2).timeout
-	
 	email_alert_event()
+
+func _on_dialogic_signal(argument):
+	if argument == "pc":
+		_on_book_btn_pressed() 
+
 
 func unlock_calls():
 
@@ -110,6 +121,36 @@ func _on_book_btn_pressed() -> void:
 		book_popup4.visible = 1
 		#Disable shader
 		book.material = null
+
+func _camera_glitch():
+	if !Outdoor_camera.visible:
+		_on_camera_btn_pressed()
+		
+	var small = camera.get_node("small")
+	var medium = camera.get_node("medium")
+	var big = camera.get_node("big")
+	var medium2 = $"../../../Killers/medium2"
+	Global.reproduce_sound("killer","steps")
+	await get_tree().create_timer(2).timeout
+	await transition_killer(small)
+	await transition_killer(medium)
+	await transition_killer(big)
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 10.0)
+	AudioManager.glitch_killer.play()
+	await get_tree().create_timer(1).timeout
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.0)
+	medium2.visible = true
+
+
+func transition_killer(node:Node):
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity",7.77)
+	AudioManager.glitch_killer.play()
+	await get_tree().create_timer(1).timeout
+	Outdoor_camera.material.set_shader_parameter("glitch_intensity", 0.0)
+	node.visible = true
+	await get_tree().create_timer(1).timeout
+	node.visible = false
+
 
 func glitch():
 	# Book Glitch

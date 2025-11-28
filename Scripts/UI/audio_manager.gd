@@ -26,6 +26,12 @@ const MAIN_MENU = preload("uid://dhu87bav51ish")
 @onready var windows_error: AudioStreamPlayer = $SFX/windows_error
 @onready var door_closing: AudioStreamPlayer = $SFX/door_closing
 @onready var door_opening: AudioStreamPlayer = $SFX/door_opening
+@onready var game_over: AudioStreamPlayer = $Screen/game_over
+@onready var game_over_2: AudioStreamPlayer = $Screen/game_over2
+@onready var newspaper: AudioStreamPlayer = $Screen/newspaper
+@onready var murdered: AudioStreamPlayer = $SFX/murdered
+@onready var killer: AudioStreamPlayer = $SFX/killer
+@onready var glitch_killer: AudioStreamPlayer = $SFX/glitch_killer
 
 
 
@@ -42,7 +48,22 @@ func fade_out(player: AudioStreamPlayer, duration) -> void:
 		player.volume_db = 0
 	)
 	
-func stop_all_sounds():
-	for child in get_children():
-		if child is AudioStreamPlayer:
-			child.stop()
+	
+# Se usa al terminar el juego para poder parar todos los audios
+# Esto es necesario porque no todos los audios están en AudioManager
+func stop_all_players_in_bus(bus_name: String):
+	_stop_recursive(get_tree().get_root(), bus_name)
+
+func _stop_recursive(node: Node, bus_name: String):
+	for child in node.get_children():
+
+		if (child is AudioStreamPlayer) \
+		or (child is AudioStreamPlayer2D) \
+		or (child is AudioStreamPlayer3D):
+
+			if child.bus == bus_name:
+				child.stop()
+
+		_stop_recursive(child, bus_name)
+
+		

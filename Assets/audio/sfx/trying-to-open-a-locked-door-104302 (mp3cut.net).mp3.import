@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7eccef8ponfj"
+path="res://.godot/imported/trying-to-open-a-locked-door-104302 (mp3cut.net).mp3-93ec1d9d9a73f11bd1fc394f58ff179f.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/sfx/trying-to-open-a-locked-door-104302 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/trying-to-open-a-locked-door-104302 (mp3cut.net).mp3-93ec1d9d9a73f11bd1fc394f58ff179f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

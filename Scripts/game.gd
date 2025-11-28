@@ -17,6 +17,8 @@ extends Node3D
 @onready var cat: StaticBody3D = $Escenario/cat
 @onready var puerta: StaticBody3D = $Escenario/puerta
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var murders: StaticBody3D = $Escenario/murders
+@onready var sofa: StaticBody3D = $Escenario/Sofa
 
 @onready var temp_camera = $deault_camera
 
@@ -32,39 +34,30 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
-var vidas = 2 
+var calling = false
+var vidas = 2
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
-#@onready var win_ui: Control = $UI/win
 @onready var fade_out_ui: ColorRect = $UI/fade_out
 
 @export var size_shader = 1.02
 @export var color_shader =  Color(1.0, 1.0, 0.0, 0.62)
 @export var timer_duration = 15.0
 
-signal entrada
-signal merendero1
-signal parking
-signal merendero2
-signal obras
-signal embarcadero
-signal cafe
-signal mirador
-signal descanso
-signal rescate
 
 signal disble_colisions
 
 @warning_ignore("unused_signal")
 signal colgar
+signal camera_glitch
 
 signal interactive_object
 var cont = 2
 @onready var sounds_map = {
 	"phone": {"ring" :phone_station.get_node("ring"),"down":phone_station.get_node("down"),"pickup":phone_station.get_node("pickup"),"beep":phone_station.get_node("beep") },
 	"cat": {"hiss":cat.get_node("hiss"),"meow":cat.get_node("meow"),"purr":cat.get_node("purr"),"shake":cat.get_node("shake")},
-	"puerta": {"open":puerta.get_node("open"),"close":puerta.get_node("close"),"forzar":puerta.get_node("forzar")},
+	"puerta": {"open":puerta.get_node("open"),"close":puerta.get_node("close"),"forzar":puerta.get_node("forzar"),"knock":puerta.get_node("knock")},
+	"killer":{"steps":$Escenario/Killers/steps},
 	"random":[cat.get_node("hiss"),cat.get_node("meow"),cat.get_node("purr"),cat.get_node("shake")],
 	
 	
@@ -78,28 +71,35 @@ signal change_video(string:String)
 
 
 func _ready() -> void:
-	
 	normal_door = puerta.global_transform
-	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta]:
+	for node in [map, radio, pc, phone_station, lampara, cat, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
 		node.mouse_exited.connect(_mouse_exited_area.bind(node))
 		var outline_material = get_shader(node)
 		if outline_material:
+			
 			outline_material.set_shader_parameter("size", 0.00)
 			outline_material.set_shader_parameter("color",color_shader)
+
 	player.current = true
 	actual_camera = player
 	Dialogic.connect("signal_event", Callable(self, "_on_dialogic_signal"))
+	
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
 	
-	Global.update_sounds(sounds_map)
-	Global.random_sound()
+	await Global.update_sounds(sounds_map)
 	
+
+
+
+	#door_event()
+
+	#Global.random_sound()
 	#para probar
 	#win()
 	#await get_tree().create_timer(3).timeout
-	#
+	#Global.game_over = 1
 	#game_over()
 	
 	
@@ -116,7 +116,7 @@ func _process(_delta: float) -> void:
 
 
 
-func _on_dialogic_signal(argument):	
+func _on_dialogic_signal(argument):
 	if argument == "fail":
 		vidas -= 1
 		
@@ -124,8 +124,10 @@ func _on_dialogic_signal(argument):
 			lifes_ui.lost_1()
 		elif vidas == 0:
 			lifes_ui.lost_2()
-			#game_over()
+			Global.game_over = 1 # Importante para saber que final es
+			game_over()
 			
+	
 	if argument == "win":
 		win()
 		
@@ -140,33 +142,59 @@ func _on_dialogic_signal(argument):
 	else:
 		emit_signal("change_video",argument)
 
-#func game_over():
-	#fade_out_ui.visible = true
-	#
-	#await get_tree().create_timer(3).timeout
-	#lifes_ui.visible = false
-	#
-	#ui.fade_in()
-	#await get_tree().create_timer(3).timeout
-	#get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
-	#ui.fade_out()
+func game_over():
+	fade_out_ui.visible = true # Esto bloquea toda interacción del ratón
 	
-	
-func win():
-	# Empieza a sonar la musica de los creditos
 	await get_tree().create_timer(3).timeout
-
-	# Se gira hacia la puerta
+	lifes_ui.visible = false
 	player.positionXYZ = 2
 	player.rotation_manager()
-	await get_tree().create_timer(3).timeout
-	
-	# Animación de puerta abriéndose
+	$Escenario/Killers/dead.visible = true
+	if !door_open:
+		door_event()
+		await get_tree().create_timer(3).timeout
+		
+	Global.reproduce_sound("puerta","knock")
+	await get_tree().create_timer(1).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Escenario/Killers/dead, "global_transform", $Escenario/Killers/dead2.global_transform, transition_duration)
+	AudioManager.murdered.play()
+	await tween.finished
+	ui.fade_in() # Efecto fundido negro
+	
+	# Sonido transición
+	AudioManager.game_over.play()
+	await get_tree().create_timer(3).timeout
+
+	# Detener TODOS los audios del juego
+	AudioManager.stop_all_players_in_bus("SFX")
+	AudioManager.stop_all_players_in_bus("Music")
+	
+	get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
+	ui.fade_out()
+	fade_out_ui.visible = false
+	self.queue_free()
+	
+
+func win():
+	await get_tree().create_timer(3).timeout
+	
+	# Sale del zoom si lo tiene
+	switch_to_camera_smooth(actual_camera, player)
+	is_zoomed = false
+	await get_tree().create_timer(1).timeout
+	
+	# Se gira hacia la puerta
+	fade_out_ui.visible = true
+	player.positionXYZ = 2
+	player.rotation_manager()
+	await get_tree().create_timer(1.5).timeout
+	
+	# Animación de puerta abriéndose
+	door_event()
 	AudioManager.door_opening.play()
-	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 	
 	# Empieza a sonar la musica de los creditos
 	AudioManager.credits.play()
@@ -179,18 +207,16 @@ func win():
 	# Fundido a negro
 	fade_out_ui.visible = true
 	ui.fade_in()
+	lifes_ui.visible = false
 	
-	await get_tree().create_timer(3).timeout
-	
+	await get_tree().create_timer(5).timeout
 	# Pantalla de Win
-	#win_ui.visible = true
+	get_tree().change_scene_to_file("res://Scenes/UI/win.tscn")
 	
-	# Creditos
-	await get_tree().create_timer(14).timeout
-	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
 	ui.fade_out()
+	fade_out_ui.visible = false
+	self.queue_free()
 
-	
 func _start_events() -> void:
 	var timer = Timer.new()
 	add_child(timer)
@@ -211,22 +237,21 @@ func colgar_phone():
 		calling = false
 		phone_manager()
 		phone_station.get_node("green").visible = false
-
+		if cont == 2:
+			Global.reproduce_sound("killer","steps")
 		var timer = Timer.new()
 		add_child(timer)
 		timer.autostart = true
 		timer.start(timer_duration)
 		timer.wait_time = timer_duration
 		await  timer.timeout
-		if cont == 2:
+		if cont == 0:
 			door_event()
 		else:
 			cont +=1
 			Global.random_sound()
 		timer.start(timer_duration)
 		await  timer.timeout
-		if door_open:
-			get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
 		timer.queue_free()
 		
 		incoming_call()
@@ -304,35 +329,23 @@ func _on_radio_input_event(_camera: Node, event: InputEvent, _event_position: Ve
 func _on_map_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
 		shader_manager(map)
+	
 	if event is InputEventMouseButton and event.pressed and not is_zoomed:
+		input_manager($Escenario/Mapa, event)
 		AudioManager.chair_roll.play()
-	input_manager($Escenario/Mapa, event)
-
-
+		if randf() < 0.4:
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small2.global_position, 1)
 			
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		cont = randi_range(0,9)
-		match cont:
-			0:
-				emit_signal("entrada")
-			1:
-				emit_signal("cafe")
-			2:
-				emit_signal("descanso")
-			3:
-				emit_signal("embarcadero")
-			4:
-				emit_signal("merendero1")
-			5:
-				emit_signal("merendero2")
-			6:
-				emit_signal("mirador")
-			7:
-				emit_signal("obras")
-			8:
-				emit_signal("parking")
-			9:
-				emit_signal("rescate")
+			await tween.finished
+			AudioManager.killer.play()
+			var tween2 = create_tween()
+			tween2.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween2.tween_property($Escenario/Map/small, "global_position", $Escenario/Map/small3.global_position, 1)
+
 
 func _on_pc_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if is_zoomed:
@@ -418,15 +431,17 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 	if is_zoomed:
 		shader_manager(cat)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
-		#sounds_map["cat"]["meow"].play()
+		Global.reproduce_sound("cat","meow")
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_LINEAR)
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
-	elif event is InputEventMouseMotion and event.button_mask == 1  :
-		sounds_map["cat"]["purr"].play()
+	elif event is InputEventMouseMotion and event.button_mask == 1 and !sounds_map["cat"]["purr"].is_playing():
+		Global.reproduce_sound("cat","purr")
+	elif event.button_mask != 1 and sounds_map["cat"]["purr"].is_playing():
+		Global.stop_sound("cat","purr")
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -463,14 +478,28 @@ func door_manager():
 		Global.reproduce_sound("puerta","close")
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
-		
+
+
 func door_event():
+	emit_signal("camera_glitch")
+	await get_tree().create_timer(9).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	Global.reproduce_sound("puerta","open")
 	tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 	door_open = true
+	await get_tree().create_timer(3).timeout
+	if door_open:
+		Global.game_over = 2  # Importante para saber que final es
+		game_over()
 
 func _on_murders_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	input_manager($Escenario/murder, event)
+
+
+func _on_sofa_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	input_manager($Escenario/Gato, event)
+	if is_zoomed:
+		var collision_cat = cat.get_node("CollisionShape3D")
+		collision_cat.disabled = false

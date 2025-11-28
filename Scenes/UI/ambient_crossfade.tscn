@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://w0hrl0r07jba"]
 
-[ext_resource type="Script" path="res://Scripts/UI/ambient_crossfade.gd" id="1_b065b"]
-[ext_resource type="AudioStream" uid="uid://b0ri6xljhgoqh" path="res://Assets/audio/music/ambient.wav" id="1_g5jxy"]
+[ext_resource type="Script" uid="uid://d24gwk1xnjw13" path="res://Scripts/UI/ambient_crossfade.gd" id="1_b065b"]
+[ext_resource type="AudioStream" uid="uid://cypykxvdfa6sk" path="res://Assets/audio/music/ambient.mp3" id="2_cuos4"]
 
 [node name="ambient_crossfade" type="Node"]
 script = ExtResource("1_b065b")
 
 [node name="ambient_a" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_g5jxy")
+stream = ExtResource("2_cuos4")
 volume_db = -20.0
 bus = &"SFX"
 
 [node name="ambient_b" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_g5jxy")
+stream = ExtResource("2_cuos4")
 volume_db = -20.0
 bus = &"SFX"
