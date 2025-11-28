@@ -35,7 +35,7 @@ var newspaper_zoom = false
 var interactive = true
 var door_open = false
 var calling = false
-var vidas = 2
+var vidas = 0
 @onready var lifes_ui: Control = $UI/lifes_UI
 @onready var ui: CanvasLayer = $UI
 @onready var fade_out_ui: ColorRect = $UI/fade_out
@@ -87,7 +87,8 @@ func _ready() -> void:
 	
 	screen.connect("start_events", Callable(self, "_start_events"))
 	emit_signal("disble_colisions")
-	
+	vidas = Dialogic.VAR.LIFES
+	print(vidas)
 	await Global.update_sounds(sounds_map)
 	
 
@@ -118,7 +119,7 @@ func _process(_delta: float) -> void:
 
 func _on_dialogic_signal(argument):
 	if argument == "fail":
-		vidas -= 1
+		vidas = Dialogic.VAR.LIFES
 		
 		if vidas == 1:
 			lifes_ui.lost_1()

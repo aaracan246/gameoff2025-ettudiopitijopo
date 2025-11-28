@@ -16,7 +16,7 @@ victima: Please, where do I go?
 	jump Choice2
 - Left
 	[signal arg="eva_right"]
-	ghosty_ghost: Go...right...
+	ghosty_ghost: [wave]Go...right...
 	- Confirm
 	- Choose another
 		jump Choice2
@@ -25,7 +25,7 @@ victima: Please, where do I go?
 	jump Choice2
 - Right
 	[signal arg="eva_right"]
-	ghosty_ghost: Go...right...
+	ghosty_ghost: [wave]Go...right...
 	- Confirm
 	- Choose another
 		jump Choice2
@@ -33,4 +33,3 @@ victima: Please, where do I go?
 	karmela: Call me back when you reach that place. Be careful, please.
 	victima: Okay... I'll call you in a minute.
 [signal arg="colgar"]
-[signal arg_type="dict" arg="{"fem_right":""}"]
