@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chs8uklp8h7x0"]
+[gd_scene load_steps=12 format=3 uid="uid://chs8uklp8h7x0"]
 
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="1_trddh"]
 [ext_resource type="AudioStream" uid="uid://cc0bo7nr88tyh" path="res://Assets/audio/sfx/room/cat_meow_final.mp3" id="2_nvw0t"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dnmn2i8isfb6v" path="res://Assets/audio/sfx/room/cat_shake.mp3" id="4_nvw0t"]
 [ext_resource type="AudioStream" uid="uid://htn0vol76gqp" path="res://Assets/audio/sfx/room/cat_meow_purr.mp3" id="5_qgkp0"]
 [ext_resource type="PackedScene" uid="uid://2u4eiw3qfpni" path="res://Scenes/gato.tscn" id="6_nvw0t"]
+[ext_resource type="AudioStream" uid="uid://cf7bd4ntesc3n" path="res://Assets/audio/sfx/room/uuiaeuuiae.mp3" id="7_qgkp0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nvw0t"]
 
@@ -54,3 +55,6 @@ stream = ExtResource("5_qgkp0")
 bus = &"SFX"
 
 [node name="Gato" parent="." instance=ExtResource("6_nvw0t")]
+
+[node name="uuiaeuuiae" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_qgkp0")

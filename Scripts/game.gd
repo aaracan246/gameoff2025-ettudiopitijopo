@@ -483,11 +483,14 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 			pass
 
 func trigger_secret_animation() -> void:
+	var secret_sound = cat.get_node_or_null("uuiaeuuiae")
 	var gato_mesh = cat.get_node_or_null("Gato")
 	if gato_mesh:
 		var anim_player = gato_mesh.get_node_or_null("AnimationPlayer") 
 		if anim_player:
 			anim_player.play("EmptyAction")
+			if secret_sound:
+				secret_sound.play()
 			await anim_player.animation_finished
 			anim_player.play("metarigAction")
 
