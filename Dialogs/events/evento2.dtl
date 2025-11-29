@@ -5,7 +5,7 @@ karmela: Ah, yeah. We are in the rainy season and every year there are landslide
 camper: Okay, then please tell me what can I do, because I’m in the middle of the forest and the Sun is setting.
 - Go through the forest
 	karmela: Okay, go through the forest to the north and you’ll find my watchtower. From here I’ll show you the way.
-	set {Global.dead_camper} = true
+	[signal arg="camper"]
 - Keep backtracking
 	karmela: Okay, backtrack until you reach the entrance of the forest and I’ll call for a tow truck tomorrow so you can retrieve your car
 [signal arg="colgar"]

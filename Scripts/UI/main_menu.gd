@@ -23,6 +23,8 @@ func _input(event: InputEvent) -> void:
 func _on_play_btn_pressed() -> void:
 	AudioManager.fade_out(AudioManager.main_menu, 2.0)
 	AudioManager.scene_transition.play()
+	Global.dead_awela = false
+	Global.dead_camper = false
 	get_tree().change_scene_to_file("res://Scenes/UI/loading.tscn")
 	
 func _on_settings_btn_pressed() -> void:

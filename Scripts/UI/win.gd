@@ -31,7 +31,7 @@ func _ready() -> void:
 		newspaper_2.texture = AWELA_GOOD_ENDING
 
 
-	if Global.dead_awela:
+	if Global.dead_camper:
 		newspaper_3.texture = CAMPER_BAD_ENDING
 	else:
 		newspaper_3.texture = CAMPER_GOOD_ENDING

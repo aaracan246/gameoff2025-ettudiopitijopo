@@ -24,14 +24,12 @@ func _ready() -> void:
 	else:
 		
 		newspaper_1.texture = GOOD_ENDING
-
 	if Global.dead_awela:
 		newspaper_2.texture = AWELA_BAD_ENDING
 	else:
 		newspaper_2.texture = AWELA_GOOD_ENDING
 
-
-	if Global.dead_awela:
+	if Global.dead_camper:
 		newspaper_3.texture = CAMPER_BAD_ENDING
 	else:
 		newspaper_3.texture = CAMPER_GOOD_ENDING

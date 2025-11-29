@@ -78,6 +78,9 @@ signal change_video(string:String)
 
 
 func _ready() -> void:
+	vidas = 2
+	Global.dead_awela = false
+	Global.dead_camper = false
 	normal_door = puerta.global_transform
 	for node in [map, radio, pc, phone_station, lampara, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
@@ -96,7 +99,6 @@ func _ready() -> void:
 	emit_signal("disble_colisions")
 	await Global.update_sounds(sounds_map)
 	lifes_ui.visible = false
-	
 	#door_manager()
 	#door_event()
 
@@ -142,6 +144,7 @@ func _on_dialogic_signal(argument):
 		Global.dead_awela = true
 	elif argument == "camper":
 		Global.dead_camper = true
+
 	elif argument == "win":
 		win()
 	elif argument == "lifes_on":
