@@ -8,11 +8,11 @@ extends Control
 const BAD_ENDING = preload("uid://fhj0ckg2m2xe")
 const GOOD_ENDING = preload("uid://dmk2pehvlv2bn")
 
-const AWELA_BAD_ENDING = preload("uid://b1aqk4qctledr")
-const AWELA_GOOD_ENDING = preload("uid://cv7itin777exy")
+const AWELA_BAD_ENDING = preload("uid://cv7itin777exy")
+const AWELA_GOOD_ENDING = preload("uid://b1aqk4qctledr")
 
-const CAMPER_BAD_ENDING = preload("uid://bllvih1ohi4pd")
-const CAMPER_GOOD_ENDING = preload("uid://dadc4gkoau3n1")
+const CAMPER_BAD_ENDING = preload("uid://dadc4gkoau3n1")
+const CAMPER_GOOD_ENDING = preload("uid://bllvih1ohi4pd")
 
 @onready var label: Label = $Label
 

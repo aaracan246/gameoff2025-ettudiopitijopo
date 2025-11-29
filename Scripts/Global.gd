@@ -7,8 +7,8 @@ var dialogos = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3
 var pins = {2:"pin_parking",3:"pin_merendero",4:"pin_puerto",5:"pin_cafe"}
 var vhs_enabled := true
 var sounds_map = {}
-var dead_awela:bool
-var dead_camper:bool
+var dead_awela:bool = false
+var dead_camper:bool = false
 var game_over: int
 
 var pin_parking =false 
