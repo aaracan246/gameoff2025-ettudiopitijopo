@@ -455,10 +455,14 @@ func newspaper_manager():
 	is_zoomed = false
 	
 
+var cat_conter = 0
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if is_zoomed:
-		shader_manager(cat)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		cat_conter +=1
+		if cat_conter == 2:
+			trigger_secret_animation()
+			cat_conter =0
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		Global.reproduce_sound("cat","meow")
 		var tween = create_tween()
@@ -467,17 +471,22 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 		is_zoomed = true
 		actual_camera = $Escenario/Gato
 		await switch_to_camera_smooth(player, actual_camera,tween)
+		
 	elif event is InputEventMouseMotion and event.button_mask == 1 and !sounds_map["cat"]["purr"].is_playing():
-		Global.reproduce_sound("cat","purr")
-	elif event.button_mask != 1 and sounds_map["cat"]["purr"].is_playing():
-		Global.stop_sound("cat","purr")
-	elif event is InputEventMouseMotion and event.button_mask == 1:
-		Global.stop_sound("cat","purr")
-		#if randf()<1:
-			#var animacion = cat.get_node("Gato").get_node("AnimationPLayer")
-			#animacion.play("EmptyAction")
-			#await animacion.animation_finished
-			#animacion.play("metaringAction")
+		if !sounds_map["cat"]["purr"].is_playing():
+			Global.reproduce_sound("cat", "purr")
+
+		elif sounds_map["cat"]["purr"].is_playing():
+			pass
+
+func trigger_secret_animation() -> void:
+	var gato_mesh = cat.get_node_or_null("Gato")
+	if gato_mesh:
+		var anim_player = gato_mesh.get_node_or_null("AnimationPlayer") 
+		if anim_player:
+			anim_player.play("EmptyAction")
+			await anim_player.animation_finished
+			anim_player.play("metarigAction")
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:

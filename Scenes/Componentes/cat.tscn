@@ -33,7 +33,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uifvk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058044434, 0.06470919, -0.5944729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058044434, 0.06470919, 0.5621629)
 shape = SubResource("BoxShape3D_uifvk")
 disabled = true
 

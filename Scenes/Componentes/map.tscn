@@ -41,12 +41,12 @@ transform = Transform3D(0.57767683, 0, -1.2549572e-07, 0, 0.7866703, 0, 7.264316
 shape = SubResource("BoxShape3D_tcdmn")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.7282104, 0.014540143, 0.019457083, -0.017795807, -2.0458259e-07, 6.263015, 0.017795725, -4.6802807, 6.0173206e-05, -0.74364537, 0.07085288, -0.1011439)
+transform = Transform3D(5.449343, 0.014540144, 0.018503945, -0.016929451, -2.0458259e-07, 5.9562116, 0.016929373, -4.6802807, 5.722553e-05, -0.7436453, 0.07085288, -0.1011439)
 mesh = SubResource("PlaneMesh_4aiyt")
 surface_material_override/0 = SubResource("StandardMaterial3D_4c140")
 
 [node name="corcho" parent="." instance=ExtResource("3_4aiyt")]
-transform = Transform3D(1.6207718, 0, -6.9849193e-10, 0, 2.473019, 0, 1.3969839e-09, 0, 0.9982123, -0.70387363, 0.09080505, -0.10441017)
+transform = Transform3D(1.50019, 0, -9.313226e-10, 0, 2.289031, 0, 1.3969839e-09, 0, 0.99798155, -0.70387363, 0.09080505, -0.10441017)
 
 [node name="pin_cafe" type="Node3D" parent="."]
 transform = Transform3D(0.9999999, 0, -1.3969839e-09, 0, 1, 0, 1.3969839e-09, 0, 0.9999999, -0.5298199, -2.1499798, -0.0016459815)
