@@ -102,10 +102,9 @@ func _ready() -> void:
 	lifes_ui.visible = false
 	#door_manager()
 	#door_event()
-	incoming_call()
 	#Global.random_sound()
 	#para probar
-	win()
+	#win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 1
 	#game_over()
