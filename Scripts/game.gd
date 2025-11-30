@@ -37,7 +37,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = true
+var calling = false
 var vidas = 2
 
 @onready var lifes_ui: Control = $UI/lifes_UI
