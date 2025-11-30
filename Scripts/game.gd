@@ -36,7 +36,7 @@ var is_moving = false
 var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
-var door_open = true
+var door_open = false
 var calling = false
 var vidas = 2
 
@@ -100,7 +100,7 @@ func _ready() -> void:
 	await Global.update_sounds(sounds_map)
 	lifes_ui.visible = false
 	#door_manager()
-	door_event()
+	#door_event()
 
 	#Global.random_sound()
 	#para probar
