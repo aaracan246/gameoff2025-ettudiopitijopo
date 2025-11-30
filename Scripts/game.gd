@@ -469,7 +469,7 @@ func newspaper_manager():
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if randf() < 0.5:
+		if randf() < 0.05:
 			trigger_secret_animation()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		Global.reproduce_sound("cat","meow")
