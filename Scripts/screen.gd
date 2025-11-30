@@ -53,6 +53,8 @@ func _ready() -> void:
 func _on_dialogic_signal(argument):
 	if argument == "pc":
 		_on_book_btn_pressed() 
+		if Outdoor_camera.visible:
+			_on_exit_pressed()
 
 
 func unlock_calls():
