@@ -20,7 +20,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.34117648)
+color = Color(0, 0, 0, 0.48235294)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_top = 116.09
+offset_right = 120.5
+offset_bottom = 181.09006
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Pause menu"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.49
+offset_top = 387.35
+offset_right = 382.49
+offset_bottom = 510.35
+theme_override_font_sizes/font_size = 30
+text = "- LMB : Interact
+- RMB : Return
+- P : Pause Game"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,28 +53,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -64.0
-offset_right = 48.0
-offset_bottom = 64.0
+offset_left = -147.25
+offset_top = -74.5
+offset_right = 147.25
+offset_bottom = 74.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Pause menu"
+theme_override_constants/separation = 5
 
 [node name="resume_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "resume"
+theme_override_font_sizes/font_size = 30
+text = "Resume"
 
 [node name="settings_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "settings"
+theme_override_font_sizes/font_size = 30
+text = "Rettings"
 
 [node name="exit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "exit"
+theme_override_font_sizes/font_size = 30
+text = "Exit"
 
 [node name="confirm_exit" type="ConfirmationDialog" parent="."]
 oversampling_override = 1.0

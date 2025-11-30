@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://q3y1rsuyeork" path="res://Scripts/UI/settings.gd" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://c2rlmyw4p6t3x" path="res://Assets/icons/close.png" id="2_gus5t"]
 [ext_resource type="Texture2D" uid="uid://b61q8sp1xmxxq" path="res://Assets/icons/settings/FullVolume_W.png" id="3_lqryc"]
-[ext_resource type="Script" path="res://Scripts/UI/volume.gd" id="3_vrd41"]
+[ext_resource type="Script" uid="uid://dktf1maebbf16" path="res://Scripts/UI/volume.gd" id="3_vrd41"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
@@ -170,6 +170,17 @@ popup/item_1/text = "FullScreen"
 popup/item_1/id = 1
 popup/item_2/text = "Exclusive Fullscrenn"
 popup/item_2/id = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.49
+offset_top = 387.35
+offset_right = 382.49
+offset_bottom = 510.35
+theme_override_font_sizes/font_size = 30
+text = "- LMB : Interact
+- RMB : Return
+- P : Pause Game"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Header/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_master_btn_pressed"]
