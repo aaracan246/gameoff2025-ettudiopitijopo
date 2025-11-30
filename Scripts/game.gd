@@ -36,7 +36,7 @@ var is_moving = false
 var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
-var door_open = false
+var door_open = true
 var calling = false
 var vidas = 2
 
@@ -100,7 +100,7 @@ func _ready() -> void:
 	await Global.update_sounds(sounds_map)
 	lifes_ui.visible = false
 	#door_manager()
-	#door_event()
+	door_event()
 
 	#Global.random_sound()
 	#para probar
@@ -465,12 +465,8 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 			trigger_secret_animation()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		Global.reproduce_sound("cat","meow")
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_trans(Tween.TRANS_LINEAR)
-		is_zoomed = true
-		actual_camera = $Escenario/Gato
-		await switch_to_camera_smooth(player, actual_camera,tween)
+
+
 		
 	elif event is InputEventMouseMotion and event.button_mask == 1 and !sounds_map["cat"]["purr"].is_playing():
 		if !sounds_map["cat"]["purr"].is_playing():
@@ -513,20 +509,24 @@ func _on_puerta_input_event(_camera: Node, event: InputEvent, _event_position: V
 
 
 func door_manager():
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
+	
 	#Global.reproduce_sound("puerta","open/close")he importado nuevo audio y lo he metio con el audiomanager
 	if !door_open and !finish:
-		#ABRIR
+		#FORZAR
 		Global.reproduce_sound("puerta","forzar")
 	elif !door_open and finish:
-		print("222")
+		#ABRIR
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
 		Global.reproduce_sound("puerta","open")
 		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
 		door_open = true
 	if door_open:
 		#CERRAR
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
 		Global.reproduce_sound("puerta","close")
 		tween.tween_property(puerta, "global_transform",normal_door, transition_duration * 3)
 		door_open = false
