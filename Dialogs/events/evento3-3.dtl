@@ -7,15 +7,8 @@ victima: Please, I can hear him closer. Where do I go?
 	[signal arg="mapa"]
 	[wait_input]
 	jump Choice3
-- Look at the computer
-	[signal arg="pc"]
-	[wait_input]
-	jump Choice3
-- Look at the radio
-	[signal arg="radio"]
-	[wait_input]
-	jump Choice3
-- Left
+- Go left
+	[signal arg="pc_radio"]
 	[signal arg="peter_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
@@ -26,14 +19,15 @@ victima: Please, I can hear him closer. Where do I go?
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	jump Choice3
-- Middle path
+- Go straight
+	[signal arg="pc_radio"]
 	[signal arg="peter_right"]
 	ghosty_ghost: Go...right...
 	- Confirm
 	- Choose another
 		jump Choice3
 	karmela: Okay, go through the middle path. You should reach the cafeteria this way. Go through the bridge.
-- Right
+- Go right
 	[signal arg="peter_right"]
 	ghosty_ghost: Go...right...
 	- Confirm

@@ -7,15 +7,8 @@ victima: Please, where do I go?
 	[signal arg="mapa"]
 	[wait_input]
 	jump Choice2
-- Look at the computer
-	[signal arg="pc"]
-	[wait_input]
-	jump Choice2
-- Look at the radio
-	[signal arg="radio"]
-	[wait_input]
-	jump Choice2
-- Left
+- Go left
+	[signal arg="pc_radio"]
 	[signal arg="eva_right"]
 	fem_ghost: [wave]Go...right...
 	- Confirm
@@ -26,7 +19,8 @@ victima: Please, where do I go?
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
 	karmela: GO THE OTHER WAY.[lspeed=-1]FAST!!
-- Right
+- Go right
+	[signal arg="pc_radio"]
 	[signal arg="eva_right"]
 	fem_ghost: [wave]Go...right...
 	- Confirm
