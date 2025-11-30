@@ -37,7 +37,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = false
+@export var calling = false
 var vidas = 2
 
 @onready var lifes_ui: Control = $UI/lifes_UI
@@ -102,10 +102,10 @@ func _ready() -> void:
 	lifes_ui.visible = false
 	#door_manager()
 	#door_event()
-
+	incoming_call()
 	#Global.random_sound()
 	#para probar
-	#win()
+	win()
 	#await get_tree().create_timer(3).timeout
 	#Global.game_over = 1
 	#game_over()
@@ -241,8 +241,7 @@ func win():
 	
 	# Se silencia el bus de los efectos
 	await get_tree().create_timer(2).timeout
-	var sfx = AudioServer.get_bus_index("SFX")
-	AudioServer.set_bus_mute(sfx, true)
+	AudioManager.stop_all_players_in_bus("SFX")
 	
 	# Fundido a negro
 	fade_out_ui.visible = true
@@ -264,7 +263,6 @@ func _start_events() -> void:
 	await  timer.timeout
 	timer.queue_free()
 	incoming_call()
-
 
 func incoming_call():
 	if !phone.visible:

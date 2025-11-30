@@ -5,14 +5,14 @@ extends Control
 @onready var newspaper_3: Sprite2D = $newspaper/newspaper3
 @onready var newspaper: Node = $newspaper
 
-const BAD_ENDING = preload("uid://fhj0ckg2m2xe")
-const GOOD_ENDING = preload("uid://dmk2pehvlv2bn")
+const BAD_ENDING = preload("res://Assets/periodicos/BAD ENDING.png" )
+const GOOD_ENDING = preload("res://Assets/periodicos/GOOD ENDING.png")
 
-const AWELA_BAD_ENDING = preload("uid://b1aqk4qctledr")
-const AWELA_GOOD_ENDING = preload("uid://cv7itin777exy")
+const AWELA_BAD_ENDING = preload("res://Assets/periodicos/AWELA BAD ENDING.png")
+const AWELA_GOOD_ENDING = preload("res://Assets/periodicos/AWELA GOOD ENDING.png")
 
-const CAMPER_BAD_ENDING = preload("uid://bllvih1ohi4pd")
-const CAMPER_GOOD_ENDING = preload("uid://dadc4gkoau3n1")
+const CAMPER_BAD_ENDING = preload("res://Assets/periodicos/CAMPER BAD ENDING.png")
+const CAMPER_GOOD_ENDING = preload("res://Assets/periodicos/CAMPER GOOD ENDING.png")
 
 @onready var label: Label = $Label
 
