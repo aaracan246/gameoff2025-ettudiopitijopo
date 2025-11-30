@@ -170,6 +170,7 @@ func glitch():
 	bring_to_front(email_popup)
 	AudioManager.windows_error.play()
 	
+	await get_tree().create_timer(0.1).timeout
 
 	bring_to_front(gallery_popup)
 	AudioManager.windows_error.play()
