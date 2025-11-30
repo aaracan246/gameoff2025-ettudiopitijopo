@@ -368,6 +368,7 @@ icon = ExtResource("16_er71p")
 
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = 4.0
 offset_top = 8.0
@@ -478,6 +479,7 @@ label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup2" type="ColorRect" parent="Destktop/popups"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = 227.00002
 offset_top = 7.0
@@ -589,6 +591,7 @@ label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup3" type="ColorRect" parent="Destktop/popups"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = 21.0
 offset_top = 177.00002
@@ -700,6 +703,7 @@ label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup4" type="ColorRect" parent="Destktop/popups"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = 186.0
 offset_top = 164.0
