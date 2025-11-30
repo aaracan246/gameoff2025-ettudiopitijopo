@@ -469,7 +469,7 @@ func newspaper_manager():
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if randf() < 0.05:
+		if randf() < 0.5:
 			trigger_secret_animation()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		Global.reproduce_sound("cat","meow")
@@ -486,6 +486,10 @@ func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vect
 func trigger_secret_animation() -> void:
 	var secret_sound = cat.get_node_or_null("uuiaeuuiae")
 	var gato_mesh = cat.get_node_or_null("Gato")
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(cat, "global_position",cat.global_position + Vector3(0,1.5,0), transition_duration)
 	if gato_mesh:
 		var anim_player = gato_mesh.get_node_or_null("AnimationPlayer") 
 		if anim_player:
@@ -494,6 +498,10 @@ func trigger_secret_animation() -> void:
 				secret_sound.play()
 			await anim_player.animation_finished
 			anim_player.play("metarigAction")
+	var tween2 = create_tween()
+	tween2.set_ease(Tween.EASE_IN_OUT)
+	tween2.set_trans(Tween.TRANS_CUBIC)
+	tween2.tween_property(cat, "global_position",cat.global_position + Vector3(0,-1.5,0), transition_duration)
 
 
 func _on_lampara_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
