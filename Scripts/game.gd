@@ -81,6 +81,7 @@ func _ready() -> void:
 	vidas = 2
 	Global.dead_awela = false
 	Global.dead_camper = false
+	
 	normal_door = puerta.global_transform
 	for node in [map, radio, pc, phone_station, lampara, newspaper, puerta,murders,sofa]:
 		node.mouse_entered.connect(_mouse_entered_area.bind(node))
@@ -144,7 +145,6 @@ func _on_dialogic_signal(argument):
 		Global.dead_awela = true
 	elif argument == "camper":
 		Global.dead_camper = true
-
 	elif argument == "win":
 		win()
 	elif argument == "lifes_on":
@@ -170,6 +170,8 @@ func _on_dialogic_signal(argument):
 func game_over():
 	finish = true
 	fade_out_ui.visible = true # Esto bloquea toda interacción del ratón
+	switch_to_camera_smooth(actual_camera, player)
+
 	Global.reproduce_sound("killer","steps")
 	await get_tree().create_timer(3).timeout
 	lifes_ui.visible = false
@@ -216,7 +218,6 @@ func win():
 	fade_out_ui.visible = true
 	# Sale del zoom si lo tiene
 	switch_to_camera_smooth(actual_camera, player)
-	is_zoomed = false
 	await get_tree().create_timer(1).timeout
 	
 	# Se gira hacia la puerta
@@ -226,8 +227,14 @@ func win():
 	await get_tree().create_timer(1.5).timeout
 	
 	# Animación de puerta abriéndose
-	await door_manager()
-	AudioManager.door_opening.play()
+	if !door_open:
+		var tween2 = create_tween()
+		tween2.set_ease(Tween.EASE_IN_OUT)
+		tween2.set_trans(Tween.TRANS_CUBIC)
+		Global.reproduce_sound("puerta","open")
+		tween2.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+		door_open = true
+		await get_tree().create_timer(3).timeout
 	
 	# Empieza a sonar la musica de los creditos
 	AudioManager.credits.play()
@@ -260,6 +267,8 @@ func _start_events() -> void:
 
 
 func incoming_call():
+	if !phone.visible:
+		phone_manager()
 	phone_station.get_node("green").visible = true
 	Global.reproduce_sound("phone","ring")
 	calling = true
@@ -518,11 +527,12 @@ func door_manager():
 		Global.reproduce_sound("puerta","forzar")
 	elif !door_open and finish:
 		#ABRIR
+		print(333)
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
 		Global.reproduce_sound("puerta","open")
-		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration * 3 )
+		tween.tween_property(puerta, "global_transform",$Escenario/puerta2.global_transform, transition_duration  )
 		door_open = true
 	if door_open:
 		#CERRAR
