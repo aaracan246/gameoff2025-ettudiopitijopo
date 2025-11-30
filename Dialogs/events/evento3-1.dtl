@@ -26,6 +26,7 @@ victima: Please tell me where to go
 	[wait_input]
 	jump Choice1
 - Left
+	[signal arg="pc_radio"]
 	[signal arg="nico_left"]
 	ghosty_ghost: [wave]Go...left...
 	- Confirm
@@ -35,6 +36,7 @@ victima: Please tell me where to go
 	karmela: Please call me back when you arrive there.
 	victima: Okay... I'll call you back in a moment.
 - Right
+	[signal arg="pc_radio"]
 	[signal arg="nico_left"]
 	ghosty_ghost: [wave]Go...left...
 	- Confirm
