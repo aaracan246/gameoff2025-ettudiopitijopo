@@ -458,14 +458,11 @@ func newspaper_manager():
 	is_zoomed = false
 	
 
-var cat_conter = 0
 
 func _on_cat_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		cat_conter +=1
-		if cat_conter == 2:
+		if randf() < 0.1:
 			trigger_secret_animation()
-			cat_conter =0
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and !is_moving and !is_zoomed:
 		Global.reproduce_sound("cat","meow")
 		var tween = create_tween()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://q3y1rsuyeork" path="res://Scripts/UI/settings.gd" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://c2rlmyw4p6t3x" path="res://Assets/icons/close.png" id="2_gus5t"]
 [ext_resource type="Texture2D" uid="uid://b61q8sp1xmxxq" path="res://Assets/icons/settings/FullVolume_W.png" id="3_lqryc"]
-[ext_resource type="Script" uid="uid://dktf1maebbf16" path="res://Scripts/UI/volume.gd" id="3_vrd41"]
+[ext_resource type="Script" path="res://Scripts/UI/volume.gd" id="3_vrd41"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
@@ -154,8 +154,26 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="screen" type="Label" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Display Mode"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/Container/HBoxContainer/VHS"]
+layout_mode = 2
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Window"
+popup/item_0/id = 0
+popup/item_1/text = "FullScreen"
+popup/item_1/id = 1
+popup/item_2/text = "Exclusive Fullscrenn"
+popup/item_2/id = 2
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/Header/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Master/Master_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_master_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/Music/Music_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_music_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/Volume/SFX/SFX_btn" to="PanelContainer/MarginContainer/Container/HBoxContainer/Volume" method="_on_sfx_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Container/HBoxContainer/VHS/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/Container/HBoxContainer/VHS/OptionButton" to="." method="_on_option_button_item_selected"]

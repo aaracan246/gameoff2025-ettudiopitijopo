@@ -43,7 +43,7 @@
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="Texture2D" uid="uid://bjfa231tcnasj" path="res://Assets/periodicos/kebab_only_carne.png" id="37_iico5"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
-[ext_resource type="PackedScene" uid="uid://c3x2lp5xbemci" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
+[ext_resource type="PackedScene" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
 [ext_resource type="Texture2D" uid="uid://vaudt3ib8d40" path="res://Assets/periodicos/mountain_1.png" id="42_q33jt"]
 [ext_resource type="Texture2D" uid="uid://bv41vd6qk4b0m" path="res://Assets/periodicos/mountain_2.png" id="43_tdg8g"]
 
