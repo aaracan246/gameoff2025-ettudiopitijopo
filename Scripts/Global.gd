@@ -2,7 +2,7 @@ extends Node
 
 var timer_duration = 1.0
 var screen_node: Node = null
-var cont = 0
+var cont = 2
 var dialogos = ["evento1","evento2","evento3-1","evento3-2","evento3-3","evento3-4"]
 var pins = {2:"pin_parking",3:"pin_merendero",4:"pin_puerto",5:"pin_cafe"}
 var vhs_enabled := true

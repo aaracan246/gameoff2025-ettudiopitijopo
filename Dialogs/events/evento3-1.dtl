@@ -13,6 +13,10 @@ victima: Please tell me where to go
 	[signal arg="mapa"]
 	[wait_input]
 	jump Choice1
+- Look at the pc and radio
+	[signal arg="pc_radio"]
+	[wait_input]
+	jump Choice1
 - Look at the computer
 	[signal arg="pc"]
 	[wait_input]

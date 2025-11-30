@@ -37,7 +37,7 @@ var is_zoomed = false
 var newspaper_zoom = false
 var interactive = true
 var door_open = false
-var calling = false
+var calling = true
 var vidas = 2
 
 @onready var lifes_ui: Control = $UI/lifes_UI
@@ -158,6 +158,8 @@ func _on_dialogic_signal(argument):
 			killer_boo()
 	elif argument == "pc":
 		switch_to_camera_smooth(actual_camera,$Escenario/Computer)
+	elif argument == "pc_radio":
+		switch_to_camera_smooth(actual_camera,$Escenario/pc_radio)
 		
 	elif argument == "radio":
 		switch_to_camera_smooth(actual_camera,$Escenario/Radio/Camera3D)

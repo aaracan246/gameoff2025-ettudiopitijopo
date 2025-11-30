@@ -722,6 +722,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.685177, 0, -39.65446)
 stream = ExtResource("39_rvukw")
 bus = &"SFX"
 
+[node name="pc_radio" parent="Escenario" instance=ExtResource("12_0ygp3")]
+transform = Transform3D(0.9075613, 0.2249379, -0.35459197, -0.10752745, 0.94076157, 0.32156733, 0.40591916, -0.2537137, 0.8779858, 0.7029399, -7.54957, -22.660328)
+
 [node name="deault_camera" parent="." instance=ExtResource("12_0ygp3")]
 visible = false
 
