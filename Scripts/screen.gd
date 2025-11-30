@@ -51,7 +51,7 @@ func _ready() -> void:
 	email_alert_event()
 
 func _on_dialogic_signal(argument):
-	if argument == "pc":
+	if argument == "pc" or argument == "pc_radio"  :
 		_on_book_btn_pressed() 
 		if Outdoor_camera.visible:
 			_on_exit_pressed()
@@ -170,10 +170,7 @@ func glitch():
 	bring_to_front(email_popup)
 	AudioManager.windows_error.play()
 	
-	await get_tree().create_timer(0.1).timeout
-	book_popup.visible = 1
-	AudioManager.windows_error.play()
-	await get_tree().create_timer(0.1).timeout
+
 	bring_to_front(gallery_popup)
 	AudioManager.windows_error.play()
 	
@@ -185,8 +182,13 @@ func glitch():
 	#book_ghost.visible = true
 	book.texture = texture_ghost
 	AudioManager.ghost_1.play()
+	await get_tree().create_timer(0.1).timeout
+	book_popup.visible = 1
+	book_popup2.visible = 1
+	book_popup3.visible = 1
+	book_popup4.visible = 1
+	AudioManager.windows_error.play()
 	await get_tree().create_timer(1).timeout
-	
 	# Se cierran
 	trash_popup.visible = false
 	await get_tree().create_timer(0.2).timeout
