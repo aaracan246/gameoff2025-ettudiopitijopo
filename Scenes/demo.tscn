@@ -36,14 +36,14 @@
 [ext_resource type="Texture2D" uid="uid://cwcnhthbhfirs" path="res://Assets/periodicos/JohannaLin.png" id="21_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://bk38s473yl65e" path="res://Assets/periodicos/NicoLai.png" id="22_nv0j3"]
 [ext_resource type="Texture2D" uid="uid://dawb053kfm86t" path="res://Assets/periodicos/PeterMcDonalds.png" id="23_65jo5"]
-[ext_resource type="PackedScene" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
+[ext_resource type="PackedScene" uid="uid://dplllkuughgax" path="res://Scenes/balcon.tscn" id="33_vpp5g"]
 [ext_resource type="Texture2D" uid="uid://b5euh3gjukakc" path="res://Assets/periodicos/Wanted.png" id="34_5jgnt"]
 [ext_resource type="PackedScene" uid="uid://bnlhjjq0josos" path="res://Assets/3D/corcho.glb" id="34_q8r4w"]
 [ext_resource type="Texture2D" uid="uid://4yi2trxxpmfg" path="res://Assets/tutorial_puerta.png" id="34_qxtr8"]
 [ext_resource type="Shader" uid="uid://demtxrxprpfk1" path="res://Assets/shaders/Outline.gdshader" id="34_rnfmn"]
 [ext_resource type="Texture2D" uid="uid://bjfa231tcnasj" path="res://Assets/periodicos/kebab_only_carne.png" id="37_iico5"]
 [ext_resource type="AudioStream" uid="uid://2jfc6dxgfoq1" path="res://Assets/audio/sfx/creaking-wooden-floor-footsteps-410804.mp3" id="39_rvukw"]
-[ext_resource type="PackedScene" uid="uid://c3x2lp5xbemci" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
+[ext_resource type="PackedScene" path="res://Scenes/Componentes/jarron_flor.tscn" id="40_2wjwq"]
 [ext_resource type="Texture2D" uid="uid://vaudt3ib8d40" path="res://Assets/periodicos/mountain_1.png" id="42_q33jt"]
 [ext_resource type="Texture2D" uid="uid://bv41vd6qk4b0m" path="res://Assets/periodicos/mountain_2.png" id="43_tdg8g"]
 
@@ -492,7 +492,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.527527, -20.768715, 13.62
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.90527153, -14.413258, -24.399017)
 
 [node name="Radio" parent="Escenario" instance=ExtResource("3_glc8m")]
-transform = Transform3D(0.9550664, 0, -0.5457548, 0, 1.1, 0, 0.5457548, 0, 0.9550664, 7.584233, -12.137873, -27.878359)
+transform = Transform3D(0.9550664, 0, -0.5457548, 0, 1.1, 0, 0.5457548, 0, 0.9550664, 7.2108073, -12.137873, -27.878359)
 
 [node name="post-it2" parent="Escenario/Radio" instance=ExtResource("10_iv11p")]
 transform = Transform3D(3.613072, 0.41089407, -0.0047385693, -0.41039023, 3.610293, 0.14323044, 0.020889044, -0.14177814, 3.63354, 1.119019, -0.16944885, 1.9596157)
