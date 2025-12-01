@@ -30,7 +30,7 @@ victima: Please tell me where to go
 	- Confirm
 	- Choose another
 		jump Choice1
-	karmela: Okay, to the right now. You will reach the entrance of the forest this way.
+	karmela: Okay, to the right now. You will reach the watchtower this way.
 	[signal arg="fail"]
 	victima: [shake][lspeed=-1]!!!!!!!!
 	victima: [lspeed=0.3]HE IS... [lspeed=-1][shake]RIGHT IN FRONT OF ME!!!!
