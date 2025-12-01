@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dtfa8a77sksdk" path="res://Scenes/Componentes/mesa.tscn" id="10_l50oi"]
 [ext_resource type="Texture2D" uid="uid://c465q57ru55xn" path="res://Assets/Killer/sprites/killer_3.png" id="10_rvukw"]
 [ext_resource type="Texture2D" uid="uid://v12s3nillaq1" path="res://Assets/Killer/sprites/killer_2.png" id="11_2wjwq"]
-[ext_resource type="Texture2D" uid="uid://bk136mt7pi04k" path="res://Assets/post-itPC2.svg" id="11_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://b5c181vbofvam" path="res://Scenes/deault_camera.tscn" id="12_0ygp3"]
 [ext_resource type="Texture2D" uid="uid://ccvbnyypfowe8" path="res://Assets/post-itRadioOpciones.svg" id="12_8f0p5"]
 [ext_resource type="Texture2D" uid="uid://cgnrfo6qjkbp7" path="res://Assets/post-itGhosts.svg" id="12_mn375"]
@@ -28,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dts5gq7plr2o1" path="res://Assets/Killer/sprites/killer_1.png" id="12_q33jt"]
 [ext_resource type="PackedScene" uid="uid://dntax556ktsn8" path="res://Scenes/Componentes/book.tscn" id="14_8f0p5"]
 [ext_resource type="PackedScene" uid="uid://bawjc05gyx2t1" path="res://Scenes/Componentes/lampara.tscn" id="15_84mi4"]
+[ext_resource type="Texture2D" uid="uid://bh3tdqdtuqnc1" path="res://Assets/Tuto3.svg" id="15_qxtr8"]
 [ext_resource type="PackedScene" uid="uid://b3gedxksqujxh" path="res://Scenes/Componentes/sofa.tscn" id="15_skqsx"]
 [ext_resource type="PackedScene" uid="uid://chs8uklp8h7x0" path="res://Scenes/Componentes/cat.tscn" id="17_43er0"]
 [ext_resource type="Texture2D" uid="uid://bmmvs0xs50eg7" path="res://Assets/Textures/suelo.png" id="18_mn375"]
@@ -367,7 +367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028256416, -0.051595688, 0
 
 [node name="post-it" parent="Escenario" instance=ExtResource("10_iv11p")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.8519363, -7.191576, -26.297993)
-texture = ExtResource("11_8f0p5")
+texture = ExtResource("15_qxtr8")
 
 [node name="post-it3" parent="Escenario" instance=ExtResource("10_iv11p")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.920096, -8.449427, -26.297993)
