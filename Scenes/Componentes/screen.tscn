@@ -107,7 +107,7 @@ content_margin_left = 8.0
 bg_color = Color(0.81405455, 0.49997014, 0.50064003, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5aw5c"]
-font_size = 21
+font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir73n"]
@@ -367,7 +367,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
 icon = ExtResource("16_er71p")
 
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
-visible = false
 z_index = 5
 layout_mode = 0
 offset_left = 4.0
@@ -470,21 +469,20 @@ icon = ExtResource("13_r56by")
 
 [node name="Alignment" type="Label" parent="Destktop/popups/book_popup"]
 layout_mode = 0
-offset_left = 169.44418
-offset_top = 209.72198
-offset_right = 209.44418
-offset_bottom = 237.72198
+offset_left = 145.83307
+offset_top = 197.22205
+offset_right = 201.83307
+offset_bottom = 236.22205
 text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup2" type="ColorRect" parent="Destktop/popups"]
-visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 227.00002
-offset_top = 7.0
-offset_right = 267.0
-offset_bottom = 47.0
+offset_left = 163.0
+offset_top = 5.0
+offset_right = 202.99998
+offset_bottom = 45.0
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup2"]
@@ -582,21 +580,20 @@ icon = ExtResource("13_r56by")
 
 [node name="Alignment" type="Label" parent="Destktop/popups/book_popup2"]
 layout_mode = 0
-offset_left = 168.05539
-offset_top = 209.72202
-offset_right = 218.05539
-offset_bottom = 237.72202
+offset_left = 144.4443
+offset_top = 197.22198
+offset_right = 216.4443
+offset_bottom = 236.22198
 text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup3" type="ColorRect" parent="Destktop/popups"]
-visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 21.0
-offset_top = 177.00002
-offset_right = 61.0
-offset_bottom = 217.00002
+offset_left = 16.0
+offset_top = 176.00002
+offset_right = 56.0
+offset_bottom = 216.00002
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup3"]
@@ -694,21 +691,20 @@ icon = ExtResource("13_r56by")
 
 [node name="Alignment" type="Label" parent="Destktop/popups/book_popup3"]
 layout_mode = 0
-offset_left = 168.0554
-offset_top = 212.49985
-offset_right = 218.0554
-offset_bottom = 240.49985
+offset_left = 144.44432
+offset_top = 199.99988
+offset_right = 216.44432
+offset_bottom = 238.99988
 text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup4" type="ColorRect" parent="Destktop/popups"]
-visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 186.0
-offset_top = 164.0
-offset_right = 226.0
-offset_bottom = 204.0
+offset_left = 178.0
+offset_top = 173.0
+offset_right = 218.0
+offset_bottom = 213.0
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup4"]
@@ -806,10 +802,10 @@ icon = ExtResource("13_r56by")
 
 [node name="Alignment" type="Label" parent="Destktop/popups/book_popup4"]
 layout_mode = 0
-offset_left = 179.16644
-offset_top = 197.22198
-offset_right = 219.16644
-offset_bottom = 225.22198
+offset_left = 155.55536
+offset_top = 184.72198
+offset_right = 211.55536
+offset_bottom = 223.72198
 text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
