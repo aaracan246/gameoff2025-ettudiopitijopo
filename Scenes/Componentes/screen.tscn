@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dialjiv51bc2n" path="res://Scripts/UI/gallery_popup.gd" id="16_ir73n"]
 [ext_resource type="Texture2D" uid="uid://c1vfndw5tjdv1" path="res://Assets/pc/newPopUps/8.svg" id="17_6yc7f"]
 [ext_resource type="Texture2D" uid="uid://dmup3hh58xthy" path="res://gamejam concept/IMG_0825.PNG" id="17_prewe"]
-[ext_resource type="Script" uid="uid://xet5tnybacav" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
+[ext_resource type="Script" path="res://Scenes/Componentes/auto_scroll_top.gd" id="18_6yc7f"]
 [ext_resource type="Shader" uid="uid://cyxw6yqjsc73o" path="res://Assets/shaders/glitch.gdshader" id="22_l5hxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r56by"]
@@ -367,12 +367,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_puwmw")
 icon = ExtResource("16_er71p")
 
 [node name="book_popup" type="ColorRect" parent="Destktop/popups"]
+visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 4.0
-offset_top = 8.0
-offset_right = 44.0
-offset_bottom = 48.0
+offset_left = 27.165
+offset_top = 16.495
+offset_right = 67.16504
+offset_bottom = 56.495003
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup"]
@@ -477,12 +478,13 @@ text = "Evil"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup2" type="ColorRect" parent="Destktop/popups"]
+visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 163.0
-offset_top = 5.0
-offset_right = 202.99998
-offset_bottom = 45.0
+offset_left = 189.265
+offset_top = 16.445
+offset_right = 229.26498
+offset_bottom = 56.445
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup2"]
@@ -588,12 +590,13 @@ text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup3" type="ColorRect" parent="Destktop/popups"]
+visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 16.0
-offset_top = 176.00002
-offset_right = 56.0
-offset_bottom = 216.00002
+offset_left = 30.76
+offset_top = 184.255
+offset_right = 70.76001
+offset_bottom = 224.255
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup3"]
@@ -699,12 +702,13 @@ text = "Good"
 label_settings = SubResource("LabelSettings_5aw5c")
 
 [node name="book_popup4" type="ColorRect" parent="Destktop/popups"]
+visible = false
 z_index = 5
 layout_mode = 0
-offset_left = 178.0
-offset_top = 173.0
-offset_right = 218.0
-offset_bottom = 213.0
+offset_left = 200.41
+offset_top = 189.165
+offset_right = 240.41
+offset_bottom = 229.165
 scale = Vector2(0.7200009, 0.7200009)
 
 [node name="Line2D" type="Line2D" parent="Destktop/popups/book_popup4"]

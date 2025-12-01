@@ -205,7 +205,7 @@ mesh = SubResource("ArrayMesh_52u6t")
 skeleton = NodePath("")
 
 [node name="Raton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.17809208, 0, 0, 0, 0.11256912, 0, 0, 0, 0.11256912, 2.2014227, -1.9168135, 3.2494829)
+transform = Transform3D(0.17809208, 0, 0, 0, 0.11256913, 0, 0, 0, 0.11256913, 2.5102572, -1.9168135, 3.2494829)
 mesh = SubResource("ArrayMesh_6k2vb")
 skeleton = NodePath("")
 
