@@ -286,6 +286,8 @@ func colgar_phone():
 		await  timer.timeout
 		if cont == 3:
 			door_event()
+			await get_tree().create_timer(9).timeout
+
 			cont +=1
 		else:
 			cont +=1
@@ -551,7 +553,7 @@ func door_manager():
 
 func door_event():
 	emit_signal("camera_glitch")
-	await get_tree().create_timer(9).timeout
+	await get_tree().create_timer(7).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
